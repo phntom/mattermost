@@ -603,25 +603,44 @@ export default class SecurityTab extends React.PureComponent<Props, State> {
 
                 if (this.props.enableSignUpWithOpenId) {
                     openidOption = (
-                        <div className='pb-3'>
-                            <Link
-                                className='btn btn-primary'
-                                to={
-                                    '/claim/email_to_oauth?email=' +
-                                    encodeURIComponent(user.email) +
-                                    '&old_type=' +
-                                    user.auth_service +
-                                    '&new_type=' +
-                                    Constants.OPENID_SERVICE
-                                }
-                            >
-                                <FormattedMessage
-                                    id='user.settings.security.switchOpenId'
-                                    defaultMessage='Switch to Using OpenID SSO'
-                                />
-                            </Link>
-                            <br/>
-                        </div>
+                        <span>
+                            <div className='pb-3'>
+                                <Link
+                                    className='btn btn-primary'
+                                    to={
+                                        '/claim/email_to_oauth?email=' +
+                                        encodeURIComponent(user.email) +
+                                        '&old_type=' +
+                                        user.auth_service +
+                                        '&new_type=github'
+                                    }
+                                >
+                                    <FormattedMessage
+                                        id='user.settings.security.switchGitHub'
+                                        defaultMessage='Switch to Using GitHub SSO'
+                                    />
+                                </Link>
+                                <br/>
+                            </div>
+                            <div className='pb-3'>
+                                <Link
+                                    className='btn btn-primary'
+                                    to={
+                                        '/claim/email_to_oauth?email=' +
+                                        encodeURIComponent(user.email) +
+                                        '&old_type=' +
+                                        user.auth_service +
+                                        '&new_type=linkedin'
+                                    }
+                                >
+                                    <FormattedMessage
+                                        id='user.settings.security.switchLinkedIn'
+                                        defaultMessage='Switch to Using LinkedIn SSO'
+                                    />
+                                </Link>
+                                <br/>
+                            </div>
+                        </span>
                     );
                 }
 
@@ -956,7 +975,7 @@ export default class SecurityTab extends React.PureComponent<Props, State> {
         numMethods = this.props.enableSignUpWithGitLab ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithGoogle ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithOffice365 ? numMethods + 1 : numMethods;
-        numMethods = this.props.enableSignUpWithOpenId ? numMethods + 1 : numMethods;
+        numMethods = this.props.enableSignUpWithOpenId ? numMethods + 2 : numMethods;
         numMethods = this.props.enableLdap ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSaml ? numMethods + 1 : numMethods;
 

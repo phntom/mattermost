@@ -808,8 +808,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                 (this.props.user.auth_service === Constants.LDAP_SERVICE &&
                     (this.props.ldapFirstNameAttributeSet || this.props.ldapLastNameAttributeSet)) ||
                 (this.props.user.auth_service === Constants.SAML_SERVICE &&
-                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet)) ||
-                (Constants.OAUTH_SERVICES.includes(this.props.user.auth_service))
+                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet))
             ) {
                 extraInfo = (
                     <span>

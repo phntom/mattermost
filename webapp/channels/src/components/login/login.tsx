@@ -41,9 +41,9 @@ import Markdown from 'components/markdown';
 import SaveButton from 'components/save_button';
 import LockIcon from 'components/widgets/icons/lock_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
-import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
+import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
 import LoginOffice365Icon from 'components/widgets/icons/login_office_365_icon';
-import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
+import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
 import WomanWithChatsSVG from 'components/common/svg_images_components/woman_with_chats_svg';
@@ -60,6 +60,9 @@ import LoginMfa from './login_mfa';
 
 import './login.scss';
 import ExternalLink from 'components/external_link';
+
+import CookieConsent from 'components/cookie_consent';
+import AccessibilityRoundel from 'components/accessibility';
 
 const MOBILE_SCREEN_WIDTH = 1200;
 
@@ -155,22 +158,31 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             return externalLoginOptions;
         }
 
-        if (enableSignUpWithGitLab) {
-            externalLoginOptions.push({
-                id: 'gitlab',
-                url: `${Client4.getOAuthRoute()}/gitlab/login${search}`,
-                icon: <LoginGitlabIcon/>,
-                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
-                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
-            });
-        }
-
         if (enableSignUpWithGoogle) {
             externalLoginOptions.push({
                 id: 'google',
                 url: `${Client4.getOAuthRoute()}/google/login${search}`,
                 icon: <LoginGoogleIcon/>,
                 label: formatMessage({id: 'login.google', defaultMessage: 'Google'}),
+                style: {color: '#444', borderColor: '#4285F4'},
+            });
+        }
+
+        if (enableSignUpWithOpenId) {
+            externalLoginOptions.push({
+                id: 'github',
+                url: `${Client4.getOAuthRoute()}/github/login${search}`,
+                icon: <LoginGitHubIcon/>,
+                label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
+                style: {color: '#171515', borderColor: '#24292e'},
+            });
+
+            externalLoginOptions.push({
+                id: 'linkedin',
+                url: `${Client4.getOAuthRoute()}/linkedin/login${search}`,
+                icon: <LoginLinkedInIcon/>,
+                label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
+                style: {color: '#0073b1', borderColor: '#0084bf'},
             });
         }
 
@@ -180,16 +192,6 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 url: `${Client4.getOAuthRoute()}/office365/login${search}`,
                 icon: <LoginOffice365Icon/>,
                 label: formatMessage({id: 'login.office365', defaultMessage: 'Office 365'}),
-            });
-        }
-
-        if (enableSignUpWithOpenId) {
-            externalLoginOptions.push({
-                id: 'openid',
-                url: `${Client4.getOAuthRoute()}/openid/login${search}`,
-                icon: <LoginOpenIDIcon/>,
-                label: OpenIdButtonText || formatMessage({id: 'login.openid', defaultMessage: 'Open ID'}),
-                style: {color: OpenIdButtonColor, borderColor: OpenIdButtonColor},
             });
         }
 
@@ -872,6 +874,8 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             <div className='login-body-content'>
                 {getContent()}
             </div>
+            <CookieConsent/>
+            <AccessibilityRoundel/>
         </div>
     );
 };

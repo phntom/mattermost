@@ -1042,28 +1042,100 @@ exports[`components/user_settings/notifications/DesktopNotificationSettings shou
               options={
                 Array [
                   Object {
+                    "label": "Accent",
+                    "value": "Accent",
+                  },
+                  Object {
+                    "label": "Beacon",
+                    "value": "Beacon",
+                  },
+                  Object {
                     "label": "Bing",
                     "value": "Bing",
+                  },
+                  Object {
+                    "label": "Climb",
+                    "value": "Climb",
                   },
                   Object {
                     "label": "Crackle",
                     "value": "Crackle",
                   },
                   Object {
+                    "label": "Doodle",
+                    "value": "Doodle",
+                  },
+                  Object {
                     "label": "Down",
                     "value": "Down",
+                  },
+                  Object {
+                    "label": "Echo",
+                    "value": "Echo",
+                  },
+                  Object {
+                    "label": "Emerald",
+                    "value": "Emerald",
+                  },
+                  Object {
+                    "label": "Gravity",
+                    "value": "Gravity",
                   },
                   Object {
                     "label": "Hello",
                     "value": "Hello",
                   },
                   Object {
+                    "label": "Nudge",
+                    "value": "Nudge",
+                  },
+                  Object {
+                    "label": "Phoenix",
+                    "value": "Phoenix",
+                  },
+                  Object {
+                    "label": "Reflection",
+                    "value": "Reflection",
+                  },
+                  Object {
                     "label": "Ripple",
                     "value": "Ripple",
                   },
                   Object {
+                    "label": "Shimmer",
+                    "value": "Shimmer",
+                  },
+                  Object {
+                    "label": "Swift",
+                    "value": "Swift",
+                  },
+                  Object {
+                    "label": "Tap",
+                    "value": "Tap",
+                  },
+                  Object {
+                    "label": "Tennis",
+                    "value": "Tennis",
+                  },
+                  Object {
+                    "label": "Twelve",
+                    "value": "Twelve",
+                  },
+                  Object {
+                    "label": "Up",
+                    "value": "Up",
+                  },
+                  Object {
                     "label": "Upstairs",
                     "value": "Upstairs",
+                  },
+                  Object {
+                    "label": "Verso",
+                    "value": "Verso",
+                  },
+                  Object {
+                    "label": "Volt",
+                    "value": "Volt",
                   },
                 ]
               }

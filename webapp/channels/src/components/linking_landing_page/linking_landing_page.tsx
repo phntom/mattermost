@@ -14,6 +14,8 @@ import {LandingPreferenceTypes} from 'utils/constants';
 import * as Utils from 'utils/utils';
 
 import * as UserAgent from 'utils/user_agent';
+import CookieConsent from 'components/cookie_consent';
+import AccessibilityRoundel from 'components/accessibility';
 
 type Props = {
     defaultTheme: any;
@@ -465,6 +467,8 @@ export default class LinkingLandingPage extends PureComponent<Props, State> {
                     </div>
                     {this.renderDialogBody()}
                 </div>
+                <CookieConsent/>
+                <AccessibilityRoundel/>
             </div>
         );
     }

@@ -43,8 +43,8 @@ import LoadingScreen from 'components/loading_screen';
 import Markdown from 'components/markdown';
 import LockIcon from 'components/widgets/icons/lock_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
-import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
-import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
+import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
+import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import LoginOffice365Icon from 'components/widgets/icons/login_office_365_icon';
 import Input, {CustomMessageInputType, SIZE} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
@@ -52,6 +52,8 @@ import CheckInput from 'components/widgets/inputs/check';
 import SaveButton from 'components/save_button';
 import useCWSAvailabilityCheck from 'components/common/hooks/useCWSAvailabilityCheck';
 import ExternalLink from 'components/external_link';
+import CookieConsent from 'components/cookie_consent';
+import AccessibilityRoundel from 'components/accessibility';
 
 import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
 import {isValidUsername, isValidPassword, getPasswordConfig, getRoleFromTrackFlow, getMediumFromTrackFlow} from 'utils/utils';
@@ -164,16 +166,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             return externalLoginOptions;
         }
 
-        if (enableSignUpWithGitLab) {
-            externalLoginOptions.push({
-                id: 'gitlab',
-                url: `${Client4.getOAuthRoute()}/gitlab/signup${search}`,
-                icon: <LoginGitlabIcon/>,
-                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
-                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
-            });
-        }
-
         if (isLicensed && enableSignUpWithGoogle) {
             externalLoginOptions.push({
                 id: 'google',
@@ -194,11 +186,19 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
 
         if (isLicensed && enableSignUpWithOpenId) {
             externalLoginOptions.push({
-                id: 'openid',
-                url: `${Client4.getOAuthRoute()}/openid/signup${search}`,
-                icon: <LoginOpenIDIcon/>,
-                label: OpenIdButtonText || formatMessage({id: 'login.openid', defaultMessage: 'Open ID'}),
-                style: {color: OpenIdButtonColor, borderColor: OpenIdButtonColor},
+                id: 'github',
+                url: `${Client4.getOAuthRoute()}/github/signup${search}`,
+                icon: <LoginGitHubIcon/>,
+                label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
+                style: {color: '#171515', borderColor: '#24292e'},
+            });
+
+            externalLoginOptions.push({
+                id: 'linkedin',
+                url: `${Client4.getOAuthRoute()}/linkedin/signup${search}`,
+                icon: <LoginLinkedInIcon/>,
+                label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
+                style: {color: '#0073b1', borderColor: '#0084bf'},
             });
         }
 
@@ -870,6 +870,8 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             <div className='signup-body-content'>
                 {getContent()}
             </div>
+            <CookieConsent/>
+            <AccessibilityRoundel/>
         </div>
     );
 };

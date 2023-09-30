@@ -1,8 +1,9 @@
 module github.com/mattermost/mattermost/server/v8
 
-go 1.19
+go 1.21
 
 require (
+    github.com/lpar/gzipped/v2 v2.1.0
 	code.sajari.com/docconv v1.3.5
 	github.com/Masterminds/semver/v3 v3.2.1
 	github.com/avct/uasurfer v0.0.0-20191028135549-26b5daa857f1
