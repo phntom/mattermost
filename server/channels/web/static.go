@@ -23,7 +23,7 @@ import (
 	"github.com/mattermost/mattermost/server/v8/platform/shared/templates"
 )
 
-var robotsTxt = []byte("User-agent: *\nDisallow: /\n")
+var robotsTxt = []byte("User-agent: *\nDisallow: /api\n")
 
 func (w *Web) InitStatic() {
 	if *w.srv.Config().ServiceSettings.WebserverMode != "disabled" {

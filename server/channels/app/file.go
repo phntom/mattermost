@@ -1032,9 +1032,12 @@ func (a *App) DoUploadFileExpectModification(c request.CTX, now time.Time, rawTe
 		return nil, data, rejectionError
 	}
 
-	if _, err := a.WriteFile(bytes.NewReader(data), info.Path); err != nil {
+	size, err := a.WriteFile(bytes.NewReader(data), info.Path)
+	if err != nil {
 		return nil, data, err
 	}
+
+	info.Size = size
 
 	if _, err := a.Srv().Store().FileInfo().Save(info); err != nil {
 		var appErr *model.AppError
