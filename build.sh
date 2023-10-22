@@ -14,11 +14,11 @@ chmod 755 dist/plugins
 popd
 
 go build -C server -ldflags="
--X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=84ace5458e724db5b492aefdb8988625bebe90ce'
+-X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=70aa85fe60f7d626a6a4b72b791cc0829192a0a9'
 -X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitTreeState=clean'
--X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.buildDate=Thu 12 Oct 2023 15:30:17 IDT'
--X 'github.com/mattermost/mattermost/server/public/model.BuildNumber=9.0.2'
--X 'github.com/mattermost/mattermost/server/public/model.BuildDate=Thu 12 Oct 2023 15:30:17 IDT'
+-X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.buildDate=Sun 22 Oct 2023 11:54:31 IDT'
+-X 'github.com/mattermost/mattermost/server/public/model.BuildNumber=9.0.3'
+-X 'github.com/mattermost/mattermost/server/public/model.BuildDate=Sun 22 Oct 2023 11:54:31 IDT'
 -X github.com/mattermost/mattermost/server/public/model.BuildHash=master
 -X github.com/mattermost/mattermost/server/public/model.BuildHashEnterprise=none
 -X github.com/mattermost/mattermost/server/public/model.BuildEnterpriseReady=false
@@ -27,7 +27,9 @@ go build -C server -ldflags="
 " -o mattermost github.com/mattermost/mattermost/server/v8/cmd/mattermost
 
 
-docker build . -t phntom/mattermost-team-edition:9.0.2
-docker push docker.io/phntom/mattermost-team-edition:9.0.2
+docker build . -t phntom/mattermost-team-edition:9.0.3
+docker push docker.io/phntom/mattermost-team-edition:9.0.3
+docker tag docker.io/phntom/mattermost-team-edition:9.0.3 docker.io/phntom/mattermost-team-edition:9.0.3-beta1
+docker push docker.io/phntom/mattermost-team-edition:9.0.3-beta1
 
 #9.1.0.master.5cd61beafc0e22c1d049c5db2ab461b4.true
