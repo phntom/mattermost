@@ -1,59 +1,70 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React from 'react';
-import deepEqual from 'fast-deep-equal';
-import {Route, Switch, Redirect, RouteComponentProps} from 'react-router-dom';
-import throttle from 'lodash/throttle';
 import classNames from 'classnames';
+import deepEqual from 'fast-deep-equal';
+import throttle from 'lodash/throttle';
+import React from 'react';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import type {RouteComponentProps} from 'react-router-dom';
 
+import {ServiceEnvironment} from '@mattermost/types/config';
+import type {UserProfile} from '@mattermost/types/users';
+
+import {setSystemEmojis} from 'mattermost-redux/actions/emojis';
+import {setUrl} from 'mattermost-redux/actions/general';
 import {Client4} from 'mattermost-redux/client';
 import {rudderAnalytics, RudderTelemetryHandler} from 'mattermost-redux/client/rudder';
 import {General} from 'mattermost-redux/constants';
-import {Theme, getIsOnboardingFlowEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentUser, isCurrentUserSystemAdmin, checkIsFirstAdmin} from 'mattermost-redux/selectors/entities/users';
+import {getIsOnboardingFlowEnabled} from 'mattermost-redux/selectors/entities/preferences';
+import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
 import {getActiveTeamsList} from 'mattermost-redux/selectors/entities/teams';
-import {setUrl} from 'mattermost-redux/actions/general';
-import {setSystemEmojis} from 'mattermost-redux/actions/emojis';
-
-import {ProductComponent, PluginComponent} from 'types/store/plugins';
+import {getCurrentUser, isCurrentUserSystemAdmin, checkIsFirstAdmin} from 'mattermost-redux/selectors/entities/users';
+import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import {loadRecentlyUsedCustomEmojis} from 'actions/emoji_actions';
 import * as GlobalActions from 'actions/global_actions';
 import {measurePageLoadTelemetry, trackEvent, trackSelectorMetrics} from 'actions/telemetry_actions.jsx';
-
-import SidebarRight from 'components/sidebar_right';
-import AppBar from 'components/app_bar/app_bar';
-import SidebarRightMenu from 'components/sidebar_right_menu';
-import AnnouncementBarController from 'components/announcement_bar';
-import SystemNotice from 'components/system_notice';
-
-import {makeAsyncComponent} from 'components/async_load';
-import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
-import GlobalHeader from 'components/global_header/global_header';
-import CloudEffects from 'components/cloud_effects';
-import ModalController from 'components/modal_controller';
-import {HFTRoute, LoggedInHFTRoute} from 'components/header_footer_template_route';
-import {HFRoute} from 'components/header_footer_route/header_footer_route';
-import LaunchingWorkspace, {LAUNCHING_WORKSPACE_FULLSCREEN_Z_INDEX} from 'components/preparing_workspace/launching_workspace';
-import {Animations} from 'components/preparing_workspace/steps';
-import OpenPricingModalPost from 'components/custom_open_pricing_modal_post_renderer';
-import OpenPluginInstallPost from 'components/custom_open_plugin_install_post_renderer';
+import BrowserStore from 'stores/browser_store';
+import store from 'stores/redux_store.jsx';
 
 import AccessProblem from 'components/access_problem';
+import AnnouncementBarController from 'components/announcement_bar';
+import AppBar from 'components/app_bar/app_bar';
+import {makeAsyncComponent} from 'components/async_load';
+import CloudEffects from 'components/cloud_effects';
+import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
+import OpenPluginInstallPost from 'components/custom_open_plugin_install_post_renderer';
+import OpenPricingModalPost from 'components/custom_open_pricing_modal_post_renderer';
+import GlobalHeader from 'components/global_header/global_header';
+import {HFRoute} from 'components/header_footer_route/header_footer_route';
+import {HFTRoute, LoggedInHFTRoute} from 'components/header_footer_template_route';
+import ModalController from 'components/modal_controller';
+import LaunchingWorkspace, {LAUNCHING_WORKSPACE_FULLSCREEN_Z_INDEX} from 'components/preparing_workspace/launching_workspace';
+import {Animations} from 'components/preparing_workspace/steps';
+import SidebarRight from 'components/sidebar_right';
+import SidebarRightMenu from 'components/sidebar_right_menu';
+import SystemNotice from 'components/system_notice';
+import TeamSidebar from 'components/team_sidebar';
+import WindowSizeObserver from 'components/window_size_observer/WindowSizeObserver';
 
+import webSocketClient from 'client/web_websocket_client.jsx';
 import {initializePlugins} from 'plugins';
 import Pluggable from 'plugins/pluggable';
-
-import BrowserStore from 'stores/browser_store';
-
+import A11yController from 'utils/a11y_controller';
 import Constants, {StoragePrefixes, WindowSizes} from 'utils/constants';
 import {EmojiIndicesByAlias} from 'utils/emoji';
+import {TEAM_NAME_PATH_PATTERN} from 'utils/path';
+import {getSiteURL} from 'utils/url';
 import * as UserAgent from 'utils/user_agent';
 import * as Utils from 'utils/utils';
 
-import webSocketClient from 'client/web_websocket_client.jsx';
+import type {ProductComponent, PluginComponent} from 'types/store/plugins';
+
+import {applyLuxonDefaults} from './effects';
+import RootProvider from './root_provider';
+import RootRedirect from './root_redirect';
 
 import 'plugins/export.js';
 
@@ -78,21 +89,6 @@ const LazyTeamController = React.lazy(() => import('components/team_controller')
 const LazyDelinquencyModalController = React.lazy(() => import('components/delinquency_modal'));
 const LazyOnBoardingTaskList = React.lazy(() => import('components/onboarding_tasklist'));
 
-import store from 'stores/redux_store.jsx';
-import {getSiteURL} from 'utils/url';
-import A11yController from 'utils/a11y_controller';
-import TeamSidebar from 'components/team_sidebar';
-
-import {UserProfile} from '@mattermost/types/users';
-
-import {ActionResult} from 'mattermost-redux/types/actions';
-
-import {applyLuxonDefaults} from './effects';
-
-import RootProvider from './root_provider';
-import RootRedirect from './root_redirect';
-import {ServiceEnvironment} from '@mattermost/types/config';
-
 const CreateTeam = makeAsyncComponent('CreateTeam', LazyCreateTeam);
 const ErrorPage = makeAsyncComponent('ErrorPage', LazyErrorPage);
 const TermsOfService = makeAsyncComponent('TermsOfService', LazyTermsOfService);
@@ -116,7 +112,7 @@ const OnBoardingTaskList = makeAsyncComponent('OnboardingTaskList', LazyOnBoardi
 
 type LoggedInRouteProps<T> = {
     component: React.ComponentType<T>;
-    path: string;
+    path: string | string[];
     theme?: Theme; // the routes that send the theme are the ones that will actually need to show the onboarding tasklist
 };
 function LoggedInRoute<T>(props: LoggedInRouteProps<T>) {
@@ -644,6 +640,7 @@ export default class Root extends React.PureComponent<Props, State> {
                                 transitionDirection={Animations.Reasons.EnterFromBefore}
                             />
                         )}
+                        <WindowSizeObserver/>
                         <ModalController/>
                         <AnnouncementBarController/>
                         <SystemNotice/>
@@ -713,7 +710,7 @@ export default class Root extends React.PureComponent<Props, State> {
                             ))}
                             <LoggedInRoute
                                 theme={this.props.theme}
-                                path={'/:team'}
+                                path={`/:team(${TEAM_NAME_PATH_PATTERN})`}
                                 component={TeamController}
                             />
                             <RootRedirect/>

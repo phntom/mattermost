@@ -4,18 +4,19 @@
 import React, {PureComponent} from 'react';
 import {FormattedMessage} from 'react-intl';
 
+import BrowserStore from 'stores/browser_store';
+
+import FormattedMarkdownMessage from 'components/formatted_markdown_message';
+import CheckboxCheckedIcon from 'components/widgets/icons/checkbox_checked_icon';
+import CookieConsent from 'components/cookie_consent';
+import AccessibilityRoundel from 'components/accessibility';
+
 import desktopImg from 'images/deep-linking/deeplinking-desktop-img.png';
 import mobileImg from 'images/deep-linking/deeplinking-mobile-img.png';
 import MattermostLogoSvg from 'images/logo.svg';
-import FormattedMarkdownMessage from 'components/formatted_markdown_message';
-import CheckboxCheckedIcon from 'components/widgets/icons/checkbox_checked_icon';
-import BrowserStore from 'stores/browser_store';
 import {LandingPreferenceTypes} from 'utils/constants';
-import * as Utils from 'utils/utils';
-
 import * as UserAgent from 'utils/user_agent';
-import CookieConsent from 'components/cookie_consent';
-import AccessibilityRoundel from 'components/accessibility';
+import * as Utils from 'utils/utils';
 
 type Props = {
     defaultTheme: any;
@@ -162,14 +163,14 @@ export default class LinkingLandingPage extends PureComponent<Props, State> {
     renderGoNativeAppMessage = () => {
         return (
             <a
-                href={Utils.isMobile() ? '#' : this.state.nativeLocation}
+                href={UserAgent.isMobile() ? '#' : this.state.nativeLocation}
                 onMouseDown={() => {
                     this.setPreference(LandingPreferenceTypes.MATTERMOSTAPP, true);
                 }}
                 onClick={() => {
                     this.setPreference(LandingPreferenceTypes.MATTERMOSTAPP, true);
                     this.setState({redirectPage: true, navigating: true});
-                    if (Utils.isMobile()) {
+                    if (UserAgent.isMobile()) {
                         if (UserAgent.isAndroidWeb()) {
                             const timeout = setTimeout(() => {
                                 window.location.replace(this.getDownloadLink()!);

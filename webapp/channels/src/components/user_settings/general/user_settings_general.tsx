@@ -4,23 +4,24 @@
 /* eslint-disable max-lines */
 
 import React from 'react';
-import {defineMessages, FormattedDate, FormattedMessage, injectIntl, IntlShape} from 'react-intl';
+import {defineMessages, FormattedDate, FormattedMessage, injectIntl} from 'react-intl';
+import type {IntlShape} from 'react-intl';
 
-import {UserProfile} from '@mattermost/types/users';
+import type {UserProfile} from '@mattermost/types/users';
 
 import {isEmail} from 'mattermost-redux/utils/helpers';
 
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 
-import * as Utils from 'utils/utils';
-import {t} from 'utils/i18n';
-import {AnnouncementBarMessages, AnnouncementBarTypes, AcceptedProfileImageTypes, Constants, ValidationErrors} from 'utils/constants';
-
 import LocalizedIcon from 'components/localized_icon';
+import SettingItem from 'components/setting_item';
+import SettingItemMax from 'components/setting_item_max';
 import SettingPicture from 'components/setting_picture';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
-import SettingItemMax from 'components/setting_item_max';
-import SettingItem from 'components/setting_item';
+
+import {AnnouncementBarMessages, AnnouncementBarTypes, AcceptedProfileImageTypes, Constants, ValidationErrors} from 'utils/constants';
+import {t} from 'utils/i18n';
+import * as Utils from 'utils/utils';
 
 const holders = defineMessages({
     usernameReserved: {
@@ -101,6 +102,7 @@ export type Props = {
     activeSection?: string;
     closeModal: () => void;
     collapseModal: () => void;
+    isMobileView: boolean;
     maxFileSize: number;
     actions: {
         logError: ({message, type}: {message: any; type: string}, status: boolean) => void;
@@ -933,7 +935,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     defaultMessage="Click 'Edit' to add your full name"
                 />
             );
-            if (Utils.isMobile()) {
+            if (this.props.isMobileView) {
                 describe = (
                     <FormattedMessage
                         id='user.settings.general.mobile.emptyName'
@@ -983,7 +985,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                         defaultMessage='Nickname'
                     />
                 );
-                if (Utils.isMobile()) {
+                if (this.props.isMobileView) {
                     nicknameLabel = '';
                 }
 
@@ -1045,7 +1047,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     defaultMessage="Click 'Edit' to add a nickname"
                 />
             );
-            if (Utils.isMobile()) {
+            if (this.props.isMobileView) {
                 describe = (
                     <FormattedMessage
                         id='user.settings.general.mobile.emptyNickname'
@@ -1085,7 +1087,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                         defaultMessage='Username'
                     />
                 );
-                if (Utils.isMobile()) {
+                if (this.props.isMobileView) {
                     usernameLabel = '';
                 }
 
@@ -1186,7 +1188,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                         defaultMessage='Position'
                     />
                 );
-                if (Utils.isMobile()) {
+                if (this.props.isMobileView) {
                     positionLabel = '';
                 }
 
@@ -1249,7 +1251,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                     defaultMessage="Click 'Edit' to add your job title / position"
                 />
             );
-            if (Utils.isMobile()) {
+            if (this.props.isMobileView) {
                 describe = (
                     <FormattedMessage
                         id='user.settings.general.mobile.emptyPosition'
@@ -1331,7 +1333,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
         }
 
         let minMessage: JSX.Element|string = formatMessage(holders.uploadImage);
-        if (Utils.isMobile()) {
+        if (this.props.isMobileView) {
             minMessage = formatMessage(holders.uploadImageMobile);
         }
         if (user.last_picture_update > 0) {

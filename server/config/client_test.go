@@ -272,6 +272,28 @@ func TestGetClientConfig(t *testing.T) {
 			},
 		},
 		{
+			"default EnableJoinLeaveMessage",
+			&model.Config{},
+			"tag1",
+			nil,
+			map[string]string{
+				"EnableJoinLeaveMessageByDefault": "true",
+			},
+		},
+		{
+			"disable EnableJoinLeaveMessage",
+			&model.Config{
+				TeamSettings: model.TeamSettings{
+					EnableJoinLeaveMessageByDefault: model.NewBool(false),
+				},
+			},
+			"tag1",
+			nil,
+			map[string]string{
+				"EnableJoinLeaveMessageByDefault": "false",
+			},
+		},
+		{
 			"test key for GiphySdkKey",
 			&model.Config{
 				ServiceSettings: model.ServiceSettings{

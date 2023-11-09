@@ -12,6 +12,7 @@ import echo from 'sounds/echo.mp3';
 import emerald from 'sounds/emerald.mp3';
 import gravity from 'sounds/gravity.mp3';
 import hello from 'sounds/hello.mp3';
+import alarm from 'sounds/japanese-eas-alarm.mp3';
 import nudge from 'sounds/nudge.mp3';
 import phoenix from 'sounds/phoenix.mp3';
 import reflection from 'sounds/reflection.mp3';
@@ -25,15 +26,16 @@ import up from 'sounds/up.mp3';
 import upstairs from 'sounds/upstairs.mp3';
 import verso from 'sounds/verso.mp3';
 import volt from 'sounds/volt.mp3';
-import calls_dynamic from 'sounds/calls_dynamic.mp3';
 import calls_calm from 'sounds/calls_calm.mp3';
-import calls_urgent from 'sounds/calls_urgent.mp3';
 import calls_cheerful from 'sounds/calls_cheerful.mp3';
+import calls_dynamic from 'sounds/calls_dynamic.mp3';
+import calls_urgent from 'sounds/calls_urgent.mp3';
 
 import * as UserAgent from 'utils/user_agent';
 
 export const notificationSounds = new Map([
     ['Accent', accent],
+    ['Alarm', alarm],
     ['Beacon', beacon],
     ['Bing', bing],
     ['Climb', climb],
