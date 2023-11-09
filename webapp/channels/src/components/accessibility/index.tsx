@@ -1,9 +1,9 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {Accessibility} from 'accessibility';
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Accessibility} from 'accessibility';
 
 const AccessibilityRoundel: React.FC = () => {
     const [isVisible, setIsVisible] = useState(true);

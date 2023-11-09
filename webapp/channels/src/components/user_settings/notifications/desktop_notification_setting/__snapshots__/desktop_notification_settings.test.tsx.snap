@@ -1046,6 +1046,10 @@ exports[`components/user_settings/notifications/DesktopNotificationSettings shou
                     "value": "Accent",
                   },
                   Object {
+                    "label": "Alarm",
+                    "value": "Alarm",
+                  },
+                  Object {
                     "label": "Beacon",
                     "value": "Beacon",
                   },

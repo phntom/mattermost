@@ -19,7 +19,6 @@ import {streamlinedMarketplaceEnabled} from 'mattermost-redux/selectors/entities
 import type {GenericAction} from 'mattermost-redux/types/actions';
 
 import PluginManagement from './plugin_management';
-import {streamlinedMarketplaceEnabled} from 'mattermost-redux/selectors/entities/preferences';
 
 function mapStateToProps(state: any) {
     return {
