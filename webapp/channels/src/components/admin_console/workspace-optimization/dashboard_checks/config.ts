@@ -4,10 +4,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import type {useIntl} from 'react-intl';
+import {ConsolePages, DocLinks} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
-
-import {ConsolePages, DocLinks} from 'utils/constants';
 
 import {impactModifiers} from '../dashboard.data';
 import {ItemStatus} from '../dashboard.type';

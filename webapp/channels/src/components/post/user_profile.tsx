@@ -4,6 +4,8 @@
 import React from 'react';
 import type {ReactNode} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {Locations} from 'utils/constants';
+import {fromAutoResponder, isFromWebhook} from 'utils/post_utils';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -11,9 +13,6 @@ import PostHeaderCustomStatus from 'components/post_view/post_header_custom_stat
 import UserProfile from 'components/user_profile';
 import BotTag from 'components/widgets/tag/bot_tag';
 import Tag from 'components/widgets/tag/tag';
-
-import {Locations} from 'utils/constants';
-import {fromAutoResponder, isFromWebhook} from 'utils/post_utils';
 
 type Props = {
     post: Post;

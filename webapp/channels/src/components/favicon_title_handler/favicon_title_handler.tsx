@@ -1,16 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React from 'react';
-import {injectIntl} from 'react-intl';
-import type {IntlShape} from 'react-intl';
-
-import type {Channel} from '@mattermost/types/channels';
-import type {Team} from '@mattermost/types/teams';
-
-import {basicUnreadMeta} from 'mattermost-redux/selectors/entities/channels';
-import type {BasicUnreadStatus} from 'mattermost-redux/selectors/entities/channels';
-
 import faviconDefault16x16 from 'images/favicon/favicon-default-16x16.png';
 import faviconDefault24x24 from 'images/favicon/favicon-default-24x24.png';
 import faviconDefault32x32 from 'images/favicon/favicon-default-32x32.png';
@@ -26,8 +16,17 @@ import faviconUnread24x24 from 'images/favicon/favicon-unread-24x24.png';
 import faviconUnread32x32 from 'images/favicon/favicon-unread-32x32.png';
 import faviconUnread64x64 from 'images/favicon/favicon-unread-64x64.png';
 import faviconUnread96x96 from 'images/favicon/favicon-unread-96x96.png';
+import React from 'react';
+import type {IntlShape} from 'react-intl';
+import {injectIntl} from 'react-intl';
 import {Constants} from 'utils/constants';
 import * as UserAgent from 'utils/user_agent';
+
+import type {Channel} from '@mattermost/types/channels';
+import type {Team} from '@mattermost/types/teams';
+
+import type {BasicUnreadStatus} from 'mattermost-redux/selectors/entities/channels';
+import {basicUnreadMeta} from 'mattermost-redux/selectors/entities/channels';
 
 enum BadgeStatus {
     Mention = 'Mention',

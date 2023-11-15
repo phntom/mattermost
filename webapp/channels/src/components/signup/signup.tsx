@@ -8,6 +8,15 @@ import type {FocusEvent} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {useLocation, useHistory, Route} from 'react-router-dom';
+import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
+import {isDesktopApp} from 'utils/user_agent';
+import {
+    isValidUsername,
+    isValidPassword,
+    getPasswordConfig,
+    getRoleFromTrackFlow,
+    getMediumFromTrackFlow
+} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -28,11 +37,13 @@ import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {loginById} from 'actions/views/login';
 import {getGlobalItem} from 'selectors/storage';
 
+import AccessibilityRoundel from 'components/accessibility';
 import AlertBanner from 'components/alert_banner';
 import type {ModeType, AlertBannerProps} from 'components/alert_banner';
 import useCWSAvailabilityCheck from 'components/common/hooks/useCWSAvailabilityCheck';
 import LaptopAlertSVG from 'components/common/svg_images_components/laptop_alert_svg';
 import ManWithLaptopSVG from 'components/common/svg_images_components/man_with_laptop_svg';
+import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';
 import ExternalLoginButton from 'components/external_login_button/external_login_button';
@@ -45,21 +56,14 @@ import LoadingScreen from 'components/loading_screen';
 import Markdown from 'components/markdown';
 import SaveButton from 'components/save_button';
 import LockIcon from 'components/widgets/icons/lock_icon';
-import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
 import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
+import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
 import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import LoginOffice365Icon from 'components/widgets/icons/login_office_365_icon';
-import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
-import CookieConsent from 'components/cookie_consent';
-import AccessibilityRoundel from 'components/accessibility';
 import CheckInput from 'components/widgets/inputs/check';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
-
-import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
-import {isDesktopApp} from 'utils/user_agent';
-import {isValidUsername, isValidPassword, getPasswordConfig, getRoleFromTrackFlow, getMediumFromTrackFlow} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

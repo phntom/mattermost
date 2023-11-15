@@ -6,6 +6,9 @@ import {shallow} from 'enzyme';
 import React from 'react';
 import {IntlProvider} from 'react-intl';
 import {BrowserRouter} from 'react-router-dom';
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
+import {act, renderWithIntlAndStore, screen} from 'tests/react_testing_utils';
+import {WindowSizes} from 'utils/constants';
 
 import type {ClientConfig} from '@mattermost/types/config';
 
@@ -16,10 +19,6 @@ import SaveButton from 'components/save_button';
 import Signup from 'components/signup/signup';
 import Input from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
-
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
-import {act, renderWithIntlAndStore, screen} from 'tests/react_testing_utils';
-import {WindowSizes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

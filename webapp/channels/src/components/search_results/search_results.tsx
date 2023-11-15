@@ -7,6 +7,10 @@ import Scrollbars from 'react-custom-scrollbars';
 import {useIntl, FormattedMessage} from 'react-intl';
 import type {MessageDescriptor} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {searchHintOptions, DataSearchTypes} from 'utils/constants';
+import {isFileAttachmentsEnabled} from 'utils/file_utils';
+import {t} from 'utils/i18n';
+import * as Utils from 'utils/utils';
 
 import type {FileSearchResultItem as FileSearchResultItemType} from '@mattermost/types/files';
 import type {Post} from '@mattermost/types/posts';
@@ -23,11 +27,6 @@ import SearchHint from 'components/search_hint/search_hint';
 import SearchResultsHeader from 'components/search_results_header';
 import FlagIcon from 'components/widgets/icons/flag_icon';
 import LoadingSpinner from 'components/widgets/loading/loading_wrapper';
-
-import {searchHintOptions, DataSearchTypes} from 'utils/constants';
-import {isFileAttachmentsEnabled} from 'utils/file_utils';
-import {t} from 'utils/i18n';
-import * as Utils from 'utils/utils';
 
 import FilesFilterMenu from './files_filter_menu';
 import MessageOrFileSelector from './messages_or_files_selector';

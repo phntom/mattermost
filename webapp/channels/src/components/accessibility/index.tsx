@@ -38,13 +38,15 @@ const AccessibilityRoundel: React.FC = () => {
         setIsVisible(false);
         setTimeout(() => {
             accessibility.toggleMenu();
-        }, 200);
+        }, 2000);
     };
 
     return (
         <React.Fragment>
             {isVisible && (
                 <div
+                    aria-live='polite'
+                    aria-label='Open accessibility options'
                     style={{
                         position: 'fixed',
                         bottom: '10px',
@@ -71,6 +73,7 @@ const AccessibilityRoundel: React.FC = () => {
                             fontSize: '16px',
                             cursor: 'pointer',
                         }}
+                        aria-label='Close accessibility options'
                         onClick={handleClose}
                     >
                         <i className='fa fa-times-circle'/>

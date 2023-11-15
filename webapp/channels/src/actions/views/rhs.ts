@@ -4,6 +4,8 @@
 import debounce from 'lodash/debounce';
 import type {AnyAction} from 'redux';
 import {batchActions} from 'redux-batched-actions';
+import {ActionTypes, RHSStates, Constants} from 'utils/constants';
+import {getBrowserUtcOffset, getUtcOffsetForTimeZone} from 'utils/timezone';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -30,9 +32,6 @@ import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {getSearchTerms, getRhsState, getPluggableId, getFilesSearchExtFilter, getPreviousRhsState} from 'selectors/rhs';
 
 import {SidebarSize} from 'components/resizable_sidebar/constants';
-
-import {ActionTypes, RHSStates, Constants} from 'utils/constants';
-import {getBrowserUtcOffset, getUtcOffsetForTimeZone} from 'utils/timezone';
 
 import type {GlobalState} from 'types/store';
 import type {RhsState} from 'types/store/rhs';

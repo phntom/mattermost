@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import expect from 'expect';
+import {TestHelper} from 'utils/test_helper';
 
 import type {Post, PostOrderBlock} from '@mattermost/types/posts';
 
@@ -14,8 +15,6 @@ import {
 import {Posts} from 'mattermost-redux/constants';
 import * as reducers from 'mattermost-redux/reducers/entities/posts';
 import deepFreeze from 'mattermost-redux/utils/deep_freeze';
-
-import {TestHelper} from 'utils/test_helper';
 
 function toPostsRecord(partials: Record<string, Partial<Post>>): Record<string, Post> {
     const result: Record<string, Post> = {};

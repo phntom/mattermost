@@ -4,14 +4,13 @@
 import {mount, shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
+import {TestHelper} from 'utils/test_helper';
+import * as Utils from 'utils/utils';
 
 import * as fileActions from 'mattermost-redux/actions/files';
 
 import OverlayTrigger from 'components/overlay_trigger';
 import Tooltip from 'components/tooltip';
-
-import {TestHelper} from 'utils/test_helper';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 
