@@ -50,10 +50,6 @@ ifeq ($(BUILD_NUMBER),)
 	BUILD_NUMBER := dev
 endif
 
-ifeq ($(BUILD_NUMBER),dev)
-	export MM_FEATUREFLAGS_GRAPHQL = true
-endif
-
 # Ensure developer invocation and tests are anchored.
 MM_SERVER_PATH ?= $(ROOT)
 
@@ -64,7 +60,7 @@ GOTESTSUM_JSONFILE ?= gotestsum.json
 
 # mmctl
 MMCTL_BUILD_TAGS =
-MMCTL_TESTFLAGS = -timeout 30m -race
+MMCTL_TESTFLAGS ?= -timeout 30m
 MMCTL_PKG = github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands
 LDFLAGS += -X "$(MMCTL_PKG).gitCommit=$(BUILD_HASH)"
 LDFLAGS += -X "$(MMCTL_PKG).gitTreeState=$(GIT_TREESTATE)"
@@ -171,9 +167,9 @@ PLUGIN_PACKAGES += mattermost-plugin-playbooks-v1.39.1
 PLUGIN_PACKAGES += mattermost-plugin-jenkins-v1.1.0
 PLUGIN_PACKAGES += mattermost-plugin-jira-v3.2.5
 PLUGIN_PACKAGES += mattermost-plugin-jitsi-v2.0.1
-PLUGIN_PACKAGES += mattermost-plugin-nps-v1.3.2
+PLUGIN_PACKAGES += mattermost-plugin-nps-v1.3.3
 PLUGIN_PACKAGES += mattermost-plugin-servicenow-v2.3.4
-PLUGIN_PACKAGES += mattermost-plugin-todo-v0.6.1
+PLUGIN_PACKAGES += mattermost-plugin-todo-v0.7.1
 PLUGIN_PACKAGES += mattermost-plugin-welcomebot-v1.3.0
 PLUGIN_PACKAGES += mattermost-plugin-zoom-v1.6.2
 PLUGIN_PACKAGES += mattermost-plugin-apps-v1.2.2
@@ -301,7 +297,7 @@ endif
 plugin-checker:
 	$(GO) run $(GOFLAGS) ./public/plugin/checker
 
-prepackaged-plugins: ## Populate the prepackaged-plugins directory
+prepackaged-plugins: ## Populate the prepackaged-plugins directory.
 	@echo Downloading prepackaged plugins: $(PLUGIN_PACKAGES)
 	mkdir -p prepackaged_plugins
 	@cd prepackaged_plugins && for plugin_package in $(PLUGIN_PACKAGES) ; do \
