@@ -582,12 +582,12 @@ func (a *App) CompleteOAuth(c *request.Context, service string, body io.ReadClos
 	}
 }
 
-func (a *App) getSSOProvider(service string) (einterfaces.OAuthProvider, *model.AppError) {
+func (a *App) getSSOProvider(c *request.Context, service string) (einterfaces.OAuthProvider, *model.AppError) {
 	provider := einterfaces.GetOAuthProvider(service)
 	if provider == nil {
 		return nil, model.NewAppError("getSSOProvider", "api.user.authorize_oauth_user.unsupported.app_error", nil, "service="+service, http.StatusNotImplemented)
 	}
-	sso, e2 := provider.GetSSOSettings(a.Config(), service)
+	sso, e2 := provider.GetSSOSettings(c, a.Config(), service)
 	if e2 != nil {
 		return nil, model.NewAppError("getSSOProvider", "api.user.get_authorization_code.endpoint.app_error", nil, "", http.StatusNotImplemented).Wrap(e2)
 	}
@@ -598,7 +598,7 @@ func (a *App) getSSOProvider(service string) (einterfaces.OAuthProvider, *model.
 }
 
 func (a *App) LoginByOAuth(c *request.Context, service string, userData io.Reader, teamID string, tokenUser *model.User) (*model.User, *model.AppError) {
-	provider, e := a.getSSOProvider(service)
+	provider, e := a.getSSOProvider(c, service)
 	if e != nil {
 		return nil, e
 	}
@@ -651,7 +651,7 @@ func (a *App) LoginByOAuth(c *request.Context, service string, userData io.Reade
 }
 
 func (a *App) CompleteSwitchWithOAuth(c *request.Context, service string, userData io.Reader, email string, tokenUser *model.User) (*model.User, *model.AppError) {
-	provider, e := a.getSSOProvider(service)
+	provider, e := a.getSSOProvider(c, service)
 	if e != nil {
 		return nil, e
 	}
@@ -729,7 +729,7 @@ func (a *App) GetOAuthStateToken(token string) (*model.Token, *model.AppError) {
 }
 
 func (a *App) GetAuthorizationCode(c *request.Context, w http.ResponseWriter, r *http.Request, service string, props map[string]string, loginHint string) (string, *model.AppError) {
-	provider, e := a.getSSOProvider(service)
+	provider, e := a.getSSOProvider(c, service)
 	if e != nil {
 		return "", e
 	}
@@ -794,7 +794,7 @@ func (a *App) GetAuthorizationCode(c *request.Context, w http.ResponseWriter, r 
 }
 
 func (a *App) AuthorizeOAuthUser(c *request.Context, w http.ResponseWriter, r *http.Request, service, code, state, redirectURI string) (io.ReadCloser, string, map[string]string, *model.User, *model.AppError) {
-	provider, e := a.getSSOProvider(service)
+	provider, e := a.getSSOProvider(c, service)
 	if e != nil {
 		return nil, "", nil, nil, e
 	}

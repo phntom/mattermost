@@ -30,7 +30,7 @@ const STANDARD_EXCLUDE = [
     /node_modules/,
 ];
 
-let publicPath = 'https://cdn.kix.co.il/static/';
+let publicPath = '/static/';
 
 // Allow overriding the publicPath in dev from the exported SiteURL.
 if (DEV) {
