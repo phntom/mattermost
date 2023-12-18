@@ -6,6 +6,11 @@ import React, {useEffect, useState} from 'react';
 import type {RefObject} from 'react';
 import {FormattedDate, FormattedMessage, FormattedNumber, FormattedTime, useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {FileTypes, TELEMETRY_CATEGORIES} from 'utils/constants';
+import {useQuery} from 'utils/http_utils';
+import {calculateOverageUserActivated} from 'utils/overage_team';
+import {getSkuDisplayName} from 'utils/subscription';
+import {getRemainingDaysFromFutureTimestamp, toTitleCase} from 'utils/utils';
 
 import type {ClientLicense} from '@mattermost/types/config';
 
@@ -19,12 +24,6 @@ import useCanSelfHostedExpand from 'components/common/hooks/useCanSelfHostedExpa
 import useControlSelfHostedExpansionModal from 'components/common/hooks/useControlSelfHostedExpansionModal';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
 import Tag from 'components/widgets/tag/tag';
-
-import {FileTypes, TELEMETRY_CATEGORIES} from 'utils/constants';
-import {useQuery} from 'utils/http_utils';
-import {calculateOverageUserActivated} from 'utils/overage_team';
-import {getSkuDisplayName} from 'utils/subscription';
-import {getRemainingDaysFromFutureTimestamp, toTitleCase} from 'utils/utils';
 
 import './enterprise_edition.scss';
 

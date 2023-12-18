@@ -10,6 +10,8 @@ import type {SelectCallback} from 'react-bootstrap';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {ModalIdentifiers} from 'utils/constants';
+import {isCloudLicense} from 'utils/license_utils';
 
 import {MagnifyIcon} from '@mattermost/compass-icons/components';
 import {FooterPagination, GenericModal} from '@mattermost/components';
@@ -28,9 +30,6 @@ import {isModalOpen} from 'selectors/views/modals';
 
 import LoadingScreen from 'components/loading_screen';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {isCloudLicense} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

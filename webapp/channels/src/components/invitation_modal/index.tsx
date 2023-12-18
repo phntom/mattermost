@@ -5,6 +5,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {ActionCreatorsMapObject, Dispatch} from 'redux';
+import {Constants} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
@@ -29,8 +30,6 @@ import {
 import type {CloseModalType} from 'actions/views/modals';
 
 import {makeAsyncComponent} from 'components/async_load';
-
-import {Constants} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

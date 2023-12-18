@@ -8,6 +8,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"os"
 	"reflect"
 	"runtime"
 	"strconv"
@@ -31,7 +32,7 @@ import (
 )
 
 const (
-	frameAncestors = "'self' teams.microsoft.com"
+	frameAncestors = "'self'"
 )
 
 func GetHandlerName(h func(*Context, http.ResponseWriter, *http.Request)) string {
@@ -229,7 +230,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	c.SetSiteURLHeader(siteURLHeader)
 
 	w.Header().Set(model.HeaderRequestId, c.AppContext.RequestId())
-	w.Header().Set(model.HeaderVersionId, fmt.Sprintf("%v.%v.%v.%v", model.CurrentVersion, model.BuildNumber, c.App.ClientConfigHash(), c.App.Channels().License() != nil))
+	w.Header().Set(model.HeaderVersionId, fmt.Sprintf("%v.%v.%v.%v", model.CurrentVersion, model.BuildNumber, c.App.ClientConfigHash(), false))
 
 	if *c.App.Config().ServiceSettings.TLSStrictTransport {
 		w.Header().Set("Strict-Transport-Security", fmt.Sprintf("max-age=%d", *c.App.Config().ServiceSettings.TLSStrictTransportMaxAge))
@@ -240,12 +241,15 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.Header().Set("Referrer-Policy", "no-referrer")
 
-	cloudCSP := ""
-	if c.App.Channels().License().IsCloud() || *c.App.Config().ServiceSettings.SelfHostedPurchase {
-		cloudCSP = " js.stripe.com/v3"
-	}
-
 	if h.IsStatic {
+		cloudCSP := ""
+		if c.App.Channels().License().IsCloud() || *c.App.Config().ServiceSettings.SelfHostedPurchase {
+			cdnDomain := os.Getenv("MM_CDN_DOMAIN")
+			if len(cdnDomain) > 0 {
+				cloudCSP = " " + cdnDomain + "/"
+			}
+		}
+
 		// Instruct the browser not to display us in an iframe unless is the same origin for anti-clickjacking
 		w.Header().Set("X-Frame-Options", "SAMEORIGIN")
 
@@ -253,7 +257,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 		// Set content security policy. This is also specified in the root.html of the webapp in a meta tag.
 		w.Header().Set("Content-Security-Policy", fmt.Sprintf(
-			"frame-ancestors %s; script-src 'self' cdn.rudderlabs.com%s%s%s",
+			"frame-ancestors %s; script-src 'self'%s%s%s",
 			frameAncestors,
 			cloudCSP,
 			h.cspShaDirective,

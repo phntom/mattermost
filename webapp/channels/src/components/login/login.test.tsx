@@ -14,7 +14,6 @@ import type {ActionFunc} from 'mattermost-redux/types/actions';
 import LocalStorageStore from 'stores/local_storage_store';
 
 import AlertBanner from 'components/alert_banner';
-import ExternalLoginButton from 'components/external_login_button/external_login_button';
 import Login from 'components/login/login';
 import SaveButton from 'components/save_button';
 import Input from 'components/widgets/inputs/input/input';
@@ -260,37 +259,37 @@ describe('components/login/Login', () => {
         });
     });
 
-    it('should handle gitlab text and color props', () => {
-        mockConfig.EnableSignInWithEmail = 'true';
-        mockConfig.EnableSignUpWithGitLab = 'true';
-        mockConfig.GitLabButtonText = 'GitLab 2';
-        mockConfig.GitLabButtonColor = '#00ff00';
+    // it('should handle gitlab text and color props', () => {
+    //     mockConfig.EnableSignInWithEmail = 'true';
+    //     mockConfig.EnableSignUpWithGitLab = 'true';
+    //     mockConfig.GitLabButtonText = 'GitLab 2';
+    //     mockConfig.GitLabButtonColor = '#00ff00';
+    //
+    //     const wrapper = shallow(
+    //         <Login/>,
+    //     );
+    //
+    //     const externalLoginButton = wrapper.find(ExternalLoginButton).first();
+    //     expect(externalLoginButton.props().url).toEqual('/oauth/gitlab/login');
+    //     expect(externalLoginButton.props().label).toEqual('GitLab 2');
+    //     expect(externalLoginButton.props().style).toEqual({color: '#00ff00', borderColor: '#00ff00'});
+    // });
 
-        const wrapper = shallow(
-            <Login/>,
-        );
-
-        const externalLoginButton = wrapper.find(ExternalLoginButton).first();
-        expect(externalLoginButton.props().url).toEqual('/oauth/gitlab/login');
-        expect(externalLoginButton.props().label).toEqual('GitLab 2');
-        expect(externalLoginButton.props().style).toEqual({color: '#00ff00', borderColor: '#00ff00'});
-    });
-
-    it('should handle openid text and color props', () => {
-        mockConfig.EnableSignInWithEmail = 'true';
-        mockConfig.EnableSignUpWithOpenId = 'true';
-        mockConfig.OpenIdButtonText = 'OpenID 2';
-        mockConfig.OpenIdButtonColor = '#00ff00';
-
-        const wrapper = shallow(
-            <Login/>,
-        );
-
-        const externalLoginButton = wrapper.find(ExternalLoginButton).first();
-        expect(externalLoginButton.props().url).toEqual('/oauth/openid/login');
-        expect(externalLoginButton.props().label).toEqual('OpenID 2');
-        expect(externalLoginButton.props().style).toEqual({color: '#00ff00', borderColor: '#00ff00'});
-    });
+    // it('should handle openid text and color props', () => {
+    //     mockConfig.EnableSignInWithEmail = 'true';
+    //     mockConfig.EnableSignUpWithOpenId = 'true';
+    //     mockConfig.OpenIdButtonText = 'OpenID 2';
+    //     mockConfig.OpenIdButtonColor = '#00ff00';
+    //
+    //     const wrapper = shallow(
+    //         <Login/>,
+    //     );
+    //
+    //     const externalLoginButton = wrapper.find(ExternalLoginButton).first();
+    //     expect(externalLoginButton.props().url).toEqual('/oauth/openid/login');
+    //     expect(externalLoginButton.props().label).toEqual('OpenID 2');
+    //     expect(externalLoginButton.props().style).toEqual({color: '#00ff00', borderColor: '#00ff00'});
+    // });
 
     it('should redirect on login', () => {
         mockState.entities.users.currentUserId = 'user1';

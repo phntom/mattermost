@@ -326,7 +326,7 @@ func (a *App) CreateOAuthUser(c request.CTX, service string, userData io.Reader,
 		return nil, model.NewAppError("CreateOAuthUser", "api.user.create_user.disabled.app_error", nil, "", http.StatusNotImplemented)
 	}
 
-	provider, e := a.getSSOProvider(service)
+	provider, e := a.getSSOProvider(c, service)
 	if e != nil {
 		return nil, e
 	}

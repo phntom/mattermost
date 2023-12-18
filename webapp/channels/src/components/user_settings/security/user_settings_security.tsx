@@ -3,10 +3,13 @@
 
 /* eslint-disable max-lines */
 
+import icon50 from 'images/icon50x50.png';
 import React from 'react';
 import type {IntlShape} from 'react-intl';
 import {FormattedDate, FormattedMessage, FormattedTime, injectIntl} from 'react-intl';
 import {Link} from 'react-router-dom';
+import Constants from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {OAuthApp} from '@mattermost/types/integrations';
 import type {UserProfile} from '@mattermost/types/users';
@@ -19,10 +22,6 @@ import ExternalLink from 'components/external_link';
 import SettingItem from 'components/setting_item';
 import SettingItemMax from 'components/setting_item_max';
 import ToggleModalButton from 'components/toggle_modal_button';
-
-import icon50 from 'images/icon50x50.png';
-import Constants from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import MfaSection from './mfa_section';
 import UserAccessTokenSection from './user_access_token_section';
@@ -603,25 +602,44 @@ export class SecurityTab extends React.PureComponent<Props, State> {
 
                 if (this.props.enableSignUpWithOpenId) {
                     openidOption = (
-                        <div className='pb-3'>
-                            <Link
-                                className='btn btn-primary'
-                                to={
-                                    '/claim/email_to_oauth?email=' +
-                                    encodeURIComponent(user.email) +
-                                    '&old_type=' +
-                                    user.auth_service +
-                                    '&new_type=' +
-                                    Constants.OPENID_SERVICE
-                                }
-                            >
-                                <FormattedMessage
-                                    id='user.settings.security.switchOpenId'
-                                    defaultMessage='Switch to Using OpenID SSO'
-                                />
-                            </Link>
-                            <br/>
-                        </div>
+                        <span>
+                            <div className='pb-3'>
+                                <Link
+                                    className='btn btn-primary'
+                                    to={
+                                        '/claim/email_to_oauth?email=' +
+                                        encodeURIComponent(user.email) +
+                                        '&old_type=' +
+                                        user.auth_service +
+                                        '&new_type=github'
+                                    }
+                                >
+                                    <FormattedMessage
+                                        id='user.settings.security.switchGitHub'
+                                        defaultMessage='Switch to Using GitHub SSO'
+                                    />
+                                </Link>
+                                <br/>
+                            </div>
+                            <div className='pb-3'>
+                                <Link
+                                    className='btn btn-primary'
+                                    to={
+                                        '/claim/email_to_oauth?email=' +
+                                        encodeURIComponent(user.email) +
+                                        '&old_type=' +
+                                        user.auth_service +
+                                        '&new_type=linkedin'
+                                    }
+                                >
+                                    <FormattedMessage
+                                        id='user.settings.security.switchLinkedIn'
+                                        defaultMessage='Switch to Using LinkedIn SSO'
+                                    />
+                                </Link>
+                                <br/>
+                            </div>
+                        </span>
                     );
                 }
 
@@ -956,7 +974,7 @@ export class SecurityTab extends React.PureComponent<Props, State> {
         numMethods = this.props.enableSignUpWithGitLab ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithGoogle ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithOffice365 ? numMethods + 1 : numMethods;
-        numMethods = this.props.enableSignUpWithOpenId ? numMethods + 1 : numMethods;
+        numMethods = this.props.enableSignUpWithOpenId ? numMethods + 2 : numMethods;
         numMethods = this.props.enableLdap ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSaml ? numMethods + 1 : numMethods;
 
