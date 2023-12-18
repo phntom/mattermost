@@ -136,22 +136,7 @@ exports[`components/signup/Signup should match snapshot for all signup options e
           </div>
           <div
             className="signup-body-card-form-login-options"
-          >
-            <ExternalLoginButton
-              icon={<LoginGitlabIcon />}
-              id="gitlab"
-              key="gitlab"
-              label="GitLab"
-              onClick={[Function]}
-              style={
-                Object {
-                  "borderColor": "",
-                  "color": "",
-                }
-              }
-              url="/oauth/gitlab/signup"
-            />
-          </div>
+          />
           <p
             className="signup-body-card-agreement"
           >
@@ -171,6 +156,8 @@ exports[`components/signup/Signup should match snapshot for all signup options e
       </div>
     </div>
   </div>
+  <CookieConsent />
+  <AccessibilityRoundel />
 </div>
 `;
 
@@ -312,20 +299,6 @@ exports[`components/signup/Signup should match snapshot for all signup options e
             className="signup-body-card-form-login-options"
           >
             <ExternalLoginButton
-              icon={<LoginGitlabIcon />}
-              id="gitlab"
-              key="gitlab"
-              label="GitLab"
-              onClick={[Function]}
-              style={
-                Object {
-                  "borderColor": "",
-                  "color": "",
-                }
-              }
-              url="/oauth/gitlab/signup"
-            />
-            <ExternalLoginButton
               icon={<LoginGoggleIcon />}
               id="google"
               key="google"
@@ -342,18 +315,32 @@ exports[`components/signup/Signup should match snapshot for all signup options e
               url="/oauth/office365/signup"
             />
             <ExternalLoginButton
-              icon={<LoginOpenIdIcon />}
-              id="openid"
-              key="openid"
-              label="Open ID"
+              icon={<LoginGitHubIcon />}
+              id="github"
+              key="github"
+              label="GitHub"
               onClick={[Function]}
               style={
                 Object {
-                  "borderColor": "",
-                  "color": "",
+                  "borderColor": "#24292e",
+                  "color": "#171515",
                 }
               }
-              url="/oauth/openid/signup"
+              url="/oauth/github/signup"
+            />
+            <ExternalLoginButton
+              icon={<LoginLinkedInIcon />}
+              id="linkedin"
+              key="linkedin"
+              label="LinkedIn"
+              onClick={[Function]}
+              style={
+                Object {
+                  "borderColor": "#0084bf",
+                  "color": "#0073b1",
+                }
+              }
+              url="/oauth/linkedin/signup"
             />
             <ExternalLoginButton
               icon={<LockIcon />}
@@ -391,5 +378,7 @@ exports[`components/signup/Signup should match snapshot for all signup options e
       </div>
     </div>
   </div>
+  <CookieConsent />
+  <AccessibilityRoundel />
 </div>
 `;

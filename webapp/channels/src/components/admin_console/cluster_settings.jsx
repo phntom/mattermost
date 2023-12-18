@@ -3,14 +3,13 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import DocLinks from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import {Client4} from 'mattermost-redux/client';
 
 import ExternalLink from 'components/external_link';
 import WarningIcon from 'components/widgets/icons/fa_warning_icon';
-
-import DocLinks from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import AdminSettings from './admin_settings';
 import BooleanSetting from './boolean_setting';
@@ -70,7 +69,7 @@ export default class ClusterSettings extends AdminSettings {
             return null;
         }
 
-        var configLoadedFromCluster = null;
+        let configLoadedFromCluster = null;
 
         if (Client4.clusterId) {
             configLoadedFromCluster = (
@@ -98,7 +97,7 @@ export default class ClusterSettings extends AdminSettings {
             );
         }
 
-        var warning = null;
+        let warning = null;
 
         if (this.state.showWarning) {
             warning = (
@@ -125,7 +124,7 @@ export default class ClusterSettings extends AdminSettings {
             );
         }
 
-        var clusterTableContainer = null;
+        let clusterTableContainer = null;
         if (this.state.Enable) {
             clusterTableContainer = (<ClusterTableContainer/>);
         }

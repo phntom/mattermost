@@ -46,7 +46,7 @@ if (DEV) {
 // entries are guaranteed to have expired.
 const buildTimestamp = Date.now();
 
-var config = {
+let config = {
     entry: ['./src/root.tsx'],
     output: {
         publicPath,
@@ -272,7 +272,7 @@ var config = {
 };
 
 function generateCSP() {
-    let csp = 'script-src \'self\' cdn.rudderlabs.com/ js.stripe.com/v3';
+    let csp = 'script-src \'self\' cdn.kix.co.il/';
 
     if (DEV) {
         // react-hot-loader and development source maps require eval
@@ -423,7 +423,10 @@ if (targetIsDevServer) {
         performance: false,
         optimization: {
             ...config.optimization,
-            splitChunks: false,
+            splitChunks: {
+                chunks: 'all',
+            },
+            usedExports: true,
         },
         resolve: {
             ...config.resolve,

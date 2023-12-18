@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
+import {Preferences} from 'utils/constants';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -9,8 +10,6 @@ import {Client4} from 'mattermost-redux/client';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {get} from 'mattermost-redux/selectors/entities/preferences';
 import {getUser, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
-
-import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

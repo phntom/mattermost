@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import {combineReducers} from 'redux';
+import {ActionTypes} from 'utils/constants';
 
 import type {GenericAction} from 'mattermost-redux/types/actions';
-
-import {ActionTypes} from 'utils/constants';
 
 export function isShowOnboardingTaskCompletion(state = false, action: GenericAction) {
     switch (action.type) {

@@ -99,7 +99,7 @@ func (a *App) SendNotifications(c request.CTX, post *model.Post, team *model.Tea
 	}
 	channelMemberNotifyPropsMap := cmnResult.Data
 
-	followers := make(model.StringSet, 0)
+	followers := make(model.StringSet)
 	if tchan != nil {
 		tResult := <-tchan
 		if tResult.NErr != nil {
@@ -1091,6 +1091,9 @@ func getMentionsEnabledFields(post *model.Post) model.StringArray {
 		}
 		if attachment.Text != "" {
 			ret = append(ret, attachment.Text)
+		}
+		if attachment.Fallback != "" {
+			ret = append(ret, attachment.Fallback)
 		}
 	}
 	return ret

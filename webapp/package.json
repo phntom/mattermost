@@ -18,7 +18,8 @@
     "clean": "npm run clean --workspaces --if-present"
   },
   "dependencies": {
-    "react-intl": "6.3.2"
+    "react-intl": "6.3.2",
+    "accessibility": "4.5.7"
   },
   "devDependencies": {
     "@babel/core": "7.21.8",

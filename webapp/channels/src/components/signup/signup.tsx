@@ -3,11 +3,20 @@
 
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
 import type {FocusEvent} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useIntl} from 'react-intl';
-import {useSelector, useDispatch} from 'react-redux';
-import {useLocation, useHistory, Route} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Route, useHistory, useLocation} from 'react-router-dom';
+import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
+import {isDesktopApp} from 'utils/user_agent';
+import {
+    getMediumFromTrackFlow,
+    getPasswordConfig,
+    getRoleFromTrackFlow,
+    isValidPassword,
+    isValidUsername
+} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -28,15 +37,17 @@ import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {loginById} from 'actions/views/login';
 import {getGlobalItem} from 'selectors/storage';
 
+import AccessibilityRoundel from 'components/accessibility';
+import type {AlertBannerProps, ModeType} from 'components/alert_banner';
 import AlertBanner from 'components/alert_banner';
-import type {ModeType, AlertBannerProps} from 'components/alert_banner';
 import useCWSAvailabilityCheck from 'components/common/hooks/useCWSAvailabilityCheck';
 import LaptopAlertSVG from 'components/common/svg_images_components/laptop_alert_svg';
 import ManWithLaptopSVG from 'components/common/svg_images_components/man_with_laptop_svg';
+import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';
-import ExternalLoginButton from 'components/external_login_button/external_login_button';
 import type {ExternalLoginButtonType} from 'components/external_login_button/external_login_button';
+import ExternalLoginButton from 'components/external_login_button/external_login_button';
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import AlternateLinkLayout from 'components/header_footer_route/content_layouts/alternate_link';
 import ColumnLayout from 'components/header_footer_route/content_layouts/column';
@@ -45,18 +56,14 @@ import LoadingScreen from 'components/loading_screen';
 import Markdown from 'components/markdown';
 import SaveButton from 'components/save_button';
 import LockIcon from 'components/widgets/icons/lock_icon';
-import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
+import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
+import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import LoginOffice365Icon from 'components/widgets/icons/login_office_365_icon';
-import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
 import CheckInput from 'components/widgets/inputs/check';
-import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
+import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
-
-import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
-import {isDesktopApp} from 'utils/user_agent';
-import {isValidUsername, isValidPassword, getPasswordConfig, getRoleFromTrackFlow, getMediumFromTrackFlow} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 
@@ -169,18 +176,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             return externalLoginOptions;
         }
 
-        if (enableSignUpWithGitLab) {
-            const url = `${Client4.getOAuthRoute()}/gitlab/signup${search}`;
-            externalLoginOptions.push({
-                id: 'gitlab',
-                url,
-                icon: <LoginGitlabIcon/>,
-                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
-                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
-                onClick: desktopExternalAuth(url),
-            });
-        }
-
         if (isLicensed && enableSignUpWithGoogle) {
             const url = `${Client4.getOAuthRoute()}/google/signup${search}`;
             externalLoginOptions.push({
@@ -204,14 +199,25 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         }
 
         if (isLicensed && enableSignUpWithOpenId) {
-            const url = `${Client4.getOAuthRoute()}/openid/signup${search}`;
+            const url1 = `${Client4.getOAuthRoute()}/github/signup${search}`;
+            const url2 = `${Client4.getOAuthRoute()}/linkedin/signup${search}`;
+
             externalLoginOptions.push({
-                id: 'openid',
-                url,
-                icon: <LoginOpenIDIcon/>,
-                label: OpenIdButtonText || formatMessage({id: 'login.openid', defaultMessage: 'Open ID'}),
-                style: {color: OpenIdButtonColor, borderColor: OpenIdButtonColor},
-                onClick: desktopExternalAuth(url),
+                id: 'github',
+                url: url1,
+                icon: <LoginGitHubIcon/>,
+                label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
+                style: {color: '#171515', borderColor: '#24292e'},
+                onClick: desktopExternalAuth(url1),
+            });
+
+            externalLoginOptions.push({
+                id: 'linkedin',
+                url: url2,
+                icon: <LoginLinkedInIcon/>,
+                label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
+                style: {color: '#0073b1', borderColor: '#0084bf'},
+                onClick: desktopExternalAuth(url2),
             });
         }
 
@@ -913,6 +919,8 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             <div className='signup-body-content'>
                 {getContent()}
             </div>
+            <CookieConsent/>
+            <AccessibilityRoundel/>
         </div>
     );
 };

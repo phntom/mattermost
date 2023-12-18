@@ -4,8 +4,8 @@
 /* eslint-disable max-lines */
 
 import React from 'react';
-import {defineMessages, FormattedDate, FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import {defineMessages, FormattedDate, FormattedMessage, injectIntl} from 'react-intl';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -18,7 +18,13 @@ import SettingItemMax from 'components/setting_item_max';
 import SettingPicture from 'components/setting_picture';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
 
-import {AnnouncementBarMessages, AnnouncementBarTypes, AcceptedProfileImageTypes, Constants, ValidationErrors} from 'utils/constants';
+import {
+    AcceptedProfileImageTypes,
+    AnnouncementBarMessages,
+    AnnouncementBarTypes,
+    Constants,
+    ValidationErrors
+} from 'utils/constants';
 import * as Utils from 'utils/utils';
 
 const holders = defineMessages({
@@ -808,8 +814,7 @@ export class UserSettingsGeneralTab extends React.Component<Props, State> {
                 (this.props.user.auth_service === Constants.LDAP_SERVICE &&
                     (this.props.ldapFirstNameAttributeSet || this.props.ldapLastNameAttributeSet)) ||
                 (this.props.user.auth_service === Constants.SAML_SERVICE &&
-                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet)) ||
-                (Constants.OAUTH_SERVICES.includes(this.props.user.auth_service))
+                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet))
             ) {
                 extraInfo = (
                     <span>

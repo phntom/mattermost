@@ -12,6 +12,8 @@ exports[`components/login/Login should match snapshot 1`] = `
       title="This server doesn’t have any sign-in methods enabled"
     />
   </div>
+  <CookieConsent />
+  <AccessibilityRoundel />
 </div>
 `;
 
@@ -114,5 +116,7 @@ exports[`components/login/Login should match snapshot with base login 1`] = `
       </div>
     </div>
   </div>
+  <CookieConsent />
+  <AccessibilityRoundel />
 </div>
 `;
