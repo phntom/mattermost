@@ -3,7 +3,6 @@
 
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
 import type {FocusEvent} from 'react';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useIntl} from 'react-intl';
@@ -16,7 +15,7 @@ import {
     getPasswordConfig,
     getRoleFromTrackFlow,
     isValidPassword,
-    isValidUsername
+    isValidUsername,
 } from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
@@ -231,7 +230,8 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                 url: `${Client4.getUrl()}/login?${newSearchParam.toString()}`,
                 icon: <LockIcon/>,
                 label: LdapLoginFieldName || formatMessage({id: 'signup.ldap', defaultMessage: 'AD/LDAP Credentials'}),
-                onClick: () => {},
+                onClick: () => {
+                },
             });
         }
 
@@ -261,10 +261,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     }, [noAccounts, history]);
 
     const handleInvalidInvite = ({
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        server_error_id,
-        message,
-    }: {server_error_id: string; message: string}) => {
+                                     // eslint-disable-next-line @typescript-eslint/naming-convention
+                                     server_error_id,
+                                     message,
+                                 }: { server_error_id: string; message: string }) => {
         let errorMessage;
 
         if (server_error_id === 'store.sql_user.save.max_accounts.app_error' ||
@@ -272,7 +272,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             errorMessage = message;
         }
 
-        setServerError(errorMessage || formatMessage({id: 'signup_user_completed.invalid_invite.title', defaultMessage: 'This invite link is invalid'}));
+        setServerError(errorMessage || formatMessage({
+            id: 'signup_user_completed.invalid_invite.title',
+            defaultMessage: 'This invite link is invalid'
+        }));
         setLoading(false);
     };
 
@@ -395,7 +398,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         }
 
         if (!enableSignUpWithEmail && enableExternalSignup) {
-            return formatMessage({id: 'signup_user_completed.cardtitle.external', defaultMessage: 'Create your account with one of the following:'});
+            return formatMessage({
+                id: 'signup_user_completed.cardtitle.external',
+                defaultMessage: 'Create your account with one of the following:'
+            });
         }
 
         return formatMessage({id: 'signup_user_completed.cardtitle', defaultMessage: 'Create your account'});
@@ -511,7 +517,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         trackEvent('signup', telemetryId, props);
     }
 
-    type TelemetryErrorList = {errors: Array<{field: string; rule: string}>; success: boolean};
+    type TelemetryErrorList = { errors: Array<{ field: string; rule: string }>; success: boolean };
 
     const isUserValid = () => {
         let isValid = true;
@@ -520,11 +526,17 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         const telemetryEvents: TelemetryErrorList = {errors: [], success: true};
 
         if (!providedEmail) {
-            setEmailError(formatMessage({id: 'signup_user_completed.required', defaultMessage: 'This field is required'}));
+            setEmailError(formatMessage({
+                id: 'signup_user_completed.required',
+                defaultMessage: 'This field is required'
+            }));
             telemetryEvents.errors.push({field: 'email', rule: 'not_provided'});
             isValid = false;
         } else if (!isEmail(providedEmail)) {
-            setEmailError(formatMessage({id: 'signup_user_completed.validEmail', defaultMessage: 'Please enter a valid email address'}));
+            setEmailError(formatMessage({
+                id: 'signup_user_completed.validEmail',
+                defaultMessage: 'Please enter a valid email address'
+            }));
             telemetryEvents.errors.push({field: 'email', rule: 'invalid_email'});
             isValid = false;
         }
@@ -537,7 +549,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             if (usernameError) {
                 let nameError = '';
                 if (usernameError.id === ValidationErrors.RESERVED_NAME) {
-                    nameError = formatMessage({id: 'signup_user_completed.reserved', defaultMessage: 'This username is reserved, please choose a new one.'});
+                    nameError = formatMessage({
+                        id: 'signup_user_completed.reserved',
+                        defaultMessage: 'This username is reserved, please choose a new one.'
+                    });
                 } else {
                     nameError = formatMessage(
                         {
@@ -555,7 +570,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                 isValid = false;
             }
         } else {
-            setNameError(formatMessage({id: 'signup_user_completed.required', defaultMessage: 'This field is required'}));
+            setNameError(formatMessage({
+                id: 'signup_user_completed.required',
+                defaultMessage: 'This field is required'
+            }));
             telemetryEvents.errors.push({field: 'username', rule: 'not_provided'});
             isValid = false;
         }
@@ -630,12 +648,18 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             return (
                 <CheckInput
                     id='signup-body-card-form-check-newsletter'
-                    ariaLabel={formatMessage({id: 'newsletter_optin.checkmark.box', defaultMessage: 'newsletter checkbox'})}
+                    ariaLabel={formatMessage({
+                        id: 'newsletter_optin.checkmark.box',
+                        defaultMessage: 'newsletter checkbox'
+                    })}
                     name='newsletter'
                     onChange={() => setSubscribeToSecurityNewsletter(!subscribeToSecurityNewsletter)}
                     text={
                         formatMessage(
-                            {id: 'newsletter_optin.checkmark.text', defaultMessage: '<span>I would like to receive Mattermost security updates via newsletter.</span> By subscribing, I consent to receive emails from Mattermost with product updates, promotions, and company news. I have read the <a>Privacy Policy</a> and understand that I can <aa>unsubscribe</aa> at any time'},
+                            {
+                                id: 'newsletter_optin.checkmark.text',
+                                defaultMessage: '<span>I would like to receive Mattermost security updates via newsletter.</span> By subscribing, I consent to receive emails from Mattermost with product updates, promotions, and company news. I have read the <a>Privacy Policy</a> and understand that I can <aa>unsubscribe</aa> at any time'
+                            },
                             {
                                 a: (chunks: React.ReactNode | React.ReactNodeArray) => (
                                     <ExternalLink
@@ -665,7 +689,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         return (
             <div className='newsletter'>
                 <span className='interested'>
-                    {formatMessage({id: 'newsletter_optin.title', defaultMessage: 'Interested in receiving Mattermost security, product, promotions, and company updates updates via newsletter?'})}
+                    {formatMessage({
+                        id: 'newsletter_optin.title',
+                        defaultMessage: 'Interested in receiving Mattermost security, product, promotions, and company updates updates via newsletter?'
+                    })}
                 </span>
                 <span className='link'>
                     {formatMessage(
@@ -699,24 +726,39 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         if (!enableSignUpWithEmail && !enableExternalSignup) {
             return (
                 <ColumnLayout
-                    title={formatMessage({id: 'login.noMethods.title', defaultMessage: 'This server doesn’t have any sign-in methods enabled'})}
-                    message={formatMessage({id: 'login.noMethods.subtitle', defaultMessage: 'Please contact your System Administrator to resolve this.'})}
+                    title={formatMessage({
+                        id: 'login.noMethods.title',
+                        defaultMessage: 'This server doesn’t have any sign-in methods enabled'
+                    })}
+                    message={formatMessage({
+                        id: 'login.noMethods.subtitle',
+                        defaultMessage: 'Please contact your System Administrator to resolve this.'
+                    })}
                 />
             );
         }
 
         if (!isWaiting && (noOpenServer || serverError || usedBefore)) {
             const titleColumn = noOpenServer ? (
-                formatMessage({id: 'signup_user_completed.no_open_server.title', defaultMessage: 'This server doesn’t allow open signups'})
+                formatMessage({
+                    id: 'signup_user_completed.no_open_server.title',
+                    defaultMessage: 'This server doesn’t allow open signups'
+                })
             ) : (
                 serverError ||
-                formatMessage({id: 'signup_user_completed.invalid_invite.title', defaultMessage: 'This invite link is invalid'})
+                formatMessage({
+                    id: 'signup_user_completed.invalid_invite.title',
+                    defaultMessage: 'This invite link is invalid'
+                })
             );
 
             return (
                 <ColumnLayout
                     title={titleColumn}
-                    message={formatMessage({id: 'signup_user_completed.invalid_invite.message', defaultMessage: 'Please speak with your Administrator to receive an invitation.'})}
+                    message={formatMessage({
+                        id: 'signup_user_completed.invalid_invite.message',
+                        defaultMessage: 'Please speak with your Administrator to receive an invitation.'
+                    })}
                     SVGElement={<LaptopAlertSVG/>}
                     extraContent={(
                         <div className='signup-body-content-button-container'>
@@ -724,7 +766,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                 className='signup-body-content-button-return'
                                 onClick={handleReturnButtonOnClick}
                             >
-                                {formatMessage({id: 'signup_user_completed.return', defaultMessage: 'Return to log in'})}
+                                {formatMessage({
+                                    id: 'signup_user_completed.return',
+                                    defaultMessage: 'Return to log in'
+                                })}
                             </button>
                         </div>
                     )}
@@ -795,7 +840,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                 </div>
                 <div className='signup-body-action'>
                     {!isMobileView && getAlternateLink()}
-                    <div className={classNames('signup-body-card', {'custom-branding': enableCustomBrand, 'with-error': hasError})}>
+                    <div className={classNames('signup-body-card', {
+                        'custom-branding': enableCustomBrand,
+                        'with-error': hasError
+                    })}>
                         <div
                             className='signup-body-card-content'
                             onKeyDown={onEnterKeyDown}
@@ -849,7 +897,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                         customMessage={
                                             nameError ? {type: ItemStatus.ERROR, value: nameError} : {
                                                 type: ItemStatus.INFO,
-                                                value: formatMessage({id: 'signup_user_completed.userHelp', defaultMessage: 'You can use lowercase letters, numbers, periods, dashes, and underscores.'}),
+                                                value: formatMessage({
+                                                    id: 'signup_user_completed.userHelp',
+                                                    defaultMessage: 'You can use lowercase letters, numbers, periods, dashes, and underscores.'
+                                                }),
                                             }
                                         }
                                         onBlur={(e) => handleOnBlur(e, 'username')}
@@ -872,20 +923,30 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                         saving={isWaiting}
                                         disabled={!canSubmit}
                                         onClick={handleSubmit}
-                                        defaultMessage={formatMessage({id: 'signup_user_completed.create', defaultMessage: 'Create account'})}
-                                        savingMessage={formatMessage({id: 'signup_user_completed.saving', defaultMessage: 'Creating account…'})}
+                                        defaultMessage={formatMessage({
+                                            id: 'signup_user_completed.create',
+                                            defaultMessage: 'Create account'
+                                        })}
+                                        savingMessage={formatMessage({
+                                            id: 'signup_user_completed.saving',
+                                            defaultMessage: 'Creating account…'
+                                        })}
                                     />
                                 </div>
                             )}
                             {enableSignUpWithEmail && enableExternalSignup && (
                                 <div className='signup-body-card-form-divider'>
                                     <span className='signup-body-card-form-divider-label'>
-                                        {formatMessage({id: 'signup_user_completed.or', defaultMessage: 'or create an account with'})}
+                                        {formatMessage({
+                                            id: 'signup_user_completed.or',
+                                            defaultMessage: 'or create an account with'
+                                        })}
                                     </span>
                                 </div>
                             )}
                             {enableExternalSignup && (
-                                <div className={classNames('signup-body-card-form-login-options', {column: !enableSignUpWithEmail})}>
+                                <div
+                                    className={classNames('signup-body-card-form-login-options', {column: !enableSignUpWithEmail})}>
                                     {getExternalSignupOptions().map((option) => (
                                         <ExternalLoginButton
                                             key={option.id}

@@ -1,4 +1,4 @@
-FROM mattermost/mattermost-team-edition:release-9.3
+FROM mattermost/mattermost-team-edition:release-9.5
 
 COPY server/mattermost bin/mattermost
 RUN rm -rf client
