@@ -3,11 +3,7 @@
 
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-import {FormattedMessage} from 'react-intl';
-import Constants, {ItemStatus} from 'utils/constants';
-import {t} from 'utils/i18n';
-import * as Utils from 'utils/utils';
-import {localizeMessage} from 'utils/utils';
+import {FormattedMessage, type IntlShape, injectIntl} from 'react-intl';
 
 import type {GroupCreateWithUserIds} from '@mattermost/types/groups';
 import type {UserProfile} from '@mattermost/types/users';
@@ -15,8 +11,11 @@ import type {UserProfile} from '@mattermost/types/users';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import AddUserToGroupMultiSelect from 'components/add_user_to_group_multiselect';
-import LocalizedIcon from 'components/localized_icon';
 import Input from 'components/widgets/inputs/input/input';
+
+import Constants, {ItemStatus} from 'utils/constants';
+import * as Utils from 'utils/utils';
+import {localizeMessage} from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 
@@ -30,6 +29,7 @@ export type Props = {
         createGroupWithUserIds: (group: GroupCreateWithUserIds) => Promise<ActionResult>;
         openModal: <P>(modalData: ModalData<P>) => void;
     };
+    intl: IntlShape;
 }
 
 type State = {
@@ -45,7 +45,7 @@ type State = {
     saving: boolean;
 }
 
-export default class CreateUserGroupsModal extends React.PureComponent<Props, State> {
+export class CreateUserGroupsModal extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
@@ -177,19 +177,16 @@ export default class CreateUserGroupsModal extends React.PureComponent<Props, St
                 <Modal.Header closeButton={true}>
                     {
                         typeof this.props.backButtonCallback === 'function' ? (
-                            <>
+                            <div className='d-flex align-items-center'>
                                 <button
                                     type='button'
                                     className='modal-header-back-button btn btn-icon'
-                                    aria-label='Back'
+                                    aria-label={this.props.intl.formatMessage({id: 'user_groups_modal.goBackLabel', defaultMessage: 'Back'})}
                                     onClick={() => {
                                         this.goBack();
                                     }}
                                 >
-                                    <LocalizedIcon
-                                        className='icon icon-arrow-left'
-                                        ariaLabel={{id: t('user_groups_modal.goBackLabel'), defaultMessage: 'Back'}}
-                                    />
+                                    <i className='icon icon-arrow-left'/>
                                 </button>
                                 <Modal.Title
                                     componentClass='h1'
@@ -200,7 +197,7 @@ export default class CreateUserGroupsModal extends React.PureComponent<Props, St
                                         defaultMessage='Create Group'
                                     />
                                 </Modal.Title>
-                            </>
+                            </div>
                         ) : (
                             <Modal.Title
                                 componentClass='h1'
@@ -278,3 +275,5 @@ export default class CreateUserGroupsModal extends React.PureComponent<Props, St
         );
     }
 }
+
+export default injectIntl(CreateUserGroupsModal);

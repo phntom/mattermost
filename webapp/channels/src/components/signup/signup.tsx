@@ -3,6 +3,7 @@
 
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import type {FocusEvent} from 'react';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useIntl} from 'react-intl';
@@ -40,7 +41,7 @@ import {getGlobalItem} from 'selectors/storage';
 import AccessibilityRoundel from 'components/accessibility';
 import type {AlertBannerProps, ModeType} from 'components/alert_banner';
 import AlertBanner from 'components/alert_banner';
-import useCWSAvailabilityCheck from 'components/common/hooks/useCWSAvailabilityCheck';
+import useCWSAvailabilityCheck, {CSWAvailabilityCheckTypes} from 'components/common/hooks/useCWSAvailabilityCheck';
 import LaptopAlertSVG from 'components/common/svg_images_components/laptop_alert_svg';
 import ManWithLaptopSVG from 'components/common/svg_images_components/man_with_laptop_svg';
 import CookieConsent from 'components/cookie_consent';
@@ -151,7 +152,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     const [isMobileView, setIsMobileView] = useState(false);
     const [subscribeToSecurityNewsletter, setSubscribeToSecurityNewsletter] = useState(false);
 
-    const canReachCWS = useCWSAvailabilityCheck();
+    const cwsAvailability = useCWSAvailabilityCheck();
 
     const enableExternalSignup = enableSignUpWithGitLab || enableSignUpWithOffice365 || enableSignUpWithGoogle || enableSignUpWithOpenId || enableLDAP || enableSAML;
     const hasError = Boolean(emailError || nameError || passwordError || serverError || alertBanner);
@@ -625,7 +626,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     const handleReturnButtonOnClick = () => history.replace('/');
 
     const getNewsletterCheck = () => {
-        if (canReachCWS) {
+        if (cwsAvailability === CSWAvailabilityCheckTypes.Available) {
             return (
                 <CheckInput
                     id='signup-body-card-form-check-newsletter'

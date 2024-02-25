@@ -96,6 +96,7 @@ const defaultServerConfig: AdminConfig = {
         EnableIncomingWebhooks: true,
         EnableOutgoingWebhooks: true,
         EnableCommands: true,
+        OutgoingIntegrationRequestsTimeout: 30,
         EnablePostUsernameOverride: false,
         EnablePostIconOverride: false,
         GoogleDeveloperKey: '',
@@ -610,7 +611,9 @@ const defaultServerConfig: AdminConfig = {
         EnableFileDeletion: false,
         EnableBoardsDeletion: false,
         MessageRetentionDays: 365,
+        MessageRetentionHours: 0,
         FileRetentionDays: 365,
+        FileRetentionHours: 0,
         BoardsRetentionDays: 365,
         DeletionJobStartTime: '02:00',
         BatchSize: 3000,
@@ -713,5 +716,14 @@ const defaultServerConfig: AdminConfig = {
     ExportSettings: {
         Directory: './export',
         RetentionDays: 30,
+    },
+    WranglerSettings: {
+        PermittedWranglerRoles: [],
+        AllowedEmailDomain: [],
+        MoveThreadMaxCount: 30,
+        MoveThreadToAnotherTeamEnable: true,
+        MoveThreadFromPrivateChannelEnable: true,
+        MoveThreadFromDirectMessageChannelEnable: true,
+        MoveThreadFromGroupMessageChannelEnable: true,
     },
 };
