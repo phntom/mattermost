@@ -3,17 +3,16 @@
 
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
-
-import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {trackEvent} from 'actions/telemetry_actions';
-
 import {
     renderWithContext,
     screen,
     waitFor,
 } from 'tests/react_testing_utils';
 import {ModalIdentifiers} from 'utils/constants';
+
+import type {DeepPartial} from '@mattermost/types/utilities';
+
+import {trackEvent} from 'actions/telemetry_actions';
 
 import type {GlobalState} from 'types/store';
 

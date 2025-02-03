@@ -7,11 +7,10 @@ import type {CSSProperties} from 'react';
 import {useIntl} from 'react-intl';
 import ReactSelect, {components} from 'react-select';
 import type {Props as SelectProps, ActionMeta} from 'react-select';
+import {ItemStatus} from 'utils/constants';
 
 import InputError from 'components/input_error';
 import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
-
-import {ItemStatus} from 'utils/constants';
 
 import './dropdown_input.scss';
 

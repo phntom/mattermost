@@ -4,10 +4,9 @@
 import React from 'react';
 import type {RefObject} from 'react';
 import {FormattedMessage, defineMessages, useIntl} from 'react-intl';
+import {FileTypes} from 'utils/constants';
 
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
-
-import {FileTypes} from 'utils/constants';
 
 import './starter_edition.scss';
 export interface StarterEditionProps {

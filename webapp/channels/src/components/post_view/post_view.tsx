@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {Preferences} from 'utils/constants';
 
 import LoadingScreen from 'components/loading_screen';
-
-import {Preferences} from 'utils/constants';
 
 import PostList from './post_list';
 

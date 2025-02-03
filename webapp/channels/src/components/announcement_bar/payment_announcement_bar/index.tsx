@@ -5,6 +5,9 @@ import isEmpty from 'lodash/isEmpty';
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
+import {getHistory} from 'utils/browser_history';
+import {isCustomerCardExpired} from 'utils/cloud_utils';
+import {AnnouncementBarTypes, CloudProducts, ConsolePages} from 'utils/constants';
 
 import {getCloudCustomer} from 'mattermost-redux/actions/cloud';
 import {
@@ -14,10 +17,6 @@ import {
 } from 'mattermost-redux/selectors/entities/cloud';
 import {getLicense} from 'mattermost-redux/selectors/entities/general';
 import {isCurrentUserSystemAdmin} from 'mattermost-redux/selectors/entities/users';
-
-import {getHistory} from 'utils/browser_history';
-import {isCustomerCardExpired} from 'utils/cloud_utils';
-import {AnnouncementBarTypes, CloudProducts, ConsolePages} from 'utils/constants';
 
 import AnnouncementBar from '../default_announcement_bar';
 

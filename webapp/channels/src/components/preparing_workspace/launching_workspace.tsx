@@ -1,6 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import loadingIcon from 'images/spinner-48x48-blue.apng';
 import React, {useState, useEffect} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch} from 'react-redux';
@@ -9,8 +10,6 @@ import {CSSTransition} from 'react-transition-group';
 import {GeneralTypes} from 'mattermost-redux/action_types';
 
 import LogoSvg from 'components/common/svg_images_components/logo_dark_blue_svg';
-
-import loadingIcon from 'images/spinner-48x48-blue.apng';
 
 import Description from './description';
 import {Animations, mapAnimationReasonToClass} from './steps';

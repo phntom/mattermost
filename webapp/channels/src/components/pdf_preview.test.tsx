@@ -4,11 +4,10 @@
 import {shallow} from 'enzyme';
 import type {PDFDocumentProxy, PDFPageProxy} from 'pdfjs-dist';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import PDFPreview from 'components/pdf_preview';
 import type {Props} from 'components/pdf_preview';
-
-import {TestHelper} from 'utils/test_helper';
 
 jest.mock('pdfjs-dist', () => ({
     getDocument: () => Promise.resolve({

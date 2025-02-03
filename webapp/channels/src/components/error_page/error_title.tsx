@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
 import {ErrorPageTypes} from 'utils/constants';
 
 type Props = {

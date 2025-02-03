@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {Modal} from 'react-bootstrap';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
@@ -13,8 +14,6 @@ import {General} from 'mattermost-redux/constants';
 import ChannelInviteModal from 'components/channel_invite_modal/channel_invite_modal';
 import type {ChannelInviteModal as ChannelInviteModalClass} from 'components/channel_invite_modal/channel_invite_modal';
 import type {Value} from 'components/multiselect/multiselect';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 type UserProfileValue = Value & UserProfile;
 

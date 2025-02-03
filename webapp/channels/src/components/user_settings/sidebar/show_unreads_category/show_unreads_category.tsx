@@ -4,6 +4,7 @@
 import React from 'react';
 import type {RefObject} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {a11yFocus} from 'utils/utils';
 
 import type {PreferencesType, PreferenceType} from '@mattermost/types/preferences';
 
@@ -13,8 +14,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import SettingItemMax from 'components/setting_item_max';
 import SettingItemMin from 'components/setting_item_min';
 import type SettingItemMinComponent from 'components/setting_item_min';
-
-import {a11yFocus} from 'utils/utils';
 
 export type OwnProps = {
     adminMode?: boolean;

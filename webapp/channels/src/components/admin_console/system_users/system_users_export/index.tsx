@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {LicenseSkus, ModalIdentifiers} from 'utils/constants';
 
 import {ReportDuration} from '@mattermost/types/reports';
 import type {GlobalState} from '@mattermost/types/store';
@@ -19,8 +20,6 @@ import {openModal} from 'actions/views/modals';
 import {getAdminConsoleUserManagementTableProperties} from 'selectors/views/admin';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {LicenseSkus, ModalIdentifiers} from 'utils/constants';
 
 import {ExportErrorModal} from './export_error_modal';
 import {ExportUserDataModal} from './export_user_data_modal';

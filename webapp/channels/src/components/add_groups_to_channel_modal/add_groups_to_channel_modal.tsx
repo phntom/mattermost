@@ -1,10 +1,12 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import groupsAvatar from 'images/groups-avatar.png';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import type {IntlShape} from 'react-intl';
 import {injectIntl, FormattedMessage, defineMessage} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {Group, SyncablePatch} from '@mattermost/types/groups';
@@ -14,9 +16,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import MultiSelect from 'components/multiselect/multiselect';
 import type {Value} from 'components/multiselect/multiselect';
-
-import groupsAvatar from 'images/groups-avatar.png';
-import Constants from 'utils/constants';
 
 const GROUPS_PER_PAGE = 50;
 const MAX_SELECTABLE_VALUES = 10;

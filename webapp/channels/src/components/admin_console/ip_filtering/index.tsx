@@ -4,6 +4,7 @@
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {AlertOutlineIcon} from '@mattermost/compass-icons/components';
 import type {AllowedIPRange, FetchIPResponse} from '@mattermost/types/config';
@@ -13,8 +14,6 @@ import {getInstallation} from 'actions/cloud';
 import {closeModal, openModal} from 'actions/views/modals';
 
 import AdminHeader from 'components/widgets/admin_console/admin_header';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import IPFilteringAddOrEditModal from './add_edit_ip_filter_modal';
 import DeleteConfirmationModal from './delete_confirmation';

@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {withIntl} from 'tests/helpers/intl-test-helper';
 import {render} from 'tests/react_testing_utils';
 import {BadUrlReasons} from 'utils/url';

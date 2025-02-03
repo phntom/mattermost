@@ -11,6 +11,10 @@ import Scrollbars from 'react-custom-scrollbars';
 import {FormattedMessage} from 'react-intl';
 import {SpringSystem} from 'rebound';
 import type {Spring} from 'rebound';
+import {findNextUnreadChannelId} from 'utils/channel_utils';
+import {Constants, DraggingStates, DraggingStateTypes} from 'utils/constants';
+import {isKeyPressed, cmdOrCtrlPressed} from 'utils/keyboard';
+import {localizeMessage, mod} from 'utils/utils';
 
 import type {ChannelCategory} from '@mattermost/types/channel_categories';
 import type {Channel} from '@mattermost/types/channels';
@@ -22,11 +26,6 @@ import {trackEvent} from 'actions/telemetry_actions';
 
 import {makeAsyncComponent} from 'components/async_load';
 import SidebarCategory from 'components/sidebar/sidebar_category';
-
-import {findNextUnreadChannelId} from 'utils/channel_utils';
-import {Constants, DraggingStates, DraggingStateTypes} from 'utils/constants';
-import {isKeyPressed, cmdOrCtrlPressed} from 'utils/keyboard';
-import {localizeMessage, mod} from 'utils/utils';
 
 import type {DraggingState} from 'types/store';
 import type {StaticPage} from 'types/store/lhs';

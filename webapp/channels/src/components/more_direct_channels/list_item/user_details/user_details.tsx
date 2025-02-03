@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {displayEntireNameForUser} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -13,8 +14,6 @@ import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import ProfilePicture from 'components/profile_picture';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
-
-import {displayEntireNameForUser} from 'utils/utils';
 
 type Props = {
     currentUserId: string;

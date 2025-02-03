@@ -4,6 +4,7 @@
 import React, {memo, useCallback, useMemo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {
     BellOutlineIcon,
@@ -30,8 +31,6 @@ import {makeGetUnreadIdsForCategory} from 'selectors/views/channel_sidebar';
 import DeleteCategoryModal from 'components/delete_category_modal';
 import EditCategoryModal from 'components/edit_category_modal';
 import * as Menu from 'components/menu';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 
@@ -226,15 +225,13 @@ const SidebarCategoryMenu = ({
         trackEvent('ui', 'ui_sidebar_category_menu_viewCategory');
     }, [dispatch, unreadsIds]);
 
-    const markAsReadMenuItem = showUnreadsCategory ?
-        null :
-        (
-            <MarkAsReadMenuItem
-                id={category.id}
-                handleViewCategory={handleViewCategory}
-                numChannels={unreadsIds.length}
-            />
-        );
+    const markAsReadMenuItem = showUnreadsCategory ? null : (
+        <MarkAsReadMenuItem
+            id={category.id}
+            handleViewCategory={handleViewCategory}
+            numChannels={unreadsIds.length}
+        />
+    );
 
     return (
         <SidebarCategoryGenericMenu id={category.id}>

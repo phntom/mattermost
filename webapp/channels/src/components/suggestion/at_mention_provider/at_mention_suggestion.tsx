@@ -4,6 +4,8 @@
 import React from 'react';
 import type {ReactNode} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import {Constants} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -16,9 +18,6 @@ import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
 import Tag from 'components/widgets/tag/tag';
 import Avatar from 'components/widgets/users/avatar';
-
-import {Constants} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import {SuggestionContainer} from '../suggestion';
 import type {SuggestionProps} from '../suggestion';

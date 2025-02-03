@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {Group} from '@mattermost/types/groups';
@@ -10,8 +11,6 @@ import type {Group} from '@mattermost/types/groups';
 import AddGroupsToChannelModal from 'components/add_groups_to_channel_modal';
 import ToggleModalButton from 'components/toggle_modal_button';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import GroupList from '../../group';
 
@@ -33,13 +32,18 @@ export const ChannelGroups: React.FunctionComponent<ChannelGroupsProps> = (props
         <AdminPanel
             id='channel_groups'
             title={
-                synced ?
-                    defineMessage({id: 'admin.channel_settings.channel_detail.syncedGroupsTitle', defaultMessage: 'Synced Groups'}) :
-                    defineMessage({id: 'admin.channel_settings.channel_detail.groupsTitle', defaultMessage: 'Groups'})}
+                synced ? defineMessage({
+                    id: 'admin.channel_settings.channel_detail.syncedGroupsTitle',
+                    defaultMessage: 'Synced Groups'
+                }) : defineMessage({id: 'admin.channel_settings.channel_detail.groupsTitle', defaultMessage: 'Groups'})}
             subtitle={
-                synced ?
-                    defineMessage({id: 'admin.channel_settings.channel_detail.syncedGroupsDescription', defaultMessage: 'Add and remove channel members based on their group membership.'}) :
-                    defineMessage({id: 'admin.channel_settings.channel_detail.groupsDescription', defaultMessage: 'Select groups to be added to this channel.'})}
+                synced ? defineMessage({
+                    id: 'admin.channel_settings.channel_detail.syncedGroupsDescription',
+                    defaultMessage: 'Add and remove channel members based on their group membership.'
+                }) : defineMessage({
+                    id: 'admin.channel_settings.channel_detail.groupsDescription',
+                    defaultMessage: 'Select groups to be added to this channel.'
+                })}
             button={
                 <ToggleModalButton
                     id='addGroupsToChannelToggle'

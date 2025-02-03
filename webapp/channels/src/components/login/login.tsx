@@ -8,6 +8,12 @@ import type {FormEvent} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, useLocation, useHistory, Route} from 'react-router-dom';
+import Constants from 'utils/constants';
+import DesktopApp from 'utils/desktop_api';
+import {t} from 'utils/i18n';
+import {showNotification} from 'utils/notifications';
+import {isDesktopApp} from 'utils/user_agent';
+import {setCSRFFromCookie} from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -29,6 +35,7 @@ import AlertBanner from 'components/alert_banner';
 import type {ModeType, AlertBannerProps} from 'components/alert_banner';
 import type {SubmitOptions} from 'components/claim/components/email_to_ldap';
 import WomanWithChatsSVG from 'components/common/svg_images_components/woman_with_chats_svg';
+import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';
 import ExternalLoginButton from 'components/external_login_button/external_login_button';
@@ -41,18 +48,11 @@ import Markdown from 'components/markdown';
 import SaveButton from 'components/save_button';
 import EntraIdIcon from 'components/widgets/icons/entra_id_icon';
 import LockIcon from 'components/widgets/icons/lock_icon';
-import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
+import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
-import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
+import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
-
-import Constants from 'utils/constants';
-import DesktopApp from 'utils/desktop_api';
-import {t} from 'utils/i18n';
-import {showNotification} from 'utils/notifications';
-import {isDesktopApp} from 'utils/user_agent';
-import {setCSRFFromCookie} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 
@@ -89,10 +89,6 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
         EnableOpenServer,
         EnableUserCreation,
         LdapLoginFieldName,
-        GitLabButtonText,
-        GitLabButtonColor,
-        OpenIdButtonText,
-        OpenIdButtonColor,
         SamlLoginButtonText,
         EnableCustomBrand,
         CustomBrandText,
@@ -157,18 +153,6 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             return externalLoginOptions;
         }
 
-        if (enableSignUpWithGitLab) {
-            const url = `${Client4.getOAuthRoute()}/gitlab/login${search}`;
-            externalLoginOptions.push({
-                id: 'gitlab',
-                url,
-                icon: <LoginGitlabIcon/>,
-                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
-                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
-                onClick: desktopExternalAuth(url),
-            });
-        }
-
         if (enableSignUpWithGoogle) {
             const url = `${Client4.getOAuthRoute()}/google/login${search}`;
             externalLoginOptions.push({
@@ -176,7 +160,30 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 url,
                 icon: <LoginGoogleIcon/>,
                 label: formatMessage({id: 'login.google', defaultMessage: 'Google'}),
+                style: {color: '#444', borderColor: '#4285F4'},
                 onClick: desktopExternalAuth(url),
+            });
+        }
+
+        if (enableSignUpWithOpenId) {
+            const url = `${Client4.getOAuthRoute()}/github/login${search}`;
+            externalLoginOptions.push({
+                id: 'github',
+                url,
+                icon: <LoginGitHubIcon/>,
+                label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
+                style: {color: '#171515', borderColor: '#24292e'},
+                onClick: desktopExternalAuth(url),
+            });
+
+            const url2 = `${Client4.getOAuthRoute()}/linkedin/login${search}`;
+            externalLoginOptions.push({
+                id: 'linkedin',
+                url: url2,
+                icon: <LoginLinkedInIcon/>,
+                label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
+                style: {color: '#0073b1', borderColor: '#0084bf'},
+                onClick: desktopExternalAuth(url2),
             });
         }
 
@@ -187,18 +194,6 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 url,
                 icon: <EntraIdIcon/>,
                 label: formatMessage({id: 'login.office365', defaultMessage: 'Entra ID'}),
-                onClick: desktopExternalAuth(url),
-            });
-        }
-
-        if (enableSignUpWithOpenId) {
-            const url = `${Client4.getOAuthRoute()}/openid/login${search}`;
-            externalLoginOptions.push({
-                id: 'openid',
-                url,
-                icon: <LoginOpenIDIcon/>,
-                label: OpenIdButtonText || formatMessage({id: 'login.openid', defaultMessage: 'Open ID'}),
-                style: {color: OpenIdButtonColor, borderColor: OpenIdButtonColor},
                 onClick: desktopExternalAuth(url),
             });
         }
@@ -924,6 +919,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             <div className='login-body-content'>
                 {getContent()}
             </div>
+            <CookieConsent/>
         </div>
     );
 };

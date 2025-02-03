@@ -4,14 +4,13 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from '@mattermost/types/store';
 
 import {patchChannel} from 'mattermost-redux/actions/channels';
 import {createSelector} from 'mattermost-redux/selectors/create_selector';
 import {getTeam} from 'mattermost-redux/selectors/entities/teams';
-
-import {getSiteURL} from 'utils/url';
 
 import RenameChannelModal from './rename_channel_modal';
 

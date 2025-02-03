@@ -2,13 +2,12 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import BotDefaultIcon from 'images/bot_default_icon.png';
 import React, {memo} from 'react';
 import type {HTMLAttributes, SyntheticEvent} from 'react';
 import {useIntl} from 'react-intl';
 
 import {Client4} from 'mattermost-redux/client';
-
-import BotDefaultIcon from 'images/bot_default_icon.png';
 
 import './avatar.scss';
 

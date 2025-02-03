@@ -4,6 +4,7 @@
 import React, {useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {Constants, ModalIdentifiers} from 'utils/constants';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
@@ -15,8 +16,6 @@ import LeaveChannelModal from 'components/leave_channel_modal';
 import DropdownIcon from 'components/widgets/icons/fa_dropdown_icon';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
-
-import {Constants, ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

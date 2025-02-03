@@ -1,14 +1,14 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {ActionTypes} from 'utils/constants';
+
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserReportOptions, UserReport, UserReportFilter} from '@mattermost/types/reports';
 
 import {logError} from 'mattermost-redux/actions/errors';
 import {forceLogoutIfNecessary} from 'mattermost-redux/actions/helpers';
 import {Client4} from 'mattermost-redux/client';
-
-import {ActionTypes} from 'utils/constants';
 
 import type {ActionFuncAsync} from 'types/store';
 import type {AdminConsoleUserManagementTableProperties} from 'types/store/views';

@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {renderWithContext, userEvent, screen, waitFor} from 'tests/react_testing_utils';
 import * as utilsNotifications from 'utils/notifications';
 

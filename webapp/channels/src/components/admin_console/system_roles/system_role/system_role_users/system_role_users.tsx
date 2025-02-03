@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {Role} from '@mattermost/types/roles';
 import type {UserProfile, UsersStats, GetFilteredUsersStatsOpts} from '@mattermost/types/users';
@@ -15,8 +16,6 @@ import UserGridRemove from 'components/admin_console/user_grid/user_grid_remove'
 import ToggleModalButton from 'components/toggle_modal_button';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
 import Tag from 'components/widgets/tag/tag';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import AddUsersToRoleModal from '../add_users_to_role_modal';
 

@@ -5,13 +5,12 @@ import classNames from 'classnames';
 import React, {useState, useEffect} from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {useIntl} from 'react-intl';
+import {ItemStatus} from 'utils/constants';
+import {formatAsString} from 'utils/i18n';
 
 import {CloseCircleIcon} from '@mattermost/compass-icons/components';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {ItemStatus} from 'utils/constants';
-import {formatAsString} from 'utils/i18n';
 
 import './input.scss';
 

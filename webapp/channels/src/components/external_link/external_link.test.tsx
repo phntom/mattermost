@@ -4,11 +4,10 @@
 import {mount} from 'enzyme';
 import React from 'react';
 import {Provider} from 'react-redux';
-
-import type {DeepPartial} from '@mattermost/types/utilities';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import mockStore from 'tests/test_store';
+
+import type {DeepPartial} from '@mattermost/types/utilities';
 
 import type {GlobalState} from 'types/store';
 

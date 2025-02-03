@@ -3,11 +3,10 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
-import SystemAnalytics from 'components/analytics/system_analytics';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import Constants from 'utils/constants';
+
+import SystemAnalytics from 'components/analytics/system_analytics';
 
 const StatTypes = Constants.StatTypes;
 

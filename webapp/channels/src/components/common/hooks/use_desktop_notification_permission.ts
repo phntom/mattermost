@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import {useCallback, useEffect, useState} from 'react';
-
 import type {NotificationPermissionNeverGranted} from 'utils/notifications';
 import {isNotificationAPISupported} from 'utils/notifications';
 import {isDesktopApp} from 'utils/user_agent';

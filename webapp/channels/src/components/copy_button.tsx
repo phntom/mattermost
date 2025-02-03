@@ -4,7 +4,6 @@
 import classNames from 'classnames';
 import React, {useRef, useState} from 'react';
 import {FormattedMessage, defineMessages, useIntl} from 'react-intl';
-
 import {copyToClipboard} from 'utils/utils';
 
 import WithTooltip from './with_tooltip';

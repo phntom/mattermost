@@ -5,12 +5,11 @@ import {createMemoryHistory} from 'history';
 import React from 'react';
 import type {RouteComponentProps} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
+import {renderWithContext, waitFor} from 'tests/react_testing_utils';
 
 import {getFirstAdminSetupComplete as getFirstAdminSetupCompleteAction} from 'mattermost-redux/actions/general';
 
 import * as GlobalActions from 'actions/global_actions';
-
-import {renderWithContext, waitFor} from 'tests/react_testing_utils';
 
 import RootRedirect from './root_redirect';
 import type {Props} from './root_redirect';

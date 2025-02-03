@@ -4,6 +4,7 @@
 import React, {useEffect, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {useQuery} from 'utils/http_utils';
 
 import type {ScheduledPost} from '@mattermost/types/schedule_post';
 import type {UserProfile, UserStatus} from '@mattermost/types/users';
@@ -15,8 +16,6 @@ import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 import AlertBanner from 'components/alert_banner';
 import NoScheduledPostsIllustration from 'components/drafts/scheduled_post_list/empty_scheduled_post_list_illustration';
 import NoResultsIndicator from 'components/no_results_indicator';
-
-import {useQuery} from 'utils/http_utils';
 
 import type {GlobalState} from 'types/store';
 

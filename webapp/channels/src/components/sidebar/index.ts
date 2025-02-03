@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {fetchMyCategories} from 'mattermost-redux/actions/channel_categories';
 import Permissions from 'mattermost-redux/constants/permissions';
@@ -19,8 +20,6 @@ import {getIsRhsOpen, getRhsState} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
 import {isUnreadFilterEnabled} from 'selectors/views/channel_sidebar';
 import {isModalOpen} from 'selectors/views/modals';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

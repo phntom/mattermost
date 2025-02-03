@@ -4,8 +4,16 @@
 /* eslint-disable max-lines */
 
 import React, {PureComponent} from 'react';
-import {defineMessage, defineMessages, FormattedDate, FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import {defineMessage, defineMessages, FormattedDate, FormattedMessage, injectIntl} from 'react-intl';
+import {
+    AcceptedProfileImageTypes,
+    AnnouncementBarMessages,
+    AnnouncementBarTypes,
+    Constants,
+    ValidationErrors,
+} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -18,9 +26,6 @@ import SettingItem from 'components/setting_item';
 import SettingItemMax from 'components/setting_item_max';
 import SettingPicture from 'components/setting_picture';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
-
-import {AnnouncementBarMessages, AnnouncementBarTypes, AcceptedProfileImageTypes, Constants, ValidationErrors} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import SettingDesktopHeader from '../headers/setting_desktop_header';
 import SettingMobileHeader from '../headers/setting_mobile_header';
@@ -796,8 +801,7 @@ export class UserSettingsGeneralTab extends PureComponent<Props, State> {
                 (this.props.user.auth_service === Constants.LDAP_SERVICE &&
                     (this.props.ldapFirstNameAttributeSet || this.props.ldapLastNameAttributeSet)) ||
                 (this.props.user.auth_service === Constants.SAML_SERVICE &&
-                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet)) ||
-                (Constants.OAUTH_SERVICES.includes(this.props.user.auth_service))
+                    (this.props.samlFirstNameAttributeSet || this.props.samlLastNameAttributeSet))
             ) {
                 extraInfo = (
                     <span>

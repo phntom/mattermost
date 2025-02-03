@@ -3,6 +3,7 @@
 
 import type {ReactNode} from 'react';
 import React from 'react';
+import {imageURLForUser} from 'utils/utils';
 
 import {isGuest} from 'mattermost-redux/utils/user_utils';
 
@@ -10,8 +11,6 @@ import ProfilePopover from 'components/profile_popover';
 import SharedUserIndicator from 'components/shared_user_indicator';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
-
-import {imageURLForUser} from 'utils/utils';
 
 import {generateColor} from './utils';
 

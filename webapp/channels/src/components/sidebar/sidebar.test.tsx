@@ -2,16 +2,15 @@
 // See LICENSE.txt for license information.
 
 import {shallow} from 'enzyme';
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
+import {renderWithContext, screen, waitFor} from 'tests/react_testing_utils';
+import Constants, {ModalIdentifiers} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import {Preferences} from 'mattermost-redux/constants';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
-import {renderWithContext, screen, waitFor} from 'tests/react_testing_utils';
-import Constants, {ModalIdentifiers} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
 
 import type {GlobalState} from 'types/store';
 

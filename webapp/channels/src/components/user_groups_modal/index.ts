@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
 
@@ -13,8 +14,6 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
 import {setModalSearchTerm} from 'actions/views/search';
 import {isModalOpen} from 'selectors/views/modals';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

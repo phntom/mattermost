@@ -3,13 +3,12 @@
 
 import React from 'react';
 import {FormattedMessage, injectIntl, type IntlShape} from 'react-intl';
+import {RHSStates} from 'utils/constants';
 
 import KeyboardShortcutSequence, {
     KEYBOARD_SHORTCUTS,
 } from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import WithTooltip from 'components/with_tooltip';
-
-import {RHSStates} from 'utils/constants';
 
 import type {RhsState} from 'types/store/rhs';
 

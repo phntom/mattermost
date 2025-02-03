@@ -3,10 +3,9 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import ImagePreview from 'components/file_preview_modal/image_preview';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/view_image/ImagePreview', () => {
     const fileInfo1 = TestHelper.getFileInfoMock({id: 'file_id', extension: 'm4a', has_preview_image: false});

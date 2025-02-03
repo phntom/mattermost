@@ -98,15 +98,13 @@ function SaveChangesPanel({handleSubmit, handleCancel, handleClose, tabChangeErr
                     className={saveButtonClassName}
                     onClick={handleSubmit}
                 >
-                    {state === 'error' ?
-                        <FormattedMessage
-                            id='saveChangesPanel.tryAgain'
-                            defaultMessage='Try again'
-                        /> :
-                        <FormattedMessage
-                            id='saveChangesPanel.save'
-                            defaultMessage='Save'
-                        />
+                    {state === 'error' ? <FormattedMessage
+                        id='saveChangesPanel.tryAgain'
+                        defaultMessage='Try again'
+                    /> : <FormattedMessage
+                        id='saveChangesPanel.save'
+                        defaultMessage='Save'
+                    />
                     }
                 </button>
             </div>

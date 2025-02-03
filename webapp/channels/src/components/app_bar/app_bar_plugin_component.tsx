@@ -4,6 +4,7 @@
 import classNames from 'classnames';
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
+import {suitePluginIds} from 'utils/constants';
 
 import {getCurrentChannel, getMyCurrentChannelMembership} from 'mattermost-redux/selectors/entities/channels';
 
@@ -11,8 +12,6 @@ import {getActiveRhsComponent} from 'selectors/rhs';
 
 import PluginIcon from 'components/widgets/icons/plugin_icon';
 import WithTooltip from 'components/with_tooltip';
-
-import {suitePluginIds} from 'utils/constants';
 
 import type {PluginComponent, AppBarComponent} from 'types/store/plugins';
 

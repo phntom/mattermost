@@ -3,10 +3,9 @@
 
 import {screen} from '@testing-library/react';
 import React from 'react';
+import {act, renderWithContext} from 'tests/react_testing_utils';
 
 import LatexBlock from 'components/latex_block/latex_block';
-
-import {act, renderWithContext} from 'tests/react_testing_utils';
 
 const actImmediate = () =>
     act(

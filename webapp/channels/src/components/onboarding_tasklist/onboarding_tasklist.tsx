@@ -1,10 +1,12 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import checklistImg from 'images/onboarding-checklist.svg';
 import React, {useRef, useCallback, useEffect, useState} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import styled, {css} from 'styled-components';
+import {Preferences, RecommendedNextStepsLegacy} from 'utils/constants';
 
 import {CloseIcon, PlayIcon, PlaylistCheckIcon} from '@mattermost/compass-icons/components';
 
@@ -31,9 +33,6 @@ import {
 } from 'components/onboarding_tasks';
 import {useHandleOnBoardingTaskTrigger} from 'components/onboarding_tasks/onboarding_tasks_manager';
 import OnBoardingVideoModal from 'components/onboarding_tasks/onboarding_video_modal/onboarding_video_modal';
-
-import checklistImg from 'images/onboarding-checklist.svg';
-import {Preferences, RecommendedNextStepsLegacy} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

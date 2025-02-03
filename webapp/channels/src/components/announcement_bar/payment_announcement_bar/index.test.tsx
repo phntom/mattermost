@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import * as cloudActions from 'mattermost-redux/actions/cloud';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import {CloudProducts} from 'utils/constants';
+
+import * as cloudActions from 'mattermost-redux/actions/cloud';
 
 import PaymentAnnouncementBar from './';
 

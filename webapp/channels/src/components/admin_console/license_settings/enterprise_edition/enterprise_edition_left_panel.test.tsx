@@ -2,20 +2,19 @@
 // See LICENSE.txt for license information.
 
 import moment from 'moment-timezone';
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
 import {Provider} from 'react-redux';
-
-import type {GlobalState} from '@mattermost/types/store';
-import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {General} from 'mattermost-redux/constants';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import mockStore from 'tests/test_store';
 import {OverActiveUserLimits, SelfHostedProducts} from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
+
+import type {GlobalState} from '@mattermost/types/store';
+import type {DeepPartial} from '@mattermost/types/utilities';
+
+import {General} from 'mattermost-redux/constants';
 
 import EnterpriseEditionLeftPanel from './enterprise_edition_left_panel';
 import type {EnterpriseEditionProps} from './enterprise_edition_left_panel';

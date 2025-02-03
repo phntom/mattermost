@@ -124,14 +124,12 @@ const AccessTab = ({closeModal, collapseModal, hasChangeTabError, hasChanges, se
                         </h4>
                     </div>
                     <div className='modal-access-tab-content user-settings'>
-                        {team.group_constrained ?
-                            undefined :
-                            <AllowedDomainsSelect
-                                allowedDomains={allowedDomains}
-                                setAllowedDomains={setAllowedDomains}
-                                setHasChanges={setHasChanges}
-                                setSaveChangesPanelState={setSaveChangesPanelState}
-                            />
+                        {team.group_constrained ? undefined : <AllowedDomainsSelect
+                            allowedDomains={allowedDomains}
+                            setAllowedDomains={setAllowedDomains}
+                            setHasChanges={setHasChanges}
+                            setSaveChangesPanelState={setSaveChangesPanelState}
+                        />
                         }
                         <div className='divider-light'/>
                         <OpenInvite
@@ -140,18 +138,16 @@ const AccessTab = ({closeModal, collapseModal, hasChangeTabError, hasChanges, se
                             setAllowOpenInvite={updateOpenInvite}
                         />
                         <div className='divider-light'/>
-                        {team.group_constrained ?
-                            undefined :
+                        {team.group_constrained ? undefined :
                             <InviteSectionInput regenerateTeamInviteId={actions.regenerateTeamInviteId}/>
                         }
-                        {hasChanges ?
-                            <SaveChangesPanel
-                                handleCancel={handleCancel}
-                                handleSubmit={handleSaveChanges}
-                                handleClose={handleClose}
-                                tabChangeError={hasChangeTabError}
-                                state={saveChangesPanelState}
-                            /> : undefined}
+                        {hasChanges ? <SaveChangesPanel
+                            handleCancel={handleCancel}
+                            handleSubmit={handleSaveChanges}
+                            handleClose={handleClose}
+                            tabChangeError={hasChangeTabError}
+                            state={saveChangesPanelState}
+                        /> : undefined}
                     </div>
                 </>
             }

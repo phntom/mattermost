@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import React, {useCallback, useMemo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -29,8 +30,6 @@ import ResetPasswordModal from 'components/admin_console/reset_password_modal';
 import * as Menu from 'components/menu';
 import SystemPermissionGate from 'components/permissions_gates/system_permission_gate';
 import UserSettingsModal from 'components/user_settings/modal';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

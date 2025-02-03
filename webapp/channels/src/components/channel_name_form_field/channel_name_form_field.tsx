@@ -5,6 +5,9 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import type {IntlShape} from 'react-intl';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import Constants from 'utils/constants';
+import {cleanUpUrlable, getSiteURL, validateChannelUrl} from 'utils/url';
+import {generateSlug} from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -13,10 +16,6 @@ import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
 import Input from 'components/widgets/inputs/input/input';
 import URLInput from 'components/widgets/inputs/url_input/url_input';
-
-import Constants from 'utils/constants';
-import {cleanUpUrlable, getSiteURL, validateChannelUrl} from 'utils/url';
-import {generateSlug} from 'utils/utils';
 
 export type Props = {
     value: string;

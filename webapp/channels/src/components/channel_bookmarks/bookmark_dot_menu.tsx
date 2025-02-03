@@ -4,6 +4,9 @@
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
+import {getSiteURL, shouldOpenInNewTab} from 'utils/url';
+import {copyToClipboard} from 'utils/utils';
 
 import {
     DotsHorizontalIcon,
@@ -24,10 +27,6 @@ import {openModal} from 'actions/views/modals';
 
 import GetPublicModal from 'components/get_public_link_modal';
 import * as Menu from 'components/menu';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {getSiteURL, shouldOpenInNewTab} from 'utils/url';
-import {copyToClipboard} from 'utils/utils';
 
 import BookmarkDeleteModal from './bookmark_delete_modal';
 import ChannelBookmarksCreateModal from './channel_bookmarks_create_modal';

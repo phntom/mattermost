@@ -3,13 +3,12 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {CloudState} from '@mattermost/types/cloud';
 import type {AdminConfig, EnvironmentConfig} from '@mattermost/types/config';
 
 import SchemaText from 'components/admin_console/schema_text';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import SchemaAdminSettings from './schema_admin_settings';
 import type {SchemaAdminSettings as SchemaAdminSettingsClass} from './schema_admin_settings';

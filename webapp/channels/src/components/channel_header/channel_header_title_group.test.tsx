@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import ChannelHeaderTitleGroup from 'components/channel_header/channel_header_title_group';
-
 import {renderWithContext} from 'tests/react_testing_utils';
 import {TestHelper} from 'utils/test_helper';
+
+import ChannelHeaderTitleGroup from 'components/channel_header/channel_header_title_group';
 
 describe('components/ChannelHeaderTitleGroup', () => {
     const channels = {

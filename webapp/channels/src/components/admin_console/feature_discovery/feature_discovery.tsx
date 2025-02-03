@@ -4,6 +4,8 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage} from 'react-intl';
+import {TELEMETRY_CATEGORIES, AboutLinks, LicenseLinks, LicenseSkus} from 'utils/constants';
+import {goToMattermostContactSalesForm} from 'utils/contact_support_sales';
 
 import type {AnalyticsState} from '@mattermost/types/admin';
 import type {CloudCustomer} from '@mattermost/types/cloud';
@@ -17,9 +19,6 @@ import PurchaseLink from 'components/announcement_bar/purchase_link/purchase_lin
 import ExternalLink from 'components/external_link';
 import StartTrialBtn from 'components/learn_more_trial_modal/start_trial_btn';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import {TELEMETRY_CATEGORIES, AboutLinks, LicenseLinks, LicenseSkus} from 'utils/constants';
-import {goToMattermostContactSalesForm} from 'utils/contact_support_sales';
 
 import type {ModalData} from 'types/actions';
 

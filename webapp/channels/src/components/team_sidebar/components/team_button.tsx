@@ -6,14 +6,13 @@ import React, {useCallback, useMemo} from 'react';
 import {Draggable} from 'react-beautiful-dnd';
 import {defineMessages, useIntl} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {Mark} from 'utils/performance_telemetry';
 
 import {mark, trackEvent} from 'actions/telemetry_actions.jsx';
 
 import TeamIcon from 'components/widgets/team_icon/team_icon';
 import {ShortcutKeys} from 'components/with_tooltip/shortcut';
 import WithTooltip from 'components/with_tooltip/with_tooltip_new';
-
-import {Mark} from 'utils/performance_telemetry';
 
 const messages = defineMessages({
     nameUndefined: {

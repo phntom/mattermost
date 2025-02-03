@@ -5,6 +5,7 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {Locations} from 'utils/constants';
 
 import {showChannelOrThreadScheduledPostIndicator} from 'mattermost-redux/selectors/entities/scheduled_posts';
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
@@ -14,8 +15,6 @@ import {
 } from 'components/advanced_text_editor/scheduled_post_indicator/short_scheduled_post_indicator';
 import {SCHEDULED_POST_TIME_RANGES, scheduledPostTimeFormat} from 'components/drafts/panel/panel_header';
 import Timestamp from 'components/timestamp';
-
-import {Locations} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

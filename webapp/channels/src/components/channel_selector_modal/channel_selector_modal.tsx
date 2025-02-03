@@ -5,6 +5,7 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import type {IntlShape} from 'react-intl';
 import {injectIntl, FormattedMessage, defineMessage} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {Channel, ChannelSearchOpts, ChannelWithTeamData} from '@mattermost/types/channels';
 
@@ -12,8 +13,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import MultiSelect from 'components/multiselect/multiselect';
 import type {Value} from 'components/multiselect/multiselect';
-
-import Constants from 'utils/constants';
 
 type ChannelWithTeamDataValue = ChannelWithTeamData & Value;
 

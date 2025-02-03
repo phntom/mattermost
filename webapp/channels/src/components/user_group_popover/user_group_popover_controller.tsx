@@ -16,10 +16,9 @@ import {
 } from '@floating-ui/react';
 import type {ReactNode} from 'react';
 import React, {useCallback, useState} from 'react';
+import {A11yClassNames} from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
-
-import {A11yClassNames} from 'utils/constants';
 
 import {USER_GROUP_POPOVER_CLOSING_DELAY, USER_GROUP_POPOVER_OPENING_DELAY} from './constants';
 import UserGroupPopover from './user_group_popover';

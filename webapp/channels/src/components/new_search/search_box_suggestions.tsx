@@ -1,6 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import ErrorBoundary from 'plugins/pluggable/error_boundary';
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
@@ -11,8 +12,6 @@ import {getSearchPluginSuggestions} from 'selectors/plugins';
 
 import type {ProviderResult} from 'components/suggestion/provider';
 import type {SuggestionProps} from 'components/suggestion/suggestion';
-
-import ErrorBoundary from 'plugins/pluggable/error_boundary';
 
 const SuggestionsHeader = styled.div`
     margin-top: 16px;

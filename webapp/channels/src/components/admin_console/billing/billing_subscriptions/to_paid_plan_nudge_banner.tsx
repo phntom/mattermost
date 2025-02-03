@@ -5,6 +5,7 @@ import moment from 'moment';
 import React, {useEffect} from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {AnnouncementBarTypes, CloudBanners, CloudProducts, Preferences} from 'utils/constants';
 
 import type {GlobalState} from '@mattermost/types/store';
 
@@ -15,8 +16,6 @@ import {getCurrentUser, isCurrentUserSystemAdmin} from 'mattermost-redux/selecto
 
 import AnnouncementBar from 'components/announcement_bar/default_announcement_bar';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
-
-import {AnnouncementBarTypes, CloudBanners, CloudProducts, Preferences} from 'utils/constants';
 
 import './to_paid_plan_nudge_banner.scss';
 

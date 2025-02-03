@@ -4,12 +4,11 @@
 import classNames from 'classnames';
 import React from 'react';
 import type {CSSProperties} from 'react';
-
-import {showMobileSubMenuModal} from 'actions/global_actions';
-
 import Constants from 'utils/constants';
 import * as Keyboard from 'utils/keyboard';
 import * as Utils from 'utils/utils';
+
+import {showMobileSubMenuModal} from 'actions/global_actions';
 
 import type {Menu} from 'types/store/plugins';
 

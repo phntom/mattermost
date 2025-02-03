@@ -5,6 +5,7 @@ import React, {memo} from 'react';
 import {defineMessages, useIntl} from 'react-intl';
 import type {MessageDescriptor} from 'react-intl';
 import styled from 'styled-components';
+import type {MarkdownMode} from 'utils/markdown/apply_markdown';
 
 import {
     FormatBoldIcon,
@@ -25,8 +26,6 @@ import KeyboardShortcutSequence, {
 import type {
     KeyboardShortcutDescriptor} from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import WithTooltip from 'components/with_tooltip';
-
-import type {MarkdownMode} from 'utils/markdown/apply_markdown';
 
 export const IconContainer = styled.button`
     display: flex;

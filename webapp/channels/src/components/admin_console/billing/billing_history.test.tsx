@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import {CloudLinks, HostedCustomerLinks} from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';

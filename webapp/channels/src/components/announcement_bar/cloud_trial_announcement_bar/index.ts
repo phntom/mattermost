@@ -4,6 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {Preferences, TrialPeriodDays} from 'utils/constants';
+import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import {getCloudSubscription} from 'mattermost-redux/actions/cloud';
 import {savePreferences} from 'mattermost-redux/actions/preferences';
@@ -12,9 +14,6 @@ import {makeGetCategory} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUser, isCurrentUserSystemAdmin} from 'mattermost-redux/selectors/entities/users';
 
 import {openModal} from 'actions/views/modals';
-
-import {Preferences, TrialPeriodDays} from 'utils/constants';
-import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

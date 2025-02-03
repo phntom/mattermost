@@ -4,10 +4,9 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {MemoryRouter, Route, useHistory} from 'react-router-dom';
+import {renderWithContext} from 'tests/react_testing_utils';
 
 import {openModal} from 'actions/views/modals';
-
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import QueryParamActionController from './query_param_action_controller';
 

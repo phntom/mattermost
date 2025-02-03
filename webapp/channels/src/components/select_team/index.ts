@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators, compose} from 'redux';
 import type {Dispatch} from 'redux';
+import {isCloudLicense} from 'utils/license_utils';
 
 import {loadRolesIfNeeded} from 'mattermost-redux/actions/roles';
 import {getTeams} from 'mattermost-redux/actions/teams';
@@ -19,8 +20,6 @@ import {isGuest} from 'mattermost-redux/utils/user_utils';
 import {addUserToTeam} from 'actions/team_actions';
 
 import withUseGetUsageDelta from 'components/common/hocs/cloud/with_use_get_usage_deltas';
-
-import {isCloudLicense} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

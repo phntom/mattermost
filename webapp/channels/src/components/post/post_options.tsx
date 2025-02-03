@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import React, {useEffect, useRef, useState} from 'react';
 import type {ReactNode} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {Locations, Constants} from 'utils/constants';
+import {isSystemMessage, fromAutoResponder} from 'utils/post_utils';
 
 import type {Emoji} from '@mattermost/types/emojis';
 import type {Post} from '@mattermost/types/posts';
@@ -18,9 +20,6 @@ import DotMenu from 'components/dot_menu';
 import PostFlagIcon from 'components/post_view/post_flag_icon';
 import PostReaction from 'components/post_view/post_reaction';
 import PostRecentReactions from 'components/post_view/post_recent_reactions';
-
-import {Locations, Constants} from 'utils/constants';
-import {isSystemMessage, fromAutoResponder} from 'utils/post_utils';
 
 import type {PluginComponent} from 'types/store/plugins';
 

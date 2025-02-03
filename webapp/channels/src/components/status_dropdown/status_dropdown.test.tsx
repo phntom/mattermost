@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {fakeDate} from 'tests/helpers/date';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import {CustomStatusDuration} from '@mattermost/types/users';
 import type {UserProfile} from '@mattermost/types/users';
-
-import {fakeDate} from 'tests/helpers/date';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import StatusDropdown from './status_dropdown';
 

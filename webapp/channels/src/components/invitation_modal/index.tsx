@@ -5,6 +5,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {Constants} from 'utils/constants';
+import {getRoleForTrackFlow} from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -26,9 +28,6 @@ import {
 } from 'actions/invite_actions';
 
 import {makeAsyncComponent} from 'components/async_load';
-
-import {Constants} from 'utils/constants';
-import {getRoleForTrackFlow} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

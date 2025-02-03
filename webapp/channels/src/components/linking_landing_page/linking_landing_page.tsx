@@ -1,19 +1,19 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React, {PureComponent} from 'react';
-import {FormattedMessage} from 'react-intl';
-
-import BrowserStore from 'stores/browser_store';
-
-import ExternalLink from 'components/external_link';
-
 import desktopImg from 'images/deep-linking/deeplinking-desktop-img.png';
 import mobileImg from 'images/deep-linking/deeplinking-mobile-img.png';
 import MattermostLogoSvg from 'images/logo.svg';
+import React, {PureComponent} from 'react';
+import {FormattedMessage} from 'react-intl';
 import {LandingPreferenceTypes} from 'utils/constants';
 import * as UserAgent from 'utils/user_agent';
 import * as Utils from 'utils/utils';
+
+import BrowserStore from 'stores/browser_store';
+
+import CookieConsent from 'components/cookie_consent';
+import ExternalLink from 'components/external_link';
 
 type Props = {
     defaultTheme: any;
@@ -459,6 +459,7 @@ export default class LinkingLandingPage extends PureComponent<Props, State> {
                     </div>
                     {this.renderDialogBody()}
                 </div>
+                <CookieConsent/>
             </div>
         );
     }

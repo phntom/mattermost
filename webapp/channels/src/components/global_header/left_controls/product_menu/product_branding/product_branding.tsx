@@ -3,11 +3,10 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import {useCurrentProduct} from 'utils/products';
 
 import Heading from '@mattermost/compass-components/components/heading'; // eslint-disable-line no-restricted-imports
 import glyphMap, {ProductChannelsIcon} from '@mattermost/compass-icons/components';
-
-import {useCurrentProduct} from 'utils/products';
 
 const ProductBrandingContainer = styled.div`
     display: flex;

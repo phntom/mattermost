@@ -5,13 +5,12 @@ import React, {createRef} from 'react';
 import type {ChangeEvent, ClipboardEvent, MouseEvent, RefObject} from 'react';
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape, MessageDescriptor} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
 import {setThemeDefaults} from 'mattermost-redux/utils/theme_utils';
 
 import WithTooltip from 'components/with_tooltip';
-
-import Constants from 'utils/constants';
 
 import ColorChooser from '../color_chooser/color_chooser';
 

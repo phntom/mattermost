@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {defineMessages, FormattedMessage} from 'react-intl';
+import {getHistory} from 'utils/browser_history';
 
 import type {AdminConfig, EnvironmentConfig} from '@mattermost/types/config';
 import type {DeepPartial} from '@mattermost/types/utilities';
@@ -16,8 +17,6 @@ import Card from 'components/card/card';
 import SaveButton from 'components/save_button';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
 import DropdownInputHybrid from 'components/widgets/inputs/dropdown_input_hybrid';
-
-import {getHistory} from 'utils/browser_history';
 
 import './global_policy_form.scss';
 

@@ -4,11 +4,10 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-
-import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
-
 import {ModalIdentifiers} from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
+
+import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
 
 import EditedPostItem from './edited_post_item';
 

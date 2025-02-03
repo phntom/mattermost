@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import Constants from 'utils/constants';
 
 import MenuWrapperAnimation from './menu_wrapper_animation';

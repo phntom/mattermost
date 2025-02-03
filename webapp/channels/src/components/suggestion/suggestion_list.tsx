@@ -5,11 +5,10 @@ import cloneDeep from 'lodash/cloneDeep';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {FormattedMessage} from 'react-intl';
-
-import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
 import {Constants} from 'utils/constants';
 import {isEmptyObject} from 'utils/utils';
+
+import LoadingSpinner from 'components/widgets/loading/loading_spinner';
 
 export interface Props {
     ariaLiveRef?: React.RefObject<HTMLDivElement>;

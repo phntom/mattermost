@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
 
 import {QuickInput} from './quick_input';

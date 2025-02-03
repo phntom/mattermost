@@ -9,6 +9,11 @@ import React, {useEffect, useState, useCallback, useRef} from 'react';
 import type {DayModifiers, DayPickerProps} from 'react-day-picker';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import Constants, {A11yCustomEventTypes} from 'utils/constants';
+import {relativeFormatDate} from 'utils/datetime';
+import {isKeyPressed} from 'utils/keyboard';
+import {getCurrentMomentForTimezone, isBeforeTime} from 'utils/timezone';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 
@@ -22,12 +27,6 @@ import Timestamp from 'components/timestamp';
 import Input from 'components/widgets/inputs/input/input';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
-
-import type {A11yFocusEventDetail} from 'utils/constants';
-import Constants, {A11yCustomEventTypes} from 'utils/constants';
-import {relativeFormatDate} from 'utils/datetime';
-import {isKeyPressed} from 'utils/keyboard';
-import {getCurrentMomentForTimezone, isBeforeTime} from 'utils/timezone';
 
 const CUSTOM_STATUS_TIME_PICKER_INTERVALS_IN_MINUTES = 30;
 

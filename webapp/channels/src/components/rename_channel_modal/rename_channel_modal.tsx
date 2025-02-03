@@ -6,6 +6,10 @@ import type {ChangeEvent, MouseEvent} from 'react';
 import {Modal} from 'react-bootstrap';
 import {defineMessages, FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
+import {getShortenedURL, validateChannelUrl} from 'utils/url';
+import * as Utils from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {ServerError} from '@mattermost/types/errors';
@@ -14,11 +18,6 @@ import type {Team} from '@mattermost/types/teams';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
-import {getShortenedURL, validateChannelUrl} from 'utils/url';
-import * as Utils from 'utils/utils';
 
 const holders = defineMessages({
     maxLength: {

@@ -4,13 +4,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {installApp} from 'actions/marketplace';
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {closeModal} from 'actions/views/modals';
 import {getInstalling, getError} from 'selectors/views/marketplace';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

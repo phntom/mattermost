@@ -5,6 +5,8 @@ import React, {useEffect, useState} from 'react';
 import type {ReactNode} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {AboutLinks, LicenseLinks, Preferences, Unique} from 'utils/constants';
+import {format} from 'utils/markdown';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {getBool as getBoolPreference} from 'mattermost-redux/selectors/entities/preferences';
@@ -15,9 +17,6 @@ import withOpenStartTrialFormModal from 'components/common/hocs/cloud/with_open_
 import type {TelemetryProps} from 'components/common/hooks/useOpenPricingModal';
 import ExternalLink from 'components/external_link';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
-
-import {AboutLinks, LicenseLinks, Preferences, Unique} from 'utils/constants';
-import {format} from 'utils/markdown';
 
 import type {GlobalState} from 'types/store';
 

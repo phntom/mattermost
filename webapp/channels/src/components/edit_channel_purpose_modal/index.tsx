@@ -4,11 +4,10 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import Constants from 'utils/constants';
 
 import {patchChannel} from 'mattermost-redux/actions/channels';
 import {getBool} from 'mattermost-redux/selectors/entities/preferences';
-
-import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

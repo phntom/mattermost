@@ -3,6 +3,8 @@
 
 import {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants from 'utils/constants';
+import {groupsMentionedInText, mentionsMinusSpecialMentionsInText} from 'utils/post_utils';
 
 import {GroupSource} from '@mattermost/types/groups';
 
@@ -16,9 +18,6 @@ import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles'
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 
 import {searchAssociatedGroupsForReference} from 'actions/views/group';
-
-import Constants from 'utils/constants';
-import {groupsMentionedInText, mentionsMinusSpecialMentionsInText} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

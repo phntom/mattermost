@@ -6,6 +6,7 @@ import React, {memo, useEffect, useMemo, useRef} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {NavLink, useRouteMatch} from 'react-router-dom';
+import {SCHEDULED_POST_URL_SUFFIX} from 'utils/constants';
 
 import {fetchTeamScheduledPosts} from 'mattermost-redux/actions/scheduled_posts';
 import {syncedDraftsAreAllowedAndEnabled} from 'mattermost-redux/selectors/entities/preferences';
@@ -20,8 +21,6 @@ import {makeGetDraftsCount} from 'selectors/drafts';
 import DraftsTourTip from 'components/drafts/drafts_link/drafts_tour_tip/drafts_tour_tip';
 import ChannelMentionBadge from 'components/sidebar/sidebar_channel/channel_mention_badge';
 import WithTooltip from 'components/with_tooltip';
-
-import {SCHEDULED_POST_URL_SUFFIX} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

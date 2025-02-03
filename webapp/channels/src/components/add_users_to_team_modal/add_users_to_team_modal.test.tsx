@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
+import {TestHelper} from 'utils/test_helper';
 
 import type {Team} from '@mattermost/types/teams';
 import type {UserProfile} from '@mattermost/types/users';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
-import {TestHelper} from 'utils/test_helper';
 
 import AddUsersToTeamModal from './add_users_to_team_modal';
 import type {AddUsersToTeamModal as AddUsersToTeamModalClass} from './add_users_to_team_modal';

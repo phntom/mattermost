@@ -6,6 +6,7 @@ package web
 import (
 	"bytes"
 	"fmt"
+	"github.com/lpar/gzipped/v2"
 	"html"
 	"net/http"
 	"os"
@@ -22,7 +23,7 @@ import (
 	"github.com/mattermost/mattermost/server/v8/platform/shared/templates"
 )
 
-var robotsTxt = []byte("User-agent: *\nDisallow: /\n")
+var robotsTxt = []byte("User-agent: *\nDisallow: /api\n")
 
 func (w *Web) InitStatic() {
 	if *w.srv.Config().ServiceSettings.WebserverMode != "disabled" {
@@ -35,8 +36,8 @@ func (w *Web) InitStatic() {
 
 		subpath, _ := utils.GetSubpathFromConfig(w.srv.Config())
 
-		staticHandler := staticFilesHandler(http.StripPrefix(path.Join(subpath, "static"), http.FileServer(http.Dir(staticDir))))
-		pluginHandler := staticFilesHandler(http.StripPrefix(path.Join(subpath, "static", "plugins"), http.FileServer(http.Dir(*w.srv.Config().PluginSettings.ClientDirectory))))
+		staticHandler := staticFilesHandler(http.StripPrefix(path.Join(subpath, "static"), gzipped.FileServer(gzipped.Dir(staticDir))))
+		pluginHandler := staticFilesHandler(http.StripPrefix(path.Join(subpath, "static", "plugins"), gzipped.FileServer(gzipped.Dir(*w.srv.Config().PluginSettings.ClientDirectory))))
 
 		if *w.srv.Config().ServiceSettings.WebserverMode == "gzip" {
 			staticHandler = gzhttp.GzipHandler(staticHandler)

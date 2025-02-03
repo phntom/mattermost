@@ -4,16 +4,6 @@
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
-
-import {AlertCircleOutlineIcon, AlertOutlineIcon} from '@mattermost/compass-icons/components';
-import type {Subscription} from '@mattermost/types/cloud';
-import type {PreferenceType} from '@mattermost/types/preferences';
-import type {UserProfile} from '@mattermost/types/users';
-
-import {trackEvent} from 'actions/telemetry_actions';
-
-import PricingModal from 'components/pricing_modal';
-
 import {
     Preferences,
     CloudBanners,
@@ -23,6 +13,15 @@ import {
     TrialPeriodDays,
 } from 'utils/constants';
 import {getLocaleDateFromUTC} from 'utils/utils';
+
+import {AlertCircleOutlineIcon, AlertOutlineIcon} from '@mattermost/compass-icons/components';
+import type {Subscription} from '@mattermost/types/cloud';
+import type {PreferenceType} from '@mattermost/types/preferences';
+import type {UserProfile} from '@mattermost/types/users';
+
+import {trackEvent} from 'actions/telemetry_actions';
+
+import PricingModal from 'components/pricing_modal';
 
 import type {ModalData} from 'types/actions';
 

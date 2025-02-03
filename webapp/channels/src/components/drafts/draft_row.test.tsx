@@ -5,10 +5,9 @@ import {shallow} from 'enzyme';
 import type {ComponentProps} from 'react';
 import React from 'react';
 import {Provider} from 'react-redux';
+import mockStore from 'tests/test_store';
 
 import type {UserProfile, UserStatus} from '@mattermost/types/users';
-
-import mockStore from 'tests/test_store';
 
 import type {PostDraft} from 'types/store/draft';
 

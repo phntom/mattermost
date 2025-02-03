@@ -4,6 +4,7 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import type {RouteComponentProps} from 'react-router-dom';
+import {applyTheme, resetTheme} from 'utils/utils';
 
 import type {CloudState} from '@mattermost/types/cloud';
 import type {AdminConfig, ClientLicense, EnvironmentConfig} from '@mattermost/types/config';
@@ -19,8 +20,6 @@ import BackstageNavbar from 'components/backstage/components/backstage_navbar';
 import DiscardChangesModal from 'components/discard_changes_modal';
 import ModalController from 'components/modal_controller';
 import SystemNotice from 'components/system_notice';
-
-import {applyTheme, resetTheme} from 'utils/utils';
 
 import {LhsItemType} from 'types/store/lhs';
 

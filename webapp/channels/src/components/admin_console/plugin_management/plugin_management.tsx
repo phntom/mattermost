@@ -6,6 +6,9 @@ import React from 'react';
 import type {WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, defineMessages, injectIntl} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {appsPluginID} from 'utils/apps';
+import {DeveloperLinks} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {DeepPartial} from '@mattermost/types/utilities';
@@ -16,10 +19,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import ConfirmModal from 'components/confirm_modal';
 import ExternalLink from 'components/external_link';
 import LoadingScreen from 'components/loading_screen';
-
-import {appsPluginID} from 'utils/apps';
-import {DeveloperLinks} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import BooleanSetting from '../boolean_setting';
 import OLDAdminSettings from '../old_admin_settings';

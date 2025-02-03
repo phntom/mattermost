@@ -2,9 +2,14 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import Pluggable from 'plugins/pluggable';
 import React from 'react';
 import type {IntlShape} from 'react-intl';
 import {FormattedMessage, injectIntl} from 'react-intl';
+import {createCallContext} from 'utils/apps';
+import {Constants, Locations, ModalIdentifiers} from 'utils/constants';
+import * as PostUtils from 'utils/post_utils';
+import * as Utils from 'utils/utils';
 
 import type {AppBinding} from '@mattermost/types/apps';
 import type {Post} from '@mattermost/types/posts';
@@ -19,12 +24,6 @@ import MarketplaceModal from 'components/plugin_marketplace/marketplace_modal';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import WithTooltip from 'components/with_tooltip';
-
-import Pluggable from 'plugins/pluggable';
-import {createCallContext} from 'utils/apps';
-import {Constants, Locations, ModalIdentifiers} from 'utils/constants';
-import * as PostUtils from 'utils/post_utils';
-import * as Utils from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 import type {HandleBindingClick, OpenAppsModal, PostEphemeralCallResponseForPost} from 'types/apps';

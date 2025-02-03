@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {suitePluginIds} from 'utils/constants';
 
 import NewChannelWithBoardTourTip from 'components/app_bar/new_channel_with_board_tour_tip';
 import WithTooltip from 'components/with_tooltip';
 import type {ShortcutDefinition} from 'components/with_tooltip/shortcut';
-
-import {suitePluginIds} from 'utils/constants';
 
 type Props = {
 

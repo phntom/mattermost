@@ -5,7 +5,6 @@ import type {ReactWrapper} from 'enzyme';
 import React from 'react';
 import {act} from 'react-dom/test-utils';
 import {Provider} from 'react-redux';
-
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 import mockStore from 'tests/test_store';
 

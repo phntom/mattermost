@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import AtMentionProvider, {type Props} from 'components/suggestion/at_mention_provider/at_mention_provider';
-import AtMentionSuggestion from 'components/suggestion/at_mention_provider/at_mention_suggestion';
-
 import {Constants} from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
+
+import AtMentionProvider, {type Props} from 'components/suggestion/at_mention_provider/at_mention_provider';
+import AtMentionSuggestion from 'components/suggestion/at_mention_provider/at_mention_suggestion';
 
 jest.useFakeTimers();
 

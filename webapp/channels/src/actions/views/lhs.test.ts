@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import type {MockStoreEnhanced} from 'redux-mock-store';
+import mockStore from 'tests/test_store';
+import {ActionTypes} from 'utils/constants';
 
 import {close, open, toggle} from 'actions/views/lhs';
 import configureStore from 'store';
-
-import mockStore from 'tests/test_store';
-import {ActionTypes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

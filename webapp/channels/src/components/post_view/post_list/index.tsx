@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {getLatestPostId} from 'utils/post_utils';
 
 import {markChannelAsRead} from 'mattermost-redux/actions/channels';
 import {RequestStatus} from 'mattermost-redux/constants';
@@ -20,8 +21,6 @@ import {
     loadLatestPosts,
 } from 'actions/views/channel';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import {getLatestPostId} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

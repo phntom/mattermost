@@ -4,6 +4,7 @@
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {DeveloperLinks} from 'utils/constants';
 
 import type {OutgoingOAuthConnection} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -18,8 +19,6 @@ import {loadOutgoingOAuthConnectionsAndProfiles} from 'actions/integration_actio
 
 import BackstageList from 'components/backstage/components/backstage_list';
 import ExternalLink from 'components/external_link';
-
-import {DeveloperLinks} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import {useCallback, useEffect, useRef} from 'react';
+import * as UserAgent from 'utils/user_agent';
 
 import type TextboxClass from 'components/textbox/textbox';
-
-import * as UserAgent from 'utils/user_agent';
 
 const useOrientationHandler = (
     textboxRef: React.RefObject<TextboxClass>,

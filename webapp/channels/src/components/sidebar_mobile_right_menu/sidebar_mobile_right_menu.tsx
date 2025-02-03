@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import React, {memo} from 'react';
 import {Link} from 'react-router-dom';
 import {CSSTransition} from 'react-transition-group';
+import {Constants} from 'utils/constants';
 
 import MainMenu from 'components/main_menu';
-
-import {Constants} from 'utils/constants';
 
 import {TRANSITION_TIMEOUT} from './constant';
 

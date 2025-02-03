@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect, type ConnectedProps} from 'react-redux';
+import {isEnterpriseOrCloudOrSKUStarterFree} from 'utils/license_utils';
 
 import {patchUser, updateMe} from 'mattermost-redux/actions/users';
 import {getSubscriptionProduct} from 'mattermost-redux/selectors/entities/cloud';
@@ -12,8 +13,6 @@ import {
 } from 'mattermost-redux/selectors/entities/preferences';
 
 import {isCallsEnabled, isCallsRingingEnabledOnServer} from 'selectors/calls';
-
-import {isEnterpriseOrCloudOrSKUStarterFree} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

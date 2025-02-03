@@ -4,6 +4,11 @@
 import React, {useEffect} from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {
+    TrialPeriodDays,
+} from 'utils/constants';
+import {useQuery} from 'utils/http_utils';
+import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import type {GlobalState} from '@mattermost/types/store';
 
@@ -20,12 +25,6 @@ import CloudTrialBanner from 'components/admin_console/billing/billing_subscript
 import CloudFetchError from 'components/cloud_fetch_error';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
-
-import {
-    TrialPeriodDays,
-} from 'utils/constants';
-import {useQuery} from 'utils/http_utils';
-import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import ContactSalesCard from './contact_sales_card';
 

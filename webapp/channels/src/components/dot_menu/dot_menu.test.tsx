@@ -2,14 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import type {PostType} from '@mattermost/types/posts';
-import type {DeepPartial} from '@mattermost/types/utilities';
-
 import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 import {fireEvent, renderWithContext, screen} from 'tests/react_testing_utils';
 import {Locations} from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
+
+import type {PostType} from '@mattermost/types/posts';
+import type {DeepPartial} from '@mattermost/types/utilities';
 
 import type {GlobalState} from 'types/store';
 

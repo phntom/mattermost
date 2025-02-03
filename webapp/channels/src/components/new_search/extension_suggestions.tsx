@@ -6,10 +6,9 @@ import React, {useCallback} from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {useIntl, defineMessages} from 'react-intl';
 import styled from 'styled-components';
+import {getCompassIconClassName} from 'utils/utils';
 
 import type {SuggestionProps} from 'components/suggestion/suggestion';
-
-import {getCompassIconClassName} from 'utils/utils';
 
 import type {ExtensionItem} from './extension_suggestions_provider';
 
@@ -110,9 +109,7 @@ SuggestionProps<ExtensionItem>
         onClick(item.value, matchedPretext);
     }, [onClick, item.value, matchedPretext]);
 
-    const labelName = messages[item.type] ?
-        intl.formatMessage(messages[item.type]) :
-        item.type;
+    const labelName = messages[item.type] ? intl.formatMessage(messages[item.type]) : item.type;
 
     return (
         <SearchFileExtensionSuggestionContainer

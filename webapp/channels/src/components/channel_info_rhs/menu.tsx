@@ -4,12 +4,11 @@
 import React, {useEffect, useState} from 'react';
 import {useIntl} from 'react-intl';
 import styled from 'styled-components';
+import {Constants} from 'utils/constants';
 
 import type {Channel, ChannelStats} from '@mattermost/types/channels';
 
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import {Constants} from 'utils/constants';
 
 const MenuItemContainer = styled.div`
     padding: 8px 16px;

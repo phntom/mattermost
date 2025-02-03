@@ -2,13 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
 import {Permissions} from 'mattermost-redux/constants';
 import * as teams from 'mattermost-redux/selectors/entities/teams';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import AddMembersButton from './add_members_button';
 

@@ -1,7 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
+import {renderWithContext, userEvent, screen} from 'tests/react_testing_utils';
+import {StoragePrefixes} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -11,11 +15,6 @@ import {removeDraft, updateDraft} from 'actions/views/drafts';
 
 import type {FileUpload} from 'components/file_upload/file_upload';
 import type Textbox from 'components/textbox/textbox';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
-import {renderWithContext, userEvent, screen} from 'tests/react_testing_utils';
-import {StoragePrefixes} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
 
 import type {PostDraft} from 'types/store/draft';
 

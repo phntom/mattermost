@@ -4,6 +4,9 @@
 import React, {memo} from 'react';
 import {FormattedMessage, FormattedDate, FormattedTime, useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
+import {toUTCUnix} from 'utils/datetime';
+import {getCurrentMomentForTimezone} from 'utils/timezone';
 
 import {ChevronRightIcon, ClockOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Post} from '@mattermost/types/posts';
@@ -14,10 +17,6 @@ import {openModal} from 'actions/views/modals';
 
 import * as Menu from 'components/menu';
 import PostReminderCustomTimePicker from 'components/post_reminder_custom_time_picker_modal';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {toUTCUnix} from 'utils/datetime';
-import {getCurrentMomentForTimezone} from 'utils/timezone';
 
 type Props = {
     userId: string;

@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {WrappedComponentProps} from 'react-intl';
+import {ModalIdentifiers} from 'utils/constants';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 
@@ -13,8 +14,6 @@ import KeyboardShortcutsModal from 'components/keyboard_shortcuts/keyboard_short
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import WithTooltip from 'components/with_tooltip';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {PropsFromRedux} from './index';
 

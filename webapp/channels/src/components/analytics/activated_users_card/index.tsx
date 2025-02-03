@@ -4,12 +4,11 @@
 import classNames from 'classnames';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {calculateOverageUserActivated} from 'utils/overage_team';
 
 import {AlertOutlineIcon} from '@mattermost/compass-icons/components';
 
 import StatisticCount from 'components/analytics/statistic_count';
-
-import {calculateOverageUserActivated} from 'utils/overage_team';
 
 import Title from './title';
 

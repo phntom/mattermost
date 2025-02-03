@@ -3,7 +3,6 @@
 
 import {mount} from 'enzyme';
 import React from 'react';
-
 import {render, screen, userEvent} from 'tests/react_testing_utils';
 import Constants from 'utils/constants';
 

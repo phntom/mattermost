@@ -3,6 +3,8 @@
 
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import {ModalIdentifiers} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Group} from '@mattermost/types/groups';
 
@@ -11,9 +13,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import UpdateUserGroupModal from 'components/update_user_group_modal';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
-
-import {ModalIdentifiers} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 

@@ -2,6 +2,9 @@
 // See LICENSE.txt for license information.
 
 import type {History} from 'history';
+import {joinPrivateChannelPrompt} from 'utils/channel_utils';
+import {Constants} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {GlobalState} from '@mattermost/types/store';
@@ -16,10 +19,6 @@ import * as UserUtils from 'mattermost-redux/utils/user_utils';
 
 import {openDirectChannelToUserId} from 'actions/channel_actions';
 import * as GlobalActions from 'actions/global_actions';
-
-import {joinPrivateChannelPrompt} from 'utils/channel_utils';
-import {Constants} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {ActionFuncAsync} from 'types/store';
 

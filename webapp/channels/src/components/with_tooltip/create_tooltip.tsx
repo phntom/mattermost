@@ -4,10 +4,9 @@
 import React from 'react';
 import type {ComponentProps} from 'react';
 import {type MessageDescriptor} from 'react-intl';
+import {formatAsComponent} from 'utils/i18n';
 
 import RenderEmoji from 'components/emoji/render_emoji';
-
-import {formatAsComponent} from 'utils/i18n';
 
 import {TooltipShortcutSequence, type ShortcutDefinition} from './shortcut';
 import BSTooltip from './tooltip';

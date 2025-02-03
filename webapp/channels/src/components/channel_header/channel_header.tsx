@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import CallButton from 'plugins/call_button';
+import ChannelHeaderPlug from 'plugins/channel_header_plug';
 import React from 'react';
 import type {MouseEvent, ReactNode, RefObject} from 'react';
 // eslint-disable-next-line no-restricted-imports
@@ -9,6 +11,13 @@ import type {OverlayTrigger as BaseOverlayTrigger} from 'react-bootstrap';
 import {Overlay} from 'react-bootstrap';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import {
+    Constants,
+    ModalIdentifiers,
+    NotificationLevels,
+    RHSStates,
+} from 'utils/constants';
+import {handleFormattedTextClick, isEmptyObject} from 'utils/utils';
 
 import type {Channel, ChannelMembership, ChannelNotifyProps} from '@mattermost/types/channels';
 import type {UserCustomStatus, UserProfile} from '@mattermost/types/users';
@@ -24,16 +33,6 @@ import ChannelPermissionGate from 'components/permissions_gates/channel_permissi
 import Timestamp from 'components/timestamp';
 import Popover from 'components/widgets/popover';
 import WithTooltip from 'components/with_tooltip';
-
-import CallButton from 'plugins/call_button';
-import ChannelHeaderPlug from 'plugins/channel_header_plug';
-import {
-    Constants,
-    ModalIdentifiers,
-    NotificationLevels,
-    RHSStates,
-} from 'utils/constants';
-import {handleFormattedTextClick, isEmptyObject} from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 import type {RhsState} from 'types/store/rhs';

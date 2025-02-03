@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import Constants from 'utils/constants';
 
 import type {ChannelType} from '@mattermost/types/channels';
-
-import Constants from 'utils/constants';
 
 type Props = {
     channelType: ChannelType;

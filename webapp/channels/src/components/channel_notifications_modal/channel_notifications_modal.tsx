@@ -5,6 +5,14 @@ import React, {useCallback, useState} from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage, useIntl} from 'react-intl';
 import type {ValueType} from 'react-select';
+import {NotificationLevels, DesktopSound, IgnoreChannelMentions} from 'utils/constants';
+import {
+    convertDesktopSoundNotifyPropFromUserToDesktop,
+    DesktopNotificationSounds,
+    getValueOfNotificationSoundsSelect,
+    stopTryNotificationRing,
+    tryNotificationSound
+} from 'utils/notification_sounds';
 
 import {BellOffOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Channel, ChannelMembership, ChannelNotifyProps} from '@mattermost/types/channels';
@@ -17,9 +25,6 @@ import ModalHeader from 'components/widgets/modals/components/modal_header';
 import ModalSection from 'components/widgets/modals/components/modal_section';
 import RadioSettingItem from 'components/widgets/modals/components/radio_setting_item';
 import type {Option} from 'components/widgets/modals/components/react_select_item';
-
-import {NotificationLevels, DesktopSound, IgnoreChannelMentions} from 'utils/constants';
-import {convertDesktopSoundNotifyPropFromUserToDesktop, DesktopNotificationSounds, getValueOfNotificationSoundsSelect, stopTryNotificationRing, tryNotificationSound} from 'utils/notification_sounds';
 
 import ResetToDefaultButton, {SectionName} from './reset_to_default_button';
 import utils from './utils';

@@ -2,13 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import {TestHelper} from 'utils/test_helper';
 
 import type {Post, PostType} from '@mattermost/types/posts';
 
 import {Posts} from 'mattermost-redux/constants';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import {TestHelper} from 'utils/test_helper';
 
 import type {MessageWillFormatHook} from 'types/store/plugins';
 

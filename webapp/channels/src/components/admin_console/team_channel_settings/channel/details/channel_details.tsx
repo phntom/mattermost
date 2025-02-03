@@ -4,6 +4,8 @@
 import cloneDeep from 'lodash/cloneDeep';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
 
 import type {Channel, ChannelModeration as ChannelPermissions, ChannelModerationPatch} from '@mattermost/types/channels';
 import {SyncableType} from '@mattermost/types/groups';
@@ -21,9 +23,6 @@ import BlockableLink from 'components/admin_console/blockable_link';
 import ConfirmModal from 'components/confirm_modal';
 import FormError from 'components/form_error';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
-
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
 
 import {ChannelGroups} from './channel_groups';
 import ChannelMembers from './channel_members';

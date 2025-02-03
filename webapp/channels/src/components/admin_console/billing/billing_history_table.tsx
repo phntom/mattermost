@@ -4,6 +4,7 @@
 import React, {useState, useEffect} from 'react';
 import {FormattedDate, FormattedMessage, FormattedNumber} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {Invoice} from '@mattermost/types/cloud';
 
@@ -12,8 +13,6 @@ import {Client4} from 'mattermost-redux/client';
 import {openModal} from 'actions/views/modals';
 
 import CloudInvoicePreview from 'components/cloud_invoice_preview';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import InvoiceUserCount from './invoice_user_count';
 

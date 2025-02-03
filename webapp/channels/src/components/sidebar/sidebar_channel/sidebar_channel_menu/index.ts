@@ -3,6 +3,7 @@
 
 import {connect} from 'react-redux';
 import type {ConnectedProps} from 'react-redux';
+import {getSiteURL} from 'utils/url';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -17,8 +18,6 @@ import {isChannelMuted} from 'mattermost-redux/utils/channel_utils';
 import {unmuteChannel, muteChannel} from 'actions/channel_actions';
 import {markMostRecentPostInChannelAsUnread} from 'actions/post_actions';
 import {openModal} from 'actions/views/modals';
-
-import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

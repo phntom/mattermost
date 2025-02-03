@@ -4,6 +4,8 @@
 import debounce from 'lodash/debounce';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import Constants from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Team, TeamSearchOpts} from '@mattermost/types/teams';
 
@@ -12,9 +14,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import DataGrid from 'components/admin_console/data_grid/data_grid';
 import type {Column, Row} from 'components/admin_console/data_grid/data_grid';
 import TeamIcon from 'components/widgets/team_icon/team_icon';
-
-import Constants from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import './team_list.scss';
 

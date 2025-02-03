@@ -3,12 +3,11 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {getDisplayName} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import ConfirmModalRedux from 'components/confirm_modal_redux';
-
-import {getDisplayName} from 'utils/utils';
 
 type Props = {
     user: UserProfile;

@@ -4,7 +4,6 @@
 import React, {useState, useRef, forwardRef, useCallback, useEffect} from 'react';
 import {useIntl} from 'react-intl';
 import styled from 'styled-components';
-
 import Constants from 'utils/constants';
 import * as Keyboard from 'utils/keyboard';
 import {escapeRegex} from 'utils/text_formatting';

@@ -10,6 +10,8 @@ import {VariableSizeList} from 'react-window';
 import type {ListChildComponentProps} from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
 import styled, {css} from 'styled-components';
+import {UserStatuses} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Group} from '@mattermost/types/groups';
 import type {UserProfile} from '@mattermost/types/users';
@@ -24,9 +26,6 @@ import StatusIcon from 'components/status_icon';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
 import Avatar from 'components/widgets/users/avatar';
 import WithTooltip from 'components/with_tooltip';
-
-import {UserStatuses} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

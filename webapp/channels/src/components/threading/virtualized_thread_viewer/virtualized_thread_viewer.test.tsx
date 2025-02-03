@@ -4,14 +4,13 @@
 import {shallow} from 'enzyme';
 import type {ComponentProps} from 'react';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import type {GlobalState} from '@mattermost/types/store';
 import type {UserProfile} from '@mattermost/types/users';
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import {Permissions} from 'mattermost-redux/constants';
-
-import {TestHelper} from 'utils/test_helper';
 
 import VirtualizedThreadViewer from './virtualized_thread_viewer';
 

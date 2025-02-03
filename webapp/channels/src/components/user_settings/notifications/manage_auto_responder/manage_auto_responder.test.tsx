@@ -3,7 +3,6 @@
 
 import React from 'react';
 import type {ComponentProps} from 'react';
-
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import ManageAutoResponder from './manage_auto_responder';

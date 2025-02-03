@@ -3,11 +3,10 @@
 
 import React from 'react';
 import type {ComponentProps} from 'react';
-
-import {Client4} from 'mattermost-redux/client';
-
 import {renderWithContext, waitFor} from 'tests/react_testing_utils';
 import {TestHelper} from 'utils/test_helper';
+
+import {Client4} from 'mattermost-redux/client';
 
 import PostEditHistory from './post_edit_history';
 

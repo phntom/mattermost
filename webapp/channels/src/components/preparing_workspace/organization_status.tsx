@@ -3,12 +3,11 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
-import ExternalLink from 'components/external_link';
-
 import Constants, {DocLinks} from 'utils/constants';
 import {BadUrlReasons} from 'utils/url';
 import type {UrlValidationCheck} from 'utils/url';
+
+import ExternalLink from 'components/external_link';
 
 export const TeamApiError = 'team_api_error';
 

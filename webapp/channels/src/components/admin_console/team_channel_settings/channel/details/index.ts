@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {LicenseSkus} from 'utils/constants';
 
 import type {GlobalState} from '@mattermost/types/store';
 
@@ -35,8 +36,6 @@ import {getScheme} from 'mattermost-redux/selectors/entities/schemes';
 import {getTeam} from 'mattermost-redux/selectors/entities/teams';
 
 import {setNavigationBlocked} from 'actions/admin_actions';
-
-import {LicenseSkus} from 'utils/constants';
 
 import ChannelDetails from './channel_details';
 

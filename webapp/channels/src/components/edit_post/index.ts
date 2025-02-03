@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import Constants, {RHSStates, StoragePrefixes} from 'utils/constants';
 
 import type {ScheduledPost} from '@mattermost/types/schedule_post';
 
@@ -24,8 +25,6 @@ import {scrollPostListToBottom} from 'actions/views/channel';
 import {editPost} from 'actions/views/posts';
 import {getEditingPost} from 'selectors/posts';
 import {getIsRhsOpen, getPostDraft, getRhsState} from 'selectors/rhs';
-
-import Constants, {RHSStates, StoragePrefixes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

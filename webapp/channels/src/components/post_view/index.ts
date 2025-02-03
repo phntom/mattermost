@@ -4,6 +4,7 @@
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import type {RouteComponentProps} from 'react-router-dom';
+import {Constants} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {Team, TeamMembership} from '@mattermost/types/teams';
@@ -13,8 +14,6 @@ import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getUnreadScrollPositionPreference} from 'mattermost-redux/selectors/entities/preferences';
 import {getTeamByName, getTeamMemberships} from 'mattermost-redux/selectors/entities/teams';
 import {getUser} from 'mattermost-redux/selectors/entities/users';
-
-import {Constants} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

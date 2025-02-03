@@ -2,7 +2,11 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import Pluggable from 'plugins/pluggable';
 import React, {lazy} from 'react';
+import Constants, {ModalIdentifiers, RHSStates} from 'utils/constants';
+import {isKeyPressed, cmdOrCtrlPressed} from 'utils/keyboard';
+import {localizeMessage} from 'utils/utils';
 
 import {trackEvent} from 'actions/telemetry_actions';
 
@@ -10,11 +14,6 @@ import {makeAsyncComponent} from 'components/async_load';
 import DataPrefetch from 'components/data_prefetch';
 import ResizableLhs from 'components/resizable_sidebar/resizable_lhs';
 import SidebarHeader from 'components/sidebar/sidebar_header';
-
-import Pluggable from 'plugins/pluggable';
-import Constants, {ModalIdentifiers, RHSStates} from 'utils/constants';
-import {isKeyPressed, cmdOrCtrlPressed} from 'utils/keyboard';
-import {localizeMessage} from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 import type {RhsState} from 'types/store/rhs';

@@ -5,6 +5,7 @@ import moment from 'moment';
 import React, {memo, useCallback, useEffect} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {ScheduledPost} from '@mattermost/types/schedule_post';
@@ -23,8 +24,6 @@ import Action from 'components/drafts/draft_actions/action';
 import DeleteScheduledPostModal
     from 'components/drafts/draft_actions/schedule_post_actions/delete_scheduled_post_modal';
 import SendDraftModal from 'components/drafts/draft_actions/send_draft_modal';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import './style.scss';
 import type {GlobalState} from 'types/store';

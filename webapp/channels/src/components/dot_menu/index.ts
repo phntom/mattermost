@@ -5,6 +5,12 @@ import type {ComponentProps} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {isArchivedChannel} from 'utils/channel_utils';
+import {Locations, Preferences} from 'utils/constants';
+import * as PostUtils from 'utils/post_utils';
+import {matchUserMentionTriggersWithMessageMentions} from 'utils/post_utils';
+import {allAtMentions} from 'utils/text_formatting';
+import {getSiteURL} from 'utils/url';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -30,13 +36,6 @@ import {
 import {openModal} from 'actions/views/modals';
 import {makeCanWrangler} from 'selectors/posts';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import {isArchivedChannel} from 'utils/channel_utils';
-import {Locations, Preferences} from 'utils/constants';
-import * as PostUtils from 'utils/post_utils';
-import {matchUserMentionTriggersWithMessageMentions} from 'utils/post_utils';
-import {allAtMentions} from 'utils/text_formatting';
-import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

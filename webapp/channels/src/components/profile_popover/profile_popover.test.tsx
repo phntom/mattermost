@@ -4,6 +4,9 @@
 import {screen} from '@testing-library/react';
 import type {ComponentProps} from 'react';
 import React from 'react';
+import {renderWithContext} from 'tests/react_testing_utils';
+import {TestHelper} from 'utils/test_helper';
+import {getDirectChannelName} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 import {CustomStatusDuration} from '@mattermost/types/users';
@@ -11,10 +14,6 @@ import type {DeepPartial} from '@mattermost/types/utilities';
 
 import {Client4} from 'mattermost-redux/client';
 import {General, Permissions} from 'mattermost-redux/constants';
-
-import {renderWithContext} from 'tests/react_testing_utils';
-import {TestHelper} from 'utils/test_helper';
-import {getDirectChannelName} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

@@ -6,6 +6,8 @@ import React, {useCallback, useRef, useState, useMemo} from 'react';
 import {FormattedList, FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import type {ValueType} from 'react-select';
+import Constants from 'utils/constants';
+import {getSiteURL} from 'utils/url';
 
 import {GenericModal} from '@mattermost/components';
 import type {Post, PostPreviewMetadata} from '@mattermost/types/posts';
@@ -23,9 +25,6 @@ import {getPermalinkURL} from 'selectors/urls';
 
 import NotificationBox from 'components/notification_box';
 import PostMessagePreview from 'components/post_view/post_message_preview';
-
-import Constants from 'utils/constants';
-import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react';
 import {useIntl} from 'react-intl';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
+import DesktopApp from 'utils/desktop_api';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 
@@ -16,8 +17,6 @@ import KeyboardShortcutSequence, {
 import type {
     KeyboardShortcutDescriptor} from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import WithTooltip from 'components/with_tooltip';
-
-import DesktopApp from 'utils/desktop_api';
 
 const HistoryButtonsContainer = styled.nav`
     display: flex;

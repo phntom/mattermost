@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React, {type ReactNode} from 'react';
-
 import Constants from 'utils/constants';
 
 import './column.scss';

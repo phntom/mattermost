@@ -3,16 +3,15 @@
 
 import classNames from 'classnames';
 import React, {useRef, useMemo, memo, useEffect} from 'react';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import {A11yCustomEventTypes} from 'utils/constants';
+import {getUserOrGroupFromMentionName} from 'utils/post_utils';
 
 import {Client4} from 'mattermost-redux/client';
 import {displayUsername} from 'mattermost-redux/utils/user_utils';
 
 import ProfilePopover from 'components/profile_popover';
 import UserGroupPopover from 'components/user_group_popover';
-
-import type {A11yFocusEventDetail} from 'utils/constants';
-import {A11yCustomEventTypes} from 'utils/constants';
-import {getUserOrGroupFromMentionName} from 'utils/post_utils';
 
 import type {PropsFromRedux} from './index';
 

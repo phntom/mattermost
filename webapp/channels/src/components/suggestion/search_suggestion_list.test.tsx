@@ -3,10 +3,9 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import SearchSuggestionList from 'components/suggestion/search_suggestion_list';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/SearchSuggestionList', () => {
     const baseProps = {

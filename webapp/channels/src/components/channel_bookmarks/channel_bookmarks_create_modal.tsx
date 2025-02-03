@@ -6,6 +6,10 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {FormattedMessage, defineMessages, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
+import Constants from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
+import {isValidUrl, parseLink, removeScheme} from 'utils/url';
+import {generateId} from 'utils/utils';
 
 import {PencilOutlineIcon, CheckIcon} from '@mattermost/compass-icons/components';
 import {GenericModal} from '@mattermost/components';
@@ -24,11 +28,6 @@ import type {FilePreviewInfo} from 'components/file_preview/file_preview';
 import FileProgressPreview from 'components/file_preview/file_progress_preview';
 import Input from 'components/widgets/inputs/input/input';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import Constants from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
-import {isValidUrl, parseLink, removeScheme} from 'utils/url';
-import {generateId} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

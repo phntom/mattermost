@@ -1,11 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import React from 'react';
-import {FormattedMessage, useIntl} from 'react-intl';
-
 import fileOverlayImage from 'images/filesOverlay.png';
 import overlayLogoImage from 'images/logoWhite.png';
+import React from 'react';
+import {FormattedMessage, useIntl} from 'react-intl';
 
 type Props = {
     overlayType: string;

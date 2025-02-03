@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import type {PostType} from '@mattermost/types/posts';
-
 import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 import {TestHelper} from 'utils/test_helper';
+
+import type {PostType} from '@mattermost/types/posts';
 
 import type {PluginComponent} from 'types/store/plugins';
 

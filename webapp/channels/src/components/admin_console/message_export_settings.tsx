@@ -6,13 +6,12 @@ import type {ReactNode} from 'react';
 import type {MessageDescriptor, WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages, injectIntl} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {DocLinks, JobTypes, exportFormats} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {Job} from '@mattermost/types/jobs';
 
 import ExternalLink from 'components/external_link';
-
-import {DocLinks, JobTypes, exportFormats} from 'utils/constants';
 
 import BooleanSetting from './boolean_setting';
 import DropdownSetting from './dropdown_setting';

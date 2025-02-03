@@ -4,13 +4,12 @@
 import React from 'react';
 import {defineMessages, injectIntl} from 'react-intl';
 import type {IntlShape, MessageDescriptor} from 'react-intl';
+import type {TextFormattingOptions} from 'utils/text_formatting';
 
 import {Posts} from 'mattermost-redux/constants';
 import {secureGetFromRecord} from 'mattermost-redux/utils/post_utils';
 
 import Markdown from 'components/markdown';
-
-import type {TextFormattingOptions} from 'utils/text_formatting';
 
 const typeMessage = defineMessages({
     [Posts.POST_TYPES.ADD_TO_CHANNEL]: {

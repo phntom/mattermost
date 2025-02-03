@@ -4,6 +4,7 @@
 import React, {useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {FolderPlusOutlineIcon} from '@mattermost/compass-icons/components';
 
@@ -12,8 +13,6 @@ import {openModal} from 'actions/views/modals';
 
 import EditCategoryModal from 'components/edit_category_modal';
 import * as Menu from 'components/menu';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     id: string;

@@ -4,6 +4,7 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
+import {DocLinks, JobStatuses, JobTypes} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {Job, JobType} from '@mattermost/types/jobs';
@@ -11,8 +12,6 @@ import type {Job, JobType} from '@mattermost/types/jobs';
 import {elasticsearchPurgeIndexes, elasticsearchTest, rebuildChannelsIndex} from 'actions/admin_actions.jsx';
 
 import ExternalLink from 'components/external_link';
-
-import {DocLinks, JobStatuses, JobTypes} from 'utils/constants';
 
 import BooleanSetting from './boolean_setting';
 import JobsTable from './jobs';

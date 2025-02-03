@@ -9,6 +9,10 @@ import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {useRouteMatch} from 'react-router-dom';
+import {A11yCustomEventTypes, Constants, ModalIdentifiers} from 'utils/constants';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
+import {getCurrentMomentForTimezone} from 'utils/timezone';
 
 import {GenericModal} from '@mattermost/components';
 import type {Emoji} from '@mattermost/types/emojis';
@@ -31,11 +35,6 @@ import RenderEmoji from 'components/emoji/render_emoji';
 import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay';
 import QuickInput, {MaxLengthInput} from 'components/quick_input';
 import EmojiIcon from 'components/widgets/icons/emoji_icon';
-
-import {A11yCustomEventTypes, Constants, ModalIdentifiers} from 'utils/constants';
-import type {A11yFocusEventDetail} from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
-import {getCurrentMomentForTimezone} from 'utils/timezone';
 
 import type {GlobalState} from 'types/store';
 

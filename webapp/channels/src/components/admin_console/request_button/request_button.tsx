@@ -176,16 +176,14 @@ export default class RequestButton extends React.PureComponent<Props, State> {
     render() {
         let message = null;
         if (this.state.fail) {
-            const text = typeof this.props.errorMessage === 'string' ?
-                this.props.errorMessage :
-                (
-                    <FormattedMessage
-                        {...this.props.errorMessage}
-                        values={{
-                            error: this.state.fail,
-                        }}
-                    />
-                );
+            const text = typeof this.props.errorMessage === 'string' ? this.props.errorMessage : (
+                <FormattedMessage
+                    {...this.props.errorMessage}
+                    values={{
+                        error: this.state.fail,
+                    }}
+                />
+            );
             message = (
                 <div>
                     <div className='alert alert-warning'>
@@ -195,9 +193,8 @@ export default class RequestButton extends React.PureComponent<Props, State> {
                 </div>
             );
         } else if (this.state.success && this.props.showSuccessMessage) {
-            const text = typeof this.props.successMessage === 'string' ?
-                this.props.successMessage :
-                (<FormattedMessage {...this.props.successMessage}/>);
+            const text = typeof this.props.successMessage === 'string' ? this.props.successMessage : (
+                <FormattedMessage {...this.props.successMessage}/>);
             message = (
                 <div>
                     <div className='alert alert-success'>

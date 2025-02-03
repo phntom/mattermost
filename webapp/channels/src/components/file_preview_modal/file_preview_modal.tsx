@@ -5,6 +5,9 @@ import classNames from 'classnames';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
+import Constants, {FileTypes, ZoomSettings} from 'utils/constants';
+import * as Keyboard from 'utils/keyboard';
+import * as Utils from 'utils/utils';
 
 import type {FileInfo} from '@mattermost/types/files';
 import type {Post} from '@mattermost/types/posts';
@@ -17,10 +20,6 @@ import CodePreview from 'components/code_preview';
 import FileInfoPreview from 'components/file_info_preview';
 import LoadingImagePreview from 'components/loading_image_preview';
 import type {Props as PDFPreviewComponentProps} from 'components/pdf_preview';
-
-import Constants, {FileTypes, ZoomSettings} from 'utils/constants';
-import * as Keyboard from 'utils/keyboard';
-import * as Utils from 'utils/utils';
 
 import type {FilePreviewComponent} from 'types/store/plugins';
 

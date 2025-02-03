@@ -4,6 +4,7 @@
 import React from 'react';
 import type {IntlShape, MessageDescriptor} from 'react-intl';
 import {defineMessage, injectIntl} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 import type {RelationOneToOne} from '@mattermost/types/utilities';
@@ -13,8 +14,6 @@ import {filterProfilesStartingWithTerm} from 'mattermost-redux/utils/user_utils'
 
 import MultiSelect from 'components/multiselect/multiselect';
 import type {Value} from 'components/multiselect/multiselect';
-
-import Constants from 'utils/constants';
 
 import MultiSelectOption from './multiselect_option/multiselect_option';
 

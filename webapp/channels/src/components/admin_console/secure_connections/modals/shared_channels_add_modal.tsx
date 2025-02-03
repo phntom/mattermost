@@ -6,6 +6,8 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
+import {isArchivedChannel} from 'utils/channel_utils';
+import Constants from 'utils/constants';
 
 import {ArchiveOutlineIcon, GlobeIcon, LockIcon} from '@mattermost/compass-icons/components';
 import type IconProps from '@mattermost/compass-icons/components/props';
@@ -18,9 +20,6 @@ import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 
 import SectionNotice from 'components/section_notice';
 import ChannelsInput from 'components/widgets/inputs/channels_input';
-
-import {isArchivedChannel} from 'utils/channel_utils';
-import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

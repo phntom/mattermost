@@ -3,6 +3,8 @@
 
 import React from 'react';
 import {defineMessages} from 'react-intl';
+import {compareEmojis, emojiMatchesSkin} from 'utils/emoji_utils';
+import * as Emoticons from 'utils/emoticons';
 
 import type {Emoji} from '@mattermost/types/emojis';
 
@@ -11,9 +13,6 @@ import {getEmojiImageUrl, isSystemEmoji} from 'mattermost-redux/utils/emoji_util
 
 import {getEmojiMap, getRecentEmojisNames} from 'selectors/emojis';
 import store from 'stores/redux_store';
-
-import {compareEmojis, emojiMatchesSkin} from 'utils/emoji_utils';
-import * as Emoticons from 'utils/emoticons';
 
 import Provider from './provider';
 import type {ResultsCallback} from './provider';

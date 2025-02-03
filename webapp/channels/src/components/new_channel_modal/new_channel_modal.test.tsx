@@ -3,12 +3,6 @@
 
 import React from 'react';
 import {act} from 'react-dom/test-utils';
-
-import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {createChannel} from 'mattermost-redux/actions/channels';
-import Permissions from 'mattermost-redux/constants/permissions';
-
 import {
     renderWithContext,
     screen,
@@ -17,6 +11,11 @@ import {
 } from 'tests/react_testing_utils';
 import {suitePluginIds} from 'utils/constants';
 import {cleanUpUrlable} from 'utils/url';
+
+import type {DeepPartial} from '@mattermost/types/utilities';
+
+import {createChannel} from 'mattermost-redux/actions/channels';
+import Permissions from 'mattermost-redux/constants/permissions';
 
 import type {GlobalState} from 'types/store';
 

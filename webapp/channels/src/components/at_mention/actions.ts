@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {getPotentialMentionsForName} from 'utils/post_utils';
+
 import type {UserProfile} from '@mattermost/types/users';
 
 import {getMissingProfilesByUsernames} from 'mattermost-redux/actions/users';
-
-import {getPotentialMentionsForName} from 'utils/post_utils';
 
 import type {ActionFuncAsync} from 'types/store';
 

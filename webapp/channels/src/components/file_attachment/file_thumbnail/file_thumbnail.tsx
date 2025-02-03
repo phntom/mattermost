@@ -2,13 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React, {memo} from 'react';
-
-import type {FileInfo} from '@mattermost/types/files';
-
-import {getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
-
-import type {FilePreviewInfo} from 'components/file_preview/file_preview';
-
 import Constants, {FileTypes} from 'utils/constants';
 import {getFileTypeFromMime} from 'utils/file_utils';
 import {
@@ -16,6 +9,12 @@ import {
     getIconClassName,
     isGIFImage,
 } from 'utils/utils';
+
+import type {FileInfo} from '@mattermost/types/files';
+
+import {getFileThumbnailUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
+
+import type {FilePreviewInfo} from 'components/file_preview/file_preview';
 
 type FilePreviewInfoLimited = Pick<FilePreviewInfo, 'clientId' | 'name' | 'percent' | 'type'>;
 

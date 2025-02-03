@@ -5,14 +5,13 @@ import classNames from 'classnames';
 import React, {memo, useCallback, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import {A11yCustomEventTypes} from 'utils/constants';
 
 import {favoriteChannel, unfavoriteChannel} from 'mattermost-redux/actions/channels';
 import {getCurrentChannel, isCurrentChannelFavorite} from 'mattermost-redux/selectors/entities/channels';
 
 import WithTooltip from 'components/with_tooltip';
-
-import type {A11yFocusEventDetail} from 'utils/constants';
-import {A11yCustomEventTypes} from 'utils/constants';
 
 const ChannelHeaderTitleFavorite = () => {
     const intl = useIntl();

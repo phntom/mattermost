@@ -4,14 +4,13 @@
 import React, {useCallback} from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage, useIntl} from 'react-intl';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import AddUsersToGroupModal from 'components/add_users_to_group_modal';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

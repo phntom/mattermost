@@ -2,14 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext} from 'tests/react_testing_utils';
+import EmojiMap from 'utils/emoji_map';
+import {TestHelper} from 'utils/test_helper';
 
 import type {TeamType} from '@mattermost/types/teams';
 
 import Markdown from 'components/markdown';
-
-import {renderWithContext} from 'tests/react_testing_utils';
-import EmojiMap from 'utils/emoji_map';
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/Markdown', () => {
     const baseProps = {

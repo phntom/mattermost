@@ -4,10 +4,9 @@
 import React from 'react';
 import type {Popover as BSPopover} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
+import Constants from 'utils/constants';
 
 import Popover from 'components/widgets/popover';
-
-import Constants from 'utils/constants';
 
 import type {UserProfile} from './command_provider/app_command_parser/app_command_parser_dependencies';
 import type {Props} from './suggestion_list';

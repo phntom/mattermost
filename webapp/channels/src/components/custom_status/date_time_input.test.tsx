@@ -5,12 +5,11 @@ import {shallow} from 'enzyme';
 import moment from 'moment-timezone';
 import React from 'react';
 import {Provider} from 'react-redux';
+import mockStore from 'tests/test_store';
 
 import {General} from 'mattermost-redux/constants';
 
 import * as i18Selectors from 'selectors/i18n';
-
-import mockStore from 'tests/test_store';
 
 import DateTimeInput, {getTimeInIntervals} from './date_time_input';
 

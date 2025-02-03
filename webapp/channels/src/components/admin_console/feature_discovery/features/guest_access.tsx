@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {defineMessage} from 'react-intl';
-
 import {LicenseSkus} from 'utils/constants';
 
 import GuestAccessSVG from './images/guest_access_svg';

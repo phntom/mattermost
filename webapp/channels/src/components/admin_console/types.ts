@@ -8,12 +8,11 @@ import type {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     IntlShape,
 } from 'react-intl';
+import type Constants from 'utils/constants';
 
 import type {CloudState, Product} from '@mattermost/types/cloud';
 import type {AdminConfig, ClientLicense} from '@mattermost/types/config';
 import type {JobType} from '@mattermost/types/jobs';
-
-import type Constants from 'utils/constants';
 
 import type ValidationResult from './validation';
 

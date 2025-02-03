@@ -3,10 +3,9 @@
 
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import {requestNotificationPermission} from 'utils/notifications';
 
 import SectionNotice from 'components/section_notice';
-
-import {requestNotificationPermission} from 'utils/notifications';
 
 type Props = {
     onCtaButtonClick: (permission: NotificationPermission) => void;

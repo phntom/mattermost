@@ -21,7 +21,6 @@ import React, {useRef, useState, memo, useMemo, cloneElement, isValidElement} fr
 import type {ReactNode} from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {defineMessage} from 'react-intl';
-
 import {Constants} from 'utils/constants';
 
 import TooltipContent from './tooltip_content';

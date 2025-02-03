@@ -4,6 +4,8 @@
 import React, {useEffect, useRef} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import {A11yCustomEventTypes} from 'utils/constants';
 
 import {getChannelMember} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentTeam, getTeamMember} from 'mattermost-redux/selectors/entities/teams';
@@ -14,9 +16,6 @@ import {getRhsState} from 'selectors/rhs';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
 import Tag from 'components/widgets/tag/tag';
-
-import type {A11yFocusEventDetail} from 'utils/constants';
-import {A11yCustomEventTypes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

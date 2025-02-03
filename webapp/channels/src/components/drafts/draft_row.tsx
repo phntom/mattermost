@@ -6,6 +6,8 @@ import React, {memo, useCallback, useMemo, useEffect, useState, useRef} from 're
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import Constants, {StoragePrefixes} from 'utils/constants';
+import {copyToClipboard} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {FileInfo} from '@mattermost/types/files';
@@ -35,9 +37,6 @@ import ScheduledPostActions from 'components/drafts/draft_actions/schedule_post_
 import PlaceholderScheduledPostsTitle
     from 'components/drafts/placeholder_scheduled_post_title/placeholder_scheduled_posts_title';
 import EditPost from 'components/edit_post';
-
-import Constants, {StoragePrefixes} from 'utils/constants';
-import {copyToClipboard} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

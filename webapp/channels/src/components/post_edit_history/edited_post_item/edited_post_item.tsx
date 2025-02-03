@@ -4,6 +4,8 @@
 import classNames from 'classnames';
 import React, {memo, useCallback, useState} from 'react';
 import {defineMessages, useIntl} from 'react-intl';
+import {ModalIdentifiers} from 'utils/constants';
+import {imageURLForUser} from 'utils/utils';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 import {CheckIcon} from '@mattermost/compass-icons/components';
@@ -20,9 +22,6 @@ import Timestamp, {RelativeRanges} from 'components/timestamp';
 import UserProfileComponent from 'components/user_profile';
 import Avatar from 'components/widgets/users/avatar';
 import WithTooltip from 'components/with_tooltip';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {imageURLForUser} from 'utils/utils';
 
 import RestorePostModal from '../restore_post_modal';
 

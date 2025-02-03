@@ -7,6 +7,7 @@ import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
 import 'pdfjs-dist/build/pdf.worker.min.mjs';
 import type {RenderParameters} from 'pdfjs-dist/types/src/display/api';
 import React from 'react';
+import {getSiteURL} from 'utils/url';
 
 import type {FileInfo} from '@mattermost/types/files';
 
@@ -14,8 +15,6 @@ import {getFileDownloadUrl} from 'mattermost-redux/utils/file_utils';
 
 import FileInfoPreview from 'components/file_info_preview';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import {getSiteURL} from 'utils/url';
 
 const INITIAL_RENDERED_PAGES = 3;
 

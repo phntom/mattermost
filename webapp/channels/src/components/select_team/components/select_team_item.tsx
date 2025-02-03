@@ -3,13 +3,12 @@
 
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import * as Utils from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
 import TeamInfoIcon from 'components/widgets/icons/team_info_icon';
 import WithTooltip from 'components/with_tooltip';
-
-import * as Utils from 'utils/utils';
 
 interface Props {
     team: Team;

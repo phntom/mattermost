@@ -3,7 +3,6 @@
 
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage} from 'react-intl';
-
 import {AnnouncementBarTypes} from 'utils/constants';
 
 import AnnouncementBar from '../default_announcement_bar';

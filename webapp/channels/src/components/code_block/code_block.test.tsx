@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {act, renderWithContext, screen} from 'tests/react_testing_utils';
 
 import CodeBlock from './code_block';

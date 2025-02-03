@@ -1,16 +1,15 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import {TestHelper} from 'utils/test_helper';
 
 import type {AppBinding} from '@mattermost/types/apps';
 
 import {Permissions} from 'mattermost-redux/constants';
 import {AppBindingLocations} from 'mattermost-redux/constants/apps';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import {TestHelper} from 'utils/test_helper';
 
 import type {PluginComponent} from 'types/store/plugins';
 

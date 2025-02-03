@@ -4,6 +4,10 @@
 import classNames from 'classnames';
 import React from 'react';
 import type {KeyboardEvent, MouseEvent} from 'react';
+import {FileTypes, ModalIdentifiers} from 'utils/constants';
+import {
+    getFileType,
+} from 'utils/utils';
 
 import type {FileInfo} from '@mattermost/types/files';
 
@@ -11,11 +15,6 @@ import {getFilePreviewUrl, getFileUrl} from 'mattermost-redux/utils/file_utils';
 
 import FilePreviewModal from 'components/file_preview_modal';
 import SizeAwareImage from 'components/size_aware_image';
-
-import {FileTypes, ModalIdentifiers} from 'utils/constants';
-import {
-    getFileType,
-} from 'utils/utils';
 
 import type {PropsFromRedux} from './index';
 

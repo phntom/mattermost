@@ -3,6 +3,7 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import deepFreeze from 'mattermost-redux/utils/deep_freeze';
 
@@ -11,8 +12,6 @@ import EmailIcon from 'components/widgets/icons/mail_icon';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
 import Avatar from 'components/widgets/users/avatar';
-
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import ResultTable from './result_table';
 import type {Props} from './result_table';

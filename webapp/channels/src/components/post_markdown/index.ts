@@ -2,6 +2,10 @@
 // See LICENSE.txt for license information.
 
 import {type ConnectedProps, connect} from 'react-redux';
+import {canManageMembers} from 'utils/channel_utils';
+import {Preferences} from 'utils/constants';
+import {isEnterpriseOrCloudOrSKUStarterFree} from 'utils/license_utils';
+import type {MentionKey} from 'utils/text_formatting';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {Post} from '@mattermost/types/posts';
@@ -18,11 +22,6 @@ import {getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 import {getCurrentTimezone} from 'mattermost-redux/selectors/entities/timezone';
 import {getCurrentUserMentionKeys, getHighlightWithoutNotificationKeys} from 'mattermost-redux/selectors/entities/users';
-
-import {canManageMembers} from 'utils/channel_utils';
-import {Preferences} from 'utils/constants';
-import {isEnterpriseOrCloudOrSKUStarterFree} from 'utils/license_utils';
-import type {MentionKey} from 'utils/text_formatting';
 
 import type {GlobalState} from 'types/store';
 

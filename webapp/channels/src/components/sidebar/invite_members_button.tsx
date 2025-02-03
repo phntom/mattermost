@@ -4,6 +4,7 @@
 import React from 'react';
 import {useIntl, FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {Permissions} from 'mattermost-redux/constants';
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
@@ -14,8 +15,6 @@ import InvitationModal from 'components/invitation_modal';
 import {getAnalyticsCategory} from 'components/onboarding_tasks';
 import TeamPermissionGate from 'components/permissions_gates/team_permission_gate';
 import ToggleModalButton from 'components/toggle_modal_button';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     className?: string;

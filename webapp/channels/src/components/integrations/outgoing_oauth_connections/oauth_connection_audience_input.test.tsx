@@ -6,16 +6,16 @@ import React from 'react';
 import {createIntl} from 'react-intl';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
+import mockStore from 'tests/test_store';
+import {TestHelper} from 'utils/test_helper';
 
 import type {OutgoingOAuthConnection} from '@mattermost/types/integrations';
 
 import {Permissions} from 'mattermost-redux/constants';
 
-import OAuthConnectionAudienceInput from 'components/integrations/outgoing_oauth_connections/oauth_connection_audience_input';
-
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
-import mockStore from 'tests/test_store';
-import {TestHelper} from 'utils/test_helper';
+import OAuthConnectionAudienceInput
+    from 'components/integrations/outgoing_oauth_connections/oauth_connection_audience_input';
 
 jest.unmock('react-intl');
 

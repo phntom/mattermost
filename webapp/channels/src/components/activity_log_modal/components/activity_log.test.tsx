@@ -4,12 +4,11 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {TestHelper} from 'utils/test_helper';
 
 import {General} from 'mattermost-redux/constants';
 
 import ActivityLog from 'components/activity_log_modal/components/activity_log';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/activity_log_modal/ActivityLog', () => {
     const baseProps = {

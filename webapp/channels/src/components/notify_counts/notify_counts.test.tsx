@@ -3,10 +3,9 @@
 
 import {mount} from 'enzyme';
 import React from 'react';
+import {mockStore} from 'tests/test_store';
 
 import * as ChannelSelectors from 'mattermost-redux/selectors/entities/channels';
-
-import {mockStore} from 'tests/test_store';
 
 import NotifyCounts from './';
 

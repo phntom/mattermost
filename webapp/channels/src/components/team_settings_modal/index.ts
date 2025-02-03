@@ -2,14 +2,13 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {Permissions} from 'mattermost-redux/constants';
 import {haveITeamPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 
 import {isModalOpen} from 'selectors/views/modals';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

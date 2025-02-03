@@ -4,6 +4,7 @@
 import classNames from 'classnames';
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import {Constants} from 'utils/constants';
 
 import type {ChannelType} from '@mattermost/types/channels';
 
@@ -12,8 +13,6 @@ import GlobeCircleSolidIcon from 'components/widgets/icons/globe_circle_solid_ic
 import LockCircleSolidIcon from 'components/widgets/icons/lock_circle_solid_icon';
 import UpgradeBadge from 'components/widgets/icons/upgrade_badge_icon';
 import WithTooltip from 'components/with_tooltip';
-
-import {Constants} from 'utils/constants';
 
 import './public-private-selector.scss';
 

@@ -4,15 +4,14 @@
 import classNames from 'classnames';
 import React, {useRef, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import {ClaimErrors} from 'utils/constants';
+import {isValidPassword} from 'utils/password';
 
 import type {AuthChangeResponse} from '@mattermost/types/users';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import LoginMfa from 'components/login/login_mfa';
-
-import {ClaimErrors} from 'utils/constants';
-import {isValidPassword} from 'utils/password';
 
 import type {SubmitOptions} from './email_to_ldap';
 import ErrorLabel from './error_label';

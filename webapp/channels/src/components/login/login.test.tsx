@@ -2,17 +2,16 @@
 // See LICENSE.txt for license information.
 
 import {createMemoryHistory} from 'history';
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
+import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
+import Constants, {WindowSizes} from 'utils/constants';
 
 import {RequestStatus} from 'mattermost-redux/constants';
 
 import LocalStorageStore from 'stores/local_storage_store';
 
 import Login from 'components/login/login';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
-import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
-import Constants, {WindowSizes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

@@ -3,13 +3,12 @@
 
 import React from 'react';
 import type {match} from 'react-router-dom';
+import {screen, renderWithContext} from 'tests/react_testing_utils';
 
 import type {CloudState} from '@mattermost/types/cloud';
 import type {PluginSettings} from '@mattermost/types/config';
 
 import CustomPluginSettings from 'components/admin_console/custom_plugin_settings';
-
-import {screen, renderWithContext} from 'tests/react_testing_utils';
 
 describe('custom plugin sections and settings', () => {
     const plugin = {

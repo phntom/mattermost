@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {defineMessage} from 'react-intl';
-
 import {LicenseSkus} from 'utils/constants';
 
 import SystemRolesSVG from './images/system_roles_svg';

@@ -4,6 +4,7 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {TestHelper} from 'utils/test_helper';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {OutgoingWebhook} from '@mattermost/types/integrations';
@@ -12,8 +13,6 @@ import type {UserProfile} from '@mattermost/types/users';
 
 import DeleteIntegrationLink from 'components/integrations/delete_integration_link';
 import InstalledOutgoingWebhook, {matchesFilter} from 'components/integrations/installed_outgoing_webhook';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/InstalledOutgoingWebhook', () => {
     const team: Team = TestHelper.getTeamMock({

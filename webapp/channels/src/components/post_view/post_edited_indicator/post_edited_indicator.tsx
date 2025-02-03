@@ -4,14 +4,13 @@
 import React from 'react';
 import type {MouseEvent} from 'react';
 import {useIntl} from 'react-intl';
+import {isSameDay, isWithinLastWeek, isYesterday} from 'utils/datetime';
 
 import {PencilOutlineIcon} from '@mattermost/compass-icons/components';
 
 import {getDateForTimezone} from 'mattermost-redux/utils/timezone_utils';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {isSameDay, isWithinLastWeek, isYesterday} from 'utils/datetime';
 
 import type {Props} from './index';
 

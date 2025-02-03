@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import React from 'react';
 import {defineMessages} from 'react-intl';
 import {connect, useSelector} from 'react-redux';
+import {Constants, StoragePrefixes} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {PreferenceType} from '@mattermost/types/preferences';
@@ -57,9 +59,6 @@ import ProfilePicture from 'components/profile_picture';
 import SharedChannelIndicator from 'components/shared_channel_indicator';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
-
-import {Constants, StoragePrefixes} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import FailedPostOptions from 'components/post_view/failed_post_options/failed_post_options';
-
 import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
 import {TestHelper} from 'utils/test_helper';
+
+import FailedPostOptions from 'components/post_view/failed_post_options/failed_post_options';
 
 describe('components/post_view/FailedPostOptions', () => {
     const baseProps = {

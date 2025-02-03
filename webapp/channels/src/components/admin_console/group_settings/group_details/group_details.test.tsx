@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {ChannelWithTeamData} from '@mattermost/types/channels';
 import type {Group, GroupChannel, GroupTeam} from '@mattermost/types/groups';
@@ -9,8 +10,6 @@ import type {Team} from '@mattermost/types/teams';
 import type {UserProfile} from '@mattermost/types/users';
 
 import GroupDetails from 'components/admin_console/group_settings/group_details/group_details';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 function getAnyInstance(wrapper: any) {
     return wrapper.instance() as any;

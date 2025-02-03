@@ -17,11 +17,10 @@ import {
 import classNames from 'classnames';
 import type {HtmlHTMLAttributes, ReactNode} from 'react';
 import React, {useCallback, useState} from 'react';
+import {A11yClassNames} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
-
-import {A11yClassNames} from 'utils/constants';
 
 import ProfilePopover from './profile_popover';
 

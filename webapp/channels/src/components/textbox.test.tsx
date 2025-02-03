@@ -3,10 +3,9 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import Textbox, {type Props} from 'components/textbox/textbox';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/TextBox', () => {
     const baseProps: Props = {

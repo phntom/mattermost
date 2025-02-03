@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {emptyLimits} from 'tests/constants/cloud';
 import {emptyTeams} from 'tests/constants/teams';
 import {adminUsersState, endUsersState} from 'tests/constants/users';

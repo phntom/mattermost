@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
+import Constants from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -10,8 +11,6 @@ import {getAllChannels, getChannelsWithUserProfiles} from 'mattermost-redux/sele
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import {getUserIdFromChannelName} from 'mattermost-redux/utils/channel_utils';
 import {filterProfilesStartingWithTerm} from 'mattermost-redux/utils/user_utils';
-
-import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

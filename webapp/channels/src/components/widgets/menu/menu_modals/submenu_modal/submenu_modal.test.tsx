@@ -5,7 +5,6 @@ import {fireEvent, waitForElementToBeRemoved} from '@testing-library/react';
 import {shallow} from 'enzyme';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
-
 import {withIntl} from 'tests/helpers/intl-test-helper';
 import {render, screen, userEvent} from 'tests/react_testing_utils';
 

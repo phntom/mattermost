@@ -1,10 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import Constants from 'utils/constants';
+
 import type {ResultsCallback} from 'components/suggestion/provider';
 import Provider from 'components/suggestion/provider';
-
-import Constants from 'utils/constants';
 
 import SearchFileExtensionSuggestion from './extension_suggestions';
 

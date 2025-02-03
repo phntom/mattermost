@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {renderHookWithContext} from 'tests/react_testing_utils';
+
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import useTimePostBoxIndicator from 'components/advanced_text_editor/use_post_box_indicator';
-
-import {renderHookWithContext} from 'tests/react_testing_utils';
 
 import type {GlobalState} from 'types/store';
 

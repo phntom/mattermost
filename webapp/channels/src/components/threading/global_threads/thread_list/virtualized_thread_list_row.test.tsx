@@ -4,7 +4,6 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-
 import {Constants} from 'utils/constants';
 
 import Row from './virtualized_thread_list_row';

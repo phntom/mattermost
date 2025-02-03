@@ -7,6 +7,8 @@ import type {DraggableProvided} from 'react-beautiful-dnd';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import styled, {css} from 'styled-components';
+import {ModalIdentifiers} from 'utils/constants';
+import {getSiteURL, shouldOpenInNewTab} from 'utils/url';
 
 import type {ChannelBookmark} from '@mattermost/types/channel_bookmarks';
 import type {FileInfo} from '@mattermost/types/files';
@@ -19,9 +21,6 @@ import {openModal} from 'actions/views/modals';
 
 import ExternalLink from 'components/external_link';
 import FilePreviewModal from 'components/file_preview_modal';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {getSiteURL, shouldOpenInNewTab} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

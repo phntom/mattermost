@@ -5,15 +5,14 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {matchPath} from 'react-router-dom';
+import {getHistory} from 'utils/browser_history';
+import * as UserAgent from 'utils/user_agent';
 
 import type {Post} from '@mattermost/types/posts';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import SectionNotice from 'components/section_notice';
-
-import {getHistory} from 'utils/browser_history';
-import * as UserAgent from 'utils/user_agent';
 
 const urlFormatForDMGMPermalink = '/:teamName/messages/:username/:postid';
 const urlFormatForChannelPermalink = '/:teamName/channels/:channelname/:postid';

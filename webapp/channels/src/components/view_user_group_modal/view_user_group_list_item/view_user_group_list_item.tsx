@@ -3,6 +3,8 @@
 
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
+import {UserStatuses} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import {GroupSource} from '@mattermost/types/groups';
 import type {Group} from '@mattermost/types/groups';
@@ -13,9 +15,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import StatusIcon from 'components/status_icon';
 import Avatar from 'components/widgets/users/avatar';
-
-import {UserStatuses} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

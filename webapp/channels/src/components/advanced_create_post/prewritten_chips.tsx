@@ -5,6 +5,7 @@ import React, {useMemo, memo} from 'react';
 import {defineMessage, useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
+import Constants from 'utils/constants';
 
 import {getChannel, getDirectTeammate} from 'mattermost-redux/selectors/entities/channels';
 import {getUser} from 'mattermost-redux/selectors/entities/users';
@@ -12,8 +13,6 @@ import {getUser} from 'mattermost-redux/selectors/entities/users';
 import {trackEvent} from 'actions/telemetry_actions';
 
 import Chip from 'components/common/chip/chip';
-
-import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

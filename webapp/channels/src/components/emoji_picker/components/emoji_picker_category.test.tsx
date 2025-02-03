@@ -3,10 +3,9 @@
 
 import {act, screen} from '@testing-library/react';
 import React from 'react';
+import {renderWithContext, userEvent} from 'tests/react_testing_utils';
 
 import type {Category} from 'components/emoji_picker/types';
-
-import {renderWithContext, userEvent} from 'tests/react_testing_utils';
 
 import EmojiPickerCategory from './emoji_picker_category';
 import type {Props} from './emoji_picker_category';

@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {defineMessage, FormattedMessage} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {Role} from '@mattermost/types/roles';
 
@@ -10,8 +11,6 @@ import {memoizeResult} from 'mattermost-redux/utils/helpers';
 
 import ExternalLink from 'components/external_link';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
-
-import Constants from 'utils/constants';
 
 import SystemRolePermission from './system_role_permission';
 import type {PermissionsToUpdate, PermissionToUpdate, SystemSection} from './types';

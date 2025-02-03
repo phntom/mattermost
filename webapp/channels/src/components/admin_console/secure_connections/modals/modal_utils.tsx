@@ -3,6 +3,8 @@
 
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
+import {cleanUpUrlable} from 'utils/url';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {StatusOK} from '@mattermost/types/client4';
@@ -13,9 +15,6 @@ import type {PartialExcept} from '@mattermost/types/utilities';
 import {Client4} from 'mattermost-redux/client';
 
 import {openModal} from 'actions/views/modals';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {cleanUpUrlable} from 'utils/url';
 
 import SecureConnectionAcceptInviteModal from './secure_connection_accept_invite_modal';
 import SecureConnectionCreateInviteModal from './secure_connection_create_invite_modal';

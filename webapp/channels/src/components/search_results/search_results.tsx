@@ -6,6 +6,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import {useIntl, FormattedMessage, defineMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {searchHintOptions, DataSearchTypes} from 'utils/constants';
+import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 import type {FileSearchResultItem as FileSearchResultItemType} from '@mattermost/types/files';
 import type {Post} from '@mattermost/types/posts';
@@ -21,9 +23,6 @@ import {NoResultsVariant} from 'components/no_results_indicator/types';
 import SearchHint from 'components/search_hint/search_hint';
 import SearchResultsHeader from 'components/search_results_header';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
-
-import {searchHintOptions, DataSearchTypes} from 'utils/constants';
-import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 import FilesFilterMenu from './files_filter_menu';
 import MessageOrFileSelector from './messages_or_files_selector';

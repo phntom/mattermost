@@ -3,14 +3,13 @@
 
 import memoize from 'memoize-one';
 import React from 'react';
+import {isChannelNamesMap, type TextFormattingOptions} from 'utils/text_formatting';
 
 import type {Post} from '@mattermost/types/posts';
 
 import {Posts} from 'mattermost-redux/constants';
 
 import Markdown from 'components/markdown';
-
-import {isChannelNamesMap, type TextFormattingOptions} from 'utils/text_formatting';
 
 import {renderReminderSystemBotMessage, renderSystemMessage, renderWranglerSystemMessage} from './system_message_helpers';
 

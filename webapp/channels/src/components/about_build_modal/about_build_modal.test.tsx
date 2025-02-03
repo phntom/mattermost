@@ -2,13 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
+import {AboutLinks} from 'utils/constants';
 
 import type {ClientConfig, ClientLicense} from '@mattermost/types/config';
 
 import AboutBuildModal from 'components/about_build_modal/about_build_modal';
-
-import {renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
-import {AboutLinks} from 'utils/constants';
 
 import AboutBuildModalCloud from './about_build_modal_cloud/about_build_modal_cloud';
 

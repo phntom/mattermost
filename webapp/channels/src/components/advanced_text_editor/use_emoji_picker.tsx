@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import React, {useCallback, useRef, useState} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {splitMessageBasedOnCaretPosition} from 'utils/post_utils';
 
 import {EmoticonHappyOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Emoji} from '@mattermost/types/emojis';
@@ -16,8 +17,6 @@ import useDidUpdate from 'components/common/hooks/useDidUpdate';
 import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay';
 import KeyboardShortcutSequence, {KEYBOARD_SHORTCUTS} from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import WithTooltip from 'components/with_tooltip';
-
-import {splitMessageBasedOnCaretPosition} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

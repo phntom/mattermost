@@ -5,14 +5,13 @@ import classNames from 'classnames';
 import React from 'react';
 import {defineMessages, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import Constants from 'utils/constants';
+import * as Keyboard from 'utils/keyboard';
 
 import {trackEvent} from 'actions/telemetry_actions';
 
 import WithTooltip from 'components/with_tooltip';
 import {ShortcutKeys} from 'components/with_tooltip/shortcut';
-
-import Constants from 'utils/constants';
-import * as Keyboard from 'utils/keyboard';
 
 const messages = defineMessages({
     disableTooltip: {

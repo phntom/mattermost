@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import isEmpty from 'lodash/isEmpty';
+import {initializeProducts} from 'plugins/products';
 import type {ConnectedProps} from 'react-redux';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
@@ -26,8 +27,6 @@ import {
     getRhsState,
 } from 'selectors/rhs';
 import LocalStorageStore from 'stores/local_storage_store';
-
-import {initializeProducts} from 'plugins/products';
 
 import type {GlobalState} from 'types/store/index';
 

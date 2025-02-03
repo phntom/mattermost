@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
 import {renderWithContext, fireEvent, screen} from 'tests/react_testing_utils';
 
 import ToggleFormattingBar from './toggle_formatting_bar';

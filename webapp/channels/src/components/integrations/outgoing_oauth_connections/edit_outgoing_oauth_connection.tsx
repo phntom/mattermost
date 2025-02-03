@@ -4,6 +4,7 @@
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {getHistory} from 'utils/browser_history';
 
 import type {OutgoingOAuthConnection} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -14,8 +15,6 @@ import {getOutgoingOAuthConnections} from 'mattermost-redux/selectors/entities/i
 
 import ConfirmModal from 'components/confirm_modal';
 import LoadingScreen from 'components/loading_screen';
-
-import {getHistory} from 'utils/browser_history';
 
 import AbstractOutgoingOAuthConnection from './abstract_outgoing_oauth_connection';
 

@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React, {memo} from 'react';
+import {Locations} from 'utils/constants';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -13,8 +14,6 @@ import DateSeparator from 'components/post_view/date_separator';
 import NewMessageSeparator from 'components/post_view/new_message_separator/new_message_separator';
 import RootPostDivider from 'components/root_post_divider/root_post_divider';
 import type {Props as TimestampProps} from 'components/timestamp/timestamp';
-
-import {Locations} from 'utils/constants';
 
 import type {PluginComponent} from 'types/store/plugins';
 

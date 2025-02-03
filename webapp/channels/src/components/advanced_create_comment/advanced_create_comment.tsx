@@ -4,12 +4,11 @@
 /* eslint-disable max-lines */
 
 import React from 'react';
+import {Locations} from 'utils/constants';
 
 import type {SubmitPostReturnType} from 'actions/views/create_comment';
 
 import AdvancedTextEditor from 'components/advanced_text_editor/advanced_text_editor';
-
-import {Locations} from 'utils/constants';
 
 export type Props = {
 

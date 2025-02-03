@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import React, {memo} from 'react';
+import {getImageSrc} from 'utils/post_utils';
 
 import type {PostImage} from '@mattermost/types/posts';
-
-import {getImageSrc} from 'utils/post_utils';
 
 import {isSVGImage} from './is_svg_image';
 

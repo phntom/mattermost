@@ -5,6 +5,8 @@ import React from 'react';
 import type {ChangeEvent} from 'react';
 import {defineMessage, FormattedMessage, type MessageDescriptor} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {Constants, DeveloperLinks} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Command} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -14,9 +16,6 @@ import ExternalLink from 'components/external_link';
 import FormError from 'components/form_error';
 import LocalizedPlaceholderInput from 'components/localized_placeholder_input';
 import SpinnerButton from 'components/spinner_button';
-
-import {Constants, DeveloperLinks} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import OAuthConnectionAudienceInput from './outgoing_oauth_connections/oauth_connection_audience_input';
 

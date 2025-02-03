@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {ModalIdentifiers} from 'utils/constants';
+import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 import {
     updateChannelNotifyProps,
@@ -41,9 +43,6 @@ import {getIsRhsOpen, getRhsState} from 'selectors/rhs';
 import {getAnnouncementBarCount} from 'selectors/views/announcement_bar';
 import {makeGetCustomStatus, isCustomStatusEnabled, isCustomStatusExpired} from 'selectors/views/custom_status';
 import {isModalOpen} from 'selectors/views/modals';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 import type {GlobalState} from 'types/store';
 

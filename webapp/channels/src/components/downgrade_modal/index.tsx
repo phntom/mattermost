@@ -4,6 +4,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {closeModal} from 'actions/views/modals';
 
@@ -14,8 +15,6 @@ import RootPortal from 'components/root_portal';
 import FullScreenModal from 'components/widgets/modals/full_screen_modal';
 
 import 'components/payment_form/payment_form.scss';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import './index.scss';
 

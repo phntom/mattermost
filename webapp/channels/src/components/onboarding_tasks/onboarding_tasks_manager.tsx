@@ -5,6 +5,7 @@ import React, {useCallback, useMemo} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {matchPath, useLocation} from 'react-router-dom';
+import {ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
@@ -38,8 +39,6 @@ import {
     TTNameMapToATStatusKey,
     TutorialTourName,
 } from 'components/tours';
-
-import {ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

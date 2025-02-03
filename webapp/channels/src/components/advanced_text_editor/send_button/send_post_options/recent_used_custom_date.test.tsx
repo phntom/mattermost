@@ -3,11 +3,10 @@
 
 import {DateTime} from 'luxon';
 import React from 'react';
-
-import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
-
 import {renderWithContext, fireEvent, screen} from 'tests/react_testing_utils';
 import {scheduledPosts} from 'utils/constants';
+
+import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
 
 import RecentUsedCustomDate from './recent_used_custom_date';
 

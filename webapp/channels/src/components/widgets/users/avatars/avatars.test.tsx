@@ -16,9 +16,9 @@ jest.mock('mattermost-redux/actions/users', () => {
     };
 });
 
-import WithTooltip from 'components/with_tooltip';
-
 import {mockStore} from 'tests/test_store';
+
+import WithTooltip from 'components/with_tooltip';
 
 import Avatars from './avatars';
 

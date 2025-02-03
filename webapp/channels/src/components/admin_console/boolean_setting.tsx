@@ -4,7 +4,6 @@
 import React, {useCallback, useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
 import styled from 'styled-components';
-
 import * as Utils from 'utils/utils';
 
 import Setting from './setting';

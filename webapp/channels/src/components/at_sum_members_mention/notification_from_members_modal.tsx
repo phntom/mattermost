@@ -6,6 +6,8 @@ import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
+import {ModalIdentifiers} from 'utils/constants';
+import {mapFeatureIdToTranslation} from 'utils/notify_admin_utils';
 
 import {GenericModal} from '@mattermost/components';
 import type {ChannelMembership} from '@mattermost/types/channels';
@@ -23,9 +25,6 @@ import {closeModal} from 'actions/views/modals';
 import {isModalOpen} from 'selectors/views/modals';
 
 import MemberList from 'components/channel_members_rhs/member_list';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {mapFeatureIdToTranslation} from 'utils/notify_admin_utils';
 
 import type {GlobalState} from 'types/store';
 

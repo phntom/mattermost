@@ -3,14 +3,13 @@
 
 import React from 'react';
 import * as redux from 'react-redux';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import {Constants} from 'utils/constants';
+import {FileSizes} from 'utils/file_utils';
 
 import type {Subscription} from '@mattermost/types/cloud';
 import type {GlobalState} from '@mattermost/types/store';
 import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import {Constants} from 'utils/constants';
-import {FileSizes} from 'utils/file_utils';
 
 import CloudUsageModal from './index';
 import type {Props} from './index';

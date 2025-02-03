@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {batchActions} from 'redux-batched-actions';
+import {ActionTypes, Threads} from 'utils/constants';
 
 import {updateThreadRead} from 'mattermost-redux/actions/threads';
 import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
@@ -9,8 +10,6 @@ import {getThread} from 'mattermost-redux/selectors/entities/threads';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
 import {isThreadManuallyUnread, isThreadOpen} from 'selectors/views/threads';
-
-import {ActionTypes, Threads} from 'utils/constants';
 
 import type {ThunkActionFunc} from 'types/store';
 

@@ -6,6 +6,7 @@ import type {ReactNode} from 'react';
 import React, {memo, useState, useRef, useEffect} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {Constants} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -21,8 +22,6 @@ import ArchiveIcon from 'components/widgets/icons/archive_icon';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import BotTag from 'components/widgets/tag/bot_tag';
 import WithTooltip from 'components/with_tooltip';
-
-import {Constants} from 'utils/constants';
 
 import ChannelHeaderTitleDirect from './channel_header_title_direct';
 import ChannelHeaderTitleFavorite from './channel_header_title_favorite';

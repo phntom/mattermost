@@ -3,11 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import BackstageList from 'components/backstage/components/backstage_list';
 import InstalledOAuthApps from 'components/integrations/installed_oauth_apps/installed_oauth_apps';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/InstalledOAuthApps', () => {
     const oauthApps = {

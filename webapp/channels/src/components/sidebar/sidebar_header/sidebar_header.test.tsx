@@ -3,11 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-
-import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
-
 import {CloudProducts} from 'utils/constants';
 import {FileSizes} from 'utils/file_utils';
+
+import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 
 import SidebarHeader from './sidebar_header';
 import type {Props} from './sidebar_header';

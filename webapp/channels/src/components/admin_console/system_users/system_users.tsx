@@ -7,6 +7,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useIntl, FormattedMessage, defineMessages} from 'react-intl';
 import type {MessageDescriptor} from 'react-intl';
 import {useHistory} from 'react-router-dom';
+import {getDisplayName, imageURLForUser} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import {CursorPaginationDirection} from '@mattermost/types/reports';
@@ -19,8 +20,6 @@ import type {TableMeta} from 'components/admin_console/list_table';
 import AlertBanner from 'components/alert_banner';
 import SharedUserIndicator from 'components/shared_user_indicator';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
-
-import {getDisplayName, imageURLForUser} from 'utils/utils';
 
 import type {AdminConsoleUserManagementTableProperties} from 'types/store/views';
 

@@ -6,6 +6,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
@@ -16,8 +17,6 @@ import AlertBanner from 'components/alert_banner';
 import ChannelInviteModal from 'components/channel_invite_modal';
 import ExternalLink from 'components/external_link';
 import MoreDirectChannels from 'components/more_direct_channels';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

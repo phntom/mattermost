@@ -4,11 +4,10 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {RHSStates} from 'utils/constants';
 
 import {closeRightHandSide, showChannelInfo} from 'actions/views/rhs';
 import {getIsRhsOpen, getRhsState} from 'selectors/rhs';
-
-import {RHSStates} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

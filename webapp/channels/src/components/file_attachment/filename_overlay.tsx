@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {trimFilename} from 'utils/file_utils';
+import {localizeMessage} from 'utils/utils';
 
 import type {FileInfo} from '@mattermost/types/files';
 
@@ -10,9 +12,6 @@ import {getFileDownloadUrl} from 'mattermost-redux/utils/file_utils';
 import ExternalLink from 'components/external_link';
 import AttachmentIcon from 'components/widgets/icons/attachment_icon';
 import WithTooltip from 'components/with_tooltip';
-
-import {trimFilename} from 'utils/file_utils';
-import {localizeMessage} from 'utils/utils';
 
 type Props = {
 

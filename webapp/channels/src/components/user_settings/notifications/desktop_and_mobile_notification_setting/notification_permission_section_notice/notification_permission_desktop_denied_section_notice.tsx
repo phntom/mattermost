@@ -3,10 +3,9 @@
 
 import React, {useCallback, useState} from 'react';
 import {useIntl} from 'react-intl';
+import {NotificationPermissionDenied} from 'utils/notifications';
 
 import SectionNotice from 'components/section_notice';
-
-import {NotificationPermissionDenied} from 'utils/notifications';
 
 interface Props {
     requestDesktopNotificationPermission: () => Promise<NotificationPermission>;

@@ -3,14 +3,13 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import CustomStatusModal from 'components/custom_status/custom_status_modal';
 import WithTooltip from 'components/with_tooltip';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

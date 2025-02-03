@@ -7,6 +7,8 @@ import React from 'react';
 import type {ReactNode} from 'react';
 import {injectIntl, FormattedDate, FormattedMessage, FormattedTime, defineMessage, defineMessages} from 'react-intl';
 import type {IntlShape, MessageDescriptor} from 'react-intl';
+import {ModalIdentifiers, UserStatuses} from 'utils/constants';
+import {getBrowserTimezone, getCurrentDateTimeForTimezone, getCurrentMomentForTimezone} from 'utils/timezone';
 
 import StatusIcon from '@mattermost/compass-components/components/status-icon'; // eslint-disable-line no-restricted-imports
 import Text from '@mattermost/compass-components/components/text'; // eslint-disable-line no-restricted-imports
@@ -33,9 +35,6 @@ import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import Avatar from 'components/widgets/users/avatar/avatar';
 import type {TAvatarSizeToken} from 'components/widgets/users/avatar/avatar';
 import WithTooltip from 'components/with_tooltip';
-
-import {ModalIdentifiers, UserStatuses} from 'utils/constants';
-import {getBrowserTimezone, getCurrentDateTimeForTimezone, getCurrentMomentForTimezone} from 'utils/timezone';
 
 import type {ModalData} from 'types/actions';
 import type {Menu as MenuType} from 'types/store/plugins';

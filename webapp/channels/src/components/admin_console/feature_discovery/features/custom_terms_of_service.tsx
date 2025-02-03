@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {defineMessage} from 'react-intl';
-
 import {LicenseSkus} from 'utils/constants';
 
 import CustomTermsOfServiceSVG from './images/custom_terms_of_service_svg';

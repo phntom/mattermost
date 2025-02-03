@@ -3,6 +3,9 @@
 
 import type {AnyAction} from 'redux';
 import {batchActions} from 'redux-batched-actions';
+import {getHistory} from 'utils/browser_history';
+import {isArchivedChannel} from 'utils/channel_utils';
+import {Constants, ActionTypes, EventTypes, PostRequestTypes} from 'utils/constants';
 
 import type {UserAutocomplete} from '@mattermost/types/autocomplete';
 import type {Channel} from '@mattermost/types/channels';
@@ -55,10 +58,6 @@ import {getLastPostsApiTimeForChannel} from 'selectors/views/channel';
 import {getSelectedThreadIdInCurrentTeam} from 'selectors/views/threads';
 import {getSocketStatus} from 'selectors/views/websocket';
 import LocalStorageStore from 'stores/local_storage_store';
-
-import {getHistory} from 'utils/browser_history';
-import {isArchivedChannel} from 'utils/channel_utils';
-import {Constants, ActionTypes, EventTypes, PostRequestTypes} from 'utils/constants';
 
 import type {ActionFuncAsync, ThunkActionFunc} from 'types/store';
 

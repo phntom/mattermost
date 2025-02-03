@@ -4,15 +4,14 @@
 import classNames from 'classnames';
 import React, {useState, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import Constants, {ClaimErrors} from 'utils/constants';
+import {toTitleCase} from 'utils/utils';
 
 import type {AuthChangeResponse} from '@mattermost/types/users';
 
 import {emailToOAuth} from 'actions/admin_actions.jsx';
 
 import LoginMfa from 'components/login/login_mfa';
-
-import Constants, {ClaimErrors} from 'utils/constants';
-import {toTitleCase} from 'utils/utils';
 
 import type {SubmitOptions} from './email_to_ldap';
 import ErrorLabel from './error_label';

@@ -15,7 +15,6 @@ import type {Locale} from 'date-fns';
 import React, {useCallback, useEffect, useState} from 'react';
 import {DayPicker} from 'react-day-picker';
 import type {DayPickerProps} from 'react-day-picker';
-
 import {getDatePickerLocalesForDateFns} from 'utils/utils';
 
 import 'react-day-picker/dist/style.css';

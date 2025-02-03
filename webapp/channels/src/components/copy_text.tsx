@@ -4,10 +4,9 @@
 import type {ReactNode} from 'react';
 import React, {useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {copyToClipboard} from 'utils/utils';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {copyToClipboard} from 'utils/utils';
 
 type Props = {
     value: string;

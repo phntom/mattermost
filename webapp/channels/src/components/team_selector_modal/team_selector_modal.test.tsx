@@ -4,7 +4,6 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {IntlShape} from 'react-intl';
-
 import {TestHelper} from 'utils/test_helper';
 
 import TeamSelectorModal from './team_selector_modal';

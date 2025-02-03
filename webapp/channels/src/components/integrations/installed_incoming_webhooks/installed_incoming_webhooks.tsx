@@ -3,6 +3,8 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {DeveloperLinks} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {IncomingWebhook, IncomingWebhooksWithCount} from '@mattermost/types/integrations';
@@ -15,9 +17,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import BackstageList from 'components/backstage/components/backstage_list';
 import ExternalLink from 'components/external_link';
 import InstalledIncomingWebhook, {matchesFilter} from 'components/integrations/installed_incoming_webhook';
-
-import {DeveloperLinks} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 const PAGE_SIZE = 200;
 

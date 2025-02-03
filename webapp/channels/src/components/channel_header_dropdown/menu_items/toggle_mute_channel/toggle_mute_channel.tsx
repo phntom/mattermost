@@ -3,13 +3,12 @@
 
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import {Constants, NotificationLevels} from 'utils/constants';
 
 import type {Channel, ChannelNotifyProps} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
 
 import Menu from 'components/widgets/menu/menu';
-
-import {Constants, NotificationLevels} from 'utils/constants';
 
 export type Actions = {
     updateChannelNotifyProps(userId: string, channelId: string, props: Partial<ChannelNotifyProps>): void;
@@ -60,13 +59,15 @@ export default function MenuItemToggleMuteChannel({
 
     let text;
     if (channel.type === Constants.DM_CHANNEL || channel.type === Constants.GM_CHANNEL) {
-        text = isMuted ?
-            intl.formatMessage({id: 'channel_header.unmuteConversation', defaultMessage: 'Unmute Conversation'}) :
-            intl.formatMessage({id: 'channel_header.muteConversation', defaultMessage: 'Mute Conversation'});
+        text = isMuted ? intl.formatMessage({
+            id: 'channel_header.unmuteConversation',
+            defaultMessage: 'Unmute Conversation'
+        }) : intl.formatMessage({id: 'channel_header.muteConversation', defaultMessage: 'Mute Conversation'});
     } else {
-        text = isMuted ?
-            intl.formatMessage({id: 'channel_header.unmute', defaultMessage: 'Unmute Channel'}) :
-            intl.formatMessage({id: 'channel_header.mute', defaultMessage: 'Mute Channel'});
+        text = isMuted ? intl.formatMessage({
+            id: 'channel_header.unmute',
+            defaultMessage: 'Unmute Channel'
+        }) : intl.formatMessage({id: 'channel_header.mute', defaultMessage: 'Mute Channel'});
     }
 
     return (

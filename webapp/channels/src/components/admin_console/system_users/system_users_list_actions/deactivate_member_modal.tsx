@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants from 'utils/constants';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -14,8 +15,6 @@ import {getExternalBotAccounts} from 'mattermost-redux/selectors/entities/bots';
 
 import ConfirmModalRedux from 'components/confirm_modal_redux';
 import ExternalLink from 'components/external_link';
-
-import Constants from 'utils/constants';
 
 type Props = {
     user: UserProfile;

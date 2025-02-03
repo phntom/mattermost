@@ -6,6 +6,8 @@ import noop from 'lodash/noop';
 import React, {useEffect, useState} from 'react';
 import {FormattedMessage, defineMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
+import {imageURLForTeam} from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -19,9 +21,6 @@ import PricingModal from 'components/pricing_modal';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
 import TeamIcon from 'components/widgets/team_icon/team_icon';
 import WithTooltip from 'components/with_tooltip';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {imageURLForTeam} from 'utils/utils';
 
 import './team_profile.scss';
 
@@ -53,9 +52,10 @@ export function TeamProfile({team, isArchived, onToggleArchive, isDisabled, save
         return null;//
     }
 
-    const archiveBtn = isArchived ?
-        defineMessage({id: 'admin.team_settings.team_details.unarchiveTeam', defaultMessage: 'Unarchive Team'}) :
-        defineMessage({id: 'admin.team_settings.team_details.archiveTeam', defaultMessage: 'Archive Team'});
+    const archiveBtn = isArchived ? defineMessage({
+        id: 'admin.team_settings.team_details.unarchiveTeam',
+        defaultMessage: 'Unarchive Team'
+    }) : defineMessage({id: 'admin.team_settings.team_details.archiveTeam', defaultMessage: 'Archive Team'});
 
     const toggleArchive = () => {
         setOverrideRestoreDisabled(true);

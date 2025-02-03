@@ -3,10 +3,9 @@
 
 import {screen} from '@testing-library/react';
 import React from 'react';
+import {renderWithContext, userEvent} from 'tests/react_testing_utils';
 
 import AnnouncementBar from 'components/announcement_bar/default_announcement_bar';
-
-import {renderWithContext, userEvent} from 'tests/react_testing_utils';
 
 describe('components/announcement_bar/default_announcement_bar', () => {
     const originalOffsetWidth = Object.getOwnPropertyDescriptor(

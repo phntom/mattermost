@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {getSubscriptionProduct} from 'mattermost-redux/selectors/entities/cloud';
 
@@ -14,8 +15,6 @@ import {useOpenCloudZendeskSupportForm} from 'components/common/hooks/useOpenZen
 import PaymentFailedSvg from 'components/common/svg_images_components/payment_failed_svg';
 import IconMessage from 'components/purchase_modal/icon_message';
 import FullScreenModal from 'components/widgets/modals/full_screen_modal';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import Constants from 'utils/constants';
+import {imageURLForUser} from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -9,9 +11,6 @@ import {getUserIdFromChannelName} from 'mattermost-redux/utils/channel_utils';
 
 import BotTag from 'components/widgets/tag/bot_tag';
 import Avatar from 'components/widgets/users/avatar';
-
-import Constants from 'utils/constants';
-import {imageURLForUser} from 'utils/utils';
 
 import {SuggestionContainer} from '../suggestion';
 import type {SuggestionProps} from '../suggestion';

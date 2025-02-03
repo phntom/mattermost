@@ -2,14 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import type {ChannelMembership} from '@mattermost/types/channels';
-import type {UserNotifyProps} from '@mattermost/types/users';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import {NotificationLevels, DesktopSound} from 'utils/constants';
 import {notificationSoundKeys, convertDesktopSoundNotifyPropFromUserToDesktop} from 'utils/notification_sounds';
 import {TestHelper} from 'utils/test_helper';
+
+import type {ChannelMembership} from '@mattermost/types/channels';
+import type {UserNotifyProps} from '@mattermost/types/users';
 
 import ResetToDefaultButton, {SectionName} from './index';
 import type {Props} from './index';

@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import type {GlobalState} from '@mattermost/types/store';
 import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import PostAttachmentContainer from './post_attachment_container';
 import type {Props} from './post_attachment_container';

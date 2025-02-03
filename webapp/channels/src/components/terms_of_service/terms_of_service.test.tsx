@@ -3,10 +3,9 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import type EmojiMap from 'utils/emoji_map';
 
 import {emitUserLoggedOutEvent} from 'actions/global_actions';
-
-import type EmojiMap from 'utils/emoji_map';
 
 import TermsOfService from './terms_of_service';
 import type {TermsOfServiceProps} from './terms_of_service';

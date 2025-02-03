@@ -9,14 +9,13 @@ import {FormattedMessage} from 'react-intl';
 import ReactSelect, {components} from 'react-select';
 import type {getOptionValue} from 'react-select/src/builtins';
 import type {InputActionMeta} from 'react-select/src/types';
+import {Constants, A11yCustomEventTypes} from 'utils/constants';
+import {formatAsComponent, formatAsString} from 'utils/i18n';
+import {imageURLForUser, getDisplayName} from 'utils/utils';
 
 import SaveButton from 'components/save_button';
 import CloseCircleSolidIcon from 'components/widgets/icons/close_circle_solid_icon';
 import Avatar from 'components/widgets/users/avatar';
-
-import {Constants, A11yCustomEventTypes} from 'utils/constants';
-import {formatAsComponent, formatAsString} from 'utils/i18n';
-import {imageURLForUser, getDisplayName} from 'utils/utils';
 
 import MultiSelectList from './multiselect_list';
 

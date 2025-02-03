@@ -4,6 +4,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {ConsolePages} from 'utils/constants';
 
 import {
     ChartLineIcon,
@@ -19,8 +20,6 @@ import type {GlobalState} from '@mattermost/types/store';
 import {getLicense, getServerVersion} from 'mattermost-redux/selectors/entities/general';
 
 import useOpenSalesLink from 'components/common/hooks/useOpenSalesLink';
-
-import {ConsolePages} from 'utils/constants';
 
 import {ItemStatus} from './dashboard.type';
 import type {DataModel, Options} from './dashboard.type';

@@ -3,12 +3,11 @@
 
 import React from 'react';
 import type {ComponentProps} from 'react';
-
-import * as fileActions from 'mattermost-redux/actions/files';
-
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 import {TestHelper} from 'utils/test_helper';
 import * as Utils from 'utils/utils';
+
+import * as fileActions from 'mattermost-redux/actions/files';
 
 import FilePreviewModalMainActions from './file_preview_modal_main_actions';
 

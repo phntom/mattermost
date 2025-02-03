@@ -4,11 +4,10 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
-import type {UserNotifyProps, UserProfile} from '@mattermost/types/users';
-
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 import {TestHelper} from 'utils/test_helper';
+
+import type {UserNotifyProps, UserProfile} from '@mattermost/types/users';
 
 import ResetPasswordModal from './reset_password_modal';
 

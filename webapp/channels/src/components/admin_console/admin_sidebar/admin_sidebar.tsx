@@ -7,6 +7,9 @@ import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import {generateIndex} from 'utils/admin_console_index';
+import type {Index} from 'utils/admin_console_index';
+import {getHistory} from 'utils/browser_history';
 
 import type {PluginRedux} from '@mattermost/types/plugins';
 
@@ -16,10 +19,6 @@ import AdminSidebarHeader from 'components/admin_console/admin_sidebar_header';
 import SearchKeywordMarking from 'components/admin_console/search_keyword_marking';
 import QuickInput from 'components/quick_input';
 import SearchIcon from 'components/widgets/icons/search_icon';
-
-import {generateIndex} from 'utils/admin_console_index';
-import type {Index} from 'utils/admin_console_index';
-import {getHistory} from 'utils/browser_history';
 
 import type AdminDefinition from '../admin_definition';
 
@@ -209,11 +208,9 @@ class AdminSidebar extends React.PureComponent<Props, State> {
                             name={item.url}
                             restrictedIndicator={item.restrictedIndicator?.shouldDisplay(license, subscriptionProduct) ? item.restrictedIndicator.value(cloud) : undefined}
                             title={
-                                typeof item.title === 'string' ?
-                                    item.title :
-                                    <FormattedMessage
-                                        {...item.title}
-                                    />
+                                typeof item.title === 'string' ? item.title : <FormattedMessage
+                                    {...item.title}
+                                />
                             }
                         />
                     ));
@@ -238,11 +235,9 @@ class AdminSidebar extends React.PureComponent<Props, State> {
                         icon={section.icon}
                         sectionClass=''
                         title={
-                            typeof section.sectionTitle === 'string' ?
-                                section.sectionTitle :
-                                <FormattedMessage
-                                    {...section.sectionTitle}
-                                />
+                            typeof section.sectionTitle === 'string' ? section.sectionTitle : <FormattedMessage
+                                {...section.sectionTitle}
+                            />
                         }
                     >
                         {sidebarItems}

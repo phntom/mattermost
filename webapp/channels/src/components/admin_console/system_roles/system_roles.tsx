@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {getHistory} from 'utils/browser_history';
 
 import type {Role} from '@mattermost/types/roles';
 
@@ -11,8 +12,6 @@ import DataGrid from 'components/admin_console/data_grid/data_grid';
 import type {Row, Column} from 'components/admin_console/data_grid/data_grid';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
-
-import {getHistory} from 'utils/browser_history';
 
 import './system_roles.scss';
 import {rolesStrings} from './strings';

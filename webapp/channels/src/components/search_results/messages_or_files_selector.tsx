@@ -4,15 +4,14 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
+import Constants from 'utils/constants';
+import * as Keyboard from 'utils/keyboard';
 
 import {getMyTeams} from 'mattermost-redux/selectors/entities/teams';
 
 import {getSearchTeam} from 'selectors/rhs';
 
 import type {SearchFilterType} from 'components/search/types';
-
-import Constants from 'utils/constants';
-import * as Keyboard from 'utils/keyboard';
 
 import type {GlobalState} from 'types/store';
 import type {SearchType} from 'types/store/rhs';

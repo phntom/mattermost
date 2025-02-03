@@ -3,11 +3,10 @@
 
 import {useEffect, useRef} from 'react';
 import {useStore} from 'react-redux';
-
-import {Client4} from 'mattermost-redux/client';
-
 import DesktopAppAPI from 'utils/desktop_api';
 import PerformanceReporter from 'utils/performance_telemetry/reporter';
+
+import {Client4} from 'mattermost-redux/client';
 
 export default function PerformanceReporterController() {
     const store = useStore();

@@ -4,7 +4,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {FormattedMessage} from 'react-intl';
 import styled from 'styled-components';
-
 import Constants from 'utils/constants';
 import {isKeyPressed} from 'utils/keyboard';
 

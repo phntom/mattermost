@@ -2,11 +2,21 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import webSocketClient from 'client/web_websocket_client';
 import deepEqual from 'fast-deep-equal';
+import {initializePlugins} from 'plugins';
 import React, {lazy} from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import type {RouteComponentProps} from 'react-router-dom';
+import A11yController from 'utils/a11y_controller';
+import {PageLoadContext, SCHEDULED_POST_URL_SUFFIX} from 'utils/constants';
+import DesktopApp from 'utils/desktop_api';
+import {EmojiIndicesByAlias} from 'utils/emoji';
+import {TEAM_NAME_PATH_PATTERN} from 'utils/path';
+import {getSiteURL} from 'utils/url';
+import {isAndroidWeb, isChromebook, isDesktopApp, isIosWeb} from 'utils/user_agent';
 
+import {applyTheme, isTextDroppableEvent} from 'utils/utils';
 import {ServiceEnvironment} from '@mattermost/types/config';
 
 import {setSystemEmojis} from 'mattermost-redux/actions/emojis';
@@ -29,16 +39,6 @@ import {LAUNCHING_WORKSPACE_FULLSCREEN_Z_INDEX} from 'components/preparing_works
 import {Animations} from 'components/preparing_workspace/steps';
 import SidebarMobileRightMenu from 'components/sidebar_mobile_right_menu';
 
-import webSocketClient from 'client/web_websocket_client';
-import {initializePlugins} from 'plugins';
-import A11yController from 'utils/a11y_controller';
-import {PageLoadContext, SCHEDULED_POST_URL_SUFFIX} from 'utils/constants';
-import DesktopApp from 'utils/desktop_api';
-import {EmojiIndicesByAlias} from 'utils/emoji';
-import {TEAM_NAME_PATH_PATTERN} from 'utils/path';
-import {getSiteURL} from 'utils/url';
-import {isAndroidWeb, isChromebook, isDesktopApp, isIosWeb} from 'utils/user_agent';
-import {applyTheme, isTextDroppableEvent} from 'utils/utils';
 
 import LuxonController from './luxon_controller';
 import PerformanceReporterController from './performance_reporter_controller';

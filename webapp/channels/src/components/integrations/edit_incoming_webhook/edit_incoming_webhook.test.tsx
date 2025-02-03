@@ -3,15 +3,14 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {getHistory} from 'utils/browser_history';
+import {TestHelper} from 'utils/test_helper';
 
 import type {IncomingWebhook} from '@mattermost/types/integrations';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import EditIncomingWebhook from 'components/integrations/edit_incoming_webhook/edit_incoming_webhook';
-
-import {getHistory} from 'utils/browser_history';
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/EditIncomingWebhook', () => {
     const hook = {

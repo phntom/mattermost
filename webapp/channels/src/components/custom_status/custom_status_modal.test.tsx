@@ -1,16 +1,15 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import React from 'react';
 import type {AutoSizerProps} from 'react-virtualized-auto-sizer';
+import {act, renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
+import {TestHelper} from 'utils/test_helper';
 
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import {Preferences} from 'mattermost-redux/constants';
-
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
-import {act, renderWithContext, screen, userEvent} from 'tests/react_testing_utils';
-import {TestHelper} from 'utils/test_helper';
 
 import type {GlobalState} from 'types/store';
 

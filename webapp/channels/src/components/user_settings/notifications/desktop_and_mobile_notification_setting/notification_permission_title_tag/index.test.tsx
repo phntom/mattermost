@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import * as utilsNotifications from 'utils/notifications';
 
 import * as useDesktopAppNotificationPermission from 'components/common/hooks/use_desktop_notification_permission';
 import type {DesktopNotificationPermission} from 'components/common/hooks/use_desktop_notification_permission';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import * as utilsNotifications from 'utils/notifications';
 
 import NotificationPermissionTitleTag from './index';
 

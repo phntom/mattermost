@@ -3,7 +3,6 @@
 
 import React, {useMemo} from 'react';
 import type {ComponentProps} from 'react';
-
 import Constants from 'utils/constants';
 
 import type {CommonTooltipProps} from './create_tooltip';

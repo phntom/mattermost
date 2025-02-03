@@ -3,11 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {MarketplacePlugin} from '@mattermost/types/marketplace';
 import {AuthorType, ReleaseStage} from '@mattermost/types/marketplace';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

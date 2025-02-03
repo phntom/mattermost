@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
+import {getHistory} from 'utils/browser_history';
 
 import type {Command} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -12,8 +13,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import ConfirmModal from 'components/confirm_modal';
 import LoadingScreen from 'components/loading_screen';
-
-import {getHistory} from 'utils/browser_history';
 
 import AbstractCommand from '../abstract_command';
 

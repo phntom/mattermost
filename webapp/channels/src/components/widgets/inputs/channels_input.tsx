@@ -10,6 +10,7 @@ import {components} from 'react-select';
 import type {ValueType, ActionMeta, InputActionMeta} from 'react-select';
 import type {Async} from 'react-select/async';
 import AsyncSelect from 'react-select/async';
+import {Constants} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -18,8 +19,6 @@ import CloseCircleSolidIcon from 'components/widgets/icons/close_circle_solid_ic
 import PublicChannelIcon from 'components/widgets/icons/globe_icon';
 import PrivateChannelIcon from 'components/widgets/icons/lock_icon';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import {Constants} from 'utils/constants';
 
 import './channels_input.scss';
 

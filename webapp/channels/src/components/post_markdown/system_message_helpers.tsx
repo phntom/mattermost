@@ -4,6 +4,8 @@
 import React from 'react';
 import type {ReactNode} from 'react';
 import {FormattedDate, FormattedMessage, FormattedTime, defineMessages} from 'react-intl';
+import {isChannelNamesMap, type TextFormattingOptions} from 'utils/text_formatting';
+import {getSiteURL} from 'utils/url';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {Post} from '@mattermost/types/posts';
@@ -18,9 +20,6 @@ import Markdown from 'components/markdown';
 import CombinedSystemMessage from 'components/post_view/combined_system_message';
 import GMConversionMessage from 'components/post_view/gm_conversion_message/gm_conversion_message';
 import PostAddChannelMember from 'components/post_view/post_add_channel_member';
-
-import {isChannelNamesMap, type TextFormattingOptions} from 'utils/text_formatting';
-import {getSiteURL} from 'utils/url';
 
 export function renderUsername(value: unknown): ReactNode {
     const verifiedValue = ensureString(value);

@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {defineMessages} from 'react-intl';
+import {Constants} from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
 import type {UserProfile} from '@mattermost/types/users';
@@ -13,8 +14,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import {getSuggestionsSplitBy, getSuggestionsSplitByMultiple} from 'mattermost-redux/utils/user_utils';
 
 import store from 'stores/redux_store';
-
-import {Constants} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

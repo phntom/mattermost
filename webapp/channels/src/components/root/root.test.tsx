@@ -1,9 +1,13 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import testConfigureStore from 'packages/mattermost-redux/test/test_store';
 import React from 'react';
 import type {RouteComponentProps} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
+import {renderWithContext, waitFor} from 'tests/react_testing_utils';
+import {StoragePrefixes} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import {ServiceEnvironment} from '@mattermost/types/config';
 
@@ -11,11 +15,6 @@ import {Client4} from 'mattermost-redux/client';
 import type {Theme} from 'mattermost-redux/selectors/entities/preferences';
 
 import * as GlobalActions from 'actions/global_actions';
-
-import testConfigureStore from 'packages/mattermost-redux/test/test_store';
-import {renderWithContext, waitFor} from 'tests/react_testing_utils';
-import {StoragePrefixes} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import {handleLoginLogoutSignal, redirectToOnboardingOrDefaultTeam} from './actions';
 import type {Props} from './root';

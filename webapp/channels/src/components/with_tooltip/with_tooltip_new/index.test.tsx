@@ -3,7 +3,6 @@
 
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-
 import {renderWithContext, screen, waitFor, act} from 'tests/react_testing_utils';
 
 import WithTooltip from './index';

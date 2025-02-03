@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {RHSStates, CloudProducts} from 'utils/constants';
+import {isCloudLicense} from 'utils/license_utils';
 
 import {Permissions} from 'mattermost-redux/constants';
 import {getCloudSubscription as selectCloudSubscription, getSubscriptionProduct} from 'mattermost-redux/selectors/entities/cloud';
@@ -22,9 +24,6 @@ import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 import {openModal} from 'actions/views/modals';
 import {showMentions, showFlaggedPosts, closeRightHandSide, closeMenu as closeRhsMenu} from 'actions/views/rhs';
 import {getRhsState} from 'selectors/rhs';
-
-import {RHSStates, CloudProducts} from 'utils/constants';
-import {isCloudLicense} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

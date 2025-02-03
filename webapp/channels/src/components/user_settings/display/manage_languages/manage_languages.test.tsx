@@ -1,12 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {getAllLanguages} from 'i18n/i18n';
 import React from 'react';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {UserProfile} from '@mattermost/types/users';
-
-import {getAllLanguages} from 'i18n/i18n';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import ManageLanguages from './manage_languages';
 import type {ManageLanguage as ManageLanguageClass} from './manage_languages';

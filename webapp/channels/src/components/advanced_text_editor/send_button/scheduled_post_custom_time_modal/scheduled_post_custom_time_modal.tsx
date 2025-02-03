@@ -6,6 +6,7 @@ import type {Moment} from 'moment-timezone';
 import React, {useCallback, useMemo, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {scheduledPosts} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {testingEnabled} from 'mattermost-redux/selectors/entities/general';
@@ -16,8 +17,6 @@ import {
     DMUserTimezone,
 } from 'components/advanced_text_editor/send_button/scheduled_post_custom_time_modal/dm_user_timezone';
 import DateTimePickerModal from 'components/date_time_picker_modal/date_time_picker_modal';
-
-import {scheduledPosts} from 'utils/constants';
 
 type Props = {
     channelId: string;

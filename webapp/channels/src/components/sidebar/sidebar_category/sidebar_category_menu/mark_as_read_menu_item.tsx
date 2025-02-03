@@ -4,14 +4,13 @@
 import React, {useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {MarkAsUnreadIcon} from '@mattermost/compass-icons/components';
 
 import {openModal} from 'actions/views/modals';
 
 import * as Menu from 'components/menu';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import MarkAsReadConfirmModal from './mark_as_read_confirm_modal';
 

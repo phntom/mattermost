@@ -3,6 +3,7 @@
 
 import {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {getHistory} from 'utils/browser_history';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {getCurrentRelativeTeamUrl} from 'mattermost-redux/selectors/entities/teams';
@@ -13,8 +14,6 @@ import {close as closeLhs, open as openLhs} from 'actions/views/lhs';
 import {switchToChannels} from 'actions/views/onboarding_tasks';
 
 import {OnboardingTaskCategory, OnboardingTaskList, OnboardingTasksName} from 'components/onboarding_tasks';
-
-import {getHistory} from 'utils/browser_history';
 
 import type {GlobalState} from 'types/store';
 

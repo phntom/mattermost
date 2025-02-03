@@ -5,16 +5,16 @@ import React from 'react';
 import {act} from 'react-dom/test-utils';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
+import mockStore from 'tests/test_store';
+import {TestHelper} from 'utils/test_helper';
 
 import type {OutgoingOAuthConnection} from '@mattermost/types/integrations';
 
 import {Permissions} from 'mattermost-redux/constants';
 
-import AbstractOutgoingOAuthConnection from 'components/integrations/outgoing_oauth_connections/abstract_outgoing_oauth_connection';
-
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
-import mockStore from 'tests/test_store';
-import {TestHelper} from 'utils/test_helper';
+import AbstractOutgoingOAuthConnection
+    from 'components/integrations/outgoing_oauth_connections/abstract_outgoing_oauth_connection';
 
 describe('components/integrations/AbstractOutgoingOAuthConnection', () => {
     const header = {id: 'Header', defaultMessage: 'Header'};

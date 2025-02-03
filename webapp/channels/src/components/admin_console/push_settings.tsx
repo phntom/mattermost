@@ -4,12 +4,11 @@
 import React from 'react';
 import type {WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages, injectIntl} from 'react-intl';
+import {Constants, DocLinks} from 'utils/constants';
 
 import type {AdminConfig, ClientLicense, EmailSettings} from '@mattermost/types/config';
 
 import ExternalLink from 'components/external_link';
-
-import {Constants, DocLinks} from 'utils/constants';
 
 import DropdownSetting from './dropdown_setting';
 import OLDAdminSettings from './old_admin_settings';

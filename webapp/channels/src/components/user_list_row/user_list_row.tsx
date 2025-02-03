@@ -6,6 +6,7 @@ import type {ReactNode} from 'react';
 import {FormattedMessage} from 'react-intl';
 import type {ConnectedComponent} from 'react-redux';
 import styled from 'styled-components';
+import {createSafeId, displayFullAndNicknameForUser} from 'utils/utils';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {TeamMembership} from '@mattermost/types/teams';
@@ -17,8 +18,6 @@ import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import Nbsp from 'components/html_entities/nbsp';
 import ProfilePicture from 'components/profile_picture';
 import UserProfile from 'components/user_profile';
-
-import {createSafeId, displayFullAndNicknameForUser} from 'utils/utils';
 
 const CustomStatus = styled.span`
     margin: auto 0;

@@ -4,6 +4,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {Preferences} from 'utils/constants';
+import {getDisplayNameByUser} from 'utils/utils';
 
 import {favoriteChannel, unfavoriteChannel} from 'mattermost-redux/actions/channels';
 import {getTotalUsersStats} from 'mattermost-redux/actions/users';
@@ -15,9 +17,6 @@ import {getCurrentUser, getProfilesInCurrentChannel, getCurrentUserId, getUser, 
 
 import {getCurrentLocale} from 'selectors/i18n';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import {Preferences} from 'utils/constants';
-import {getDisplayNameByUser} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

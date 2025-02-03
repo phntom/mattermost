@@ -4,7 +4,6 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import * as redux from 'react-redux';
-
 import {TestHelper} from 'utils/test_helper';
 
 import SidebarCategorySortingMenu from './sidebar_category_sorting_menu';

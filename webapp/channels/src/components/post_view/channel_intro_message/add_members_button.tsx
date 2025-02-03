@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
+import {Constants, ModalIdentifiers} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -19,8 +20,6 @@ import ChannelPermissionGate from 'components/permissions_gates/channel_permissi
 import TeamPermissionGate from 'components/permissions_gates/team_permission_gate';
 import ToggleModalButton from 'components/toggle_modal_button';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
-
-import {Constants, ModalIdentifiers} from 'utils/constants';
 
 import './add_members_button.scss';
 

@@ -5,7 +5,6 @@ import {screen} from '@testing-library/react';
 import React from 'react';
 import type {ComponentProps} from 'react';
 import {act} from 'react-dom/test-utils';
-
 import {renderWithContext, userEvent} from 'tests/react_testing_utils';
 import Constants from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';

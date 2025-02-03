@@ -4,12 +4,11 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
+import Constants from 'utils/constants';
+import {passwordErrors} from 'utils/password';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {DeepPartial} from '@mattermost/types/utilities';
-
-import Constants from 'utils/constants';
-import {passwordErrors} from 'utils/password';
 
 import BlockableLink from './blockable_link';
 import BooleanSetting from './boolean_setting';

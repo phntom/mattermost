@@ -7,6 +7,10 @@ import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
 import {Link} from 'react-router-dom';
+import {Constants, CloudProducts, LicenseSkus, AboutLinks, DocLinks, DeveloperLinks, CacheTypes} from 'utils/constants';
+import {isCloudLicense} from 'utils/license_utils';
+import {ID_PATH_PATTERN} from 'utils/path';
+import {getSiteURL} from 'utils/url';
 
 import {AccountMultipleOutlineIcon, ChartBarIcon, CogOutlineIcon, CreditCardOutlineIcon, FlaskOutlineIcon, FormatListBulletedIcon, InformationOutlineIcon, PowerPlugOutlineIcon, ServerVariantIcon, ShieldOutlineIcon, SitemapIcon} from '@mattermost/compass-icons/components';
 import type {CloudState, Product} from '@mattermost/types/cloud';
@@ -34,11 +38,6 @@ import TeamAnalytics from 'components/analytics/team_analytics';
 import {searchableStrings as teamAnalyticsSearchableStrings} from 'components/analytics/team_analytics/team_analytics';
 import ExternalLink from 'components/external_link';
 import RestrictedIndicator from 'components/widgets/menu/menu_items/restricted_indicator';
-
-import {Constants, CloudProducts, LicenseSkus, AboutLinks, DocLinks, DeveloperLinks, CacheTypes} from 'utils/constants';
-import {isCloudLicense} from 'utils/license_utils';
-import {ID_PATH_PATTERN} from 'utils/path';
-import {getSiteURL} from 'utils/url';
 
 import * as DefinitionConstants from './admin_definition_constants';
 import Audits from './audits';

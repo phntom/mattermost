@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import PluginState from 'mattermost-redux/constants/plugins';
 
 import PluginManagement from 'components/admin_console/plugin_management/plugin_management';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/PluginManagement', () => {
     const defaultProps = {

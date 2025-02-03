@@ -2,12 +2,11 @@
 // See LICENSE.txt for license information.
 
 import type {useIntl} from 'react-intl';
+import {ConsolePages, DocLinks} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 
 import {Client4} from 'mattermost-redux/client';
-
-import {ConsolePages, DocLinks} from 'utils/constants';
 
 import {impactModifiers} from '../dashboard.data';
 import {ItemStatus} from '../dashboard.type';

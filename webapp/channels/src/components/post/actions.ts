@@ -1,6 +1,8 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {StoragePrefixes} from 'utils/constants';
+
 import {removePost} from 'mattermost-redux/actions/posts';
 import type {ExtendedPost} from 'mattermost-redux/actions/posts';
 
@@ -8,8 +10,6 @@ import {removeDraft} from 'actions/views/drafts';
 import {closeRightHandSide} from 'actions/views/rhs';
 import {getGlobalItem} from 'selectors/storage';
 import {isThreadOpen} from 'selectors/views/threads';
-
-import {StoragePrefixes} from 'utils/constants';
 
 import type {ActionFunc} from 'types/store';
 

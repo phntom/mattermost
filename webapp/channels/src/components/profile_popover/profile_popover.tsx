@@ -1,8 +1,13 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import Pluggable from 'plugins/pluggable';
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {getHistory} from 'utils/browser_history';
+import {A11yCustomEventTypes, UserStatuses} from 'utils/constants';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import {getCurrentChannelId, getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
 import {getCurrentRelativeTeamUrl, getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
@@ -15,12 +20,6 @@ import {closeModal} from 'actions/views/modals';
 import {getMembershipForEntities} from 'actions/views/profile_popover';
 import {getSelectedPost} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import Pluggable from 'plugins/pluggable';
-import {getHistory} from 'utils/browser_history';
-import {A11yCustomEventTypes, UserStatuses} from 'utils/constants';
-import type {A11yFocusEventDetail} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

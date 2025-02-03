@@ -3,6 +3,14 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
+import {AboutLinks, CloudLinks, ModalIdentifiers} from 'utils/constants';
+import {
+    isLicenseExpired,
+    isLicenseExpiring,
+    isTrialLicense,
+    isEnterpriseOrE20License,
+    licenseSKUWithFirstLetterCapitalized
+} from 'utils/license_utils';
 
 import type {StatusOK} from '@mattermost/types/client4';
 import type {ClientLicense} from '@mattermost/types/config';
@@ -16,9 +24,6 @@ import {trackEvent} from 'actions/telemetry_actions';
 
 import ExternalLink from 'components/external_link';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
-
-import {AboutLinks, CloudLinks, ModalIdentifiers} from 'utils/constants';
-import {isLicenseExpired, isLicenseExpiring, isTrialLicense, isEnterpriseOrE20License, licenseSKUWithFirstLetterCapitalized} from 'utils/license_utils';
 
 import type {ModalData} from 'types/actions';
 

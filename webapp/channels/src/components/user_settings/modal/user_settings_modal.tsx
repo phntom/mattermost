@@ -6,6 +6,11 @@ import {Modal} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
+import Constants from 'utils/constants';
+import {cmdOrCtrlPressed, isKeyPressed} from 'utils/keyboard';
+import {stopTryNotificationRing} from 'utils/notification_sounds';
+import {isValidUrl} from 'utils/url';
+import {getDisplayName} from 'utils/utils';
 
 import type {PreferencesType} from '@mattermost/types/preferences';
 import type {UserProfile} from '@mattermost/types/users';
@@ -17,12 +22,6 @@ import SettingsSidebar from 'components/settings_sidebar';
 import UserSettings from 'components/user_settings';
 import LoadingSpinner from 'components/widgets/loading/loading_spinner';
 import SmartLoader from 'components/widgets/smart_loader';
-
-import Constants from 'utils/constants';
-import {cmdOrCtrlPressed, isKeyPressed} from 'utils/keyboard';
-import {stopTryNotificationRing} from 'utils/notification_sounds';
-import {isValidUrl} from 'utils/url';
-import {getDisplayName} from 'utils/utils';
 
 import type {PluginConfiguration} from 'types/plugins/user_settings';
 

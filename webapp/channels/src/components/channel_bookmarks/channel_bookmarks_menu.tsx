@@ -7,6 +7,8 @@ import React, {useCallback, useRef} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
 import styled, {css} from 'styled-components';
+import {ModalIdentifiers} from 'utils/constants';
+import {clearFileInput} from 'utils/utils';
 
 import {
     LinkVariantIcon,
@@ -21,9 +23,6 @@ import {createBookmark} from 'actions/channel_bookmarks';
 import {openModal} from 'actions/views/modals';
 
 import * as Menu from 'components/menu';
-
-import {ModalIdentifiers} from 'utils/constants';
-import {clearFileInput} from 'utils/utils';
 
 import ChannelBookmarkCreateModal from './channel_bookmarks_create_modal';
 import {MAX_BOOKMARKS_PER_CHANNEL} from './utils';

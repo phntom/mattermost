@@ -4,7 +4,6 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-
 import {TestHelper} from 'utils/test_helper';
 
 import BackstageCategory from './backstage_category';

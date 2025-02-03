@@ -3,6 +3,7 @@
 
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
+import {imageURLForUser, handleFormattedTextClick} from 'utils/utils';
 
 import type {PostPriorityMetadata} from '@mattermost/types/posts';
 import type {UserProfile, UserStatus} from '@mattermost/types/users';
@@ -14,8 +15,6 @@ import FilePreview from 'components/file_preview';
 import Markdown from 'components/markdown';
 import ShowMore from 'components/post_view/show_more';
 import ProfilePicture from 'components/profile_picture';
-
-import {imageURLForUser, handleFormattedTextClick} from 'utils/utils';
 
 import type {PostDraft} from 'types/store/draft';
 

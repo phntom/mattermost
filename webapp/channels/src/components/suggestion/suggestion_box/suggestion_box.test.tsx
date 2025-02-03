@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React, {useCallback, useState} from 'react';
-
 import {renderWithContext, screen, userEvent, waitFor} from 'tests/react_testing_utils';
 
 import SuggestionBox from './suggestion_box';

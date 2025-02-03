@@ -1,6 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {getHistory} from 'utils/browser_history';
+import {joinPrivateChannelPrompt} from 'utils/channel_utils';
+import {ActionTypes, Constants, ErrorPageTypes} from 'utils/constants';
+import {isComment, getPostURL} from 'utils/post_utils';
+
 import type {Channel} from '@mattermost/types/channels';
 import type {Post} from '@mattermost/types/posts';
 
@@ -18,11 +23,6 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import {loadChannelsForCurrentUser} from 'actions/channel_actions';
 import {loadNewDMIfNeeded, loadNewGMIfNeeded} from 'actions/user_actions';
 import {selectPostAndHighlight} from 'actions/views/rhs';
-
-import {getHistory} from 'utils/browser_history';
-import {joinPrivateChannelPrompt} from 'utils/channel_utils';
-import {ActionTypes, Constants, ErrorPageTypes} from 'utils/constants';
-import {isComment, getPostURL} from 'utils/post_utils';
 
 import type {ActionFuncAsync, ThunkActionFunc} from 'types/store';
 

@@ -3,6 +3,8 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {DeveloperLinks} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {Command} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -13,9 +15,6 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import BackstageList from 'components/backstage/components/backstage_list';
 import ExternalLink from 'components/external_link';
-
-import {DeveloperLinks} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import InstalledCommand, {matchesFilter} from '../installed_command';
 

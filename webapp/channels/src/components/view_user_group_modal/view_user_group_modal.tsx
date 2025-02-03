@@ -5,6 +5,7 @@ import React, {createRef} from 'react';
 import type {RefObject} from 'react';
 import {Modal} from 'react-bootstrap';
 import {defineMessage, FormattedMessage} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
 import {GroupSource} from '@mattermost/types/groups';
@@ -17,8 +18,6 @@ import LoadingScreen from 'components/loading_screen';
 import NoResultsIndicator from 'components/no_results_indicator';
 import {NoResultsVariant} from 'components/no_results_indicator/types';
 import Input from 'components/widgets/inputs/input/input';
-
-import Constants from 'utils/constants';
 
 import ViewUserGroupListItem from './view_user_group_list_item';
 import ViewUserGroupModalHeader from './view_user_group_modal_header';

@@ -1,16 +1,15 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import * as I18n from 'i18n/i18n';
 import React from 'react';
 import type {ReactNode} from 'react';
 import {IntlProvider as BaseIntlProvider} from 'react-intl';
 import type {IntlConfig} from 'react-intl';
+import {localizeMessage} from 'utils/utils';
 
 import {Client4} from 'mattermost-redux/client';
 import {setLocalizeFunction} from 'mattermost-redux/utils/i18n_utils';
-
-import * as I18n from 'i18n/i18n';
-import {localizeMessage} from 'utils/utils';
 
 type Props = {
     children: ReactNode;

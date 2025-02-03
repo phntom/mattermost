@@ -6,6 +6,10 @@ import set from 'lodash/set';
 import type {Dispatch} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import type {MockStoreEnhanced} from 'redux-mock-store';
+import mockStore from 'tests/test_store';
+import {ActionTypes, RHSStates, Constants} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
+import {getBrowserUtcOffset} from 'utils/timezone';
 
 import type {Post} from '@mattermost/types/posts';
 import type {UserProfile} from '@mattermost/types/users';
@@ -41,11 +45,6 @@ import {
     openShowEditHistory,
     updateSearchTeam,
 } from 'actions/views/rhs';
-
-import mockStore from 'tests/test_store';
-import {ActionTypes, RHSStates, Constants} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
-import {getBrowserUtcOffset} from 'utils/timezone';
 
 import type {GlobalState} from 'types/store';
 import type {RhsState} from 'types/store/rhs';

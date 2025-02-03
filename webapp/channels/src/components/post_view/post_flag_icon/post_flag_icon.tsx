@@ -4,12 +4,11 @@
 import classNames from 'classnames';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import {Locations, A11yCustomEventTypes} from 'utils/constants';
 
 import FlagIcon from 'components/widgets/icons/flag_icon';
 import FlagIconFilled from 'components/widgets/icons/flag_icon_filled';
 import WithTooltip from 'components/with_tooltip/with_tooltip_new';
-
-import {Locations, A11yCustomEventTypes} from 'utils/constants';
 
 export type Actions = {
     flagPost: (postId: string) => void;

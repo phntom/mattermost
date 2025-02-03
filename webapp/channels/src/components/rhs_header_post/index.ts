@@ -3,6 +3,9 @@
 
 import type {ComponentProps} from 'react';
 import {connect} from 'react-redux';
+import {CrtThreadPaneSteps, Preferences} from 'utils/constants';
+import {matchUserMentionTriggersWithMessageMentions} from 'utils/post_utils';
+import {allAtMentions} from 'utils/text_formatting';
 
 import {setThreadFollow} from 'mattermost-redux/actions/threads';
 import {getPost} from 'mattermost-redux/selectors/entities/posts';
@@ -24,10 +27,6 @@ import {
 } from 'actions/views/rhs';
 import {getIsRhsExpanded} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import {CrtThreadPaneSteps, Preferences} from 'utils/constants';
-import {matchUserMentionTriggersWithMessageMentions} from 'utils/post_utils';
-import {allAtMentions} from 'utils/text_formatting';
 
 import type {GlobalState} from 'types/store';
 

@@ -5,9 +5,9 @@ import React, {useState, useRef, useCallback} from 'react';
 import {Modal, type ModalBody} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import {useIntl} from 'react-intl';
+import * as Utils from 'utils/utils';
 
 import TeamSettings from 'components/team_settings';
-
 const SettingsSidebar = React.lazy(() => import('components/settings_sidebar'));
 
 type Props = {

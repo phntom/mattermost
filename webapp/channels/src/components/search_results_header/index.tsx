@@ -5,6 +5,7 @@ import type {ConnectedProps} from 'react-redux';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {AnyAction, Dispatch} from 'redux';
+import {RHSStates} from 'utils/constants';
 
 import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/common';
 
@@ -14,8 +15,6 @@ import {
     goBack,
 } from 'actions/views/rhs';
 import {getIsRhsExpanded, getPreviousRhsState} from 'selectors/rhs';
-
-import {RHSStates} from 'utils/constants';
 
 import type {GlobalState} from 'types/store/index.js';
 

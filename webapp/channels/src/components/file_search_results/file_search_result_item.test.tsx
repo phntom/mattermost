@@ -4,11 +4,10 @@
 import {shallow} from 'enzyme';
 import type {ShallowWrapper} from 'enzyme';
 import React from 'react';
-
-import type {ChannelType} from '@mattermost/types/channels';
-
 import Constants from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
+
+import type {ChannelType} from '@mattermost/types/channels';
 
 import FileSearchResultItem from './file_search_result_item';
 

@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import type {History} from 'history';
+import {ActionTypes, StoragePrefixes} from 'utils/constants';
+import {doesCookieContainsMMUserId} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -20,9 +22,6 @@ import {getActiveTeamsList} from 'mattermost-redux/selectors/entities/teams';
 import {checkIsFirstAdmin, getCurrentUser, isCurrentUserSystemAdmin} from 'mattermost-redux/selectors/entities/users';
 
 import {redirectUserToDefaultTeam, emitUserLoggedOutEvent} from 'actions/global_actions';
-
-import {ActionTypes, StoragePrefixes} from 'utils/constants';
-import {doesCookieContainsMMUserId} from 'utils/utils';
 
 import type {ActionFuncAsync, ThunkActionFunc} from 'types/store';
 import type {Translations} from 'types/store/i18n';

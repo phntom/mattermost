@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-dom';
 import type {RouteComponentProps} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
+import {PreviousViewedTypes} from 'utils/constants';
 
 import {getProfiles} from 'mattermost-redux/actions/users';
 import {getRedirectChannelNameForTeam} from 'mattermost-redux/selectors/entities/channels';
@@ -18,8 +19,6 @@ import {getIsLhsOpen} from 'selectors/lhs';
 import {getLastViewedChannelNameByTeamName, getLastViewedTypeByTeamName, getPreviousTeamId, getPreviousTeamLastViewedType} from 'selectors/local_storage';
 import {getIsRhsOpen, getIsRhsMenuOpen} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
-
-import {PreviousViewedTypes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

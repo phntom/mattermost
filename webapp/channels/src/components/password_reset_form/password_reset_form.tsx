@@ -5,10 +5,9 @@ import classNames from 'classnames';
 import React, {useState, useRef, memo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useHistory} from 'react-router-dom';
+import Constants from 'utils/constants';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
-
-import Constants from 'utils/constants';
 
 export interface Props {
     location: {search: string};

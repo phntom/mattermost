@@ -6,6 +6,10 @@ import type {OnScrollArgs, OnItemsRenderedArgs} from 'dynamic-virtualized-list';
 import React, {PureComponent} from 'react';
 import type {RefObject} from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import Constants from 'utils/constants';
+import DelayedAction from 'utils/delayed_action';
+import {getPreviousPostId, getLatestPostId} from 'utils/post_utils';
+import * as Utils from 'utils/utils';
 
 import type {Post} from '@mattermost/types/posts';
 import type {UserProfile} from '@mattermost/types/users';
@@ -15,11 +19,6 @@ import {getNewMessagesIndex, isDateLine, isStartOfNewMessages, isCreateComment} 
 import NewRepliesBanner from 'components/new_replies_banner';
 import FloatingTimestamp from 'components/post_view/floating_timestamp';
 import {THREADING_TIME as BASE_THREADING_TIME} from 'components/threading/common/options';
-
-import Constants from 'utils/constants';
-import DelayedAction from 'utils/delayed_action';
-import {getPreviousPostId, getLatestPostId} from 'utils/post_utils';
-import * as Utils from 'utils/utils';
 
 import type {PluginComponent} from 'types/store/plugins';
 import type {FakePost} from 'types/store/rhs';

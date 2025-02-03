@@ -4,10 +4,9 @@
 import React from 'react';
 import type {MouseEventHandler} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {isErrorInvalidSlashCommand} from 'utils/post_utils';
 
 import type {ServerError} from '@mattermost/types/errors';
-
-import {isErrorInvalidSlashCommand} from 'utils/post_utils';
 
 interface Props {
     error: ServerError;

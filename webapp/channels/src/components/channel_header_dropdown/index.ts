@@ -2,6 +2,8 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
+import {Constants} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import {createSelector} from 'mattermost-redux/selectors/create_selector';
 import {
@@ -22,9 +24,6 @@ import {
 
 import {getPenultimateViewedChannelName} from 'selectors/local_storage';
 import {getChannelHeaderMenuPluginComponents} from 'selectors/plugins';
-
-import {Constants} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

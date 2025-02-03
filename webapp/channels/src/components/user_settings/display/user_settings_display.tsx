@@ -4,10 +4,15 @@
 /* eslint-disable max-lines */
 
 import deepEqual from 'fast-deep-equal';
+import {getLanguageInfo} from 'i18n/i18n';
+import type {Language} from 'i18n/i18n';
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage} from 'react-intl';
 import type {Timezone} from 'timezones.json';
+import Constants from 'utils/constants';
+import {getBrowserTimezone} from 'utils/timezone';
+import {a11yFocus} from 'utils/utils';
 
 import type {PreferencesType, PreferenceType} from '@mattermost/types/preferences';
 import type {UserProfile, UserTimezone} from '@mattermost/types/users';
@@ -19,12 +24,6 @@ import {trackEvent} from 'actions/telemetry_actions';
 import SettingItem from 'components/setting_item';
 import SettingItemMax from 'components/setting_item_max';
 import ThemeSetting from 'components/user_settings/display/user_settings_theme';
-
-import {getLanguageInfo} from 'i18n/i18n';
-import type {Language} from 'i18n/i18n';
-import Constants from 'utils/constants';
-import {getBrowserTimezone} from 'utils/timezone';
-import {a11yFocus} from 'utils/utils';
 
 import ManageLanguages from './manage_languages';
 import ManageTimezones from './manage_timezones';

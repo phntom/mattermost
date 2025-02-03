@@ -3,13 +3,12 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {NotificationLevels} from 'utils/constants';
+import {optionsOfMessageNotificationSoundsSelect} from 'utils/notification_sounds';
 
 import type {FieldsetCheckbox} from 'components/widgets/modals/components/checkbox_setting_item';
 import type {FieldsetRadio} from 'components/widgets/modals/components/radio_setting_item';
 import type {FieldsetReactSelect} from 'components/widgets/modals/components/react_select_item';
-
-import {NotificationLevels} from 'utils/constants';
-import {optionsOfMessageNotificationSoundsSelect} from 'utils/notification_sounds';
 
 const MuteChannelInputFieldData: FieldsetCheckbox = {
     name: 'mute channel',

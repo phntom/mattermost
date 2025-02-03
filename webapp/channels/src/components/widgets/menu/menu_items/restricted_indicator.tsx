@@ -5,13 +5,12 @@ import classNames from 'classnames';
 import React, {useCallback, type ReactNode} from 'react';
 import {useIntl} from 'react-intl';
 import type {MessageDescriptor} from 'react-intl';
+import {FREEMIUM_TO_ENTERPRISE_TRIAL_LENGTH_DAYS} from 'utils/cloud_utils';
+import {LicenseSkus, ModalIdentifiers} from 'utils/constants';
 
 import FeatureRestrictedModal from 'components/feature_restricted_modal/feature_restricted_modal';
 import ToggleModalButton from 'components/toggle_modal_button';
 import WithTooltip from 'components/with_tooltip';
-
-import {FREEMIUM_TO_ENTERPRISE_TRIAL_LENGTH_DAYS} from 'utils/cloud_utils';
-import {LicenseSkus, ModalIdentifiers} from 'utils/constants';
 
 import './restricted_indicator.scss';
 

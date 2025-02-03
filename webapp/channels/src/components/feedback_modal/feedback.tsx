@@ -4,6 +4,7 @@
 import React, {useState} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import {GenericModal} from '@mattermost/components';
 import type {Feedback} from '@mattermost/types/cloud';
@@ -11,8 +12,6 @@ import type {Feedback} from '@mattermost/types/cloud';
 import {closeModal} from 'actions/views/modals';
 
 import RadioButtonGroup from 'components/common/radio_group';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import './feedback.scss';
 

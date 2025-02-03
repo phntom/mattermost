@@ -5,6 +5,7 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {FileInfo} from '@mattermost/types/files';
 
@@ -13,8 +14,6 @@ import {isModalOpen} from 'selectors/views/modals';
 
 import ExternalLink from 'components/external_link';
 import PDFPreview from 'components/pdf_preview';
-
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import * as Actions from 'actions/views/root';
-import * as i18nSelectors from 'selectors/i18n';
-
 import mockStore from 'tests/test_store';
 import {ActionTypes} from 'utils/constants';
+
+import * as Actions from 'actions/views/root';
+import * as i18nSelectors from 'selectors/i18n';
 
 describe('root view actions', () => {
     const origCookies = document.cookie;

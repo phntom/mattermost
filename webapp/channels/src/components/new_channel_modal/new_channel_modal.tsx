@@ -2,9 +2,11 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import Pluggable from 'plugins/pluggable';
 import React, {useCallback, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import {GenericModal} from '@mattermost/components';
 import type {Board} from '@mattermost/types/boards';
@@ -25,9 +27,6 @@ import {closeModal} from 'actions/views/modals';
 import ChannelNameFormField from 'components/channel_name_form_field/channel_name_form_field';
 import PublicPrivateSelector from 'components/widgets/public-private-selector/public-private-selector';
 import WithTooltip from 'components/with_tooltip';
-
-import Pluggable from 'plugins/pluggable';
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

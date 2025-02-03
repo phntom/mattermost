@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-
 import {Constants} from 'utils/constants';
 
 type Props = {

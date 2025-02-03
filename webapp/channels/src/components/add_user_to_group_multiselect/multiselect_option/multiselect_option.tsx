@@ -3,6 +3,7 @@
 
 import classNames from 'classnames';
 import React from 'react';
+import {displayEntireNameForUser} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 import type {RelationOneToOne} from '@mattermost/types/utilities';
@@ -14,8 +15,6 @@ import type {Value} from 'components/multiselect/multiselect';
 import ProfilePicture from 'components/profile_picture';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
-
-import {displayEntireNameForUser} from 'utils/utils';
 
 type UserProfileValue = Value & UserProfile;
 

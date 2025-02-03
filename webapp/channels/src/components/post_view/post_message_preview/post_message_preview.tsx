@@ -4,6 +4,9 @@
 import classNames from 'classnames';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {Constants} from 'utils/constants';
+import * as PostUtils from 'utils/post_utils';
+import * as Utils from 'utils/utils';
 
 import type {Post} from '@mattermost/types/posts';
 import type {UserProfile} from '@mattermost/types/users';
@@ -19,10 +22,6 @@ import Timestamp from 'components/timestamp';
 import UserProfileComponent from 'components/user_profile';
 import MattermostLogo from 'components/widgets/icons/mattermost_logo';
 import Avatar from 'components/widgets/users/avatar';
-
-import {Constants} from 'utils/constants';
-import * as PostUtils from 'utils/post_utils';
-import * as Utils from 'utils/utils';
 
 import PostAttachmentContainer from '../post_attachment_container/post_attachment_container';
 

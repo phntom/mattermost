@@ -3,10 +3,9 @@
 
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
+import Constants from 'utils/constants';
 
 import {getIsMobileView} from 'selectors/views/browser';
-
-import Constants from 'utils/constants';
 
 import SuggestionList from './suggestion_list';
 

@@ -4,7 +4,6 @@
 /* eslint-disable max-lines */
 
 import type {Store} from 'redux';
-
 import {Constants} from 'utils/constants';
 
 import {

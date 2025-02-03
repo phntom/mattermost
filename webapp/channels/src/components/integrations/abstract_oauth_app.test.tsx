@@ -4,10 +4,9 @@
 import {shallow} from 'enzyme';
 import React, {type ChangeEvent} from 'react';
 import {FormattedMessage} from 'react-intl';
+import {TestHelper} from 'utils/test_helper';
 
 import AbstractOAuthApp from 'components/integrations/abstract_oauth_app';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/AbstractOAuthApp', () => {
     const header = {id: 'Header', defaultMessage: 'Header'};

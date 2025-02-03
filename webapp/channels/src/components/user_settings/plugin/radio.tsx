@@ -3,12 +3,11 @@
 
 import React, {useCallback, useState} from 'react';
 import {useSelector} from 'react-redux';
+import {getPluginPreferenceKey} from 'utils/plugins/preferences';
 
 import {get as getPreference} from 'mattermost-redux/selectors/entities/preferences';
 
 import Markdown from 'components/markdown';
-
-import {getPluginPreferenceKey} from 'utils/plugins/preferences';
 
 import type {PluginConfigurationRadioSetting} from 'types/plugins/user_settings';
 import type {GlobalState} from 'types/store';

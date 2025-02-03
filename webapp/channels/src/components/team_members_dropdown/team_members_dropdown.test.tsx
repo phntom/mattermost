@@ -3,10 +3,9 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import TeamMembersDropdown from 'components/team_members_dropdown/team_members_dropdown';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/team_members_dropdown', () => {
     const user = TestHelper.getUserMock({id: 'user-1', username: 'username1', roles: 'team_admin', is_bot: false});

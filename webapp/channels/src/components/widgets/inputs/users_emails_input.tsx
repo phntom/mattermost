@@ -9,6 +9,7 @@ import {FormattedMessage, defineMessages} from 'react-intl';
 import {components} from 'react-select';
 import type {FormatOptionLabelMeta, InputActionMeta, InputProps, OptionsType, Styles, ValueType} from 'react-select';
 import AsyncCreatable from 'react-select/async-creatable';
+import {getDisplayName, getLongDisplayNameParts, imageURLForUser} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -24,8 +25,6 @@ import LoadingSpinner from 'components/widgets/loading/loading_spinner';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
 import Avatar from 'components/widgets/users/avatar';
-
-import {getDisplayName, getLongDisplayNameParts, imageURLForUser} from 'utils/utils';
 
 import './users_emails_input.scss';
 

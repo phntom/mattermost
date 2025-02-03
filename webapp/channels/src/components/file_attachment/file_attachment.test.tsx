@@ -3,11 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import type {GlobalState} from '@mattermost/types/store';
 import type {DeepPartial} from '@mattermost/types/utilities';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import FileAttachment from './file_attachment';
 

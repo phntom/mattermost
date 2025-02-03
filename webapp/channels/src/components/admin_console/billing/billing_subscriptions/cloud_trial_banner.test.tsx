@@ -4,11 +4,10 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import {Provider} from 'react-redux';
-
-import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
-
 import mockStore from 'tests/test_store';
 import {CloudBanners, Preferences} from 'utils/constants';
+
+import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
 
 import CloudTrialBanner from './cloud_trial_banner';
 

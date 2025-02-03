@@ -5,6 +5,8 @@ import debounce from 'lodash/debounce';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
@@ -12,9 +14,6 @@ import type {UserProfile} from '@mattermost/types/users';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import type MultiSelect from 'components/multiselect/multiselect';
-
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
 
 import List from './list';
 import {USERS_PER_PAGE} from './list/list';

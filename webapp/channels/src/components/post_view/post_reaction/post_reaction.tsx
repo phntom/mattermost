@@ -4,6 +4,8 @@
 import classNames from 'classnames';
 import React from 'react';
 import {defineMessages} from 'react-intl';
+import {Locations} from 'utils/constants';
+import {localizeMessage} from 'utils/utils';
 
 import type {Emoji} from '@mattermost/types/emojis';
 
@@ -14,9 +16,6 @@ import EmojiPickerOverlay from 'components/emoji_picker/emoji_picker_overlay';
 import ChannelPermissionGate from 'components/permissions_gates/channel_permission_gate';
 import EmojiIcon from 'components/widgets/icons/emoji_icon';
 import WithTooltip from 'components/with_tooltip/with_tooltip_new';
-
-import {Locations} from 'utils/constants';
-import {localizeMessage} from 'utils/utils';
 
 const TOP_OFFSET = -7;
 

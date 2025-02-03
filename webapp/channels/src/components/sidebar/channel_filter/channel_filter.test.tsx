@@ -2,11 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import ChannelFilterIntl from 'components/sidebar/channel_filter/channel_filter';
 import type {ChannelFilter as ChannelFilterClass} from 'components/sidebar/channel_filter/channel_filter';
-
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/sidebar/channel_filter', () => {
     const baseProps = {

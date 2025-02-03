@@ -4,6 +4,7 @@
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
+import {ModalIdentifiers, Preferences, Touched} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import Permissions from 'mattermost-redux/constants/permissions';
@@ -21,8 +22,6 @@ import BrowseChannels from 'components/browse_channels';
 import NewChannelModal from 'components/new_channel_modal/new_channel_modal';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
-
-import {ModalIdentifiers, Preferences, Touched} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

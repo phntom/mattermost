@@ -4,10 +4,9 @@
 import classNames from 'classnames';
 import React, {useEffect, useState} from 'react';
 import {useIntl} from 'react-intl';
+import {getShortenedURL} from 'utils/url';
 
 import WithTooltip from 'components/with_tooltip';
-
-import {getShortenedURL} from 'utils/url';
 
 import Input from '../input/input';
 

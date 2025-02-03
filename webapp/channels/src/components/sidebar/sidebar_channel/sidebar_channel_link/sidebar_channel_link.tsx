@@ -2,8 +2,14 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
+import Pluggable from 'plugins/pluggable';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Constants, {RHSStates} from 'utils/constants';
+import {wrapEmojis} from 'utils/emoji_utils';
+import {cmdOrCtrlPressed} from 'utils/keyboard';
+import {Mark} from 'utils/performance_telemetry';
+import {localizeMessage} from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -13,13 +19,6 @@ import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import SharedChannelIndicator from 'components/shared_channel_indicator';
 import {ChannelsAndDirectMessagesTour} from 'components/tours/onboarding_tour';
 import WithTooltip from 'components/with_tooltip';
-
-import Pluggable from 'plugins/pluggable';
-import Constants, {RHSStates} from 'utils/constants';
-import {wrapEmojis} from 'utils/emoji_utils';
-import {cmdOrCtrlPressed} from 'utils/keyboard';
-import {Mark} from 'utils/performance_telemetry';
-import {localizeMessage} from 'utils/utils';
 
 import type {RhsState} from 'types/store/rhs';
 

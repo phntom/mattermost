@@ -3,11 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+import {TestHelper} from 'utils/test_helper';
 
 import CommentedOn from 'components/post_view/commented_on/commented_on';
 import CommentedOnFilesMessage from 'components/post_view/commented_on_files_message';
-
-import {TestHelper} from 'utils/test_helper';
 
 describe('components/post_view/CommentedOn', () => {
     const baseProps = {

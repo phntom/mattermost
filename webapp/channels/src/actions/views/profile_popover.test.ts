@@ -1,10 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import testConfigureStore from 'tests/test_store';
+
 import {getChannelMember} from 'mattermost-redux/actions/channels';
 import {getTeamMember} from 'mattermost-redux/actions/teams';
-
-import testConfigureStore from 'tests/test_store';
 
 import {getMembershipForEntities} from './profile_popover';
 

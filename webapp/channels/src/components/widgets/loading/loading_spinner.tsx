@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {useIntl} from 'react-intl';
-
 import {formatAsComponent} from 'utils/i18n';
 
 type Props = {

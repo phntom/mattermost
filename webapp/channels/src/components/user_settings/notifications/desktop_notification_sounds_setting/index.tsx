@@ -6,13 +6,6 @@ import React, {memo, useEffect, useRef, Fragment, useMemo, useCallback} from 're
 import {FormattedMessage, useIntl} from 'react-intl';
 import type {ValueType} from 'react-select';
 import ReactSelect from 'react-select';
-
-import type {UserNotifyProps} from '@mattermost/types/users';
-
-import SettingItemMax from 'components/setting_item_max';
-import SettingItemMin from 'components/setting_item_min';
-import type SettingItemMinComponent from 'components/setting_item_min';
-
 import {UserSettingsNotificationSections} from 'utils/constants';
 import {
     notificationSoundKeys,
@@ -25,6 +18,12 @@ import {
     optionsOfIncomingCallSoundsSelect,
     callNotificationSoundKeys,
 } from 'utils/notification_sounds';
+
+import type {UserNotifyProps} from '@mattermost/types/users';
+
+import SettingItemMax from 'components/setting_item_max';
+import SettingItemMin from 'components/setting_item_min';
+import type SettingItemMinComponent from 'components/setting_item_min';
 
 import type {Props as UserSettingsNotificationsProps} from '../user_settings_notifications';
 

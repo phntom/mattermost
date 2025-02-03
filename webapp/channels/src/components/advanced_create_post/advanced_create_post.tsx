@@ -5,12 +5,11 @@
 
 import React from 'react';
 import {useSelector} from 'react-redux';
+import {Locations} from 'utils/constants';
 
 import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
 
 import AdvancedTextEditor from 'components/advanced_text_editor/advanced_text_editor';
-
-import {Locations} from 'utils/constants';
 
 const AdvancedCreatePost = () => {
     const currentChannelId = useSelector(getCurrentChannelId);

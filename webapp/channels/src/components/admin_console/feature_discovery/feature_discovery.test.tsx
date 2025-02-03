@@ -2,9 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-
-import FeatureDiscovery from 'components/admin_console/feature_discovery/feature_discovery';
-
 import {
     renderWithContext,
     screen,
@@ -12,6 +9,8 @@ import {
     waitFor,
 } from 'tests/react_testing_utils';
 import {AboutLinks, LicenseSkus} from 'utils/constants';
+
+import FeatureDiscovery from 'components/admin_console/feature_discovery/feature_discovery';
 
 import SamlSVG from './features/images/saml_svg';
 

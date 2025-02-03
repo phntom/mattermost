@@ -4,6 +4,7 @@
 import React, {useCallback, useMemo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -11,8 +12,6 @@ import {openModal} from 'actions/views/modals';
 
 import MultiSelect from 'components/multiselect/multiselect';
 import NewChannelModal from 'components/new_channel_modal/new_channel_modal';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import ListItem from '../list_item';
 import {optionValue} from '../types';

@@ -6,6 +6,7 @@ import type {ComponentProps, CSSProperties} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import tinycolor from 'tinycolor2';
+import {imageURLForUser} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -16,8 +17,6 @@ import {getUser as selectUser, makeDisplayNameGetter} from 'mattermost-redux/sel
 import ProfilePopover from 'components/profile_popover';
 import Avatar from 'components/widgets/users/avatar';
 import WithTooltip from 'components/with_tooltip';
-
-import {imageURLForUser} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

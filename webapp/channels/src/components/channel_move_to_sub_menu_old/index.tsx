@@ -5,6 +5,7 @@
 import React, {memo} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import {
     FolderOutlineIcon,
@@ -26,8 +27,6 @@ import {getCategoriesForCurrentTeam} from 'selectors/views/channel_sidebar';
 
 import EditCategoryModal from 'components/edit_category_modal';
 import Menu from 'components/widgets/menu/menu';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 import type {Menu as MenuType} from 'types/store/plugins';

@@ -2,10 +2,9 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import * as controlModalHooks from 'components/common/hooks/useControlModal';
-
-import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import ScreeningInProgressModal from './';
 

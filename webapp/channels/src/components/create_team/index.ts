@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
+import {isCloudLicense} from 'utils/license_utils';
 
 import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getCloudSubscription as selectCloudSubscription} from 'mattermost-redux/selectors/entities/cloud';
@@ -9,8 +10,6 @@ import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 
 import withUseGetUsageDelta from 'components/common/hocs/cloud/with_use_get_usage_deltas';
-
-import {isCloudLicense} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

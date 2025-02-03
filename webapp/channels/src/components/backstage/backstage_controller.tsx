@@ -1,6 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import Pluggable from 'plugins/pluggable';
 import React, {useRef} from 'react';
 import type {ComponentType} from 'react';
 import {Route, Switch} from 'react-router-dom';
@@ -29,8 +30,6 @@ import InstalledOutgoingWebhooks from 'components/integrations/installed_outgoin
 import AddOutgoingOAuthConnection from 'components/integrations/outgoing_oauth_connections/add_outgoing_oauth_connection';
 import EditOutgoingOAuthConnection from 'components/integrations/outgoing_oauth_connections/edit_outgoing_oauth_connection';
 import InstalledOutgoingOAuthConnections from 'components/integrations/outgoing_oauth_connections/installed_outgoing_oauth_connections';
-
-import Pluggable from 'plugins/pluggable';
 
 import BackstageNavbar from './components/backstage_navbar';
 import BackstageSidebar from './components/backstage_sidebar';

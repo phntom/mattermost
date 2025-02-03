@@ -3,10 +3,9 @@
 
 import React from 'react';
 import {useIntl} from 'react-intl';
+import * as Utils from 'utils/utils';
 
 import type {FileInfo} from '@mattermost/types/files';
-
-import * as Utils from 'utils/utils';
 
 type Props = {
     fileInfo: FileInfo;

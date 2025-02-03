@@ -1440,6 +1440,9 @@ func getMentionsEnabledFields(post *model.Post) model.StringArray {
 				ret = append(ret, valueString)
 			}
 		}
+		if attachment.Fallback != "" {
+			ret = append(ret, attachment.Fallback)
+		}
 	}
 	return ret
 }

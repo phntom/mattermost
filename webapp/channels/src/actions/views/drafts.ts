@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import {batchActions} from 'redux-batched-actions';
+import {ActionTypes, StoragePrefixes} from 'utils/constants';
 
 import type {Draft as ServerDraft} from '@mattermost/types/drafts';
 import type {FileInfo} from '@mattermost/types/files';
@@ -19,8 +20,6 @@ import {setGlobalItem} from 'actions/storage';
 import {makeGetDrafts} from 'selectors/drafts';
 import {getConnectionId} from 'selectors/general';
 import {getGlobalItem} from 'selectors/storage';
-
-import {ActionTypes, StoragePrefixes} from 'utils/constants';
 
 import type {ActionFunc, ActionFuncAsync, GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

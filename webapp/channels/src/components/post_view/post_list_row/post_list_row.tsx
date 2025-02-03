@@ -4,6 +4,8 @@
 import classNames from 'classnames';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import {PostListRowListIds, Locations} from 'utils/constants';
+import {isIdNotPost} from 'utils/post_utils';
 
 import type {CloudUsage, Limits} from '@mattermost/types/cloud';
 import type {Post} from '@mattermost/types/posts';
@@ -19,9 +21,6 @@ import ChannelIntroMessage from 'components/post_view/channel_intro_message/';
 import CombinedUserActivityPost from 'components/post_view/combined_user_activity_post';
 import DateSeparator from 'components/post_view/date_separator';
 import NewMessageSeparator from 'components/post_view/new_message_separator/new_message_separator';
-
-import {PostListRowListIds, Locations} from 'utils/constants';
-import {isIdNotPost} from 'utils/post_utils';
 
 import type {PluginComponent} from 'types/store/plugins';
 

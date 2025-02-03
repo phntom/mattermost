@@ -2,17 +2,16 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+import type EmojiMap from 'utils/emoji_map';
+import messageHtmlToComponent from 'utils/message_html_to_component';
+import type {ChannelNamesMap, MentionKey, TextFormattingOptions} from 'utils/text_formatting';
+import {formatText} from 'utils/text_formatting';
 
 import type {PostImage, PostType} from '@mattermost/types/posts';
 
 import type {HighlightWithoutNotificationKey} from 'mattermost-redux/selectors/entities/users';
 
 import PostEditedIndicator from 'components/post_view/post_edited_indicator';
-
-import type EmojiMap from 'utils/emoji_map';
-import messageHtmlToComponent from 'utils/message_html_to_component';
-import type {ChannelNamesMap, MentionKey, TextFormattingOptions} from 'utils/text_formatting';
-import {formatText} from 'utils/text_formatting';
 
 import type {PropsFromRedux} from './index';
 

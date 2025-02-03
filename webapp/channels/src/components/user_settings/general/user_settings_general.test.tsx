@@ -3,13 +3,12 @@
 
 import React from 'react';
 import {Provider} from 'react-redux';
+import {shallowWithIntl, mountWithIntl} from 'tests/helpers/intl-test-helper';
+import {TestHelper} from 'utils/test_helper';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import configureStore from 'store';
-
-import {shallowWithIntl, mountWithIntl} from 'tests/helpers/intl-test-helper';
-import {TestHelper} from 'utils/test_helper';
 
 import UserSettingsGeneral from './user_settings_general';
 import type {UserSettingsGeneralTab} from './user_settings_general';

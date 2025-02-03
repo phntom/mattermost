@@ -3,6 +3,7 @@
 
 import React, {useEffect} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -10,8 +11,6 @@ import deepFreeze from 'mattermost-redux/utils/deep_freeze';
 
 import CloseCircleIcon from 'components/widgets/icons/close_circle_icon';
 import ChannelsInput from 'components/widgets/inputs/channels_input';
-
-import Constants from 'utils/constants';
 
 import {InviteType} from './invite_as';
 

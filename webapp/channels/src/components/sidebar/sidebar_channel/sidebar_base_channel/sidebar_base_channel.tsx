@@ -3,6 +3,7 @@
 
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -10,8 +11,6 @@ import {trackEvent} from 'actions/telemetry_actions';
 
 import LeaveChannelModal from 'components/leave_channel_modal';
 import SidebarChannelLink from 'components/sidebar/sidebar_channel/sidebar_channel_link';
-
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import SidebarBaseChannelIcon from './sidebar_base_channel_icon';
 

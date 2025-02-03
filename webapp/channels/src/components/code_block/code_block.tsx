@@ -3,11 +3,10 @@
 
 import React, {useCallback, useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-
-import CopyButton from 'components/copy_button';
-
 import * as SyntaxHighlighting from 'utils/syntax_highlighting';
 import * as TextFormatting from 'utils/text_formatting';
+
+import CopyButton from 'components/copy_button';
 
 import type {GlobalState} from 'types/store';
 
