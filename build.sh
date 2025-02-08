@@ -14,10 +14,10 @@ set -ex
 #chmod 755 dist/plugins
 #popd
 
-export BUILD_DATE="Mon 03 Feb 2025 12:33:46 IST"
-export VERSION_FULL="10.4.0"
+export BUILD_DATE="Sat 08 Feb 2025 12:23:39 IST"
+export VERSION_FULL="10.4.1"
 export BETA=""
-export BUILD_HASH="972011aa7d5a4b93d30b3b291ef311b8f57298d6"
+export BUILD_HASH="ec341ab0ed04971d239288c3d80ab2c8c5c60b65"
 
 go build -C server -tags=enterprise -ldflags="
 -X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=$BUILD_HASH'
