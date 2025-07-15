@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {Preferences} from 'utils/constants';
 
 import {get} from 'mattermost-redux/selectors/entities/preferences';
 
 import {getIsRhsExpanded, getIsRhsOpen} from 'selectors/rhs';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

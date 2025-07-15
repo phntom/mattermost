@@ -4,6 +4,7 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {IntlShape} from 'react-intl';
+
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import MultiSelect from './multiselect';

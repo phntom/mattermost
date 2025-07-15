@@ -4,6 +4,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+
 import Constants from 'utils/constants';
 import {isKeyPressed} from 'utils/keyboard';
 

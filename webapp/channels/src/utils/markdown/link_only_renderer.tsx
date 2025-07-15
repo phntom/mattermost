@@ -7,9 +7,20 @@ import RemoveMarkdown from './remove_markdown';
 
 export default class LinkOnlyRenderer extends RemoveMarkdown {
     public link(href: string, title: string, text: string) {
-        let outHref = href;
+        // Regex to match trailing full-width punctuation
+        const punctuationRegex = /[，。！？、；：]+$/u;
 
-        if (!getScheme(href)) {
+        let outHref = href;
+        let outText = text;
+
+        // Remove trailing punctuation from href and text
+        const hrefMatch = href.match(punctuationRegex);
+        if (hrefMatch) {
+            outHref = href.slice(0, -hrefMatch[0].length);
+            outText = text.slice(0, -hrefMatch[0].length) + hrefMatch[0];
+        }
+
+        if (!getScheme(outHref)) {
             outHref = `http://${outHref}`;
         }
 
@@ -19,8 +30,7 @@ export default class LinkOnlyRenderer extends RemoveMarkdown {
             output += ' title="' + title + '"';
         }
 
-        output += `>${text}</a>`;
-
+        output += `>${outText}</a>`;
         return output;
     }
 }

@@ -3,15 +3,15 @@
 
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
-import React, {useState, useEffect, useRef, useCallback} from 'react';
 import type {FocusEvent} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import {useSelector, useDispatch} from 'react-redux';
-import {useLocation, useHistory, Route} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {Route, useHistory, useLocation} from 'react-router-dom';
 import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
 import {isValidPassword} from 'utils/password';
 import {isDesktopApp} from 'utils/user_agent';
-import {isValidUsername, getRoleFromTrackFlow, getMediumFromTrackFlow} from 'utils/utils';
+import {getMediumFromTrackFlow, getRoleFromTrackFlow, isValidUsername} from 'utils/utils';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -34,8 +34,6 @@ import {getGlobalItem} from 'selectors/storage';
 import type {AlertBannerProps, ModeType} from 'components/alert_banner';
 import AlertBanner from 'components/alert_banner';
 import useCWSAvailabilityCheck, {CSWAvailabilityCheckTypes} from 'components/common/hooks/useCWSAvailabilityCheck';
-import LaptopAlertSVG from 'components/common/svg_images_components/laptop_alert_svg';
-import ManWithLaptopSVG from 'components/common/svg_images_components/man_with_laptop_svg';
 import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';

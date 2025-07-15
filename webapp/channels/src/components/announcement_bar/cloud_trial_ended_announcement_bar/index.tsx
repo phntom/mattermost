@@ -4,12 +4,6 @@
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
-import {
-    AnnouncementBarTypes,
-    Preferences,
-    CloudBanners,
-    CloudProducts,
-} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {
@@ -24,6 +18,13 @@ import {isSystemAdmin} from 'mattermost-redux/utils/user_utils';
 import useGetLimits from 'components/common/hooks/useGetLimits';
 import useGetSubscription from 'components/common/hooks/useGetSubscription';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
+
+import {
+    AnnouncementBarTypes,
+    Preferences,
+    CloudBanners,
+    CloudProducts,
+} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

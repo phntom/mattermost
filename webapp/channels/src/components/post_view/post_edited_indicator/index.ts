@@ -4,8 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
-import {isPostOwner, canEditPost} from 'utils/post_utils';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -19,6 +17,9 @@ import {getCurrentTimezone} from 'mattermost-redux/selectors/entities/timezone';
 import {openShowEditHistory} from 'actions/views/rhs';
 
 import type {Props as TimestampProps} from 'components/timestamp/timestamp';
+
+import {Preferences} from 'utils/constants';
+import {isPostOwner, canEditPost} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

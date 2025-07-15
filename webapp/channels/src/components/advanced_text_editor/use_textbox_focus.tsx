@@ -4,8 +4,6 @@
 import type React from 'react';
 import {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {shouldFocusMainTextbox} from 'utils/post_utils';
-import * as UserAgent from 'utils/user_agent';
 
 import {focusedRHS} from 'actions/views/rhs';
 import {getIsRhsExpanded, getIsRhsOpen} from 'selectors/rhs';
@@ -13,6 +11,9 @@ import {getShouldFocusRHS} from 'selectors/views/rhs';
 
 import useDidUpdate from 'components/common/hooks/useDidUpdate';
 import type TextboxClass from 'components/textbox/textbox';
+
+import {shouldFocusMainTextbox} from 'utils/post_utils';
+import * as UserAgent from 'utils/user_agent';
 
 const useTextboxFocus = (
     textboxRef: React.RefObject<TextboxClass>,

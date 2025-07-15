@@ -4,8 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {CloudProducts} from 'utils/constants';
-import {isCloudLicense} from 'utils/license_utils';
 
 import {getPrevTrialLicense} from 'mattermost-redux/actions/admin';
 import {Permissions} from 'mattermost-redux/constants';
@@ -28,6 +26,9 @@ import {openModal} from 'actions/views/modals';
 import {getIsMobileView} from 'selectors/views/browser';
 
 import {OnboardingTaskCategory, OnboardingTasksName, TaskNameMapToSteps} from 'components/onboarding_tasks';
+
+import {CloudProducts} from 'utils/constants';
+import {isCloudLicense} from 'utils/license_utils';
 
 import type {GlobalState} from 'types/store';
 

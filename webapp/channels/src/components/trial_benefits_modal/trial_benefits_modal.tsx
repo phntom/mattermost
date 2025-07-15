@@ -6,7 +6,6 @@ import React, {useCallback, useEffect, useMemo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
 import {matchPath, useLocation} from 'react-router-dom';
-import {ConsolePages, DocLinks, ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import {GenericModal} from '@mattermost/components';
 
@@ -23,6 +22,8 @@ import GuestAccessSvg from 'components/common/svg_images_components/guest_access
 import MonitorImacLikeSVG from 'components/common/svg_images_components/monitor_imaclike_svg';
 import PersonWithChecklistSvg from 'components/common/svg_images_components/person_with_checklist';
 import SuccessSvg from 'components/common/svg_images_components/success_svg';
+
+import {ConsolePages, DocLinks, ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

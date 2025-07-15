@@ -2,11 +2,8 @@
 // See LICENSE.txt for license information.
 
 import classNames from 'classnames';
-import Pluggable from 'plugins/pluggable';
 import React, {lazy, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Constants} from 'utils/constants';
-import {isInternetExplorer, isEdge} from 'utils/user_agent';
 
 import {cleanUpStatusAndProfileFetchingPoll} from 'mattermost-redux/actions/status_profile_polling';
 import {getIsUserStatusesConfigEnabled} from 'mattermost-redux/selectors/entities/common';
@@ -21,6 +18,10 @@ import QueryParamActionController from 'components/query_param_actions/query_par
 import Sidebar from 'components/sidebar';
 import CRTPostsChannelResetWatcher from 'components/threading/channel_threads/posts_channel_reset_watcher';
 import UnreadsStatusHandler from 'components/unreads_status_handler';
+
+import Pluggable from 'plugins/pluggable';
+import {Constants} from 'utils/constants';
+import {isInternetExplorer, isEdge} from 'utils/user_agent';
 
 const ProductNoticesModal = makeAsyncComponent('ProductNoticesModal', lazy(() => import('components/product_notices_modal')));
 const ResetStatusModal = makeAsyncComponent('ResetStatusModal', lazy(() => import('components/reset_status_modal')));

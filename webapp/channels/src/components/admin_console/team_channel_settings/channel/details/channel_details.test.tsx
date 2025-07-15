@@ -3,11 +3,12 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import {TestHelper} from 'utils/test_helper';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {Group} from '@mattermost/types/groups';
 import type {Scheme} from '@mattermost/types/schemes';
+
+import {TestHelper} from 'utils/test_helper';
 
 import ChannelDetails from './channel_details';
 

@@ -3,15 +3,16 @@
 
 import React from 'react';
 import {useIntl} from 'react-intl';
+
+import {useDesktopAppNotificationPermission} from 'components/common/hooks/use_desktop_notification_permission';
+import Tag from 'components/widgets/tag/tag';
+
 import {
     getNotificationPermission,
     isNotificationAPISupported,
     NotificationPermissionDenied,
     NotificationPermissionNeverGranted,
 } from 'utils/notifications';
-
-import {useDesktopAppNotificationPermission} from 'components/common/hooks/use_desktop_notification_permission';
-import Tag from 'components/widgets/tag/tag';
 
 export default function NotificationPermissionTitleTag() {
     const {formatMessage} = useIntl();

@@ -2,10 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {withIntl} from 'tests/helpers/intl-test-helper';
-import {fireEvent, render, screen} from 'tests/react_testing_utils';
 
 import {trackEvent} from 'actions/telemetry_actions';
+
+import {withIntl} from 'tests/helpers/intl-test-helper';
+import {fireEvent, render, screen} from 'tests/react_testing_utils';
 
 import InviteMembersLink from './invite_members_link';
 

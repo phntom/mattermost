@@ -4,7 +4,6 @@
 import React, {useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
-import {AnnouncementBarTypes} from 'utils/constants';
 
 import {AlertOutlineIcon} from '@mattermost/compass-icons/components';
 import type {ClientLicense} from '@mattermost/types/config';
@@ -12,6 +11,8 @@ import type {ClientLicense} from '@mattermost/types/config';
 import {getServerLimits} from 'mattermost-redux/selectors/entities/limits';
 
 import AnnouncementBar from 'components/announcement_bar/default_announcement_bar';
+
+import {AnnouncementBarTypes} from 'utils/constants';
 
 type Props = {
     license?: ClientLicense;

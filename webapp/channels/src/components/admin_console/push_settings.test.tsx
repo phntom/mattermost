@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {AdminConfig} from '@mattermost/types/config';
 
 import PushSettings from 'components/admin_console/push_settings';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/PushSettings', () => {
     test('should match snapshot, licensed', () => {

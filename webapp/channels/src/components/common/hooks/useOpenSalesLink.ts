@@ -3,11 +3,12 @@
 
 import {useCallback} from 'react';
 import {useSelector} from 'react-redux';
-import {LicenseLinks} from 'utils/constants';
-import {buildMMURL, goToMattermostContactSalesForm} from 'utils/contact_support_sales';
 
 import {getCloudCustomer, isCurrentLicenseCloud} from 'mattermost-redux/selectors/entities/cloud';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+
+import {LicenseLinks} from 'utils/constants';
+import {buildMMURL, goToMattermostContactSalesForm} from 'utils/contact_support_sales';
 
 const utmSource = 'mattermost';
 

@@ -5,9 +5,10 @@ import {shallow} from 'enzyme';
 import React from 'react';
 import type {FormEvent} from 'react';
 import {FormattedMessage} from 'react-intl';
-import {TestHelper} from 'utils/test_helper';
 
 import AbstractCommand from 'components/integrations/abstract_command';
+
+import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/AbstractCommand', () => {
     const header = {id: 'Header', defaultMessage: 'Header'};

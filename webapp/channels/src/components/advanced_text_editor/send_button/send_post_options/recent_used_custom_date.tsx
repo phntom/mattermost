@@ -6,7 +6,6 @@ import {DateTime} from 'luxon';
 import React, {memo, useCallback, useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
-import {scheduledPosts} from 'utils/constants';
 
 import type {GlobalState} from '@mattermost/types/store';
 
@@ -14,6 +13,8 @@ import {get as getPreference} from 'mattermost-redux/selectors/entities/preferen
 
 import * as Menu from 'components/menu';
 import Timestamp, {RelativeRanges} from 'components/timestamp';
+
+import {scheduledPosts} from 'utils/constants';
 
 type Props = {
     handleOnSelect: (e: React.FormEvent, scheduledAt: number) => void;

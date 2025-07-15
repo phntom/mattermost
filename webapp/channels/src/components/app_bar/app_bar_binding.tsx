@@ -4,7 +4,6 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
-import {createCallContext} from 'utils/apps';
 
 import type {AppBinding, AppCallResponse} from '@mattermost/types/apps';
 
@@ -15,6 +14,8 @@ import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 import {handleBindingClick, openAppsModal, postEphemeralCallResponseForContext} from 'actions/apps';
 
 import WithTooltip from 'components/with_tooltip';
+
+import {createCallContext} from 'utils/apps';
 
 import type {DoAppCallResult} from 'types/apps';
 

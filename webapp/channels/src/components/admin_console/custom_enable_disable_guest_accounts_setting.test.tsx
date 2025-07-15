@@ -4,6 +4,7 @@
 import {fireEvent, screen} from '@testing-library/react';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import CustomEnableDisableGuestAccountsSetting from './custom_enable_disable_guest_accounts_setting';

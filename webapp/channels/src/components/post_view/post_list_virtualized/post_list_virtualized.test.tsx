@@ -4,12 +4,13 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {PostListRowListIds, PostRequestTypes} from 'utils/constants';
 
 import {DATE_LINE} from 'mattermost-redux/utils/post_list';
 
 import type {DynamicVirtualizedList} from 'components/dynamic_virtualized_list';
 import PostListRow from 'components/post_view/post_list_row';
+
+import {PostListRowListIds, PostRequestTypes} from 'utils/constants';
 
 import PostList from './post_list_virtualized';
 

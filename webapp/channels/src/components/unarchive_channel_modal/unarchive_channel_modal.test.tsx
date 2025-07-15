@@ -4,6 +4,7 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
+
 import {TestHelper} from 'utils/test_helper';
 
 import UnarchiveChannelModal from './unarchive_channel_modal';

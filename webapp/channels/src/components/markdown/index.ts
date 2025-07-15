@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import {connect, type ConnectedProps} from 'react-redux';
-import {getSiteURL} from 'utils/url';
 
 import {Preferences} from 'mattermost-redux/constants';
 import {createSelector} from 'mattermost-redux/selectors/create_selector';
@@ -14,6 +13,8 @@ import {getAllUserMentionKeys} from 'mattermost-redux/selectors/entities/search'
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 
 import {getEmojiMap} from 'selectors/emojis';
+
+import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

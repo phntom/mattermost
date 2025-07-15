@@ -1,13 +1,13 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getHistory} from 'utils/browser_history';
-import Constants, {ActionTypes} from 'utils/constants';
-
 import {selectChannel} from 'mattermost-redux/actions/channels';
 import {getCurrentRelativeTeamUrl} from 'mattermost-redux/selectors/entities/teams';
 
 import {SidebarSize} from 'components/resizable_sidebar/constants';
+
+import {getHistory} from 'utils/browser_history';
+import Constants, {ActionTypes} from 'utils/constants';
 
 import type {ActionFunc, ThunkActionFunc} from 'types/store';
 import {LhsItemType} from 'types/store/lhs';

@@ -4,12 +4,13 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {shouldShowUnreadsCategory} from 'mattermost-redux/selectors/entities/preferences';
 
 import {openModal, closeModal} from 'actions/views/modals';
 import {isModalOpen} from 'selectors/views/modals';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

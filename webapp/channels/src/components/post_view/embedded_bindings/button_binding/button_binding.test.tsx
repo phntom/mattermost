@@ -2,15 +2,16 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+
+import type {AppBinding, AppCallResponse} from '@mattermost/types/apps';
+import type {Post} from '@mattermost/types/posts';
+
 import {
     renderWithContext,
     screen,
     userEvent,
     waitFor,
 } from 'tests/react_testing_utils';
-
-import type {AppBinding, AppCallResponse} from '@mattermost/types/apps';
-import type {Post} from '@mattermost/types/posts';
 
 import ButtonBinding from './button_binding';
 

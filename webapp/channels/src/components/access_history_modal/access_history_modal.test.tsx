@@ -4,11 +4,12 @@
 import {fireEvent, screen, render, waitForElementToBeRemoved, waitFor} from '@testing-library/react';
 import {shallow} from 'enzyme';
 import React from 'react';
-import {withIntl} from 'tests/helpers/intl-test-helper';
 
 import AccessHistoryModal from 'components/access_history_modal/access_history_modal';
 import AuditTable from 'components/audit_table';
 import LoadingScreen from 'components/loading_screen';
+
+import {withIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/AccessHistoryModal', () => {
     const baseProps = {

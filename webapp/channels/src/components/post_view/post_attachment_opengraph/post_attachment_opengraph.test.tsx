@@ -6,12 +6,13 @@ import cloneDeep from 'lodash/cloneDeep';
 import set from 'lodash/set';
 import React from 'react';
 import {Provider} from 'react-redux';
-import mockStore from 'tests/test_store';
-import {Preferences} from 'utils/constants';
 
 import type {OpenGraphMetadata, Post} from '@mattermost/types/posts';
 
 import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
+
+import mockStore from 'tests/test_store';
+import {Preferences} from 'utils/constants';
 
 import {getBestImage, getIsLargeImage, PostAttachmentOpenGraphImage, PostAttachmentOpenGraphBody} from './post_attachment_opengraph';
 

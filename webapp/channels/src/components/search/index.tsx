@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {RHSStates} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {ServerError} from '@mattermost/types/errors';
@@ -30,6 +29,8 @@ import {
 } from 'actions/views/rhs';
 import {getRhsState, getSearchTeam, getSearchTerms, getSearchType, getIsSearchingTerm, getIsRhsOpen, getIsRhsExpanded} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
+
+import {RHSStates} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

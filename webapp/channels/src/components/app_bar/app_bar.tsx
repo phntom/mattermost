@@ -4,8 +4,6 @@
 import partition from 'lodash/partition';
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {suitePluginIds} from 'utils/constants';
-import {useCurrentProduct, useCurrentProductId, inScope} from 'utils/products';
 
 import type {GlobalState} from '@mattermost/types/store';
 
@@ -15,6 +13,9 @@ import {isMarketplaceEnabled} from 'mattermost-redux/selectors/entities/general'
 import {haveICurrentTeamPermission} from 'mattermost-redux/selectors/entities/roles';
 
 import {getAppBarPluginComponents, getChannelHeaderPluginComponents, shouldShowAppBar} from 'selectors/plugins';
+
+import {suitePluginIds} from 'utils/constants';
+import {useCurrentProduct, useCurrentProductId, inScope} from 'utils/products';
 
 import AppBarBinding, {isAppBinding} from './app_bar_binding';
 import AppBarMarketplace from './app_bar_marketplace';

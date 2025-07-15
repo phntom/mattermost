@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {PostListRowListIds} from 'utils/constants';
 
 import {getCloudLimits, getCloudLimitsLoaded} from 'mattermost-redux/selectors/entities/cloud';
 import {getCurrentChannelId, getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
@@ -13,6 +12,8 @@ import {getUsage} from 'mattermost-redux/selectors/entities/usage';
 
 import {emitShortcutReactToLastPostFrom} from 'actions/post_actions';
 import {getShortcutReactToLastPostEmittedFrom} from 'selectors/emojis';
+
+import {PostListRowListIds} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

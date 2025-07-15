@@ -4,11 +4,12 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
+
+import Constants from 'utils/constants';
 
 type Props = {
     onExited: () => void;

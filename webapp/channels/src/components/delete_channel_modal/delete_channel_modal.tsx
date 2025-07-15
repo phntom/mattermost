@@ -4,10 +4,11 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
+
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
 
 export type Props = {
     onExited: () => void;

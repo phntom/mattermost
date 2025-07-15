@@ -3,6 +3,7 @@
 
 import {fireEvent} from '@testing-library/react';
 import React from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import SaveConfirmationModal from './save_confirmation_modal';

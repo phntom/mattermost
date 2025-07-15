@@ -3,12 +3,6 @@
 
 import React, {useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Constants, {ModalIdentifiers} from 'utils/constants';
-import {
-    hasRequestedPersistentNotifications,
-    mentionsMinusSpecialMentionsInText,
-    specialMentionsInText
-} from 'utils/post_utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {PostPriorityMetadata} from '@mattermost/types/posts';
@@ -22,6 +16,9 @@ import {openModal} from 'actions/views/modals';
 
 import PersistNotificationConfirmModal from 'components/persist_notification_confirm_modal';
 import PostPriorityPicker from 'components/post_priority/post_priority_picker';
+
+import Constants, {ModalIdentifiers} from 'utils/constants';
+import {hasRequestedPersistentNotifications, mentionsMinusSpecialMentionsInText, specialMentionsInText} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

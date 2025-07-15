@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import type {PreferenceType} from '@mattermost/types/preferences';
 
@@ -21,6 +20,8 @@ import {dismissNotice} from 'actions/views/notice';
 
 import Notices from 'components/system_notice/notices';
 import SystemNotice from 'components/system_notice/system_notice';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

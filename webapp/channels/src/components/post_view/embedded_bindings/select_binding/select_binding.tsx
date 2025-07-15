@@ -4,7 +4,6 @@
 import React from 'react';
 import {injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
-import {createCallContext} from 'utils/apps';
 
 import type {AppBinding} from '@mattermost/types/apps';
 import type {Channel} from '@mattermost/types/channels';
@@ -17,6 +16,8 @@ import AutocompleteSelector from 'components/autocomplete_selector';
 import type {Option, Selected} from 'components/autocomplete_selector';
 import PostContext from 'components/post_view/post_context';
 import MenuActionProvider from 'components/suggestion/menu_action_provider';
+
+import {createCallContext} from 'utils/apps';
 
 import type {HandleBindingClick, OpenAppsModal, PostEphemeralCallResponseForPost} from 'types/apps';
 

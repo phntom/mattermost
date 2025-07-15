@@ -5,7 +5,6 @@ import moment from 'moment';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
-import {ModalIdentifiers, CloudProducts} from 'utils/constants';
 
 import {getCloudSubscription, getSubscriptionProduct} from 'mattermost-redux/selectors/entities/cloud';
 import {getLicense} from 'mattermost-redux/selectors/entities/general';
@@ -18,6 +17,8 @@ import useGetLimits from 'components/common/hooks/useGetLimits';
 import useGetUsage from 'components/common/hooks/useGetUsage';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
 import TrialBenefitsModal from 'components/trial_benefits_modal/trial_benefits_modal';
+
+import {ModalIdentifiers, CloudProducts} from 'utils/constants';
 
 import './menu_item.scss';
 

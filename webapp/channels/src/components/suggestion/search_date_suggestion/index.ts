@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {getCurrentDateForTimezone} from 'utils/timezone';
 
 import {getCurrentTimezone} from 'mattermost-redux/selectors/entities/timezone';
 
 import {getCurrentLocale} from 'selectors/i18n';
+
+import {getCurrentDateForTimezone} from 'utils/timezone';
 
 import type {GlobalState} from 'types/store';
 

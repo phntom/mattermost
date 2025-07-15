@@ -4,13 +4,14 @@
 import React, {useCallback, useState} from 'react';
 import type {ChangeEvent} from 'react';
 import {defineMessages, useIntl} from 'react-intl';
-import Constants from 'utils/constants';
 
 import type {Team} from '@mattermost/types/teams';
 
 import type {BaseSettingItemProps} from 'components/widgets/modals/components/base_setting_item';
 import ModalSection from 'components/widgets/modals/components/modal_section';
 import SaveChangesPanel, {type SaveChangesPanelState} from 'components/widgets/modals/components/save_changes_panel';
+
+import Constants from 'utils/constants';
 
 import TeamDescriptionSection from './team_description_section';
 import TeamNameSection from './team_name_section';
@@ -223,13 +224,14 @@ const InfoTab = ({team, hasChanges, maxFileSize, closeModal, collapseModal, hasC
                     teamName={team.display_name ?? team.name}
                     clientError={imageClientError}
                 />
-                {hasChanges ? <SaveChangesPanel
-                    handleCancel={handleCancel}
-                    handleSubmit={handleSaveChanges}
-                    handleClose={handleClose}
-                    tabChangeError={hasChangeTabError}
-                    state={saveChangesPanelState}
-                /> : undefined}
+                {hasChanges ?
+                    <SaveChangesPanel
+                        handleCancel={handleCancel}
+                        handleSubmit={handleSaveChanges}
+                        handleClose={handleClose}
+                        tabChangeError={hasChangeTabError}
+                        state={saveChangesPanelState}
+                    /> : undefined}
             </div>
         </>
     );

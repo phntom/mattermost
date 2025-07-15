@@ -4,12 +4,13 @@
 import {screen, fireEvent} from '@testing-library/react';
 import type {ComponentProps} from 'react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
-import {getPluginPreferenceKey} from 'utils/plugins/preferences';
 
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
+
+import {renderWithContext} from 'tests/react_testing_utils';
+import {getPluginPreferenceKey} from 'utils/plugins/preferences';
 
 import type {GlobalState} from 'types/store';
 

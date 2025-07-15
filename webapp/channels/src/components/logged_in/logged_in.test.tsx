@@ -3,7 +3,6 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import {fireEvent, renderWithContext, screen} from 'tests/react_testing_utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -12,6 +11,8 @@ import BrowserStore from 'stores/browser_store';
 
 import LoggedIn from 'components/logged_in/logged_in';
 import type {Props} from 'components/logged_in/logged_in';
+
+import {fireEvent, renderWithContext, screen} from 'tests/react_testing_utils';
 
 jest.mock('actions/websocket_actions.jsx', () => ({
     initialize: jest.fn(),

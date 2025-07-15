@@ -3,6 +3,7 @@
 
 import React from 'react';
 import type {ComponentProps} from 'react';
+
 import {withIntl} from 'tests/helpers/intl-test-helper';
 import {fireEvent, render, screen} from 'tests/react_testing_utils';
 

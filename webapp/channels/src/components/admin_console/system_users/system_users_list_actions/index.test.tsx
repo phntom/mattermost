@@ -5,13 +5,13 @@ import {waitFor, screen, within} from '@testing-library/react';
 import React from 'react';
 import '@testing-library/jest-dom';
 
-import {renderWithContext, userEvent} from 'tests/react_testing_utils';
-import Constants from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
-
 import type {UserProfile} from '@mattermost/types/users';
 
 import {haveISystemPermission} from 'mattermost-redux/selectors/entities/roles_helpers';
+
+import {renderWithContext, userEvent} from 'tests/react_testing_utils';
+import Constants from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 import {SystemUsersListAction} from './index';
 

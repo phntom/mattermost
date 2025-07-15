@@ -3,7 +3,6 @@
 
 import React, {useCallback} from 'react';
 import type {KeyboardEvent, MouseEvent} from 'react';
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {
     Post,
@@ -13,6 +12,8 @@ import type {
 import ExternalImage from 'components/external_image';
 import FilePreviewModal from 'components/file_preview_modal';
 import SizeAwareImage from 'components/size_aware_image';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

@@ -5,10 +5,6 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import type {WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, injectIntl} from 'react-intl';
-import Constants from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
-import {isMobile} from 'utils/user_agent';
-import {insertLineBreakFromKeyEvent, isUnhandledLineBreakKeyCombo} from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {ServerError} from '@mattermost/types/errors';
@@ -16,6 +12,11 @@ import type {ServerError} from '@mattermost/types/errors';
 import Textbox, {TextboxLinks} from 'components/textbox';
 import type {TextboxElement} from 'components/textbox';
 import type TextboxClass from 'components/textbox/textbox';
+
+import Constants from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
+import {isMobile} from 'utils/user_agent';
+import {insertLineBreakFromKeyEvent, isUnhandledLineBreakKeyCombo} from 'utils/utils';
 
 import type {PropsFromRedux} from './index';
 

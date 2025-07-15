@@ -4,12 +4,13 @@
 import React, {useCallback} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {openModal} from 'actions/views/modals';
 
 import UserSettingsModal from 'components/user_settings/modal';
 import WithTooltip from 'components/with_tooltip';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     userId: string;

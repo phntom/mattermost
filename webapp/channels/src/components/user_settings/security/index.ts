@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from '@mattermost/types/store';
 import type {UserProfile} from '@mattermost/types/users';
@@ -14,6 +13,8 @@ import {getMe, updateUserPassword} from 'mattermost-redux/actions/users';
 import {getConfig, getPasswordConfig} from 'mattermost-redux/selectors/entities/general';
 import {getBool} from 'mattermost-redux/selectors/entities/preferences';
 import * as UserUtils from 'mattermost-redux/utils/user_utils';
+
+import {Preferences} from 'utils/constants';
 
 import SecurityTab from './user_settings_security';
 

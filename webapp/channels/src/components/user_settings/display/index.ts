@@ -1,12 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getLanguages, isLanguageAvailable} from 'i18n/i18n';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
 import timezones from 'timezones.json';
-import {Preferences} from 'utils/constants';
 
 import {CollapsedThreads} from '@mattermost/types/config';
 
@@ -27,6 +25,9 @@ import {
 } from 'mattermost-redux/selectors/entities/timezone';
 import {getCurrentUserId, getUser} from 'mattermost-redux/selectors/entities/users';
 import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
+
+import {getLanguages, isLanguageAvailable} from 'i18n/i18n';
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

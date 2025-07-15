@@ -4,14 +4,15 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {WindowSizes} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
 
 import {getThreadsForCurrentTeam} from 'mattermost-redux/actions/threads';
 
 import {openModal} from 'actions/views/modals';
 
 import Header from 'components/widgets/header';
+
+import {WindowSizes} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 import ThreadList, {ThreadFilter} from './thread_list';
 import VirtualizedThreadList from './virtualized_thread_list';

@@ -5,11 +5,12 @@ import {shallow} from 'enzyme';
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {Provider} from 'react-redux';
+
+import type {DialogElement as TDialogElement} from '@mattermost/types/integrations';
+
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 import mockStore from 'tests/test_store';
 import EmojiMap from 'utils/emoji_map';
-
-import type {DialogElement as TDialogElement} from '@mattermost/types/integrations';
 
 import type {Props} from './interactive_dialog';
 import InteractiveDialog from './interactive_dialog';

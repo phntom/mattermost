@@ -5,8 +5,6 @@ import {shallow} from 'enzyme';
 import set from 'lodash/set';
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {fakeDate} from 'tests/helpers/date';
-import {copyToClipboard} from 'utils/utils';
 
 import {setThreadFollow, updateThreadRead, markLastPostInThreadAsUnread} from 'mattermost-redux/actions/threads';
 
@@ -17,6 +15,9 @@ import {
 import {manuallyMarkThreadAsUnread} from 'actions/views/threads';
 
 import Menu from 'components/widgets/menu/menu';
+
+import {fakeDate} from 'tests/helpers/date';
+import {copyToClipboard} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

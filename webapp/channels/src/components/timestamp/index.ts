@@ -2,13 +2,14 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {Preferences} from 'utils/constants';
 
 import type {UserTimezone} from '@mattermost/types/users';
 
 import {getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentTimezoneFull} from 'mattermost-redux/selectors/entities/timezone';
 import {getUserCurrentTimezone} from 'mattermost-redux/utils/timezone_utils';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

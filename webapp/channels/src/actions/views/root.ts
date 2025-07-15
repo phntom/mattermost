@@ -1,12 +1,12 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import en from 'i18n/en.json';
-import {ActionTypes} from 'utils/constants';
-
 import {Client4} from 'mattermost-redux/client';
 
 import {getCurrentLocale, getTranslations} from 'selectors/i18n';
+
+import en from 'i18n/en.json';
+import {ActionTypes} from 'utils/constants';
 
 import type {ActionFuncAsync, ThunkActionFunc} from 'types/store';
 import type {Translations} from 'types/store/i18n';

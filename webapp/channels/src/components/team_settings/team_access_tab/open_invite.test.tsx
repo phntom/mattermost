@@ -3,6 +3,7 @@
 
 import {fireEvent, screen} from '@testing-library/react';
 import React, {type ComponentProps} from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import OpenInvite from './open_invite';

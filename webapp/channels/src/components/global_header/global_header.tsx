@@ -4,11 +4,12 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
-import {useCurrentProductId} from 'utils/products';
 
 import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 
 import CompassThemeProvider from 'components/compass_theme_provider/compass_theme_provider';
+
+import {useCurrentProductId} from 'utils/products';
 
 import CenterControls from './center_controls/center_controls';
 import {useIsLoggedIn} from './hooks';

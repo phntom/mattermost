@@ -3,9 +3,6 @@
 
 import React, {type ChangeEvent, useRef, useState, useEffect, useCallback} from 'react';
 import {useIntl} from 'react-intl';
-import Constants from 'utils/constants';
-import * as FileUtils from 'utils/file_utils';
-import {imageURLForTeam} from 'utils/utils';
 
 import {TrashCanOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Team} from '@mattermost/types/teams';
@@ -13,6 +10,10 @@ import type {Team} from '@mattermost/types/teams';
 import EditIcon from 'components/widgets/icons/fa_edit_icon';
 import BaseSettingItem from 'components/widgets/modals/components/base_setting_item';
 import type {BaseSettingItemProps} from 'components/widgets/modals/components/base_setting_item';
+
+import Constants from 'utils/constants';
+import * as FileUtils from 'utils/file_utils';
+import {imageURLForTeam} from 'utils/utils';
 
 import './team_picture_section.scss';
 

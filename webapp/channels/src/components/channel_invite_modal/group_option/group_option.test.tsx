@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {renderWithContext, waitFor} from 'tests/react_testing_utils';
 
 import type {Group} from '@mattermost/types/groups';
 
 import type {Value} from 'components/multiselect/multiselect';
+
+import {renderWithContext, waitFor} from 'tests/react_testing_utils';
 
 import GroupOption from './group_option';
 import type{Props} from './group_option';

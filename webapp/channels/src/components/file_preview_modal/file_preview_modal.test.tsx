@@ -3,12 +3,13 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+
+import FilePreviewModal from 'components/file_preview_modal/file_preview_modal';
+
 import Constants from 'utils/constants';
 import {TestHelper} from 'utils/test_helper';
 import * as Utils from 'utils/utils';
 import {generateId} from 'utils/utils';
-
-import FilePreviewModal from 'components/file_preview_modal/file_preview_modal';
 
 describe('components/FilePreviewModal', () => {
     const baseProps = {

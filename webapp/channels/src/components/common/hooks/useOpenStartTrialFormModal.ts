@@ -3,11 +3,12 @@
 
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {openModal} from 'actions/views/modals';
 
 import StartTrialFormModal from 'components/start_trial_form_modal';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {TelemetryProps} from './useOpenPricingModal';
 

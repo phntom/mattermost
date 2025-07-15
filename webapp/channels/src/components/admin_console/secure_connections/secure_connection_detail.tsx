@@ -9,8 +9,6 @@ import {useIntl, FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory, useParams, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
-import {isArchivedChannel} from 'utils/channel_utils';
-import Constants from 'utils/constants';
 
 import {GlobeIcon, LockIcon, PlusIcon, ArchiveOutlineIcon} from '@mattermost/compass-icons/components';
 import {isRemoteClusterPatch, type RemoteCluster} from '@mattermost/types/remote_clusters';
@@ -22,6 +20,9 @@ import {setNavigationBlocked} from 'actions/admin_actions';
 import BlockableLink from 'components/admin_console/blockable_link';
 import LoadingScreen from 'components/loading_screen';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
+
+import {isArchivedChannel} from 'utils/channel_utils';
+import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

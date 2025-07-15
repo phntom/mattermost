@@ -4,11 +4,12 @@
 import {shallow} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {TestHelper} from 'utils/test_helper';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import MoreDirectChannels from 'components/more_direct_channels/more_direct_channels';
+
+import {TestHelper} from 'utils/test_helper';
 
 jest.useFakeTimers();
 const mockedUser = TestHelper.getUserMock();

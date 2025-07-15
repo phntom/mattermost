@@ -6,8 +6,6 @@ import React from 'react';
 import type {MouseEvent, KeyboardEvent} from 'react';
 import {Draggable, Droppable} from 'react-beautiful-dnd';
 import {FormattedMessage, defineMessages} from 'react-intl';
-import Constants, {A11yCustomEventTypes, DraggingStateTypes, DraggingStates} from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
 
 import type {ChannelCategory} from '@mattermost/types/channel_categories';
 import {CategorySorting} from '@mattermost/types/channel_categories';
@@ -22,6 +20,9 @@ import KeyboardShortcutSequence, {
     KEYBOARD_SHORTCUTS,
 } from 'components/keyboard_shortcuts/keyboard_shortcuts_sequence';
 import WithTooltip from 'components/with_tooltip';
+
+import Constants, {A11yCustomEventTypes, DraggingStateTypes, DraggingStates} from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
 
 import type {DraggingState} from 'types/store';
 

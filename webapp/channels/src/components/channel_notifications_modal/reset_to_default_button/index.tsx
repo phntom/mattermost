@@ -3,11 +3,12 @@
 
 import React, {useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
-import {DesktopSound, NotificationLevels} from 'utils/constants';
-import {notificationSoundKeys, convertDesktopSoundNotifyPropFromUserToDesktop} from 'utils/notification_sounds';
 
 import type {ChannelMembership, ChannelNotifyProps} from '@mattermost/types/channels';
 import type {UserNotifyProps, UserProfile} from '@mattermost/types/users';
+
+import {DesktopSound, NotificationLevels} from 'utils/constants';
+import {notificationSoundKeys, convertDesktopSoundNotifyPropFromUserToDesktop} from 'utils/notification_sounds';
 
 export enum SectionName {
     Desktop = 'desktop',

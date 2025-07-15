@@ -7,8 +7,6 @@ import {useSelector} from 'react-redux';
 import {components} from 'react-select';
 import type {OptionProps, SingleValueProps, OnChangeValue, DropdownIndicatorProps, OptionsOrGroups, GroupBase} from 'react-select';
 import AsyncSelect from 'react-select/async';
-import Constants from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import {
     ArchiveOutlineIcon, ChevronDownIcon,
@@ -30,6 +28,9 @@ import type {ProviderResult} from 'components/suggestion/provider';
 import SwitchChannelProvider from 'components/suggestion/switch_channel_provider';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
+
+import Constants from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

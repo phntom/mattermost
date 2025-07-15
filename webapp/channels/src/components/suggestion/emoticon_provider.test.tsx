@@ -1,11 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import EmojiMap from 'utils/emoji_map';
-
 import type {CustomEmoji, Emoji} from '@mattermost/types/emojis';
 
 import {getEmojiMap, getRecentEmojisNames} from 'selectors/emojis';
+
+import EmojiMap from 'utils/emoji_map';
 
 import EmoticonProvider, {
     MIN_EMOTICON_LENGTH,

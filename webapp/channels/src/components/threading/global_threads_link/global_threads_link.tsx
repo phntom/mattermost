@@ -6,14 +6,6 @@ import React, {useCallback, useEffect} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, useRouteMatch, useLocation, matchPath} from 'react-router-dom';
-import Constants, {
-    CrtTutorialSteps,
-    CrtTutorialTriggerSteps,
-    ModalIdentifiers,
-    Preferences,
-    RHSStates,
-} from 'utils/constants';
-import {Mark} from 'utils/performance_telemetry';
 
 import {PulsatingDot} from '@mattermost/components';
 
@@ -34,6 +26,15 @@ import CollapsedReplyThreadsModal
     from 'components/tours/crt_tour/collapsed_reply_threads_modal';
 import CRTWelcomeTutorialTip
     from 'components/tours/crt_tour/crt_welcome_tutorial_tip';
+
+import Constants, {
+    CrtTutorialSteps,
+    CrtTutorialTriggerSteps,
+    ModalIdentifiers,
+    Preferences,
+    RHSStates,
+} from 'utils/constants';
+import {Mark} from 'utils/performance_telemetry';
 
 import type {GlobalState} from 'types/store';
 

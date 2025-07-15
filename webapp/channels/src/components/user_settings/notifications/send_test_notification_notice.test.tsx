@@ -2,9 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {act, renderWithContext, screen, waitFor} from 'tests/react_testing_utils';
 
 import {sendTestNotification} from 'actions/notification_actions';
+
+import {act, renderWithContext, screen, waitFor} from 'tests/react_testing_utils';
 
 import SendTestNotificationNotice from './send_test_notification_notice';
 

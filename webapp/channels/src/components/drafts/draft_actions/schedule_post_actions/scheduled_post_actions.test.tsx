@@ -3,13 +3,14 @@
 
 import {screen} from '@testing-library/react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import type {Channel, ChannelType} from '@mattermost/types/channels';
 import type {ScheduledPost} from '@mattermost/types/schedule_post';
 
 import * as commonSelectors from 'mattermost-redux/selectors/entities/common';
 import * as usersSelectors from 'mattermost-redux/selectors/entities/users';
+
+import {renderWithContext} from 'tests/react_testing_utils';
 
 import ScheduledPostActions from './scheduled_post_actions';
 

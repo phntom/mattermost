@@ -6,7 +6,6 @@ import React, {useEffect, useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import {FormattedMessage, defineMessages, useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
-import {AboutLinks, LicenseLinks, ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import {getLicenseConfig} from 'mattermost-redux/actions/general';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/common';
@@ -25,6 +24,8 @@ import ExternalLink from 'components/external_link';
 import CountrySelector from 'components/payment_form/country_selector';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
+
+import {AboutLinks, LicenseLinks, ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

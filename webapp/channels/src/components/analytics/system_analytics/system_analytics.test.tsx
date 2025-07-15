@@ -4,10 +4,11 @@
 import {fireEvent} from '@testing-library/react';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import Constants from 'utils/constants';
 
 import SystemAnalytics from 'components/analytics/system_analytics';
+
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import Constants from 'utils/constants';
 
 const StatTypes = Constants.StatTypes;
 

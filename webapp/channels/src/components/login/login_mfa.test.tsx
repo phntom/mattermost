@@ -3,10 +3,11 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import LoginMfa from 'components/login/login_mfa';
 import SaveButton from 'components/save_button';
+
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/login/LoginMfa', () => {
     const baseProps = {

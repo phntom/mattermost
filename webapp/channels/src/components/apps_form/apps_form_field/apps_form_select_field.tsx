@@ -5,7 +5,6 @@ import React from 'react';
 import type {StylesConfig} from 'react-select';
 import ReactSelect from 'react-select';
 import AsyncSelect from 'react-select/async';
-import {imageURLForUser} from 'utils/utils';
 
 import type {AppField, AppSelectOption} from '@mattermost/types/apps';
 import type {UserAutocomplete} from '@mattermost/types/autocomplete';
@@ -15,6 +14,8 @@ import type {UserProfile} from '@mattermost/types/users';
 import {AppFieldTypes} from 'mattermost-redux/constants/apps';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 import {displayUsername} from 'mattermost-redux/utils/user_utils';
+
+import {imageURLForUser} from 'utils/utils';
 
 import {SelectChannelOption} from './select_channel_option';
 import {SelectUserOption} from './select_user_option';

@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import {General, Posts} from 'mattermost-redux/constants';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import CombinedSystemMessage from './combined_system_message';
 import type {CombinedSystemMessage as CombinedSystemMessageType} from './combined_system_message';

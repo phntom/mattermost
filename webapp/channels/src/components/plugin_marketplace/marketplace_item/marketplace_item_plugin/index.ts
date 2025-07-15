@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {getPluginStatus} from 'mattermost-redux/selectors/entities/admin';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
@@ -13,6 +12,8 @@ import {installPlugin} from 'actions/marketplace';
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {closeModal} from 'actions/views/modals';
 import {getInstalling, getError} from 'selectors/views/marketplace';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

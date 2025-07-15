@@ -4,9 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {getHistory} from 'utils/browser_history';
-import {checkIfMFARequired} from 'utils/route';
-import {isPermalinkURL} from 'utils/url';
 
 import {updateApproximateViewTime} from 'mattermost-redux/actions/channels';
 import {autoUpdateTimezone} from 'mattermost-redux/actions/timezone';
@@ -15,6 +12,10 @@ import {getLicense, getConfig} from 'mattermost-redux/selectors/entities/general
 import {getCurrentUser, shouldShowTermsOfService} from 'mattermost-redux/selectors/entities/users';
 
 import {getChannelURL} from 'selectors/urls';
+
+import {getHistory} from 'utils/browser_history';
+import {checkIfMFARequired} from 'utils/route';
+import {isPermalinkURL} from 'utils/url';
 
 import type {ThunkActionFunc, GlobalState} from 'types/store';
 

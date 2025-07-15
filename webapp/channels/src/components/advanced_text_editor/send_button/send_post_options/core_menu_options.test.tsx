@@ -3,10 +3,11 @@
 
 import {DateTime} from 'luxon';
 import React from 'react';
-import {renderWithContext, fireEvent, screen} from 'tests/react_testing_utils';
 
 import useTimePostBoxIndicator from 'components/advanced_text_editor/use_post_box_indicator';
 import {WithTestMenuContext} from 'components/menu/menu_context_test';
+
+import {renderWithContext, fireEvent, screen} from 'tests/react_testing_utils';
 
 import CoreMenuOptions from './core_menu_options';
 

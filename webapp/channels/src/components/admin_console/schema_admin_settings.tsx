@@ -1,13 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import * as I18n from 'i18n/i18n.jsx';
 import React from 'react';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape, MessageDescriptor, WrappedComponentProps} from 'react-intl';
 import {Link} from 'react-router-dom';
-import Constants from 'utils/constants';
-import {mappingValueFromRoles, rolesFromMapping} from 'utils/policy_roles_adapter';
 
 import type {CloudState} from '@mattermost/types/cloud';
 import type {AdminConfig, ClientLicense, EnvironmentConfig} from '@mattermost/types/config';
@@ -37,6 +34,10 @@ import AdminHeader from 'components/widgets/admin_console/admin_header';
 import WarningIcon from 'components/widgets/icons/fa_warning_icon';
 import BetaTag from 'components/widgets/tag/beta_tag';
 import WithTooltip from 'components/with_tooltip';
+
+import * as I18n from 'i18n/i18n.jsx';
+import Constants from 'utils/constants';
+import {mappingValueFromRoles, rolesFromMapping} from 'utils/policy_roles_adapter';
 
 import Setting from './setting';
 import type {AdminDefinitionConfigSchemaSection, AdminDefinitionSetting, AdminDefinitionSettingBanner, AdminDefinitionSettingDropdownOption, AdminDefinitionSubSectionSchema, ConsoleAccess} from './types';

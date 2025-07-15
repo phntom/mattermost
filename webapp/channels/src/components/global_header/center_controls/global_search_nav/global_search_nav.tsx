@@ -3,11 +3,6 @@
 
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {
-    Constants,
-    RHSStates,
-} from 'utils/constants';
-import * as Keyboard from 'utils/keyboard';
 
 import Flex from '@mattermost/compass-components/utilities/layout/Flex'; // eslint-disable-line no-restricted-imports
 
@@ -15,6 +10,12 @@ import {closeRightHandSide, showMentions} from 'actions/views/rhs';
 import {getRhsState} from 'selectors/rhs';
 
 import NewSearch from 'components/new_search/new_search';
+
+import {
+    Constants,
+    RHSStates,
+} from 'utils/constants';
+import * as Keyboard from 'utils/keyboard';
 
 import type {GlobalState} from 'types/store';
 

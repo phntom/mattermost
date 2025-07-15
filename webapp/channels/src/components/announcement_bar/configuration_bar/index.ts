@@ -4,14 +4,15 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {AnnouncementBarMessages, ConfigurationBanners, Preferences} from 'utils/constants';
-import {getSiteURL} from 'utils/url';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {get as getPreference} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
 import {dismissNotice} from 'actions/views/notice';
+
+import {AnnouncementBarMessages, ConfigurationBanners, Preferences} from 'utils/constants';
+import {getSiteURL} from 'utils/url';
 
 import type {GlobalState} from 'types/store';
 

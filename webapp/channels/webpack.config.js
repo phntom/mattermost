@@ -46,7 +46,7 @@ if (DEV) {
 // entries are guaranteed to have expired.
 const buildTimestamp = Date.now();
 
-let config = {
+var config = {
     entry: ['./src/root.tsx'],
     output: {
         publicPath,

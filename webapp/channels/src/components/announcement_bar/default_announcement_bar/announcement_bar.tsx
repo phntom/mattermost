@@ -5,11 +5,12 @@ import type {ReactNode} from 'react';
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage} from 'react-intl';
-import {AnnouncementBarTypes} from 'utils/constants';
-import {isStringContainingUrl} from 'utils/url';
 
 import FormattedMarkdownMessage from 'components/formatted_markdown_message';
 import WithTooltip from 'components/with_tooltip';
+
+import {AnnouncementBarTypes} from 'utils/constants';
+import {isStringContainingUrl} from 'utils/url';
 
 import './default_announcement_bar.scss';
 

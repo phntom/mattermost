@@ -4,12 +4,13 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import Constants from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import * as UserUtils from 'mattermost-redux/utils/user_utils';
+
+import Constants from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
 
 type Props = {
     currentUser: UserProfile;

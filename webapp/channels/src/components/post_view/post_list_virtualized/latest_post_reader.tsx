@@ -3,11 +3,12 @@
 
 import React, {useMemo} from 'react';
 import {useSelector} from 'react-redux';
-import {getLatestPostId, usePostAriaLabel} from 'utils/post_utils';
 
 import type {Post} from '@mattermost/types/posts';
 
 import {getPost} from 'mattermost-redux/selectors/entities/posts';
+
+import {getLatestPostId, usePostAriaLabel} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

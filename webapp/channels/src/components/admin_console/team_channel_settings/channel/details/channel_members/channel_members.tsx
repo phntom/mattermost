@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
-import Constants, {ModalIdentifiers} from 'utils/constants';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {UserProfile, GetFilteredUsersStatsOpts} from '@mattermost/types/users';
@@ -19,6 +18,8 @@ import type {BaseMembership} from 'components/admin_console/user_grid/user_grid_
 import ChannelInviteModal from 'components/channel_invite_modal';
 import ToggleModalButton from 'components/toggle_modal_button';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
+
+import Constants, {ModalIdentifiers} from 'utils/constants';
 
 type Props = {
     channelId: string;

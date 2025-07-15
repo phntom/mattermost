@@ -4,12 +4,13 @@
 import React, {memo, useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {openModal} from 'actions/views/modals';
 
 import ScheduledPostCustomTimeModal
     from 'components/advanced_text_editor/send_button/scheduled_post_custom_time_modal/scheduled_post_custom_time_modal';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import Action from './action';
 import DeleteDraftModal from './delete_draft_modal';

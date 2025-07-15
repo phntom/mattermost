@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
-import {JobStatuses, JobTypes} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {Job} from '@mattermost/types/jobs';
@@ -11,6 +10,8 @@ import type {Job} from '@mattermost/types/jobs';
 import {blevePurgeIndexes} from 'actions/admin_actions.jsx';
 
 import ExternalLink from 'components/external_link';
+
+import {JobStatuses, JobTypes} from 'utils/constants';
 
 import BooleanSetting from './boolean_setting';
 import JobsTable from './jobs';

@@ -4,15 +4,16 @@
 import React from 'react';
 import {act} from 'react-dom/test-utils';
 import {Provider} from 'react-redux';
+
+import type {Team} from '@mattermost/types/teams';
+
+import deepFreeze from 'mattermost-redux/utils/deep_freeze';
+
 import {mountWithThemedIntl} from 'tests/helpers/themed-intl-test-helper';
 import mockStore from 'tests/test_store';
 import {SelfHostedProducts} from 'utils/constants';
 import {TestHelper as TH} from 'utils/test_helper';
 import {generateId} from 'utils/utils';
-
-import type {Team} from '@mattermost/types/teams';
-
-import deepFreeze from 'mattermost-redux/utils/deep_freeze';
 
 import InviteAs, {InviteType} from './invite_as';
 import InviteView from './invite_view';

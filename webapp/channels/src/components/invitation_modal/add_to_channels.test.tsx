@@ -2,14 +2,15 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
 import deepFreeze from 'mattermost-redux/utils/deep_freeze';
 
 import CloseCircleIcon from 'components/widgets/icons/close_circle_icon';
+
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
+import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import AddToChannels from './add_to_channels';
 import type {Props} from './add_to_channels';

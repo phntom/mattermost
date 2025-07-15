@@ -1,7 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import ErrorBoundary from 'plugins/pluggable/error_boundary';
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
 
@@ -9,6 +8,8 @@ import {getSearchBoxHints} from 'selectors/plugins';
 
 import type {ProviderResult} from 'components/suggestion/provider';
 import SearchDateSuggestion from 'components/suggestion/search_date_suggestion';
+
+import ErrorBoundary from 'plugins/pluggable/error_boundary';
 
 import SearchHints from './search_hint';
 

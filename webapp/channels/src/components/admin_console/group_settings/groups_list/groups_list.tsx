@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {defineMessage, FormattedMessage} from 'react-intl';
-import {Constants} from 'utils/constants';
 
 import type {GroupSearchOpts, MixedUnlinkedGroupRedux} from '@mattermost/types/groups';
 
@@ -15,6 +14,8 @@ import CheckboxCheckedIcon from 'components/widgets/icons/checkbox_checked_icon'
 import NextIcon from 'components/widgets/icons/fa_next_icon';
 import PreviousIcon from 'components/widgets/icons/fa_previous_icon';
 import SearchIcon from 'components/widgets/icons/search_icon';
+
+import {Constants} from 'utils/constants';
 
 const LDAP_GROUPS_PAGE_SIZE = 200;
 

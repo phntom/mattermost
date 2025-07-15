@@ -3,9 +3,10 @@
 
 import {fireEvent, screen} from '@testing-library/react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import TeamSettingsModal from 'components/team_settings_modal/team_settings_modal';
+
+import {renderWithContext} from 'tests/react_testing_utils';
 
 describe('components/team_settings_modal', () => {
     const baseProps = {

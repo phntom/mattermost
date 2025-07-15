@@ -6,7 +6,6 @@ import type {ConnectedProps} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import type {ClientConfig} from '@mattermost/types/config';
 
@@ -23,6 +22,8 @@ import {
 import {switchTeam, updateTeamsOrderForUser} from 'actions/team_actions';
 import {getCurrentLocale} from 'selectors/i18n';
 import {getIsLhsOpen} from 'selectors/lhs';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

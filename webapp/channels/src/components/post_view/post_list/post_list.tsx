@@ -2,9 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {PostRequestTypes} from 'utils/constants';
-import {Mark, Measure, measureAndReport} from 'utils/performance_telemetry';
-import {getOldestPostId, getLatestPostId} from 'utils/post_utils';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
@@ -14,6 +11,10 @@ import type {LoadPostsParameters, LoadPostsReturnValue, CanLoadMorePosts} from '
 
 import LoadingScreen from 'components/loading_screen';
 import VirtPostList from 'components/post_view/post_list_virtualized/post_list_virtualized';
+
+import {PostRequestTypes} from 'utils/constants';
+import {Mark, Measure, measureAndReport} from 'utils/performance_telemetry';
+import {getOldestPostId, getLatestPostId} from 'utils/post_utils';
 
 const MAX_NUMBER_OF_AUTO_RETRIES = 3;
 export const MAX_EXTRA_PAGES_LOADED = 10;

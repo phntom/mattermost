@@ -4,13 +4,6 @@
 import type React from 'react';
 import {useCallback, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Constants, {A11yClassNames, Locations, Preferences} from 'utils/constants';
-import * as Keyboard from 'utils/keyboard';
-import {type ApplyMarkdownOptions} from 'utils/markdown/apply_markdown';
-import {pasteHandler} from 'utils/paste';
-import {isWithinCodeBlock, postMessageOnKeyPress} from 'utils/post_utils';
-import * as UserAgent from 'utils/user_agent';
-import * as Utils from 'utils/utils';
 
 import type {SchedulingInfo} from '@mattermost/types/schedule_post';
 
@@ -23,6 +16,14 @@ import {getIsRhsExpanded} from 'selectors/rhs';
 
 import type {TextboxElement} from 'components/textbox';
 import type TextboxClass from 'components/textbox/textbox';
+
+import Constants, {A11yClassNames, Locations, Preferences} from 'utils/constants';
+import * as Keyboard from 'utils/keyboard';
+import {type ApplyMarkdownOptions} from 'utils/markdown/apply_markdown';
+import {pasteHandler} from 'utils/paste';
+import {isWithinCodeBlock, postMessageOnKeyPress} from 'utils/post_utils';
+import * as UserAgent from 'utils/user_agent';
+import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

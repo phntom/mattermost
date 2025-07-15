@@ -2,9 +2,10 @@
 // See LICENSE.txt for license information.
 
 import {defineMessage} from 'react-intl';
-import * as Emoji from 'utils/emoji';
 
 import type {EmojiCategory} from '@mattermost/types/emojis';
+
+import * as Emoji from 'utils/emoji';
 
 import type {Category, Categories} from '../types';
 

@@ -1,15 +1,16 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import pluginIconConfluence from 'images/icons/confluence.svg';
-import pluginIconGiphy from 'images/icons/giphy.svg';
-import pluginIconPagerDuty from 'images/icons/pager-duty.svg';
-import webMarketplaceBannerBackground from 'images/marketplace-notice-background.jpg';
 import React from 'react';
 import {useIntl} from 'react-intl';
 import styled from 'styled-components';
 
 import {ArrowRightIcon} from '@mattermost/compass-icons/components';
+
+import pluginIconConfluence from 'images/icons/confluence.svg';
+import pluginIconGiphy from 'images/icons/giphy.svg';
+import pluginIconPagerDuty from 'images/icons/pager-duty.svg';
+import webMarketplaceBannerBackground from 'images/marketplace-notice-background.jpg';
 
 import ExternalLink from '../external_link';
 

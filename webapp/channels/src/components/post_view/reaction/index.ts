@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import * as Emoji from 'utils/emoji';
 
 import type {Emoji as EmojiType} from '@mattermost/types/emojis';
 import type {Post} from '@mattermost/types/posts';
@@ -20,6 +19,8 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import {getEmojiImageUrl} from 'mattermost-redux/utils/emoji_utils';
 
 import {addReaction} from 'actions/post_actions';
+
+import * as Emoji from 'utils/emoji';
 
 import Reaction from './reaction';
 

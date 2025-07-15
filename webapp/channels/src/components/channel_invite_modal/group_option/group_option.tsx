@@ -4,7 +4,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
-import Constants from 'utils/constants';
 
 import {AccountMultipleOutlineIcon, ChevronRightIcon} from '@mattermost/compass-icons/components';
 import type {Group} from '@mattermost/types/groups';
@@ -18,6 +17,8 @@ import {trackFeatureEvent} from 'actions/telemetry_actions';
 
 import type {Value} from 'components/multiselect/multiselect';
 import WithTooltip from 'components/with_tooltip';
+
+import Constants from 'utils/constants';
 
 type UserProfileValue = Value & UserProfile;
 type GroupValue = Value & Group;

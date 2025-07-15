@@ -6,11 +6,12 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import type {MessageDescriptor} from 'react-intl';
 import {useSelector} from 'react-redux';
-import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
 import ExternalLink from 'components/external_link';
+
+import {isFileAttachmentsEnabled} from 'utils/file_utils';
 
 interface SearchTerm {
     searchTerm: string;

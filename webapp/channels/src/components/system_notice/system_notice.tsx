@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage, injectIntl, type WrappedComponentProps} from 'react-intl';
-import {Preferences} from 'utils/constants';
 
 import type {AnalyticsState} from '@mattermost/types/admin';
 import type {Channel} from '@mattermost/types/channels';
@@ -12,6 +11,8 @@ import type {PreferenceType} from '@mattermost/types/preferences';
 
 import type {Notice} from 'components/system_notice/types';
 import MattermostLogo from 'components/widgets/icons/mattermost_logo';
+
+import {Preferences} from 'utils/constants';
 
 export interface Props extends WrappedComponentProps {
     currentUserId: string;

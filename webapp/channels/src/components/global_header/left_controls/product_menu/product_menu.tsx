@@ -5,7 +5,6 @@ import React, {useRef} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
-import {useCurrentProductId, useProducts, isChannels} from 'utils/products';
 
 import {
     ProductsIcon,
@@ -24,6 +23,8 @@ import {
 } from 'components/onboarding_tasks';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
+
+import {useCurrentProductId, useProducts, isChannels} from 'utils/products';
 
 import ProductBranding from './product_branding';
 import ProductBrandingTeamEdition from './product_branding_team_edition';

@@ -7,8 +7,6 @@ import React, {useEffect, useCallback, useState, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components';
-import Constants, {A11yCustomEventTypes, ModalIdentifiers} from 'utils/constants';
-import type {A11yFocusEventDetail} from 'utils/constants';
 
 import {MagnifyIcon} from '@mattermost/compass-icons/components';
 import type {Group} from '@mattermost/types/groups';
@@ -22,6 +20,9 @@ import {QuickInput} from 'components/quick_input/quick_input';
 import GroupMemberList from 'components/user_group_popover/group_member_list';
 import UserGroupsModal from 'components/user_groups_modal';
 import ViewUserGroupModal from 'components/view_user_group_modal';
+
+import Constants, {A11yCustomEventTypes, ModalIdentifiers} from 'utils/constants';
+import type {A11yFocusEventDetail} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

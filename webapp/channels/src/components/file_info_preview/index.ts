@@ -2,9 +2,10 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {canDownloadFiles} from 'utils/file_utils';
 
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
+
+import {canDownloadFiles} from 'utils/file_utils';
 
 import type {GlobalState} from 'types/store';
 

@@ -3,8 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {Constants, DeveloperLinks} from 'utils/constants';
-import {localizeMessage} from 'utils/utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {OutgoingWebhook} from '@mattermost/types/integrations';
@@ -17,6 +15,9 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import BackstageList from 'components/backstage/components/backstage_list';
 import ExternalLink from 'components/external_link';
 import InstalledOutgoingWebhook, {matchesFilter} from 'components/integrations/installed_outgoing_webhook';
+
+import {Constants, DeveloperLinks} from 'utils/constants';
+import {localizeMessage} from 'utils/utils';
 
 export type Props = {
 

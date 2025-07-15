@@ -4,8 +4,6 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedDate, FormattedMessage, defineMessages} from 'react-intl';
-import {StatTypes} from 'utils/constants';
-import {getMonthLong} from 'utils/i18n';
 
 import type {AnalyticsRow, AnalyticsState} from '@mattermost/types/admin';
 import type {ClientLicense} from '@mattermost/types/config';
@@ -26,6 +24,9 @@ import TableChart from 'components/analytics/table_chart';
 import ExternalLink from 'components/external_link';
 import LoadingScreen from 'components/loading_screen';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
+
+import {StatTypes} from 'utils/constants';
+import {getMonthLong} from 'utils/i18n';
 
 import {formatPostsPerDayData, formatUsersWithPostsPerDayData, synchronizeChartLabels} from '../format';
 

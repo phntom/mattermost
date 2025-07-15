@@ -1,9 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {getHistory} from 'utils/browser_history';
-import {ActionTypes, Constants, ModalIdentifiers} from 'utils/constants';
-
 import {getCurrentUser, getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
 import {getCurrentTeamId, getTeam} from 'mattermost-redux/selectors/entities/teams';
 
@@ -11,6 +8,9 @@ import {getTeamRedirectChannelIfIsAccesible} from 'actions/global_actions';
 import LocalStorageStore from 'stores/local_storage_store';
 
 import InvitationModal from 'components/invitation_modal';
+
+import {getHistory} from 'utils/browser_history';
+import {ActionTypes, Constants, ModalIdentifiers} from 'utils/constants';
 
 import type {ActionFunc, ActionFuncAsync} from 'types/store';
 

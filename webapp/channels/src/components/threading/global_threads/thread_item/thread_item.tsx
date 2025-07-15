@@ -6,8 +6,6 @@ import React, {memo, useCallback, useEffect, useMemo, useRef} from 'react';
 import type {MouseEvent, KeyboardEvent} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
-import {CrtTutorialSteps, Preferences} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import {DotsVerticalIcon} from '@mattermost/compass-icons/components';
 import type {Channel} from '@mattermost/types/channels';
@@ -35,6 +33,9 @@ import CRTListTutorialTip from 'components/tours/crt_tour/crt_list_tutorial_tip'
 import Tag from 'components/widgets/tag/tag';
 import Avatars from 'components/widgets/users/avatars';
 import WithTooltip from 'components/with_tooltip';
+
+import {CrtTutorialSteps, Preferences} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

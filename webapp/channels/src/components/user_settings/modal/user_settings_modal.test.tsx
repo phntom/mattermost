@@ -2,13 +2,14 @@
 // See LICENSE.txt for license information.
 
 import {screen} from '@testing-library/react';
-import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
 import type {ComponentProps} from 'react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
-import {TestHelper} from 'utils/test_helper';
 
 import type {DeepPartial} from '@mattermost/types/utilities';
+
+import mergeObjects from 'packages/mattermost-redux/test/merge_objects';
+import {renderWithContext} from 'tests/react_testing_utils';
+import {TestHelper} from 'utils/test_helper';
 
 import type {GlobalState} from 'types/store';
 

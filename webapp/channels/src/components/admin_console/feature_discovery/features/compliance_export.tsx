@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {defineMessage} from 'react-intl';
+
 import {DocLinks, LicenseSkus} from 'utils/constants';
 
 import ComplianceExportSVG from './images/compliance_export_svg';

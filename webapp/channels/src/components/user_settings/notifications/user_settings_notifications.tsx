@@ -10,14 +10,6 @@ import {FormattedMessage, injectIntl} from 'react-intl';
 import type {InputProps, OnChangeValue, StylesConfig} from 'react-select';
 import {components} from 'react-select';
 import CreatableReactSelect from 'react-select/creatable';
-import Constants, {
-    NotificationLevels,
-    MattermostFeatures,
-    LicenseSkus,
-    UserSettingsNotificationSections
-} from 'utils/constants';
-import {notificationSoundKeys, stopTryNotificationRing} from 'utils/notification_sounds';
-import {a11yFocus} from 'utils/utils';
 
 import {LightbulbOutlineIcon} from '@mattermost/compass-icons/components';
 import type {PreferencesType} from '@mattermost/types/preferences';
@@ -31,6 +23,10 @@ import ExternalLink from 'components/external_link';
 import SettingItem from 'components/setting_item';
 import SettingItemMax from 'components/setting_item_max';
 import RestrictedIndicator from 'components/widgets/menu/menu_items/restricted_indicator';
+
+import Constants, {NotificationLevels, MattermostFeatures, LicenseSkus, UserSettingsNotificationSections} from 'utils/constants';
+import {notificationSoundKeys, stopTryNotificationRing} from 'utils/notification_sounds';
+import {a11yFocus} from 'utils/utils';
 
 import DesktopAndMobileNotificationSettings from './desktop_and_mobile_notification_setting';
 import DesktopNotificationSoundsSettings from './desktop_notification_sounds_setting';

@@ -5,7 +5,6 @@ import type {ConnectedProps} from 'react-redux';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {updateUserActive, revokeAllSessionsForUser} from 'mattermost-redux/actions/users';
@@ -17,6 +16,8 @@ import {
     syncedDraftsAreAllowed,
 } from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUser} from 'mattermost-redux/selectors/entities/users';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

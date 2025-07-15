@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import type {PostPreviewMetadata} from '@mattermost/types/posts';
 
@@ -18,6 +17,8 @@ import {getUser} from 'mattermost-redux/selectors/entities/users';
 
 import {toggleEmbedVisibility} from 'actions/post_actions';
 import {isEmbedVisible} from 'selectors/posts';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

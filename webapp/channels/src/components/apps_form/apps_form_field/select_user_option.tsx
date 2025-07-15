@@ -4,8 +4,6 @@
 import React from 'react';
 import {components} from 'react-select';
 import type {OptionProps} from 'react-select';
-import * as Utils from 'utils/utils';
-import {imageURLForUser} from 'utils/utils';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -14,6 +12,9 @@ import {isGuest} from 'mattermost-redux/utils/user_utils';
 import BotTag from 'components/widgets/tag/bot_tag';
 import GuestTag from 'components/widgets/tag/guest_tag';
 import Avatar from 'components/widgets/users/avatar/avatar';
+
+import * as Utils from 'utils/utils';
+import {imageURLForUser} from 'utils/utils';
 
 const getDescription = (data: UserProfile): string => {
     if ((data.first_name || data.last_name) && data.nickname) {

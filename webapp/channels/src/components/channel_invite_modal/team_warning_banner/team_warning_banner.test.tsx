@@ -3,13 +3,14 @@
 
 import React from 'react';
 import {Provider} from 'react-redux';
-import {mountWithIntl} from 'tests/helpers/intl-test-helper';
-import mockStore from 'tests/test_store';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import TeamWarningBanner from 'components/channel_invite_modal/team_warning_banner/team_warning_banner';
 import type {Value} from 'components/multiselect/multiselect';
+
+import {mountWithIntl} from 'tests/helpers/intl-test-helper';
+import mockStore from 'tests/test_store';
 
 type UserProfileValue = Value & UserProfile;
 

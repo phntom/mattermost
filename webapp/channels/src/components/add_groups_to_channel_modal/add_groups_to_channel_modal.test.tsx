@@ -3,12 +3,13 @@
 
 import React from 'react';
 import type {IntlShape} from 'react-intl';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import {SyncableType} from '@mattermost/types/groups';
 
 import AddGroupsToChannelModal from 'components/add_groups_to_channel_modal/add_groups_to_channel_modal';
 import type {AddGroupsToChannelModal as AddGroupsToChannelModalClass, Props} from 'components/add_groups_to_channel_modal/add_groups_to_channel_modal';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/AddGroupsToChannelModal', () => {
     const baseProps: Props = {

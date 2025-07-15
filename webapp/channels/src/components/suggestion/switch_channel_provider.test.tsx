@@ -1,13 +1,13 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import mockStore from 'tests/test_store';
-import {TestHelper} from 'utils/test_helper';
-
 import {CollapsedThreads} from '@mattermost/types/config';
 import type {UserProfile} from '@mattermost/types/users';
 
 import {Preferences} from 'mattermost-redux/constants';
+
+import mockStore from 'tests/test_store';
+import {TestHelper} from 'utils/test_helper';
 
 import SwitchChannelProvider from './switch_channel_provider';
 

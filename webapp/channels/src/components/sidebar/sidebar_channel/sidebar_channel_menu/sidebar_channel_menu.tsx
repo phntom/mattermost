@@ -3,8 +3,6 @@
 
 import React, {useRef, memo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import Constants, {ModalIdentifiers} from 'utils/constants';
-import {copyToClipboard} from 'utils/utils';
 
 import {
     MarkAsUnreadIcon,
@@ -23,6 +21,9 @@ import {trackEvent} from 'actions/telemetry_actions';
 import ChannelInviteModal from 'components/channel_invite_modal';
 import ChannelMoveToSubmenu from 'components/channel_move_to_sub_menu';
 import * as Menu from 'components/menu';
+
+import Constants, {ModalIdentifiers} from 'utils/constants';
+import {copyToClipboard} from 'utils/utils';
 
 import type {PropsFromRedux, OwnProps} from './index';
 

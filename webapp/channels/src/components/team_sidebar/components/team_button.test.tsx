@@ -3,6 +3,7 @@
 
 import {screen} from '@testing-library/react';
 import React from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import TeamButton from './team_button';

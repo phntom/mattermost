@@ -4,9 +4,10 @@
 import {getName} from 'country-list';
 import React from 'react';
 import {useIntl} from 'react-intl';
-import {COUNTRIES} from 'utils/countries';
 
 import DropdownInput from 'components/dropdown_input';
+
+import {COUNTRIES} from 'utils/countries';
 
 type CountrySelectorProps = {
     onChange: (option: any) => void;

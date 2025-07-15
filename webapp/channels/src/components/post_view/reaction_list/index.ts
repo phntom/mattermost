@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {makeGetUniqueReactionsToPost} from 'utils/post_utils';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -12,6 +11,8 @@ import {getChannel} from 'mattermost-redux/selectors/entities/channels';
 import {canAddReactions} from 'mattermost-redux/selectors/entities/reactions';
 
 import {toggleReaction} from 'actions/post_actions';
+
+import {makeGetUniqueReactionsToPost} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

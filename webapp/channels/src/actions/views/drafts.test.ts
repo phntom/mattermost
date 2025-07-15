@@ -1,14 +1,14 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import mockStore from 'tests/test_store';
-import {StoragePrefixes} from 'utils/constants';
-
 import {Client4} from 'mattermost-redux/client';
 import {Posts, Preferences} from 'mattermost-redux/constants';
 import {getPreferenceKey} from 'mattermost-redux/utils/preference_utils';
 
 import {setGlobalItem} from 'actions/storage';
+
+import mockStore from 'tests/test_store';
+import {StoragePrefixes} from 'utils/constants';
 
 import type {PostDraft} from 'types/store/draft';
 

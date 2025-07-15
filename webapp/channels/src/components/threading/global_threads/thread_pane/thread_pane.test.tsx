@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import {shallow} from 'enzyme';
-import TestHelper from 'packages/mattermost-redux/test/test_helper';
 import React from 'react';
 import type {ComponentProps} from 'react';
 
@@ -13,6 +12,8 @@ import {setThreadFollow} from 'mattermost-redux/actions/threads';
 import Button from 'components/threading/common/button';
 import FollowButton from 'components/threading/common/follow_button';
 import Header from 'components/widgets/header';
+
+import TestHelper from 'packages/mattermost-redux/test/test_helper';
 
 import ThreadPane from './thread_pane';
 

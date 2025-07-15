@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import TooltipContent from './tooltip_content';

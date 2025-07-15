@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {Locations} from 'utils/constants';
 
 import type {Post} from '@mattermost/types/posts';
 
 import PostComponent from 'components/post';
+
+import {Locations} from 'utils/constants';
 
 type Props = {
     a11yIndex: number;

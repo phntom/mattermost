@@ -5,10 +5,6 @@ import {connect} from 'react-redux';
 import type {ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {isArchivedChannel} from 'utils/channel_utils';
-import {Locations, Preferences, RHSStates} from 'utils/constants';
-import {areConsecutivePostsBySameUser, canDeletePost, shouldShowActionsMenu, shouldShowDotMenu} from 'utils/post_utils';
-import {getDisplayNameByUser} from 'utils/utils';
 
 import type {Emoji} from '@mattermost/types/emojis';
 import type {Post} from '@mattermost/types/posts';
@@ -32,6 +28,11 @@ import {getShortcutReactToLastPostEmittedFrom, getOneClickReactionEmojis} from '
 import {getIsPostBeingEdited, getIsPostBeingEditedInRHS, isEmbedVisible} from 'selectors/posts';
 import {getHighlightedPostId, getRhsState, getSelectedPostCard} from 'selectors/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
+
+import {isArchivedChannel} from 'utils/channel_utils';
+import {Locations, Preferences, RHSStates} from 'utils/constants';
+import {areConsecutivePostsBySameUser, canDeletePost, shouldShowActionsMenu, shouldShowDotMenu} from 'utils/post_utils';
+import {getDisplayNameByUser} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

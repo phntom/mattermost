@@ -5,6 +5,7 @@ import {screen} from '@testing-library/react';
 import {shallow} from 'enzyme';
 import type {ComponentProps} from 'react';
 import React from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import PluginTab from './index';

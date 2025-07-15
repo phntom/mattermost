@@ -5,11 +5,6 @@ import classNames from 'classnames';
 import React from 'react';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
-import {Locations, ModalIdentifiers, Constants, TELEMETRY_LABELS} from 'utils/constants';
-import DelayedAction from 'utils/delayed_action';
-import * as Keyboard from 'utils/keyboard';
-import * as PostUtils from 'utils/post_utils';
-import * as Utils from 'utils/utils';
 
 import {
     ArrowRightBoldOutlineIcon,
@@ -39,6 +34,12 @@ import ForwardPostModal from 'components/forward_post_modal';
 import * as Menu from 'components/menu';
 import MoveThreadModal from 'components/move_thread_modal';
 import ChannelPermissionGate from 'components/permissions_gates/channel_permission_gate';
+
+import {Locations, ModalIdentifiers, Constants, TELEMETRY_LABELS} from 'utils/constants';
+import DelayedAction from 'utils/delayed_action';
+import * as Keyboard from 'utils/keyboard';
+import * as PostUtils from 'utils/post_utils';
+import * as Utils from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 

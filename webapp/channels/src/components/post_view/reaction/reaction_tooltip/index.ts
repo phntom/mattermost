@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import * as Utils from 'utils/utils';
 
 import type {Reaction as ReactionType} from '@mattermost/types/reactions';
 import type {GlobalState} from '@mattermost/types/store';
@@ -12,6 +11,8 @@ import {createSelector} from 'mattermost-redux/selectors/create_selector';
 import {getTeammateNameDisplaySetting} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId, makeGetProfilesForReactions} from 'mattermost-redux/selectors/entities/users';
 import {displayUsername} from 'mattermost-redux/utils/user_utils';
+
+import * as Utils from 'utils/utils';
 
 import ReactionTooltip from './reaction_tooltip';
 

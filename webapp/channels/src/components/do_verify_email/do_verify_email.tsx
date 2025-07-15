@@ -5,8 +5,6 @@ import React, {useState, useEffect} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {useLocation, useHistory} from 'react-router-dom';
-import {AnnouncementBarTypes, AnnouncementBarMessages, Constants} from 'utils/constants';
-import {getRoleFromTrackFlow} from 'utils/utils';
 
 import {clearErrors, logError, LogErrorBarMode} from 'mattermost-redux/actions/errors';
 import {verifyUserEmail, getMe} from 'mattermost-redux/actions/users';
@@ -18,6 +16,9 @@ import {trackEvent} from 'actions/telemetry_actions.jsx';
 
 import ColumnLayout from 'components/header_footer_route/content_layouts/column';
 import LoadingScreen from 'components/loading_screen';
+
+import {AnnouncementBarTypes, AnnouncementBarMessages, Constants} from 'utils/constants';
+import {getRoleFromTrackFlow} from 'utils/utils';
 
 import './do_verify_email.scss';
 

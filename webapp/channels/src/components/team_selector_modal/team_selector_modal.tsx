@@ -5,8 +5,6 @@ import React from 'react';
 import {Modal} from 'react-bootstrap';
 import type {IntlShape} from 'react-intl';
 import {injectIntl, FormattedMessage, defineMessage} from 'react-intl';
-import Constants, {ModalIdentifiers} from 'utils/constants';
-import {imageURLForTeam} from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -16,6 +14,9 @@ import ConfirmModal from 'components/confirm_modal';
 import MultiSelect from 'components/multiselect/multiselect';
 import type {Value} from 'components/multiselect/multiselect';
 import TeamIcon from 'components/widgets/team_icon/team_icon';
+
+import Constants, {ModalIdentifiers} from 'utils/constants';
+import {imageURLForTeam} from 'utils/utils';
 
 const TEAMS_PER_PAGE = 50;
 

@@ -2,7 +2,6 @@
 // See LICENSE.txt for license information.
 
 import nock from 'nock';
-import TestHelper from 'packages/mattermost-redux/test/test_helper';
 
 import {Client4} from 'mattermost-redux/client';
 
@@ -11,6 +10,8 @@ import {
     loginById,
 } from 'actions/views/login';
 import configureStore from 'store';
+
+import TestHelper from 'packages/mattermost-redux/test/test_helper';
 
 describe('actions/views/login', () => {
     describe('login', () => {

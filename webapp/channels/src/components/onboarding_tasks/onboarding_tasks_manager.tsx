@@ -5,7 +5,6 @@ import React, {useCallback, useMemo} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {matchPath, useLocation} from 'react-router-dom';
-import {ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import {savePreferences} from 'mattermost-redux/actions/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/common';
@@ -40,6 +39,8 @@ import {
     TutorialTourName,
 } from 'components/tours';
 import {ELEMENT_ID_FOR_USER_ACCOUNT_MENU_BUTTON} from 'components/user_account_menu/user_account_menu';
+
+import {ModalIdentifiers, TELEMETRY_CATEGORIES} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

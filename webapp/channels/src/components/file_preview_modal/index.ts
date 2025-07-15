@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {canDownloadFiles} from 'utils/file_utils';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -13,6 +12,8 @@ import {getPost} from 'mattermost-redux/selectors/entities/posts';
 import {getIsMobileView} from 'selectors/views/browser';
 
 import {makeAsyncComponent} from 'components/async_load';
+
+import {canDownloadFiles} from 'utils/file_utils';
 
 import type {GlobalState} from 'types/store';
 

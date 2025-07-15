@@ -4,8 +4,6 @@
 import type {MessageDescriptor} from 'react-intl';
 import {defineMessage} from 'react-intl';
 import {connect} from 'react-redux';
-import {appsPluginID} from 'utils/apps';
-import {Constants} from 'utils/constants';
 
 import type {PluginRedux, PluginSetting, PluginSettingSection} from '@mattermost/types/plugins';
 import type {GlobalState} from '@mattermost/types/store';
@@ -16,6 +14,9 @@ import {isCurrentLicenseCloud} from 'mattermost-redux/selectors/entities/cloud';
 import {getRoles} from 'mattermost-redux/selectors/entities/roles';
 
 import {getAdminConsoleCustomComponents, getAdminConsoleCustomSections} from 'selectors/admin_console';
+
+import {appsPluginID} from 'utils/apps';
+import {Constants} from 'utils/constants';
 
 import type {AdminConsolePluginComponent, AdminConsolePluginCustomSection} from 'types/store/plugins';
 

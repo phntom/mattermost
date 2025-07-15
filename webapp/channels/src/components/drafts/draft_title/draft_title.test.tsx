@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
-import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
+
+import {renderWithContext} from 'tests/react_testing_utils';
+import Constants from 'utils/constants';
 
 import DraftTitle from './draft_title';
 

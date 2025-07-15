@@ -4,7 +4,6 @@
 import {DateTime} from 'luxon';
 import {useState, useEffect, useMemo} from 'react';
 import {useSelector} from 'react-redux';
-import Constants, {UserStatuses} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -17,6 +16,8 @@ import {
     getUser,
     makeGetDisplayName,
 } from 'mattermost-redux/selectors/entities/users';
+
+import Constants, {UserStatuses} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

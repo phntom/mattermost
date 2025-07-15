@@ -4,13 +4,14 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
-import {DocLinks} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 
 import {recycleDatabaseConnection, ping} from 'actions/admin_actions';
 
 import ExternalLink from 'components/external_link';
+
+import {DocLinks} from 'utils/constants';
 
 import BooleanSetting from './boolean_setting';
 import MigrationsTable from './database';

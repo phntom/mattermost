@@ -3,8 +3,6 @@
 
 import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
-import {UserStatuses} from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {Group} from '@mattermost/types/groups';
 import type {UserProfile} from '@mattermost/types/users';
@@ -15,6 +13,9 @@ import {isSyncableSource} from 'mattermost-redux/utils/group_utils';
 
 import StatusIcon from 'components/status_icon';
 import Avatar from 'components/widgets/users/avatar';
+
+import {UserStatuses} from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

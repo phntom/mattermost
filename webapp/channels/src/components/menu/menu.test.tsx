@@ -2,15 +2,16 @@
 // See LICENSE.txt for license information.
 
 import React, {useState} from 'react';
+
+import {DotsVerticalIcon} from '@mattermost/compass-icons/components';
+import {GenericModal} from '@mattermost/components';
+
 import {
     renderWithContext,
     screen,
     userEvent,
     waitForElementToBeRemoved,
 } from 'tests/react_testing_utils';
-
-import {DotsVerticalIcon} from '@mattermost/compass-icons/components';
-import {GenericModal} from '@mattermost/components';
 
 import {Menu} from './menu';
 import {MenuItem} from './menu_item';

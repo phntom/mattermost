@@ -4,7 +4,6 @@
 import React, {useCallback, useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 import {CustomStatusDuration} from '@mattermost/types/users';
@@ -16,6 +15,8 @@ import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import CustomStatusModal from 'components/custom_status/custom_status_modal';
 import CustomStatusText from 'components/custom_status/custom_status_text';
 import ExpiryTime from 'components/custom_status/expiry_time';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

@@ -4,7 +4,6 @@
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
 import {Link} from 'react-router-dom';
-import {Constants} from 'utils/constants';
 
 import type {AdminConfig, ClientLicense} from '@mattermost/types/config';
 import type {TermsOfService} from '@mattermost/types/terms_of_service';
@@ -17,6 +16,8 @@ import type {BaseProps, BaseState} from 'components/admin_console/old_admin_sett
 import SettingsGroup from 'components/admin_console/settings_group';
 import TextSetting from 'components/admin_console/text_setting';
 import LoadingScreen from 'components/loading_screen';
+
+import {Constants} from 'utils/constants';
 
 type Props = BaseProps & {
     actions: {

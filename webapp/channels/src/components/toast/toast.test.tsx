@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import Toast from './toast';

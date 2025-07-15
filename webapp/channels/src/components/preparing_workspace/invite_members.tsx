@@ -4,11 +4,12 @@
 import React, {useState, useMemo, useEffect} from 'react';
 import {FormattedMessage, defineMessages, useIntl} from 'react-intl';
 import {CSSTransition} from 'react-transition-group';
-import {Constants} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import UsersEmailsInput from 'components/widgets/inputs/users_emails_input';
+
+import {Constants} from 'utils/constants';
 
 import Description from './description';
 import InviteMembersLink from './invite_members_link';

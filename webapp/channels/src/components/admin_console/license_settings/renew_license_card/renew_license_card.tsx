@@ -4,13 +4,14 @@
 import moment from 'moment';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {getSkuDisplayName} from 'utils/subscription';
-import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import type {ClientLicense} from '@mattermost/types/config';
 
 import AlertBanner from 'components/alert_banner';
 import ContactUsButton from 'components/announcement_bar/contact_sales/contact_us';
+
+import {getSkuDisplayName} from 'utils/subscription';
+import {getRemainingDaysFromFutureTimestamp} from 'utils/utils';
 
 import './renew_license_card.scss';
 

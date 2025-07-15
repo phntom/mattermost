@@ -7,8 +7,6 @@ import type {WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, defineMessages, injectIntl} from 'react-intl';
 import type {SelectInstance} from 'react-select';
 import ReactSelect from 'react-select';
-import {getHistory} from 'utils/browser_history';
-import {JobTypes} from 'utils/constants';
 
 import type {AdminConfig} from '@mattermost/types/config';
 import type {DataRetentionCustomPolicies, DataRetentionCustomPolicy} from '@mattermost/types/data_retention';
@@ -25,6 +23,9 @@ import TitleAndButtonCardHeader from 'components/card/title_and_button_card_head
 import AdminHeader from 'components/widgets/admin_console/admin_header';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
+
+import {getHistory} from 'utils/browser_history';
+import {JobTypes} from 'utils/constants';
 
 import './data_retention_settings.scss';
 

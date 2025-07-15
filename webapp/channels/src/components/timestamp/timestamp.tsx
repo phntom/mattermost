@@ -16,11 +16,12 @@ import type {
     FormatDateOptions,
     FormatRelativeTimeOptions} from 'react-intl';
 import {isValidElementType} from 'react-is';
+
+import type {RequireOnlyOne} from '@mattermost/types/utilities';
+
 import {isSameYear, isWithin, isEqual, getDiff} from 'utils/datetime';
 import {resolve} from 'utils/resolvable';
 import type {Resolvable} from 'utils/resolvable';
-
-import type {RequireOnlyOne} from '@mattermost/types/utilities';
 
 import {STANDARD_UNITS} from './relative_ranges';
 import SemanticTime from './semantic_time';

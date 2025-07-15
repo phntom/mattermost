@@ -1,10 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import mockStore from 'tests/test_store';
-import {StoragePrefixes} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
-
 import {
     addMessageIntoHistory,
 } from 'mattermost-redux/actions/posts';
@@ -18,6 +14,10 @@ import {
     submitPost,
     submitCommand,
 } from 'actions/views/create_comment';
+
+import mockStore from 'tests/test_store';
+import {StoragePrefixes} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 /* eslint-disable global-require */
 

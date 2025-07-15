@@ -2,12 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import {Constants} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
 
 import type {Channel, ChannelType} from '@mattermost/types/channels';
 import type {UserProfile} from '@mattermost/types/users';
+
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import {Constants} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
 
 import ChannelIntroMessage from './channel_intro_message';
 

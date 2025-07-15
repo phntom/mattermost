@@ -3,10 +3,11 @@
 
 import React from 'react';
 import {useIntl} from 'react-intl';
-import type {Locations} from 'utils/constants';
 
 import ReplyIcon from 'components/widgets/icons/reply_icon';
 import WithTooltip from 'components/with_tooltip';
+
+import type {Locations} from 'utils/constants';
 
 type Props = {
     location?: keyof typeof Locations;

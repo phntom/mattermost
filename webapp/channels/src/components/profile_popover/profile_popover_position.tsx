@@ -2,9 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import Constants from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
+
+import Constants from 'utils/constants';
 
 type Props = {
     position: UserProfile['position'];

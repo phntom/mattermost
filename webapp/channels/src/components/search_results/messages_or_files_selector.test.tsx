@@ -5,9 +5,10 @@ import {shallow} from 'enzyme';
 import type {ShallowWrapper} from 'enzyme';
 import React from 'react';
 import {Provider} from 'react-redux';
-import mockStore from 'tests/test_store';
 
 import MessagesOrFilesSelector from 'components/search_results/messages_or_files_selector';
+
+import mockStore from 'tests/test_store';
 
 describe('components/search_results/MessagesOrFilesSelector', () => {
     const store = mockStore({});

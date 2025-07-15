@@ -3,10 +3,11 @@
 
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import {format} from 'utils/markdown';
 
 import SetupSystemSvg from 'components/common/svg_images_components/setup_system';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
+
+import {format} from 'utils/markdown';
 
 interface TeamEditionRightPanelProps {
     upgradingPercentage: number;

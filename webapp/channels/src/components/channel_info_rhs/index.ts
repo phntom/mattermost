@@ -4,8 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {AnyAction, Dispatch} from 'redux';
-import {Constants, ModalIdentifiers} from 'utils/constants';
-import {getDisplayNameByUser, getUserIdFromChannelId} from 'utils/utils';
 
 import {unfavoriteChannel, favoriteChannel, getChannelStats} from 'mattermost-redux/actions/channels';
 import {Permissions} from 'mattermost-redux/constants';
@@ -21,6 +19,9 @@ import {openModal} from 'actions/views/modals';
 import {closeRightHandSide, showChannelFiles, showChannelMembers, showPinnedPosts} from 'actions/views/rhs';
 import {getIsMobileView} from 'selectors/views/browser';
 import {isModalOpen} from 'selectors/views/modals';
+
+import {Constants, ModalIdentifiers} from 'utils/constants';
+import {getDisplayNameByUser, getUserIdFromChannelId} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

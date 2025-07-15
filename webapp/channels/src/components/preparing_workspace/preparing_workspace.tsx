@@ -5,9 +5,6 @@ import React, {useState, useCallback, useEffect, useRef, useMemo} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import type {RouterProps} from 'react-router-dom';
-import Constants from 'utils/constants';
-import {makeNewTeam} from 'utils/team_utils';
-import {getSiteURL, teamNameToUrl} from 'utils/url';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -25,6 +22,10 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import {pageVisited, trackEvent} from 'actions/telemetry_actions';
 
 import LogoSvg from 'components/common/svg_images_components/logo_dark_blue_svg';
+
+import Constants from 'utils/constants';
+import {makeNewTeam} from 'utils/team_utils';
+import {getSiteURL, teamNameToUrl} from 'utils/url';
 
 import InviteMembers from './invite_members';
 import InviteMembersIllustration from './invite_members_illustration';

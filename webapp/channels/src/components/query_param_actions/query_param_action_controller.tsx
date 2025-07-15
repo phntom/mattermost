@@ -4,11 +4,12 @@
 import {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {useHistory, useLocation} from 'react-router-dom';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {openModal} from 'actions/views/modals';
 
 import InvitationModal from 'components/invitation_modal';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

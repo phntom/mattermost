@@ -4,7 +4,6 @@
 import React, {useCallback} from 'react';
 import {useIntl} from 'react-intl';
 import {useDispatch} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {ViewGridPlusOutlineIcon} from '@mattermost/compass-icons/components';
 
@@ -12,6 +11,8 @@ import {openModal} from 'actions/views/modals';
 
 import MarketplaceModal from 'components/plugin_marketplace/marketplace_modal';
 import WithTooltip from 'components/with_tooltip';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 const AppBarMarketplace = () => {
     const {formatMessage} = useIntl();

@@ -4,11 +4,12 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedDate, FormattedMessage, FormattedTime, defineMessages} from 'react-intl';
-import {getMonthLong} from 'utils/i18n';
 
 import type {Session} from '@mattermost/types/sessions';
 
 import {General} from 'mattermost-redux/constants';
+
+import {getMonthLong} from 'utils/i18n';
 
 import DeviceIcon from './device_icon';
 import MoreInfo from './more_info';

@@ -1,9 +1,10 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import PluggableErrorBoundary from 'plugins/pluggable/error_boundary';
 import React from 'react';
 import {useIntl} from 'react-intl';
+
+import PluggableErrorBoundary from 'plugins/pluggable/error_boundary';
 
 import type {PluginConfiguration} from 'types/plugins/user_settings';
 

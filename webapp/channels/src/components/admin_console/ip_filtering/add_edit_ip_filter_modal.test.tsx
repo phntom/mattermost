@@ -3,9 +3,10 @@
 
 import {fireEvent, waitFor} from '@testing-library/react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import type {AllowedIPRange} from '@mattermost/types/config';
+
+import {renderWithContext} from 'tests/react_testing_utils';
 
 import IPFilteringAddOrEditModal from './add_edit_ip_filter_modal';
 

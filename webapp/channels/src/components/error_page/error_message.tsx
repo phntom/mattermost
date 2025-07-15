@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
+
 import {ErrorPageTypes} from 'utils/constants';
 
 import ErrorLink from './error_link';

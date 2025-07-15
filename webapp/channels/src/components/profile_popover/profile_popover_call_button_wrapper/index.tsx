@@ -4,7 +4,6 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector} from 'react-redux';
-import {getDirectChannelName} from 'utils/utils';
 
 import {getChannelByName} from 'mattermost-redux/selectors/entities/channels';
 import {getUser} from 'mattermost-redux/selectors/entities/users';
@@ -20,6 +19,8 @@ import {
 
 import ProfilePopoverCallButton from 'components/profile_popover/profile_popover_calls_button';
 import WithTooltip from 'components/with_tooltip';
+
+import {getDirectChannelName} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

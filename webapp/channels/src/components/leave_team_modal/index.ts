@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Constants} from 'utils/constants';
 
 import {removeUserFromTeam as leaveTeam} from 'mattermost-redux/actions/teams';
 import {getMyChannels} from 'mattermost-redux/selectors/entities/channels';
@@ -12,6 +11,8 @@ import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
 import {getCurrentUserId, getCurrentUser} from 'mattermost-redux/selectors/entities/users';
 
 import {toggleSideBarRightMenuAction} from 'actions/global_actions';
+
+import {Constants} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

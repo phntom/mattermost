@@ -15,8 +15,6 @@ import type {
     MouseEvent,
     KeyboardEvent} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Constants, {A11yClassNames} from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
 
 import {GenericModal} from '@mattermost/components';
 
@@ -27,6 +25,9 @@ import {getIsMobileView} from 'selectors/views/browser';
 import {isAnyModalOpen} from 'selectors/views/modals';
 
 import CompassDesignProvider from 'components/compass_design_provider';
+
+import Constants, {A11yClassNames} from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
 
 import {SubMenuContext, useMenuContextValue} from './menu_context';
 import {MenuItem} from './menu_item';

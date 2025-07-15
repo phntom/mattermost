@@ -1,7 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import WebSocketClient from 'client/web_websocket_client';
 import React, {lazy} from 'react';
 import {FormattedMessage} from 'react-intl';
 import type {RouteComponentProps} from 'react-router-dom';
@@ -10,6 +9,8 @@ import {makeAsyncComponent} from 'components/async_load';
 import deferComponentRender from 'components/deferComponentRender';
 import {DropOverlayIdCenterChannel} from 'components/file_upload_overlay/file_upload_overlay';
 import PostView from 'components/post_view';
+
+import WebSocketClient from 'client/web_websocket_client';
 
 import InputLoading from './input_loading';
 

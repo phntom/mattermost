@@ -3,12 +3,13 @@
 
 import {useMemo} from 'react';
 import {useDispatch} from 'react-redux';
-import {ModalIdentifiers} from 'utils/constants';
 
 import {openModal, closeModal} from 'actions/views/modals';
 
 import AirGappedSelfHostedPurchaseModal from 'components/air_gapped_self_hosted_purchase_modal';
 import ScreeningInProgressModal from 'components/screening_in_progress_modal';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

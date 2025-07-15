@@ -2,12 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import {SyncableType} from '@mattermost/types/groups';
 
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal/add_groups_to_team_modal';
 import type {AddGroupsToTeamModal as AddGroupsToTeamModalClass} from 'components/add_groups_to_team_modal/add_groups_to_team_modal';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/AddGroupsToTeamModal', () => {
     const baseProps = {

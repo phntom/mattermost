@@ -5,7 +5,6 @@ import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import type {ConnectedComponent} from 'react-redux';
 import {Link} from 'react-router-dom';
-import * as Utils from 'utils/utils';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 import type {ServerError} from '@mattermost/types/errors';
@@ -17,6 +16,8 @@ import CustomStatusEmoji from 'components/custom_status/custom_status_emoji';
 import ProfilePicture from 'components/profile_picture';
 import BotTag from 'components/widgets/tag/bot_tag';
 import Tag from 'components/widgets/tag/tag';
+
+import * as Utils from 'utils/utils';
 
 type Props = {
     user: UserProfile;

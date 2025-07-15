@@ -4,9 +4,6 @@
 import debounce from 'lodash/debounce';
 import type {AnyAction} from 'redux';
 import {batchActions} from 'redux-batched-actions';
-import {ActionTypes, RHSStates, Constants} from 'utils/constants';
-import {Mark, Measure, measureAndReport} from 'utils/performance_telemetry';
-import {getBrowserUtcOffset, getUtcOffsetForTimeZone} from 'utils/timezone';
 
 import type {Post} from '@mattermost/types/posts';
 
@@ -39,6 +36,10 @@ import {
 } from 'selectors/rhs';
 
 import {SidebarSize} from 'components/resizable_sidebar/constants';
+
+import {ActionTypes, RHSStates, Constants} from 'utils/constants';
+import {Mark, Measure, measureAndReport} from 'utils/performance_telemetry';
+import {getBrowserUtcOffset, getUtcOffsetForTimeZone} from 'utils/timezone';
 
 import type {ActionFunc, ActionFuncAsync, ThunkActionFunc} from 'types/store';
 import type {RhsState} from 'types/store/rhs';

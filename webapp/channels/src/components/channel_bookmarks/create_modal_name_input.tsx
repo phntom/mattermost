@@ -5,8 +5,6 @@ import type {ComponentProps} from 'react';
 import React, {useCallback, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import styled from 'styled-components';
-import Constants, {A11yCustomEventTypes, type A11yFocusEventDetail} from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
 
 import {ChevronDownIcon} from '@mattermost/compass-icons/components';
 import type {ChannelBookmark} from '@mattermost/types/channel_bookmarks';
@@ -15,6 +13,9 @@ import type {FileInfo} from '@mattermost/types/files';
 
 import useEmojiPicker from 'components/emoji_picker/use_emoji_picker';
 import Input from 'components/widgets/inputs/input/input';
+
+import Constants, {A11yCustomEventTypes, type A11yFocusEventDetail} from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
 
 import BookmarkIcon from './bookmark_icon';
 

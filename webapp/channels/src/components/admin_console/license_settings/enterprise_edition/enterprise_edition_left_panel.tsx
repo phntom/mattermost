@@ -5,10 +5,6 @@ import classNames from 'classnames';
 import React, {useEffect, useState} from 'react';
 import type {RefObject} from 'react';
 import {FormattedDate, FormattedMessage, FormattedNumber, FormattedTime, defineMessages, useIntl} from 'react-intl';
-import {FileTypes} from 'utils/constants';
-import {calculateOverageUserActivated} from 'utils/overage_team';
-import {getSkuDisplayName} from 'utils/subscription';
-import {getRemainingDaysFromFutureTimestamp, toTitleCase} from 'utils/utils';
 
 import type {ClientLicense} from '@mattermost/types/config';
 
@@ -17,6 +13,11 @@ import {Client4} from 'mattermost-redux/client';
 import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
 import useOpenSalesLink from 'components/common/hooks/useOpenSalesLink';
 import Tag from 'components/widgets/tag/tag';
+
+import {FileTypes} from 'utils/constants';
+import {calculateOverageUserActivated} from 'utils/overage_team';
+import {getSkuDisplayName} from 'utils/subscription';
+import {getRemainingDaysFromFutureTimestamp, toTitleCase} from 'utils/utils';
 
 import './enterprise_edition.scss';
 

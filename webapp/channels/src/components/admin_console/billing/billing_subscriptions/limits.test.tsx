@@ -3,9 +3,6 @@
 
 import React from 'react';
 import * as redux from 'react-redux';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import {Constants, CloudProducts} from 'utils/constants';
-import {FileSizes} from 'utils/file_utils';
 
 import type {Subscription, Product} from '@mattermost/types/cloud';
 import type {GlobalState} from '@mattermost/types/store';
@@ -13,6 +10,10 @@ import type {UserProfile, UsersState} from '@mattermost/types/users';
 import type {DeepPartial} from '@mattermost/types/utilities';
 
 import * as cloudActions from 'actions/cloud';
+
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import {Constants, CloudProducts} from 'utils/constants';
+import {FileSizes} from 'utils/file_utils';
 
 import Limits from './limits';
 

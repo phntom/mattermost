@@ -5,8 +5,6 @@ import classNames from 'classnames';
 import React, {useEffect} from 'react';
 import {useIntl, FormattedMessage} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
-import {FREEMIUM_TO_ENTERPRISE_TRIAL_LENGTH_DAYS} from 'utils/cloud_utils';
-import {ModalIdentifiers, AboutLinks, LicenseLinks} from 'utils/constants';
 
 import {GenericModal} from '@mattermost/components';
 
@@ -22,6 +20,9 @@ import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
 import ExternalLink from 'components/external_link';
 import StartTrialBtn from 'components/learn_more_trial_modal/start_trial_btn';
 import {useNotifyAdmin} from 'components/notify_admin_cta/notify_admin_cta';
+
+import {FREEMIUM_TO_ENTERPRISE_TRIAL_LENGTH_DAYS} from 'utils/cloud_utils';
+import {ModalIdentifiers, AboutLinks, LicenseLinks} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

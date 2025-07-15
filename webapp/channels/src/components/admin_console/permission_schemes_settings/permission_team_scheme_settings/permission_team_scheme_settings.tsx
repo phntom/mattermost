@@ -5,7 +5,6 @@ import React from 'react';
 import {defineMessage, FormattedMessage} from 'react-intl';
 import type {WrappedComponentProps} from 'react-intl';
 import type {RouteComponentProps} from 'react-router-dom';
-import {PermissionsScope, ModalIdentifiers, DocLinks, ModeratedPermissions} from 'utils/constants';
 
 import type {ClientConfig, ClientLicense} from '@mattermost/types/config';
 import type {Role} from '@mattermost/types/roles';
@@ -27,6 +26,8 @@ import AdminHeader from 'components/widgets/admin_console/admin_header';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
 import AdminPanelTogglable from 'components/widgets/admin_console/admin_panel_togglable';
 import AdminPanelWithButton from 'components/widgets/admin_console/admin_panel_with_button';
+
+import {PermissionsScope, ModalIdentifiers, DocLinks, ModeratedPermissions} from 'utils/constants';
 
 import TeamInList from './team_in_list';
 

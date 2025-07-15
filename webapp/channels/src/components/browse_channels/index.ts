@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import Constants, {StoragePrefixes} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -21,6 +20,8 @@ import {openModal, closeModal} from 'actions/views/modals';
 import {closeRightHandSide} from 'actions/views/rhs';
 import {getIsRhsOpen, getRhsState} from 'selectors/rhs';
 import {makeGetGlobalItem} from 'selectors/storage';
+
+import Constants, {StoragePrefixes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

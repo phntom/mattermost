@@ -3,20 +3,17 @@
 
 import {screen, fireEvent, waitFor} from '@testing-library/react';
 import React from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
-import {DesktopSound, IgnoreChannelMentions, NotificationLevels} from 'utils/constants';
-import {DesktopNotificationSounds, convertDesktopSoundNotifyPropFromUserToDesktop} from 'utils/notification_sounds';
-import {TestHelper} from 'utils/test_helper';
 
 import type {ChannelMembership} from '@mattermost/types/channels';
 import type {UserNotifyProps} from '@mattermost/types/users';
 
-import ChannelNotificationsModal, {
-    createChannelNotifyPropsFromSelectedSettings,
-    getInitialValuesOfChannelNotifyProps,
-    areDesktopAndMobileSettingsDifferent
-} from 'components/channel_notifications_modal/channel_notifications_modal';
+import ChannelNotificationsModal, {createChannelNotifyPropsFromSelectedSettings, getInitialValuesOfChannelNotifyProps, areDesktopAndMobileSettingsDifferent} from 'components/channel_notifications_modal/channel_notifications_modal';
 import type {Props} from 'components/channel_notifications_modal/channel_notifications_modal';
+
+import {renderWithContext} from 'tests/react_testing_utils';
+import {DesktopSound, IgnoreChannelMentions, NotificationLevels} from 'utils/constants';
+import {DesktopNotificationSounds, convertDesktopSoundNotifyPropFromUserToDesktop} from 'utils/notification_sounds';
+import {TestHelper} from 'utils/test_helper';
 
 describe('ChannelNotificationsModal', () => {
     const baseProps: Props = {

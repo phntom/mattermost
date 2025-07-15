@@ -5,10 +5,6 @@ import marked from 'marked';
 import React, {useRef} from 'react';
 import {defineMessage, FormattedDate, FormattedMessage} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
-import {FileTypes, ModalIdentifiers} from 'utils/constants';
-import {getMonthLong} from 'utils/i18n';
-import {getSkuDisplayName} from 'utils/subscription';
-import {fileSizeToString} from 'utils/utils';
 
 import {GenericModal} from '@mattermost/components';
 import type {ClientLicense} from '@mattermost/types/config';
@@ -25,6 +21,11 @@ import FileSvg from 'components/common/svg_images_components/file_svg';
 import SuccessSvg from 'components/common/svg_images_components/success_svg';
 import UploadLicenseSvg from 'components/common/svg_images_components/upload_license';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
+
+import {FileTypes, ModalIdentifiers} from 'utils/constants';
+import {getMonthLong} from 'utils/i18n';
+import {getSkuDisplayName} from 'utils/subscription';
+import {fileSizeToString} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 

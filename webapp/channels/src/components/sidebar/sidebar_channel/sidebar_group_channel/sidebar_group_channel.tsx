@@ -2,8 +2,6 @@
 // See LICENSE.txt for license information.
 
 import React, {memo, useCallback} from 'react';
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {PreferenceType} from '@mattermost/types/preferences';
@@ -13,6 +11,9 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 import {trackEvent} from 'actions/telemetry_actions';
 
 import SidebarChannelLink from 'components/sidebar/sidebar_channel/sidebar_channel_link';
+
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
 
 type Props = {
     channel: Channel;

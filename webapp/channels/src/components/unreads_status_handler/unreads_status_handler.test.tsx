@@ -4,16 +4,17 @@
 import type {ShallowWrapper} from 'enzyme';
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
-import {Constants} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
-import {isChrome, isFirefox} from 'utils/user_agent';
 
 import type {ChannelType} from '@mattermost/types/channels';
 import type {TeamType} from '@mattermost/types/teams';
 
 import UnreadsStatusHandler from 'components/unreads_status_handler/unreads_status_handler';
 import type {UnreadsStatusHandlerClass} from 'components/unreads_status_handler/unreads_status_handler';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
+import {Constants} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
+import {isChrome, isFirefox} from 'utils/user_agent';
 
 type Props = ComponentProps<typeof UnreadsStatusHandlerClass>;
 

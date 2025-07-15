@@ -3,7 +3,6 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import {TestHelper} from 'utils/test_helper';
 
 import type {Command} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -11,6 +10,8 @@ import type {Team} from '@mattermost/types/teams';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import EditCommand from 'components/integrations/edit_command/edit_command';
+
+import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/EditCommand', () => {
     const getCustomTeamCommands = jest.fn(

@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
-import {DocLinks} from 'utils/constants';
 
 import type {AdminConfig, ClientLicense} from '@mattermost/types/config';
 
@@ -11,6 +10,8 @@ import {Client4} from 'mattermost-redux/client';
 
 import ExternalLink from 'components/external_link';
 import WarningIcon from 'components/widgets/icons/fa_warning_icon';
+
+import {DocLinks} from 'utils/constants';
 
 import BooleanSetting from './boolean_setting';
 import ClusterTableContainer from './cluster_table_container';

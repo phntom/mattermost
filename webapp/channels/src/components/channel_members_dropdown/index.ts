@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {canManageMembers} from 'utils/channel_utils';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -14,6 +13,8 @@ import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles'
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
 import {openModal} from 'actions/views/modals';
+
+import {canManageMembers} from 'utils/channel_utils';
 
 import type {GlobalState} from 'types/store';
 

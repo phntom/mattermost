@@ -3,9 +3,10 @@
 
 import {useCallback} from 'react';
 import {useSelector} from 'react-redux';
-import {getCloudSupportLink, goToCloudSupportForm} from 'utils/contact_support_sales';
 
 import {getCloudCustomer} from 'mattermost-redux/selectors/entities/cloud';
+
+import {getCloudSupportLink, goToCloudSupportForm} from 'utils/contact_support_sales';
 
 export function useOpenCloudZendeskSupportForm(subject: string, description: string): [() => void, string] {
     const customer = useSelector(getCloudCustomer);

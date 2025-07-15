@@ -3,7 +3,6 @@
 
 import React, {memo, useCallback} from 'react';
 import {useIntl} from 'react-intl';
-import {localizeMessage} from 'utils/utils';
 
 import EllipsisHorizontalIcon from 'components/widgets/icons/ellipsis_h_icon';
 import Menu from 'components/widgets/menu/menu';

@@ -4,7 +4,6 @@
 import React from 'react';
 import type {WrappedComponentProps} from 'react-intl';
 import {FormattedMessage, defineMessage, injectIntl} from 'react-intl';
-import {PermissionsScope, DefaultRolePermissions, DocLinks, ModeratedPermissions} from 'utils/constants';
 
 import type {ClientConfig, ClientLicense} from '@mattermost/types/config';
 import type {Role} from '@mattermost/types/roles';
@@ -20,6 +19,8 @@ import LoadingScreen from 'components/loading_screen';
 import SaveButton from 'components/save_button';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
 import AdminPanelTogglable from 'components/widgets/admin_console/admin_panel_togglable';
+
+import {PermissionsScope, DefaultRolePermissions, DocLinks, ModeratedPermissions} from 'utils/constants';
 
 import GuestPermissionsTree, {GUEST_INCLUDED_PERMISSIONS} from '../guest_permissions_tree';
 import PermissionsTree, {EXCLUDED_PERMISSIONS} from '../permissions_tree';

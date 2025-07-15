@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage, defineMessage} from 'react-intl';
-import {ModalIdentifiers} from 'utils/constants';
 
 import type {Group} from '@mattermost/types/groups';
 import type {Team} from '@mattermost/types/teams';
@@ -11,6 +10,8 @@ import type {Team} from '@mattermost/types/teams';
 import AddGroupsToTeamModal from 'components/add_groups_to_team_modal';
 import ToggleModalButton from 'components/toggle_modal_button';
 import AdminPanel from 'components/widgets/admin_console/admin_panel';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import GroupList from '../../group';
 
@@ -30,19 +31,14 @@ export const TeamGroups = ({onGroupRemoved, syncChecked, team, onAddCallback, to
     <AdminPanel
         id='team_groups'
         title={
-            syncChecked ? defineMessage({
-                id: 'admin.team_settings.team_detail.syncedGroupsTitle',
-                defaultMessage: 'Synced Groups'
-            }) : defineMessage({id: 'admin.team_settings.team_detail.groupsTitle', defaultMessage: 'Groups'})
+            syncChecked ?
+                defineMessage({id: 'admin.team_settings.team_detail.syncedGroupsTitle', defaultMessage: 'Synced Groups'}) :
+                defineMessage({id: 'admin.team_settings.team_detail.groupsTitle', defaultMessage: 'Groups'})
         }
         subtitle={
-            syncChecked ? defineMessage({
-                id: 'admin.team_settings.team_detail.syncedGroupsDescription',
-                defaultMessage: 'Add and remove team members based on their group membership.'
-            }) : defineMessage({
-                id: 'admin.team_settings.team_detail.groupsDescription',
-                defaultMessage: 'Group members will be added to the team.'
-            })
+            syncChecked ?
+                defineMessage({id: 'admin.team_settings.team_detail.syncedGroupsDescription', defaultMessage: 'Add and remove team members based on their group membership.'}) :
+                defineMessage({id: 'admin.team_settings.team_detail.groupsDescription', defaultMessage: 'Group members will be added to the team.'})
         }
         button={
             <ToggleModalButton

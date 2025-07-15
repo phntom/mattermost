@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import type {ConnectedProps} from 'react-redux';
 import type {RouteComponentProps} from 'react-router-dom';
-import {checkIfMFARequired} from 'utils/route';
 
 import {fetchAllMyTeamsChannels, fetchAllMyChannelMembers, fetchChannelsAndMembers, unsetActiveChannelOnServer} from 'mattermost-redux/actions/channels';
 import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
@@ -17,6 +16,8 @@ import {getSelectedPostId} from 'selectors/rhs';
 import {getSelectedThreadIdInCurrentTeam} from 'selectors/views/threads';
 
 import {initializeTeam, joinTeam} from 'components/team_controller/actions';
+
+import {checkIfMFARequired} from 'utils/route';
 
 import type {GlobalState} from 'types/store';
 

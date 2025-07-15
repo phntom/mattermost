@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+
 import {render, screen} from 'tests/react_testing_utils';
 
 import Gate from './gate';

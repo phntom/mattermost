@@ -2,13 +2,14 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {StoragePrefixes} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
 import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels';
 
 import {getPostDraft} from 'selectors/rhs';
+
+import {StoragePrefixes} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';

@@ -5,11 +5,12 @@ import {act, screen, waitFor} from '@testing-library/react';
 import {shallow} from 'enzyme';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import type {SchemaMigration} from '@mattermost/types/admin';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
+
+import {renderWithContext} from 'tests/react_testing_utils';
 
 import MigrationsTable from './migrations_table';
 

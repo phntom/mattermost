@@ -4,9 +4,10 @@
 import React, {memo} from 'react';
 import type {ChangeEventHandler} from 'react';
 import {useIntl} from 'react-intl';
-import Constants from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
+
+import Constants from 'utils/constants';
 
 type Props = {
     channels: Channel[];

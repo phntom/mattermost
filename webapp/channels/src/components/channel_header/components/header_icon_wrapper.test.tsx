@@ -2,10 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {renderWithContext, screen, userEvent, waitFor} from 'tests/react_testing_utils';
 
 import HeaderIconWrapper from 'components/channel_header/components/header_icon_wrapper';
 import MentionsIcon from 'components/widgets/icons/mentions_icon';
+
+import {renderWithContext, screen, userEvent, waitFor} from 'tests/react_testing_utils';
 
 describe('components/channel_header/components/HeaderIconWrapper', () => {
     const mentionsIcon = (

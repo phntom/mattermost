@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import * as Utils from 'utils/utils';
 
 import type {ChannelMembership} from '@mattermost/types/channels';
 import type {TeamMembership} from '@mattermost/types/teams';
@@ -13,6 +12,8 @@ import DropdownIcon from 'components/widgets/icons/fa_dropdown_icon';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import WithTooltip from 'components/with_tooltip';
+
+import * as Utils from 'utils/utils';
 
 export type BaseMembership = {
     user_id: string;

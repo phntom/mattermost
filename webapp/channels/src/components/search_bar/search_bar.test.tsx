@@ -3,11 +3,12 @@
 
 import React from 'react';
 import type {ComponentProps} from 'react';
-import {renderWithContext} from 'tests/react_testing_utils';
 
 import SearchChannelProvider from 'components/suggestion/search_channel_provider';
 import SearchDateProvider from 'components/suggestion/search_date_provider';
 import SearchUserProvider from 'components/suggestion/search_user_provider';
+
+import {renderWithContext} from 'tests/react_testing_utils';
 
 import SearchBar from './search_bar';
 

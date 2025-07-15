@@ -5,11 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
-import Constants from 'utils/constants';
-import {cmdOrCtrlPressed, isKeyPressed} from 'utils/keyboard';
-import {stopTryNotificationRing} from 'utils/notification_sounds';
-import {isValidUrl} from 'utils/url';
-import {getDisplayName} from 'utils/utils';
 
 import {GenericModal} from '@mattermost/components';
 import type {PreferencesType} from '@mattermost/types/preferences';

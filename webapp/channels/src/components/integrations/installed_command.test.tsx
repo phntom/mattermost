@@ -3,9 +3,10 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import {TestHelper} from 'utils/test_helper';
 
 import InstalledCommand from 'components/integrations/installed_command';
+
+import {TestHelper} from 'utils/test_helper';
 
 describe('components/integrations/InstalledCommand', () => {
     const team = TestHelper.getTeamMock({name: 'team_name'});

@@ -8,12 +8,6 @@ import type {FormEvent} from 'react';
 import {useIntl} from 'react-intl';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, useLocation, useHistory, Route} from 'react-router-dom';
-import Constants from 'utils/constants';
-import DesktopApp from 'utils/desktop_api';
-import {t} from 'utils/i18n';
-import {showNotification} from 'utils/notifications';
-import {isDesktopApp} from 'utils/user_agent';
-import {setCSRFFromCookie} from 'utils/utils';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -34,7 +28,6 @@ import LocalStorageStore from 'stores/local_storage_store';
 import AlertBanner from 'components/alert_banner';
 import type {ModeType, AlertBannerProps} from 'components/alert_banner';
 import type {SubmitOptions} from 'components/claim/components/email_to_ldap';
-import WomanWithChatsSVG from 'components/common/svg_images_components/woman_with_chats_svg';
 import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';
@@ -49,6 +42,7 @@ import SaveButton from 'components/save_button';
 import EntraIdIcon from 'components/widgets/icons/entra_id_icon';
 import LockIcon from 'components/widgets/icons/lock_icon';
 import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
+import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
 import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
@@ -97,6 +91,10 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
         EnableOpenServer,
         EnableUserCreation,
         LdapLoginFieldName,
+        GitLabButtonText,
+        GitLabButtonColor,
+        OpenIdButtonText,
+        OpenIdButtonColor,
         SamlLoginButtonText,
         EnableCustomBrand,
         CustomBrandText,

@@ -3,9 +3,6 @@
 
 import {useEffect, useMemo, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Constants from 'utils/constants';
-import {trimmedEmojiName} from 'utils/emoji_utils';
-import {canUploadFiles, isPublicLinksEnabled} from 'utils/file_utils';
 
 import type {Channel} from '@mattermost/types/channels';
 import type {GlobalState} from '@mattermost/types/store';
@@ -19,6 +16,10 @@ import {insertWithoutDuplicates} from 'mattermost-redux/utils/array_utils';
 
 import {fetchChannelBookmarks, reorderBookmark} from 'actions/channel_bookmarks';
 import {loadCustomEmojisIfNeeded} from 'actions/emoji_actions';
+
+import Constants from 'utils/constants';
+import {trimmedEmojiName} from 'utils/emoji_utils';
+import {canUploadFiles, isPublicLinksEnabled} from 'utils/file_utils';
 
 export const MAX_BOOKMARKS_PER_CHANNEL = 50;
 

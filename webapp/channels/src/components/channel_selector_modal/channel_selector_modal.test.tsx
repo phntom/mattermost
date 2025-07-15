@@ -2,12 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
-import {TestHelper} from 'utils/test_helper';
 
 import type {ChannelWithTeamData} from '@mattermost/types/channels';
 
 import ChannelSelectorModal from 'components/channel_selector_modal/channel_selector_modal';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
+import {TestHelper} from 'utils/test_helper';
 
 describe('components/ChannelSelectorModal', () => {
     const channel1: ChannelWithTeamData = Object.assign(TestHelper.getChannelWithTeamDataMock({id: 'channel-1', team_id: 'teamid1'}));

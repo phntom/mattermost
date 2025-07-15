@@ -3,7 +3,6 @@
 
 import React from 'react';
 import {defineMessages} from 'react-intl';
-import {Constants} from 'utils/constants';
 
 import type {Channel} from '@mattermost/types/channels';
 
@@ -12,6 +11,8 @@ import type {ActionResult} from 'mattermost-redux/types/actions.js';
 import {sortChannelsByTypeAndDisplayName} from 'mattermost-redux/utils/channel_utils';
 
 import store from 'stores/redux_store';
+
+import {Constants} from 'utils/constants';
 
 import Provider from './provider';
 import type {ResultsCallback} from './provider';

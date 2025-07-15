@@ -3,6 +3,7 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
+
 import {TopLevelProducts} from 'utils/constants';
 import * as productUtils from 'utils/products';
 import {TestHelper} from 'utils/test_helper';

@@ -17,10 +17,11 @@ import type {
     AriaRole,
 } from 'react';
 import {useSelector} from 'react-redux';
-import Constants, {EventTypes} from 'utils/constants';
-import {isKeyPressed} from 'utils/keyboard';
 
 import {getIsMobileView} from 'selectors/views/browser';
+
+import Constants, {EventTypes} from 'utils/constants';
+import {isKeyPressed} from 'utils/keyboard';
 
 import {MenuContext, SubMenuContext} from './menu_context';
 

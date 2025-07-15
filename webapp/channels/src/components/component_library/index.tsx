@@ -3,9 +3,10 @@
 
 import classNames from 'classnames';
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {applyTheme} from 'utils/utils';
 
 import {Preferences} from 'mattermost-redux/constants';
+
+import {applyTheme} from 'utils/utils';
 
 import SectionNoticeComponentLibrary from './section_notice.cl';
 

@@ -6,7 +6,6 @@ import {withRouter} from 'react-router-dom';
 import type {RouteComponentProps} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {RHSStates} from 'utils/constants';
 
 import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
@@ -22,6 +21,8 @@ import {
     getSelectedPostCardId,
     getPreviousRhsState,
 } from 'selectors/rhs';
+
+import {RHSStates} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

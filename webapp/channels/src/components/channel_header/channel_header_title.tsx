@@ -4,7 +4,6 @@
 import type {ReactNode} from 'react';
 import React, {memo} from 'react';
 import {useSelector} from 'react-redux';
-import {Constants} from 'utils/constants';
 
 import type {UserProfile} from '@mattermost/types/users';
 
@@ -15,6 +14,8 @@ import ProfilePicture from 'components/profile_picture';
 import SharedChannelIndicator from 'components/shared_channel_indicator';
 import ArchiveIcon from 'components/widgets/icons/archive_icon';
 import BotTag from 'components/widgets/tag/bot_tag';
+
+import {Constants} from 'utils/constants';
 
 import ChannelHeaderTitleDirect from './channel_header_title_direct';
 import ChannelHeaderTitleFavorite from './channel_header_title_favorite';

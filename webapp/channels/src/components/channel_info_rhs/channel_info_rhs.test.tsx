@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {act, renderWithContext} from 'tests/react_testing_utils';
 
 import type {Channel, ChannelStats} from '@mattermost/types/channels';
 import type {Team} from '@mattermost/types/teams';
 import type {UserProfile} from '@mattermost/types/users';
+
+import {act, renderWithContext} from 'tests/react_testing_utils';
 
 import ChannelInfoRHS from './channel_info_rhs';
 

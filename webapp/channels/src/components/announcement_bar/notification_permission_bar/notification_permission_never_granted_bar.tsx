@@ -3,12 +3,13 @@
 
 import React, {useCallback, useState} from 'react';
 import {FormattedMessage} from 'react-intl';
-import {AnnouncementBarTypes} from 'utils/constants';
-import {requestNotificationPermission} from 'utils/notifications';
 
 import BrowserStore from 'stores/browser_store';
 
 import AnnouncementBar from 'components/announcement_bar/default_announcement_bar';
+
+import {AnnouncementBarTypes} from 'utils/constants';
+import {requestNotificationPermission} from 'utils/notifications';
 
 export default function NotificationPermissionNeverGrantedBar() {
     const [show, setShow] = useState(!BrowserStore.getHideNotificationPermissionRequestBanner());

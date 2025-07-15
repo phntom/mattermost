@@ -5,7 +5,6 @@ import React from 'react';
 import {type MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessage, defineMessages} from 'react-intl';
 import type {RouteComponentProps} from 'react-router-dom';
-import {DocLinks, LicenseSkus} from 'utils/constants';
 
 import type {Scheme, SchemeScope, SchemesState} from '@mattermost/types/schemes';
 
@@ -16,6 +15,8 @@ import LoadingScreen from 'components/loading_screen';
 import AdminHeader from 'components/widgets/admin_console/admin_header';
 import AdminPanelWithLink from 'components/widgets/admin_console/admin_panel_with_link';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
+
+import {DocLinks, LicenseSkus} from 'utils/constants';
 
 import PermissionsSchemeSummary from './permissions_scheme_summary';
 

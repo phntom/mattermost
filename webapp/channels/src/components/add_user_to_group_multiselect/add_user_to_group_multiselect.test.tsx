@@ -2,12 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {UserProfile} from '@mattermost/types/users';
 import type {RelationOneToOne} from '@mattermost/types/utilities';
 
 import type {Value} from 'components/multiselect/multiselect';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import AddUserToGroupMultiSelect from './add_user_to_group_multiselect';
 import type {AddUserToGroupMultiSelect as AddUserToGroupMultiSelectClass} from './add_user_to_group_multiselect';

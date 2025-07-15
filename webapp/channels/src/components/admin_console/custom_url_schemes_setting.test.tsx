@@ -2,6 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
+
 import {mountWithIntl} from 'tests/helpers/intl-test-helper';
 
 import CustomURLSchemesSetting from './custom_url_schemes_setting';

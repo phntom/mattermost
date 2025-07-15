@@ -3,6 +3,7 @@
 
 import type {ComponentProps} from 'react';
 import React from 'react';
+
 import {renderWithContext, screen} from 'tests/react_testing_utils';
 
 import AdminSettings from './admin_settings';

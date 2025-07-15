@@ -4,6 +4,7 @@
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import styled from 'styled-components';
+
 import {searchHintOptions, searchFilesHintOptions} from 'utils/constants';
 
 type Props = {

@@ -4,11 +4,12 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import {isValidPassword} from 'utils/password';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import type {ActionResult} from 'mattermost-redux/types/actions';
+
+import {isValidPassword} from 'utils/password';
 
 interface PasswordConfig {
     minimumLength: number;

@@ -2,10 +2,11 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {renderWithContext, screen} from 'tests/react_testing_utils';
-import EmojiMap from 'utils/emoji_map';
 
 import type {SystemEmoji} from '@mattermost/types/emojis';
+
+import {renderWithContext, screen} from 'tests/react_testing_utils';
+import EmojiMap from 'utils/emoji_map';
 
 import EmojiPicker from './emoji_picker';
 

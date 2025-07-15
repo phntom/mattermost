@@ -4,7 +4,6 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import {DeveloperLinks} from 'utils/constants';
 
 import type {UserAccessToken, UserProfile} from '@mattermost/types/users';
 
@@ -15,6 +14,8 @@ import RevokeTokenButton from 'components/admin_console/revoke_token_button';
 import ExternalLink from 'components/external_link';
 import LoadingScreen from 'components/loading_screen';
 import Avatar from 'components/widgets/users/avatar';
+
+import {DeveloperLinks} from 'utils/constants';
 
 export type Props = {
 

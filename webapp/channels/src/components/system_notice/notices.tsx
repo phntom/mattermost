@@ -3,14 +3,15 @@
 
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
-import {DocLinks} from 'utils/constants';
-import * as ServerVersion from 'utils/server_version';
-import * as UserAgent from 'utils/user_agent';
 
 import {InformationOutlineIcon} from '@mattermost/compass-icons/components';
 
 import ExternalLink from 'components/external_link';
 import type {Notice} from 'components/system_notice/types';
+
+import {DocLinks} from 'utils/constants';
+import * as ServerVersion from 'utils/server_version';
+import * as UserAgent from 'utils/user_agent';
 
 // Notices are objects with the following fields:
 //  - name - string identifier

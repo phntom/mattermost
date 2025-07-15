@@ -7,8 +7,6 @@ import type {ChangeEvent} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
 import {CSSTransition} from 'react-transition-group';
-import Constants from 'utils/constants';
-import {teamNameToUrl} from 'utils/url';
 
 import type {Team} from '@mattermost/types/teams';
 
@@ -19,6 +17,9 @@ import {trackEvent} from 'actions/telemetry_actions';
 
 import OrganizationSVG from 'components/common/svg_images_components/organization-building_svg';
 import QuickInput from 'components/quick_input';
+
+import Constants from 'utils/constants';
+import {teamNameToUrl} from 'utils/url';
 
 import Description from './description';
 import OrganizationStatus, {TeamApiError} from './organization_status';

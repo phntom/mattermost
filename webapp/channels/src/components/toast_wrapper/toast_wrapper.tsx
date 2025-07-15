@@ -5,11 +5,6 @@ import React from 'react';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape, WrappedComponentProps} from 'react-intl';
 import type {RouteComponentProps} from 'react-router-dom';
-import {getHistory} from 'utils/browser_history';
-import Constants from 'utils/constants';
-import {isToday} from 'utils/datetime';
-import {isKeyPressed} from 'utils/keyboard';
-import {isIdNotPost} from 'utils/post_utils';
 
 import {Preferences} from 'mattermost-redux/constants';
 import {getNewMessagesIndex} from 'mattermost-redux/utils/post_list';
@@ -19,6 +14,12 @@ import ScrollToBottomToast from 'components/scroll_to_bottom_toast';
 import {SearchShortcut} from 'components/search_shortcut';
 import Timestamp, {RelativeRanges} from 'components/timestamp';
 import Toast from 'components/toast/toast';
+
+import {getHistory} from 'utils/browser_history';
+import Constants from 'utils/constants';
+import {isToday} from 'utils/datetime';
+import {isKeyPressed} from 'utils/keyboard';
+import {isIdNotPost} from 'utils/post_utils';
 
 import './toast__wrapper.scss';
 

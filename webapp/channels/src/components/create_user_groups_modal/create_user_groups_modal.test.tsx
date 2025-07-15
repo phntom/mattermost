@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import type {UserProfile} from '@mattermost/types/users';
 
 import type {Value} from 'components/multiselect/multiselect';
+
+import {shallowWithIntl} from 'tests/helpers/intl-test-helper';
 
 import CreateUserGroupsModal from './create_user_groups_modal';
 import type {CreateUserGroupsModal as CreateUserGroupsModalClass} from './create_user_groups_modal';

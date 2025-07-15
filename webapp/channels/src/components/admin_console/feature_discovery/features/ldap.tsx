@@ -3,6 +3,7 @@
 
 import React from 'react';
 import {defineMessage} from 'react-intl';
+
 import {LicenseSkus} from 'utils/constants';
 
 import GroupsSVG from './images/groups_svg';

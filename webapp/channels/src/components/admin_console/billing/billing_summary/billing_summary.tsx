@@ -4,7 +4,6 @@
 import React from 'react';
 import {FormattedDate, FormattedMessage, FormattedNumber, defineMessages} from 'react-intl';
 import {useDispatch} from 'react-redux';
-import {BillingSchemes, CloudLinks, TrialPeriodDays, ModalIdentifiers} from 'utils/constants';
 
 import {CheckCircleOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Invoice, InvoiceLineItem, Product} from '@mattermost/types/cloud';
@@ -21,6 +20,8 @@ import EmptyBillingHistorySvg from 'components/common/svg_images_components/empt
 import UpgradeSvg from 'components/common/svg_images_components/upgrade_svg';
 import ExternalLink from 'components/external_link';
 import WithTooltip from 'components/with_tooltip';
+
+import {BillingSchemes, CloudLinks, TrialPeriodDays, ModalIdentifiers} from 'utils/constants';
 
 const messages = defineMessages({
     partialChargesTooltipTitle: {

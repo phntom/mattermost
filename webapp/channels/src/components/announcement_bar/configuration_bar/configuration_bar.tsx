@@ -1,30 +1,11 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import alertIcon from 'images/icons/round-white-info-icon.svg';
-import warningIcon from 'images/icons/warning-icon.svg';
 import React from 'react';
 import type {ReactNode} from 'react';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import type {IntlShape} from 'react-intl';
 import {Link} from 'react-router-dom';
-import {
-    AnnouncementBarTypes,
-    AnnouncementBarMessages,
-    Preferences,
-    ConfigurationBanners,
-    Constants,
-    TELEMETRY_CATEGORIES
-} from 'utils/constants';
-import {
-    daysToLicenseExpire,
-    isLicenseExpired,
-    isLicenseExpiring,
-    isLicensePastGracePeriod,
-    isTrialLicense
-} from 'utils/license_utils';
-import {getSkuDisplayName} from 'utils/subscription';
-import {getViewportSize} from 'utils/utils';
 
 import type {ClientConfig, WarnMetricStatus} from '@mattermost/types/config';
 import type {PreferenceType} from '@mattermost/types/preferences';
@@ -35,6 +16,13 @@ import {trackEvent} from 'actions/telemetry_actions';
 
 import PurchaseLink from 'components/announcement_bar/purchase_link/purchase_link';
 import ExternalLink from 'components/external_link';
+
+import alertIcon from 'images/icons/round-white-info-icon.svg';
+import warningIcon from 'images/icons/warning-icon.svg';
+import {AnnouncementBarTypes, AnnouncementBarMessages, Preferences, ConfigurationBanners, Constants, TELEMETRY_CATEGORIES} from 'utils/constants';
+import {daysToLicenseExpire, isLicenseExpired, isLicenseExpiring, isLicensePastGracePeriod, isTrialLicense} from 'utils/license_utils';
+import {getSkuDisplayName} from 'utils/subscription';
+import {getViewportSize} from 'utils/utils';
 
 import AnnouncementBar from '../default_announcement_bar';
 import RenewalLink from '../renewal_link/';

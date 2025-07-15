@@ -4,8 +4,6 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {Link} from 'react-router-dom';
-import Constants from 'utils/constants';
-import * as Utils from 'utils/utils';
 
 import type {Bot as BotType} from '@mattermost/types/bots';
 import type {Team} from '@mattermost/types/teams';
@@ -16,6 +14,9 @@ import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import BackstageList from 'components/backstage/components/backstage_list';
 import ExternalLink from 'components/external_link';
+
+import Constants from 'utils/constants';
+import * as Utils from 'utils/utils';
 
 import Bot, {matchesFilter} from './bot';
 

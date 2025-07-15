@@ -4,7 +4,6 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {FormattedMessage, defineMessages} from 'react-intl';
-import {UserStatuses} from 'utils/constants';
 
 import type {PreferenceType} from '@mattermost/types/preferences';
 import type {UserStatus} from '@mattermost/types/users';
@@ -13,6 +12,8 @@ import {Preferences} from 'mattermost-redux/constants';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import ConfirmModal from 'components/confirm_modal';
+
+import {UserStatuses} from 'utils/constants';
 
 const messages: Record<string, Record<string, MessageDescriptor>> = {
     away: defineMessages({

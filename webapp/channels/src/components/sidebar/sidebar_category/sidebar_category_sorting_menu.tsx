@@ -6,7 +6,6 @@ import React, {memo, useState} from 'react';
 import type {MouseEvent, KeyboardEvent} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
-import Constants from 'utils/constants';
 
 import {
     SortAlphabeticalAscendingIcon,
@@ -29,6 +28,8 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import {trackEvent} from 'actions/telemetry_actions';
 
 import * as Menu from 'components/menu';
+
+import Constants from 'utils/constants';
 
 type Props = {
     category: ChannelCategory;

@@ -3,7 +3,6 @@
 
 import React, {memo, useCallback, useState} from 'react';
 import {defineMessages} from 'react-intl';
-import {getHistory} from 'utils/browser_history';
 
 import type {IncomingWebhook} from '@mattermost/types/integrations';
 import type {Team} from '@mattermost/types/teams';
@@ -11,6 +10,8 @@ import type {Team} from '@mattermost/types/teams';
 import type {ActionResult} from 'mattermost-redux/types/actions';
 
 import AbstractIncomingWebhook from 'components/integrations/abstract_incoming_webhook';
+
+import {getHistory} from 'utils/browser_history';
 
 const messages = defineMessages({
     footer: {

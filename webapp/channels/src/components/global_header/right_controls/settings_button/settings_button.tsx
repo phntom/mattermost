@@ -3,12 +3,13 @@
 
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import {ModalIdentifiers} from 'utils/constants';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 
 import UserSettingsModal from 'components/user_settings/modal';
 import WithTooltip from 'components/with_tooltip';
+
+import {ModalIdentifiers} from 'utils/constants';
 
 import type {ModalData} from 'types/actions';
 

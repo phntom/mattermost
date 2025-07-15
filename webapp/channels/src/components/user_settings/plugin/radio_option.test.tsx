@@ -4,6 +4,7 @@
 import {screen, fireEvent} from '@testing-library/react';
 import type {ComponentProps} from 'react';
 import React from 'react';
+
 import {renderWithContext} from 'tests/react_testing_utils';
 
 import RadioOption from './radio_option';

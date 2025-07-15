@@ -4,6 +4,7 @@
 import React from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {useIntl} from 'react-intl';
+
 import {formatAsString} from 'utils/i18n';
 
 type Props = {

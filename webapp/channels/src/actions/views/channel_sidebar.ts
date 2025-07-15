@@ -1,8 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import {ActionTypes} from 'utils/constants';
-
 import {createCategory as createCategoryRedux, moveChannelsToCategory} from 'mattermost-redux/actions/channel_categories';
 import {General} from 'mattermost-redux/constants';
 import {CategoryTypes} from 'mattermost-redux/constants/channel_categories';
@@ -11,6 +9,8 @@ import {getCurrentChannelId} from 'mattermost-redux/selectors/entities/channels'
 import {insertMultipleWithoutDuplicates} from 'mattermost-redux/utils/array_utils';
 
 import {getCategoriesForCurrentTeam, getChannelsInCategoryOrder, getDisplayedChannels} from 'selectors/views/channel_sidebar';
+
+import {ActionTypes} from 'utils/constants';
 
 import type {ActionFunc, ActionFuncAsync, DraggingState, GlobalState} from 'types/store';
 

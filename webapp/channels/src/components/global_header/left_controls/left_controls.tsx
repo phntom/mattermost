@@ -3,6 +3,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+
 import {isDesktopApp} from 'utils/user_agent';
 
 import HistoryButtons from './history_buttons';

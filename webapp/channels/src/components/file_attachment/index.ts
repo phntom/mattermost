@@ -5,13 +5,14 @@ import {connect} from 'react-redux';
 import type {ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {canDownloadFiles} from 'utils/file_utils';
 
 import {getCurrentChannel} from 'mattermost-redux/selectors/entities/channels';
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 
 import {openModal} from 'actions/views/modals';
 import {getFilesDropdownPluginMenuItems} from 'selectors/plugins';
+
+import {canDownloadFiles} from 'utils/file_utils';
 
 import type {GlobalState} from 'types/store';
 

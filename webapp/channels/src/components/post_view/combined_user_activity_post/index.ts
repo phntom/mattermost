@@ -2,11 +2,12 @@
 // See LICENSE.txt for license information.
 
 import {connect} from 'react-redux';
-import {shouldShowDotMenu} from 'utils/post_utils';
 
 import {makeGenerateCombinedPost} from 'mattermost-redux/utils/post_list';
 
 import Post from 'components/post';
+
+import {shouldShowDotMenu} from 'utils/post_utils';
 
 import type {GlobalState} from 'types/store';
 

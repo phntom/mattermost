@@ -4,7 +4,6 @@
 import React, {memo, forwardRef, useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
-import Constants from 'utils/constants';
 
 import {ArchiveOutlineIcon} from '@mattermost/compass-icons/components';
 import type {UserProfile} from '@mattermost/types/users';
@@ -14,6 +13,8 @@ import {getPost, getLimitedViews} from 'mattermost-redux/selectors/entities/post
 
 import AdvancedCreateComment from 'components/advanced_create_comment';
 import BasicSeparator from 'components/widgets/separator/basic-separator';
+
+import Constants from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

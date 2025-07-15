@@ -2,12 +2,13 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {FileTypes} from 'utils/constants';
-import {getFileType} from 'utils/utils';
 
 import type {FileInfo} from '@mattermost/types/files';
 
 import {getFilePreviewUrl, getFileDownloadUrl} from 'mattermost-redux/utils/file_utils';
+
+import {FileTypes} from 'utils/constants';
+import {getFileType} from 'utils/utils';
 
 import './image_preview.scss';
 

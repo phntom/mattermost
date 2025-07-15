@@ -4,9 +4,10 @@
 import React from 'react';
 import type {MouseEvent} from 'react';
 import {FormattedMessage} from 'react-intl';
-import {PermissionsScope} from 'utils/constants';
 
 import type {Role} from '@mattermost/types/roles';
+
+import {PermissionsScope} from 'utils/constants';
 
 import PermissionCheckbox from './permission_checkbox';
 import PermissionDescription from './permission_description';

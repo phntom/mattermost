@@ -1,13 +1,14 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import ErrorBoundary from 'plugins/pluggable/error_boundary';
 import React, {useCallback} from 'react';
 import {FormattedMessage} from 'react-intl';
 import {useSelector} from 'react-redux';
 import styled from 'styled-components';
 
 import {getSearchButtons} from 'selectors/plugins';
+
+import ErrorBoundary from 'plugins/pluggable/error_boundary';
 
 const SearchTypeSelectorContainer = styled.div`
     margin: 20px 20px 0px 20px;

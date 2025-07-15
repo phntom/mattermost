@@ -6,9 +6,10 @@ import type {ReactNode} from 'react';
 import React, {memo} from 'react';
 import type {MessageDescriptor} from 'react-intl';
 import {useIntl} from 'react-intl';
-import {isMessageDescriptor} from 'utils/i18n';
 
 import RenderEmoji from 'components/emoji/render_emoji';
+
+import {isMessageDescriptor} from 'utils/i18n';
 
 import TooltipShortcut from './tooltip_shortcut';
 import {type ShortcutDefinition} from './tooltip_shortcut';

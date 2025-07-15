@@ -4,7 +4,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
-import {Preferences} from 'utils/constants';
 
 import {getConfig} from 'mattermost-redux/selectors/entities/general';
 import {getOpenGraphMetadataForUrl} from 'mattermost-redux/selectors/entities/posts';
@@ -13,6 +12,8 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
 import {editPost} from 'actions/views/posts';
 import {arePreviewsCollapsed} from 'selectors/preferences';
+
+import {Preferences} from 'utils/constants';
 
 import type {GlobalState} from 'types/store';
 

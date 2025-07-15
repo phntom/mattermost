@@ -2,9 +2,10 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {mountWithIntl, type MockIntl} from 'tests/helpers/intl-test-helper';
 
 import SystemNotice from 'components/system_notice/system_notice';
+
+import {mountWithIntl, type MockIntl} from 'tests/helpers/intl-test-helper';
 
 describe('components/SystemNotice', () => {
     const baseProps = {
