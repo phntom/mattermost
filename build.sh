@@ -14,10 +14,10 @@ set -ex
 #chmod 755 dist/plugins
 #popd
 
-export BUILD_DATE="Sat 08 Feb 2025 12:23:39 IST"
-export VERSION_FULL="10.4.1"
-export BETA=""
-export BUILD_HASH="ec341ab0ed04971d239288c3d80ab2c8c5c60b65"
+export BUILD_DATE="Tue 15 Jul 2025 15:58:07 IDT"
+export VERSION_FULL="10.10.0"
+export BETA="-beta2"
+export BUILD_HASH="c80cb52ef90de90e60c443ef843539e16a0daa31"
 
 go build -C server -tags=enterprise -ldflags="
 -X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=$BUILD_HASH'
@@ -33,8 +33,8 @@ go build -C server -tags=enterprise -ldflags="
 " -o mattermost github.com/mattermost/mattermost/server/v8/cmd/mattermost
 
 
-docker pull mattermost/mattermost-team-edition:release-10.4
-docker build . -t phntom/mattermost-team-edition:$VERSION_FULL$BETA
+docker pull mattermost/mattermost-team-edition:release-10.10
+docker build . --pull -t phntom/mattermost-team-edition:$VERSION_FULL$BETA
 docker push docker.io/phntom/mattermost-team-edition:$VERSION_FULL$BETA
 
 #9.1.0.master.5cd61beafc0e22c1d049c5db2ab461b4.true

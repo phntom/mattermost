@@ -9,6 +9,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/mattermost/mattermost/server/public/model"
 	"github.com/mattermost/mattermost/server/public/shared/mlog"
@@ -436,6 +437,10 @@ func (a *App) CreateUserAccessToken(rctx request.CTX, token *model.UserAccessTok
 func (a *App) createSessionForUserAccessToken(c request.CTX, tokenString string) (*model.Session, *model.AppError) {
 	token, nErr := a.Srv().Store().UserAccessToken().GetByToken(tokenString)
 	if nErr != nil {
+		var nfErr *store.ErrNotFound
+		if errors.As(nErr, &nfErr) && strings.Contains(nfErr.ID, "connect: connection refused") {
+			return nil, model.NewAppError("createSessionForUserAccessToken", "app.user_access_token.invalid_or_missing", nil, "", http.StatusServiceUnavailable).Wrap(nErr)
+		}
 		return nil, model.NewAppError("createSessionForUserAccessToken", "app.user_access_token.invalid_or_missing", nil, "", http.StatusUnauthorized).Wrap(nErr)
 	}
 
