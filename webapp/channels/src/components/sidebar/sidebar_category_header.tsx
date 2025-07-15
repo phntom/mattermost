@@ -59,6 +59,7 @@ export const SidebarCategoryHeader = React.forwardRef((props: Props, ref?: React
                 className={classNames('SidebarChannelGroupHeader_groupButton')}
                 aria-label={props.displayName}
                 onClick={props.onClick}
+                aria-expanded={!props.isCollapsed}
             >
                 <i
                     className={classNames('icon icon-chevron-down', {
@@ -69,6 +70,7 @@ export const SidebarCategoryHeader = React.forwardRef((props: Props, ref?: React
                 <div
                     className='SidebarChannelGroupHeader_text'
                     {...dragHandleProps}
+                    tabIndex={-1}
                 >
                     {wrapEmojis(props.displayName)}
                 </div>

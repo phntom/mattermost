@@ -39,6 +39,7 @@ describe('components/new_search/SearchBoxSuggestions', () => {
     const baseProps = {
         searchType: 'messages',
         searchTerms: '',
+        searchTeam: 'teamId',
         selectedOption: -1,
         setSelectedOption: jest.fn(),
         suggestionsHeader: <p>{'Test Header'}</p>,
@@ -132,6 +133,6 @@ describe('components/new_search/SearchBoxSuggestions', () => {
             },
         );
         screen.getByText('onRunSearch').click();
-        expect(baseProps.onSearch).toHaveBeenCalledWith('test-id', 'something from:t');
+        expect(baseProps.onSearch).toHaveBeenCalledWith('test-id', 'teamId', 'something from:t');
     });
 });

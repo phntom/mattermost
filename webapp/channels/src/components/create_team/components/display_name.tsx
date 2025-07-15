@@ -35,8 +35,11 @@ type State = {
 }
 
 export default class TeamSignupDisplayNamePage extends React.PureComponent<Props, State> {
+    teamNameInput: React.RefObject<HTMLInputElement>;
+
     constructor(props: Props) {
         super(props);
+        this.teamNameInput = React.createRef();
 
         this.state = {
             teamDisplayName: this.props.state.team?.display_name || '',
@@ -58,6 +61,7 @@ export default class TeamSignupDisplayNamePage extends React.PureComponent<Props
                     defaultMessage='This field is required'
                 />),
             });
+            this.teamNameInput.current?.focus();
             return;
         } else if (displayName.length < Constants.MIN_TEAMNAME_LENGTH || displayName.length > Constants.MAX_TEAMNAME_LENGTH) {
             this.setState({nameError: (
@@ -70,6 +74,7 @@ export default class TeamSignupDisplayNamePage extends React.PureComponent<Props
                     }}
                 />),
             });
+            this.teamNameInput.current?.focus();
             return;
         }
 
@@ -93,7 +98,15 @@ export default class TeamSignupDisplayNamePage extends React.PureComponent<Props
         let nameError = null;
         let nameDivClass = 'form-group';
         if (this.state.nameError) {
-            nameError = <label className='control-label'>{this.state.nameError}</label>;
+            nameError = (
+                <label
+                    role='alert'
+                    className='control-label'
+                    id='teamNameInputError'
+                >
+                    {this.state.nameError}
+                </label>
+            );
             nameDivClass += ' has-error';
         }
 
@@ -105,19 +118,20 @@ export default class TeamSignupDisplayNamePage extends React.PureComponent<Props
                         className='signup-team-logo'
                         src={logoImage}
                     />
-                    <h5>
+                    <label htmlFor='teamNameInput'>
                         <FormattedMessage
                             id='create_team.display_name.teamName'
                             tagName='strong'
                             defaultMessage='Team Name'
                         />
-                    </h5>
+                    </label>
                     <div className={nameDivClass}>
                         <div className='row'>
                             <div className='col-sm-9'>
                                 <input
                                     id='teamNameInput'
                                     type='text'
+                                    ref={this.teamNameInput}
                                     className='form-control'
                                     placeholder=''
                                     maxLength={128}
@@ -126,6 +140,7 @@ export default class TeamSignupDisplayNamePage extends React.PureComponent<Props
                                     onFocus={this.handleFocus}
                                     onChange={this.handleDisplayNameChange}
                                     spellCheck='false'
+                                    aria-describedby='teamNameInputError'
                                 />
                             </div>
                         </div>

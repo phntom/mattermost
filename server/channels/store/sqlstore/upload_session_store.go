@@ -16,12 +16,32 @@ import (
 
 type SqlUploadSessionStore struct {
 	*SqlStore
+
+	uploadSessionQuery sq.SelectBuilder
 }
 
 func newSqlUploadSessionStore(sqlStore *SqlStore) store.UploadSessionStore {
-	return &SqlUploadSessionStore{
+	s := &SqlUploadSessionStore{
 		SqlStore: sqlStore,
 	}
+
+	s.uploadSessionQuery = s.getQueryBuilder().
+		Select(
+			"Id",
+			"Type",
+			"CreateAt",
+			"UserId",
+			"ChannelId",
+			"Filename",
+			"Path",
+			"FileSize",
+			"FileOffset",
+			"RemoteId",
+			"ReqFileId",
+		).
+		From("UploadSessions")
+
+	return s
 }
 
 func (us SqlUploadSessionStore) Save(session *model.UploadSession) (*model.UploadSession, error) {
@@ -40,7 +60,7 @@ func (us SqlUploadSessionStore) Save(session *model.UploadSession) (*model.Uploa
 	if err != nil {
 		return nil, errors.Wrap(err, "SqlUploadSessionStore.Save: failed to build query")
 	}
-	if _, err := us.GetMasterX().Exec(query, args...); err != nil {
+	if _, err := us.GetMaster().Exec(query, args...); err != nil {
 		return nil, errors.Wrap(err, "SqlUploadSessionStore.Save: failed to insert")
 	}
 	return session, nil
@@ -70,7 +90,7 @@ func (us SqlUploadSessionStore) Update(session *model.UploadSession) error {
 	if err != nil {
 		return errors.Wrap(err, "SqlUploadSessionStore.Update: failed to build query")
 	}
-	if _, err := us.GetMasterX().Exec(query, args...); err != nil {
+	if _, err := us.GetMaster().Exec(query, args...); err != nil {
 		if err == sql.ErrNoRows {
 			return store.NewErrNotFound("UploadSession", session.Id)
 		}
@@ -83,9 +103,7 @@ func (us SqlUploadSessionStore) Get(c request.CTX, id string) (*model.UploadSess
 	if !model.IsValidId(id) {
 		return nil, errors.New("SqlUploadSessionStore.Get: id is not valid")
 	}
-	query, args, err := us.getQueryBuilder().
-		Select("*").
-		From("UploadSessions").
+	query, args, err := us.uploadSessionQuery.
 		Where(sq.Eq{"Id": id}).
 		ToSql()
 	if err != nil {
@@ -102,9 +120,7 @@ func (us SqlUploadSessionStore) Get(c request.CTX, id string) (*model.UploadSess
 }
 
 func (us SqlUploadSessionStore) GetForUser(userId string) ([]*model.UploadSession, error) {
-	query, args, err := us.getQueryBuilder().
-		Select("*").
-		From("UploadSessions").
+	query, args, err := us.uploadSessionQuery.
 		Where(sq.Eq{"UserId": userId}).
 		OrderBy("CreateAt ASC").
 		ToSql()
@@ -112,7 +128,7 @@ func (us SqlUploadSessionStore) GetForUser(userId string) ([]*model.UploadSessio
 		return nil, errors.Wrap(err, "SqlUploadSessionStore.GetForUser: failed to build query")
 	}
 	sessions := []*model.UploadSession{}
-	if err := us.GetReplicaX().Select(&sessions, query, args...); err != nil {
+	if err := us.GetReplica().Select(&sessions, query, args...); err != nil {
 		return nil, errors.Wrap(err, "SqlUploadSessionStore.GetForUser: failed to select")
 	}
 	return sessions, nil
@@ -131,7 +147,7 @@ func (us SqlUploadSessionStore) Delete(id string) error {
 		return errors.Wrap(err, "SqlUploadSessionStore.Delete: failed to build query")
 	}
 
-	if _, err := us.GetMasterX().Exec(query, args...); err != nil {
+	if _, err := us.GetMaster().Exec(query, args...); err != nil {
 		return errors.Wrap(err, "SqlUploadSessionStore.Delete: failed to delete")
 	}
 

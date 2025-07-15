@@ -5,7 +5,7 @@ import React from 'react';
 import {defineMessage} from 'react-intl';
 import {LicenseSkus} from 'utils/constants';
 
-import LdapSVG from './images/ldap_svg';
+import GroupsSVG from './images/groups_svg';
 
 import FeatureDiscovery from '../index';
 
@@ -23,7 +23,11 @@ const LDAPFeatureDiscovery: React.FC = () => {
                 defaultMessage: 'When you connect Mattermost with your organization\'s Active Directory/LDAP, users can log in without having to create new usernames and passwords.',
             })}
             learnMoreURL='https://www.mattermost.com/docs-adldap/?utm_medium=product&utm_source=product-feature-discovery&utm_content=adldap'
-            featureDiscoveryImage={<LdapSVG/>}
+            featureDiscoveryImage={
+                <GroupsSVG
+                    width={276}
+                    height={170}
+                />}
         />
     );
 };

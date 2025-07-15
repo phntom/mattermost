@@ -422,8 +422,6 @@ export default class AddBot extends React.PureComponent<Props, State> {
         let imageURL = '';
         let removeImageIcon: JSX.Element | null = (
             <WithTooltip
-                id='removeIcon'
-                placement='right'
                 title={
                     <FormattedMessage
                         id='bot.remove_profile_picture'

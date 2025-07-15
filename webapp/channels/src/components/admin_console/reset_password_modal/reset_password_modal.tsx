@@ -178,7 +178,7 @@ export default class ResetPasswordModal extends React.PureComponent<Props, State
                 show={this.state.show}
                 onHide={this.doCancel}
                 onExited={this.props.onExited}
-                role='dialog'
+                role='none'
                 aria-labelledby='resetPasswordModalLabel'
             >
                 <Modal.Header closeButton={true}>

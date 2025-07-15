@@ -38,8 +38,9 @@ import {getIsEditingMembers, getPreviousRhsState} from 'selectors/rhs';
 
 import type {GlobalState} from 'types/store';
 
-import RHS from './channel_members_rhs';
-import type {Props, ChannelMember} from './channel_members_rhs';
+import ChannelMembersRHS from './channel_members_rhs';
+import type {Props} from './channel_members_rhs';
+import type {ChannelMember} from './member_list';
 
 const buildProfileList = (
     profilesInCurrentChannel: UserProfile[],
@@ -171,4 +172,4 @@ function mapDispatchToProps(dispatch: Dispatch<AnyAction>) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RHS);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelMembersRHS);

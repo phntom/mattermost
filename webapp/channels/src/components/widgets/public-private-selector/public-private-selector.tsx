@@ -79,8 +79,6 @@ const BigButtonSelector = ({
 
     return (
         <WithTooltip
-            id="'public-private-selector-button-tooltip'"
-            placement='top'
             title={tooltip}
         >
             {button}

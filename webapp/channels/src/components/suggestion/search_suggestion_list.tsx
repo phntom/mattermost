@@ -4,60 +4,27 @@
 import React from 'react';
 import type {Popover as BSPopover} from 'react-bootstrap';
 import {FormattedMessage} from 'react-intl';
-import Constants from 'utils/constants';
 
 import Popover from 'components/widgets/popover';
 
-import type {UserProfile} from './command_provider/app_command_parser/app_command_parser_dependencies';
+import Constants from 'utils/constants';
+
 import type {Props} from './suggestion_list';
 import SuggestionList from './suggestion_list';
-
-interface Item extends UserProfile {
-    type: string;
-    display_name: string;
-    name: string;
-}
 
 export default class SearchSuggestionList extends SuggestionList {
     popoverRef: React.RefObject<BSPopover>;
     itemsContainerRef: React.RefObject<HTMLDivElement>;
-    suggestionReadOut: React.RefObject<HTMLDivElement>;
-    currentLabel: string;
 
     constructor(props: Props) {
         super(props);
 
         this.popoverRef = React.createRef();
         this.itemsContainerRef = React.createRef();
-        this.suggestionReadOut = React.createRef();
-        this.currentLabel = '';
-    }
-
-    generateLabel(item: Item) {
-        if (item.username) {
-            this.currentLabel = item.username;
-            if ((item.first_name || item.last_name) && item.nickname) {
-                this.currentLabel += ` ${item.first_name} ${item.last_name} ${item.nickname}`;
-            } else if (item.nickname) {
-                this.currentLabel += ` ${item.nickname}`;
-            } else if (item.first_name || item.last_name) {
-                this.currentLabel += ` ${item.first_name} ${item.last_name}`;
-            }
-        } else if (item.type === Constants.DM_CHANNEL || item.type === Constants.GM_CHANNEL) {
-            this.currentLabel = item.display_name;
-        } else {
-            this.currentLabel = item.name;
-        }
-
-        if (this.currentLabel) {
-            this.currentLabel = this.currentLabel.toLowerCase();
-        }
-
-        this.announceLabel();
     }
 
     getContent = () => {
-        return this.itemsContainerRef?.current?.parentNode as HTMLDivElement | null;
+        return this.itemsContainerRef?.current?.parentNode as HTMLUListElement | null;
     };
 
     renderChannelDivider(type: string) {
@@ -126,14 +93,10 @@ export default class SearchSuggestionList extends SuggestionList {
                 }
             }
 
-            if (isSelection) {
-                this.currentItem = item;
-            }
-
             items.push(
                 <Component
                     key={term}
-                    ref={(ref: React.RefObject<HTMLDivElement>) => this.itemRefs.set(term, ref)}
+                    id={`sbrSearchBox_item_${term}`}
                     item={item}
                     term={term}
                     matchedPretext={this.props.matchedPretext[i]}
@@ -151,11 +114,6 @@ export default class SearchSuggestionList extends SuggestionList {
                 className='search-help-popover autocomplete visible'
                 placement='bottom'
             >
-                <div
-                    ref={this.suggestionReadOut}
-                    aria-live='polite'
-                    className='hidden-label'
-                />
                 <div ref={this.itemsContainerRef}>
                     {items}
                 </div>

@@ -266,7 +266,7 @@ function StartTrialFormModal(props: Props): JSX.Element | null {
             dialogClassName='a11y__modal'
             show={show}
             id='StartTrialFormModal'
-            role='dialog'
+            role='none'
             onHide={handleOnClose}
         >
             <Modal.Header closeButton={true}>
@@ -322,7 +322,7 @@ function StartTrialFormModal(props: Props): JSX.Element | null {
                         setOrgSize(e.value as OrgSize);
                     }}
                     value={getOrgSizeDropdownValue()}
-                    options={Object.entries(OrgSize).map(([value, label]) => ({value, label}))}
+                    options={Object.entries(OrgSize).map(([value, label]) => ({value, label})) as any} // options type is not correctly set in DropdownInput component.
                     legend={formatMessage({id: 'start_trial_form.company_size', defaultMessage: 'Company Size'})}
                     placeholder={formatMessage({id: 'start_trial_form.company_size', defaultMessage: 'Company Size'})}
                     name='company_size_dropdown'
@@ -360,7 +360,7 @@ function StartTrialFormModal(props: Props): JSX.Element | null {
                 <div className='buttons'>
                     <Button
                         disabled={isSubmitDisabled}
-                        className='confirm-btn'
+                        className='btn btn-primary'
                         onClick={requestLicense}
                     >
                         {btnText(status)}

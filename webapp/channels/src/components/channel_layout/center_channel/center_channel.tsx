@@ -13,7 +13,7 @@ import LoadingScreen from 'components/loading_screen';
 
 import type {OwnProps, PropsFromRedux} from './index';
 
-const ChannelHeaderMobile = makeAsyncComponent('ChannelHeaderMobile', lazy(() => import('components/channel_header_mobile')));
+const MobileChannelHeader = makeAsyncComponent('MobileChannelHeader', lazy(() => import('components/mobile_channel_header')));
 const GlobalThreads = makeAsyncComponent('GlobalThreads', lazy(() => import('components/threading/global_threads')),
     (
         <div className='app__content'>
@@ -75,15 +75,7 @@ export default class CenterChannel extends React.PureComponent<Props, State> {
                     'move--left-small': this.props.rhsMenuOpen,
                 })}
             >
-                {isMobileView && (
-                    <>
-                        <div className='row header'>
-                            <div id='navbar_wrapper'>
-                                <ChannelHeaderMobile/>
-                            </div>
-                        </div>
-                    </>
-                )}
+                {isMobileView && <MobileChannelHeader/>}
                 <div className='row main'>
                     <Switch>
                         <Route

@@ -11,7 +11,7 @@ import * as Keyboard from 'utils/keyboard';
 import {trackEvent} from 'actions/telemetry_actions';
 
 import WithTooltip from 'components/with_tooltip';
-import {ShortcutKeys} from 'components/with_tooltip/shortcut';
+import {ShortcutKeys} from 'components/with_tooltip/tooltip_shortcut';
 
 const messages = defineMessages({
     disableTooltip: {
@@ -31,7 +31,6 @@ const shortcut = {
 
 type Props = {
     intl: IntlShape;
-    hasMultipleTeams: boolean;
     unreadFilterEnabled: boolean;
     actions: {
         setUnreadFilterEnabled: (enabled: boolean) => void;
@@ -74,17 +73,15 @@ export class ChannelFilter extends React.PureComponent<Props> {
     };
 
     render() {
-        const {intl, unreadFilterEnabled, hasMultipleTeams} = this.props;
+        const {intl, unreadFilterEnabled} = this.props;
 
         const unreadsAriaLabel = intl.formatMessage({id: 'sidebar_left.channel_filter.filterUnreadAria', defaultMessage: 'unreads filter'});
 
         return (
             <div className='SidebarFilters'>
                 <WithTooltip
-                    id='channel-filter-tooltip'
                     title={unreadFilterEnabled ? messages.disableTooltip : messages.enableTooltip}
                     shortcut={shortcut}
-                    placement={hasMultipleTeams ? 'top' : 'right'}
                 >
                     <a
                         href='#'

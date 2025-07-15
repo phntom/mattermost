@@ -146,8 +146,6 @@ const FormattingIcon = (props: FormattingIconProps): JSX.Element => {
 
     return (
         <WithTooltip
-            id='formatting-icon-tooltip'
-            placement='top'
             title={
                 <KeyboardShortcutSequence
                     shortcut={shortcut}

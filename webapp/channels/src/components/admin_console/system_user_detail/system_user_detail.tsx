@@ -146,7 +146,9 @@ export class SystemUserDetail extends PureComponent<Props, State> {
         } catch (err) {
             console.error('SystemUserDetails-handleActivateUser', err); // eslint-disable-line no-console
 
-            this.setState({error: this.props.intl.formatMessage({id: 'admin.user_item.userActivateFailed', defaultMessage: 'Failed to activate user'})});
+            // Show the actual server error message instead of generic message
+            const errorMessage = (err as Error).message || this.props.intl.formatMessage({id: 'admin.user_item.userActivateFailed', defaultMessage: 'Failed to activate user'});
+            this.setState({error: errorMessage});
         }
     };
 
@@ -165,7 +167,9 @@ export class SystemUserDetail extends PureComponent<Props, State> {
         } catch (err) {
             console.error('SystemUserDetails-handleDeactivateMember', err); // eslint-disable-line no-console
 
-            this.setState({error: this.props.intl.formatMessage({id: 'admin.user_item.userDeactivateFailed', defaultMessage: 'Failed to deactivate user'})});
+            // Show the actual server error message instead of generic message
+            const errorMessage = (err as Error).message || this.props.intl.formatMessage({id: 'admin.user_item.userDeactivateFailed', defaultMessage: 'Failed to deactivate user'});
+            this.setState({error: errorMessage});
         }
 
         this.toggleCloseModalDeactivateMember();
@@ -301,6 +305,7 @@ export class SystemUserDetail extends PureComponent<Props, State> {
             dialogProps: {
                 user: this.state.user,
                 onConfirm: this.openUserSettingsModal,
+                focusOriginElement: 'manageUserSettingsBtn',
             },
         });
     };
@@ -317,6 +322,7 @@ export class SystemUserDetail extends PureComponent<Props, State> {
                 adminMode: true,
                 isContentProductSettings: true,
                 userID: this.state.user.id,
+                focusOriginElement: 'manageUserSettingsBtn',
             },
         });
     };
@@ -447,6 +453,7 @@ export class SystemUserDetail extends PureComponent<Props, State> {
                                         <button
                                             className='manageUserSettingsBtn btn btn-tertiary'
                                             onClick={this.openConfirmEditUserSettingsModal}
+                                            id='manageUserSettingsBtn'
                                         >
                                             <FormattedMessage
                                                 id='admin.user_item.manageSettings'
@@ -458,7 +465,6 @@ export class SystemUserDetail extends PureComponent<Props, State> {
                                     {
                                         this.props.showLockedManageUserSettings &&
                                         <WithTooltip
-                                            id='adminUserSettingUpdateDisabled'
                                             title={defineMessage({
                                                 id: 'generic.enterprise_feature',
                                                 defaultMessage: 'Enterprise feature',
@@ -467,7 +473,6 @@ export class SystemUserDetail extends PureComponent<Props, State> {
                                                 id: 'admin.user_item.manageSettings.disabled_tooltip',
                                                 defaultMessage: 'Please upgrade to Enterprise to manage user settings',
                                             })}
-                                            placement='top'
                                         >
                                             <button
                                                 className='manageUserSettingsBtn btn disabled'

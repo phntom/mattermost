@@ -107,6 +107,7 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
 
     handleA11yKeyDown = (e: KeyboardEvent<HTMLButtonElement>['nativeEvent']) => {
         if (isKeyPressed(e, Constants.KeyCodes.ENTER)) {
+            e.preventDefault();
             this.handleCollapse();
         }
     };
@@ -187,7 +188,6 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
                                 draggable='false'
                                 className={'SidebarChannel noFloat newChannelSpacer'}
                                 {...provided.draggableProps}
-                                role='listitem'
                                 tabIndex={-1}
                             />
                         );
@@ -252,7 +252,7 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
 
         let categoryMenu: JSX.Element;
         let newLabel: JSX.Element;
-        let directMessagesModalButton: JSX.Element;
+        const directMessagesModalButton: JSX.Element | null = null;
         let isCollapsible = true;
         if (isNewCategory) {
             newLabel = (
@@ -275,7 +275,6 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
                         handleOpenDirectMessagesModal={this.handleOpenDirectMessagesModal}
                     />
                     <WithTooltip
-                        id='new-group-tooltip'
                         title={
                             <>
                                 {addHelpLabel}
@@ -286,9 +285,9 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
                                 />
                             </>
                         }
-                        placement='top'
                     >
                         <button
+                            id='newDirectMessageButton'
                             className='SidebarChannelGroupHeader_addButton'
                             onClick={this.handleOpenDirectMessagesModal}
                             aria-label={addHelpLabel}
@@ -380,7 +379,6 @@ export default class SidebarCategory extends React.PureComponent<Props, State> {
                                                 className={classNames('SidebarChannelGroup_content')}
                                             >
                                                 <ul
-                                                    role='list'
                                                     className='NavGroupContent'
                                                 >
                                                     {this.renderNewDropBox(droppableSnapshot.isDraggingOver)}

@@ -125,4 +125,19 @@ describe('/components/create_team/components/display_name', () => {
 
         expect(screen.getByText('Please try another.', {exact: false})).toBeInTheDocument();
     });
+
+    test('should focus input when validation error occurs', () => {
+        renderWithContext(
+            <TeamUrl {...defaultProps}/>,
+        );
+
+        const input = screen.getByRole('textbox');
+        userEvent.clear(input);
+        const focusSpy = jest.spyOn(input, 'focus');
+
+        // Trigger validation error by submitting empty input
+        screen.getByText('Finish').click();
+
+        expect(focusSpy).toHaveBeenCalled();
+    });
 });

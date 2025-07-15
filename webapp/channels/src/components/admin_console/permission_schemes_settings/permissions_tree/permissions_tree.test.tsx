@@ -7,6 +7,8 @@ import {LicenseSkus} from 'utils/constants';
 
 import GeneralConstants from 'mattermost-redux/constants/general';
 
+import GeneralConstants from 'mattermost-redux/constants/general';
+
 import PermissionGroup from 'components/admin_console/permission_schemes_settings/permission_group';
 import PermissionsTree from 'components/admin_console/permission_schemes_settings/permissions_tree/permissions_tree';
 

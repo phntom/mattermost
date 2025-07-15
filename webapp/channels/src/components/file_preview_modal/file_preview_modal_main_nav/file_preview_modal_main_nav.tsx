@@ -19,14 +19,12 @@ const FilePreviewModalMainNav: React.FC<Props> = (props: Props) => {
     const leftArrow = (
         <WithTooltip
             key='previewArrowLeft'
-            id='close-icon-tooltip'
             title={
                 <FormattedMessage
                     id='generic.close'
                     defaultMessage='Close'
                 />
             }
-            placement='bottom'
         >
             <button
                 id='previewArrowLeft'
@@ -41,14 +39,12 @@ const FilePreviewModalMainNav: React.FC<Props> = (props: Props) => {
     const rightArrow = (
         <WithTooltip
             key='publicLink'
-            id='close-icon-tooltip'
             title={
                 <FormattedMessage
                     id='generic.next'
                     defaultMessage='Next'
                 />
             }
-            placement='bottom'
         >
             <button
                 id='previewArrowRight'
@@ -62,7 +58,11 @@ const FilePreviewModalMainNav: React.FC<Props> = (props: Props) => {
     return (
         <div className='file_preview_modal_main_nav'>
             {leftArrow}
-            <span className='modal-bar-file-count'>
+            <span
+                className='modal-bar-file-count'
+                aria-live='polite'
+                aria-atomic='true'
+            >
                 <FormattedMessage
                     id='file_preview_modal_main_nav.file'
                     defaultMessage='{count, number} of {total, number}'

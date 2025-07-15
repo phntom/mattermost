@@ -91,7 +91,7 @@ export default class FeatureDiscovery extends React.PureComponent<Props, State> 
             return (
                 <div className='purchase-card'>
                     <button
-                        className='btn btn-primary'
+                        className='btn btn-primary btn-lg'
                         data-testid='featureDiscovery_primaryCallToAction'
                         onClick={() => {
                             trackEvent(TELEMETRY_CATEGORIES.SELF_HOSTED_ADMIN, 'click_enterprise_contact_sales_feature_discovery');
@@ -105,7 +105,7 @@ export default class FeatureDiscovery extends React.PureComponent<Props, State> 
                     </button>
                     <ExternalLink
                         location='feature_discovery'
-                        className='btn btn-secondary'
+                        className='btn btn-tertiary btn-lg'
                         href={learnMoreURL}
                         data-testid='featureDiscovery_secondaryCallToAction'
                     >
@@ -122,6 +122,7 @@ export default class FeatureDiscovery extends React.PureComponent<Props, State> 
             <div className='purchase-card'>
                 <>
                     <PurchaseLink
+                        className='btn btn-primary btn-lg'
                         eventID='post_trial_purchase_license'
                         buttonTextElement={
                             <FormattedMessage
@@ -293,7 +294,10 @@ export default class FeatureDiscovery extends React.PureComponent<Props, State> 
         }
 
         return (
-            <div className='FeatureDiscovery'>
+            <div
+                className='FeatureDiscovery'
+                data-testid='featureDiscovery'
+            >
                 <div className='FeatureDiscovery_copyWrapper'>
                     <div
                         className='FeatureDiscovery_title'

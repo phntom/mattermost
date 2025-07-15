@@ -6,11 +6,6 @@ import {DateTime} from 'luxon';
 import React from 'react';
 import type {DayPickerProps} from 'react-day-picker';
 import {defineMessage, FormattedMessage} from 'react-intl';
-import Constants, {A11yCustomEventTypes, UserStatuses} from 'utils/constants';
-import type {A11yFocusEventDetail} from 'utils/constants';
-import {toUTCUnix} from 'utils/datetime';
-import {isKeyPressed} from 'utils/keyboard';
-import {localizeMessage} from 'utils/utils';
 
 import IconButton from '@mattermost/compass-components/components/icon-button'; // eslint-disable-line no-restricted-imports
 import {GenericModal} from '@mattermost/components';
@@ -23,6 +18,12 @@ import DatePicker from 'components/date_picker';
 import Input from 'components/widgets/inputs/input/input';
 import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
+
+import Constants, {A11yCustomEventTypes, UserStatuses} from 'utils/constants';
+import type {A11yFocusEventDetail} from 'utils/constants';
+import {toUTCUnixInSeconds} from 'utils/datetime';
+import {isKeyPressed} from 'utils/keyboard';
+import {localizeMessage} from 'utils/utils';
 
 import './dnd_custom_time_picker_modal.scss';
 
@@ -125,9 +126,9 @@ export default class DndCustomTimePicker extends React.PureComponent<Props, Stat
         await this.props.actions.setStatus({
             user_id: this.props.userId,
             status: UserStatuses.DND,
-            dnd_end_time: toUTCUnix(endTime),
+            dnd_end_time: toUTCUnixInSeconds(endTime),
             manual: true,
-            last_activity_at: toUTCUnix(this.props.currentDate),
+            last_activity_at: toUTCUnixInSeconds(this.props.currentDate),
         });
         this.props.onExited();
     };

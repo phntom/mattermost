@@ -32,6 +32,7 @@ import (
 )
 
 func TestPlugin(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t)
 	defer th.TearDown()
 
@@ -286,6 +287,7 @@ func TestPlugin(t *testing.T) {
 }
 
 func TestNotifyClusterPluginEvent(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t)
 	defer th.TearDown()
 
@@ -336,10 +338,8 @@ func TestNotifyClusterPluginEvent(t *testing.T) {
 	require.Equal(t, "testplugin", manifest.Id)
 
 	// Successful remove
-	webSocketClient, err := th.CreateWebSocketSystemAdminClient()
-	require.NoError(t, err)
-	webSocketClient.Listen()
-	defer webSocketClient.Close()
+	webSocketClient := th.CreateConnectedWebSocketClientWithClient(t, th.SystemAdminClient)
+
 	done := make(chan bool)
 	go func() {
 		for {
@@ -380,6 +380,7 @@ func TestNotifyClusterPluginEvent(t *testing.T) {
 }
 
 func TestDisableOnRemove(t *testing.T) {
+	mainHelper.Parallel(t)
 	path, _ := fileutils.FindDir("tests")
 	tarData, err := os.ReadFile(filepath.Join(path, "testplugin.tar.gz"))
 	require.NoError(t, err)
@@ -1141,6 +1142,7 @@ func TestGetLocalPluginInMarketplace(t *testing.T) {
 }
 
 func TestGetRemotePluginInMarketplace(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t)
 	defer th.TearDown()
 
@@ -1330,6 +1332,7 @@ func TestGetPrepackagedPluginInMarketplace(t *testing.T) {
 }
 
 func TestGetPrepackagedPlaybooksPluginIn(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t)
 	defer th.TearDown()
 
@@ -1758,6 +1761,7 @@ func TestInstallMarketplacePlugin(t *testing.T) {
 }
 
 func TestInstallMarketplacePluginPrepackagedDisabled(t *testing.T) {
+	mainHelper.Parallel(t)
 	path, _ := fileutils.FindDir("tests")
 
 	signatureFilename := "testplugin2.tar.gz.sig"
@@ -2095,6 +2099,7 @@ func findClusterMessages(event model.ClusterEvent, msgs []*model.ClusterMessage)
 }
 
 func TestPluginWebSocketSession(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t).InitBasic()
 	defer th.TearDown()
 
@@ -2147,6 +2152,7 @@ func TestPluginWebSocketSession(t *testing.T) {
 }
 
 func TestPluginWebSocketRemoteAddress(t *testing.T) {
+	mainHelper.Parallel(t)
 	th := Setup(t).InitBasic()
 	defer th.TearDown()
 

@@ -33,6 +33,7 @@ export type Props = {
     setInviteAs: (inviteType: InviteType) => void;
     inviteType: InviteType;
     titleClass?: string;
+    canInviteGuests?: boolean;
 }
 
 export default function InviteAs(props: Props) {
@@ -114,7 +115,7 @@ export default function InviteAs(props: Props) {
                 clickCallback={closeInviteModal}
                 tooltipMessage={hasPriorTrial ? formatMessage({id: 'free.professional_feature.upgrade', defaultMessage: 'Upgrade'}) : undefined}
 
-                // the secondary back button first closes the restridted feature modal and then opens back the invitation modal
+                // the secondary back button first closes the restricted feature modal and then opens back the invitation modal
                 customSecondaryButtonInModal={hasPriorTrial ? undefined : {
                     msg: formatMessage({id: 'free.professional_feature.back', defaultMessage: 'Back'}),
                     action: () => {
@@ -137,7 +138,7 @@ export default function InviteAs(props: Props) {
     }
 
     // disable the radio button logic (is disabled when is starter - pre and post trial)
-    if (isStarter) {
+    if (isStarter || !props.canInviteGuests) {
         guestDisabled = (id: string) => {
             return (id === InviteType.GUEST);
         };

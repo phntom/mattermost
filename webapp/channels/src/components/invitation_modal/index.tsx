@@ -46,6 +46,7 @@ const searchChannels = (teamId: string, term: string) => {
 
 type OwnProps = {
     channelToInvite?: Channel;
+    canInviteGuests?: boolean;
 }
 
 export function mapStateToProps(state: GlobalState, props: OwnProps) {
@@ -71,7 +72,9 @@ export function mapStateToProps(state: GlobalState, props: OwnProps) {
     const emailInvitationsEnabled = config.EnableEmailInvitations === 'true';
     const isEnterpriseReady = config.BuildEnterpriseReady === 'true';
     const isGroupConstrained = Boolean(currentTeam?.group_constrained);
-    const canInviteGuests = !isGroupConstrained && isEnterpriseReady && guestAccountsEnabled && haveICurrentTeamPermission(state, Permissions.INVITE_GUEST);
+    const calculatedCanInviteGuests = !isGroupConstrained && isEnterpriseReady && guestAccountsEnabled && haveICurrentTeamPermission(state, Permissions.INVITE_GUEST);
+    const canInviteGuests = props.canInviteGuests === undefined ? calculatedCanInviteGuests : (calculatedCanInviteGuests && props.canInviteGuests);
+
     const isCloud = license.Cloud === 'true';
 
     const canAddUsers = haveICurrentTeamPermission(state, Permissions.ADD_USER_TO_TEAM);

@@ -5,17 +5,20 @@ import React, {useState, useRef, useCallback} from 'react';
 import {Modal, type ModalBody} from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import {useIntl} from 'react-intl';
-import * as Utils from 'utils/utils';
 
 import TeamSettings from 'components/team_settings';
+
+import {focusElement} from 'utils/a11y_utils';
+
 const SettingsSidebar = React.lazy(() => import('components/settings_sidebar'));
 
 type Props = {
     onExited: () => void;
     canInviteUsers: boolean;
+    focusOriginElement?: string;
 }
 
-const TeamSettingsModal = ({onExited, canInviteUsers}: Props) => {
+const TeamSettingsModal = ({onExited, canInviteUsers, focusOriginElement}: Props) => {
     const [activeTab, setActiveTab] = useState('info');
     const [show, setShow] = useState<boolean>(true);
     const [hasChanges, setHasChanges] = useState<boolean>(false);
@@ -36,11 +39,14 @@ const TeamSettingsModal = ({onExited, canInviteUsers}: Props) => {
     const handleHide = useCallback(() => setShow(false), []);
 
     const handleClose = useCallback(() => {
+        if (focusOriginElement) {
+            focusElement(focusOriginElement, true);
+        }
         setActiveTab('info');
         setHasChanges(false);
         setHasChangeTabError(false);
         onExited();
-    }, [onExited]);
+    }, [onExited, focusOriginElement]);
 
     const handleCollapse = useCallback(() => {
         const el = ReactDOM.findDOMNode(modalBodyRef.current) as HTMLDivElement;
@@ -61,7 +67,7 @@ const TeamSettingsModal = ({onExited, canInviteUsers}: Props) => {
             show={show}
             onHide={handleHide}
             onExited={handleClose}
-            role='dialog'
+            role='none'
             aria-labelledby='teamSettingsModalLabel'
             id='teamSettingsModal'
         >
@@ -69,7 +75,10 @@ const TeamSettingsModal = ({onExited, canInviteUsers}: Props) => {
                 id='teamSettingsModalLabel'
                 closeButton={true}
             >
-                <Modal.Title componentClass='h1'>
+                <Modal.Title
+                    componentClass='h2'
+                    className='modal-header__title'
+                >
                     {formatMessage({id: 'team_settings_modal.title', defaultMessage: 'Team Settings'})}
                 </Modal.Title>
             </Modal.Header>

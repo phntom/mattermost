@@ -9,9 +9,12 @@ import {ModalIdentifiers} from 'utils/constants';
 import type {Group} from '@mattermost/types/groups';
 
 import {getGroups, getGroupsByUserIdPaginated, searchGroups} from 'mattermost-redux/actions/groups';
+import {Permissions} from 'mattermost-redux/constants';
 import {makeGetAllAssociatedGroupsForReference, makeGetMyAllowReferencedGroups, searchAllowReferencedGroups, searchMyAllowReferencedGroups, searchArchivedGroups, getArchivedGroups} from 'mattermost-redux/selectors/entities/groups';
+import {haveISystemPermission} from 'mattermost-redux/selectors/entities/roles';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 
+import {openModal} from 'actions/views/modals';
 import {setModalSearchTerm} from 'actions/views/search';
 import {isModalOpen} from 'selectors/views/modals';
 
@@ -46,6 +49,7 @@ function makeMapStateToProps() {
             myGroups,
             archivedGroups,
             currentUserId: getCurrentUserId(state),
+            canCreateCustomGroups: haveISystemPermission(state, {permission: Permissions.CREATE_CUSTOM_GROUP}),
         };
     };
 }
@@ -57,6 +61,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
             setModalSearchTerm,
             getGroupsByUserIdPaginated,
             searchGroups,
+            openModal,
         }, dispatch),
     };
 }

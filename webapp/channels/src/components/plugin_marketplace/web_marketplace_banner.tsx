@@ -45,7 +45,7 @@ const ExternalBannerLink = styled(ExternalLink)`
     &&,
     &&:hover,
     &&:focus {
-        color: var(--denim-center-channel-bg, #FFF);
+        color: var(--center-channel-bg, #FFF);
         text-decoration: none;
     }
     && {

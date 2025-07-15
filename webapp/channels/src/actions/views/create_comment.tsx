@@ -1,10 +1,6 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import EmojiMap from 'utils/emoji_map';
-import {containsAtChannel, groupsMentionedInText} from 'utils/post_utils';
-import * as Utils from 'utils/utils';
-
 import type {CommandArgs} from '@mattermost/types/integrations';
 import type {Post, PostMetadata} from '@mattermost/types/posts';
 import type {SchedulingInfo} from '@mattermost/types/schedule_post';
@@ -32,7 +28,11 @@ import {runMessageWillBePostedHooks, runSlashCommandWillBePostedHooks} from 'act
 import * as PostActions from 'actions/post_actions';
 import {createSchedulePostFromDraft} from 'actions/post_actions';
 
-import type {ActionFunc, ActionFuncAsync} from 'types/store';
+import EmojiMap from 'utils/emoji_map';
+import {containsAtChannel, groupsMentionedInText} from 'utils/post_utils';
+import * as Utils from 'utils/utils';
+
+import type {ActionFunc, ActionFuncAsync, GlobalState} from 'types/store';
 import type {PostDraft} from 'types/store/draft';
 
 export function submitPost(
@@ -200,7 +200,7 @@ export function onSubmit(
     };
 }
 
-export function editLatestPost(channelId: string, rootId = ''): ActionFunc<boolean> {
+export function editLatestPost(channelId: string, rootId = ''): ActionFunc<boolean, GlobalState> {
     return (dispatch, getState) => {
         const state = getState();
 

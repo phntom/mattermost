@@ -21,7 +21,7 @@ const AdvancedCreatePost = () => {
     return (
         <AdvancedTextEditor
             location={Locations.CENTER}
-            postId={''}
+            rootId={''}
             channelId={currentChannelId}
         />
     );

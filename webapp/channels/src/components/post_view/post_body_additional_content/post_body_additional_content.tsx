@@ -1,9 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
-import webSocketClient from 'client/web_websocket_client';
 import React from 'react';
-import type {TextFormattingOptions} from 'utils/text_formatting';
 
 import {isAppBinding, type AppBinding} from '@mattermost/types/apps';
 import {isMessageAttachmentArray} from '@mattermost/types/message_attachments';
@@ -19,13 +17,16 @@ import PostImage from 'components/post_view/post_image';
 import PostMessagePreview from 'components/post_view/post_message_preview';
 import YoutubeVideo from 'components/youtube_video';
 
-import type {PostWillRenderEmbedPluginComponent} from 'types/store/plugins';
+import webSocketClient from 'client/web_websocket_client';
+import type {TextFormattingOptions} from 'utils/text_formatting';
+
+import type {PostWillRenderEmbedComponent} from 'types/store/plugins';
 
 import EmbeddedBindings from '../embedded_bindings/embedded_bindings';
 
 export type Props = {
     post: Post;
-    pluginPostWillRenderEmbedComponents?: PostWillRenderEmbedPluginComponent[];
+    pluginPostWillRenderEmbedComponents?: PostWillRenderEmbedComponent[];
     children?: JSX.Element;
     isEmbedVisible?: boolean;
     options?: Partial<TextFormattingOptions>;

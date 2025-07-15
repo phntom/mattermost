@@ -6,10 +6,6 @@ import set from 'lodash/set';
 import type {Dispatch} from 'redux';
 import {batchActions} from 'redux-batched-actions';
 import type {MockStoreEnhanced} from 'redux-mock-store';
-import mockStore from 'tests/test_store';
-import {ActionTypes, RHSStates, Constants} from 'utils/constants';
-import {TestHelper} from 'utils/test_helper';
-import {getBrowserUtcOffset} from 'utils/timezone';
 
 import type {Post} from '@mattermost/types/posts';
 import type {UserProfile} from '@mattermost/types/users';
@@ -17,6 +13,7 @@ import type {IDMappedObjects} from '@mattermost/types/utilities';
 
 import {SearchTypes} from 'mattermost-redux/action_types';
 import * as SearchActions from 'mattermost-redux/actions/search';
+import {getCurrentTimezone} from 'mattermost-redux/selectors/entities/timezone';
 
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {
@@ -45,6 +42,11 @@ import {
     openShowEditHistory,
     updateSearchTeam,
 } from 'actions/views/rhs';
+
+import mockStore from 'tests/test_store';
+import {ActionTypes, RHSStates, Constants} from 'utils/constants';
+import {TestHelper} from 'utils/test_helper';
+import {getUtcOffsetForTimeZone} from 'utils/timezone';
 
 import type {GlobalState} from 'types/store';
 import type {RhsState} from 'types/store/rhs';
@@ -108,7 +110,7 @@ describe('rhs view actions', () => {
                         first_name: currentUserFirstName,
                         timezone: {
                             useAutomaticTimezone: true,
-                            automaticTimezone: '',
+                            automaticTimezone: 'UTC+3', // set an arbitrary timezone
                             manualTimezone: '',
                         },
                     } as UserProfile,
@@ -220,7 +222,7 @@ describe('rhs view actions', () => {
 
     describe('performSearch', () => {
         // timezone offset in seconds
-        let timeZoneOffset = getBrowserUtcOffset() * 60;
+        let timeZoneOffset = getUtcOffsetForTimeZone(getCurrentTimezone(initialState)) * 60;
 
         // Avoid problems with negative cero
         if (timeZoneOffset === 0) {
@@ -262,10 +264,10 @@ describe('rhs view actions', () => {
         });
 
         test('it dispatches searchPosts correctly for Recent Mentions', () => {
-            const terms = `@here test search ${currentUsername} @${currentUsername} ${currentUserFirstName}`;
+            const terms = `@here test search ${currentUsername} @${currentUsername} ${currentUserFirstName} custom-hyphenated-term`;
             store.dispatch(performSearch(terms, '', true));
 
-            const mentionsQuotedTerms = `@here test search "${currentUsername}" "@${currentUsername}" "${currentUserFirstName}"`;
+            const mentionsQuotedTerms = `"@here" "test" "search" "${currentUsername}" "@${currentUsername}" "${currentUserFirstName}" "custom-hyphenated-term"`;
             const compareStore = mockStore(initialState);
             compareStore.dispatch(SearchActions.searchPostsWithParams('', {include_deleted_channels: false, terms: mentionsQuotedTerms, is_or_search: true, time_zone_offset: timeZoneOffset, page: 0, per_page: 20}));
             compareStore.dispatch(SearchActions.searchFilesWithParams('', {include_deleted_channels: false, terms, is_or_search: true, time_zone_offset: timeZoneOffset, page: 0, per_page: 20}));

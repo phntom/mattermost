@@ -9,10 +9,10 @@ import {withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import type {Dispatch} from 'redux';
 
-import {getFirstAdminSetupComplete} from 'mattermost-redux/actions/general';
+import {getFirstAdminSetupComplete, getCustomProfileAttributeFields} from 'mattermost-redux/actions/general';
 import {getProfiles} from 'mattermost-redux/actions/users';
 import {isCurrentLicenseCloud} from 'mattermost-redux/selectors/entities/cloud';
-import {getConfig} from 'mattermost-redux/selectors/entities/general';
+import {getConfig, getFeatureFlagValue} from 'mattermost-redux/selectors/entities/general';
 import {getTheme} from 'mattermost-redux/selectors/entities/preferences';
 import {getTeam} from 'mattermost-redux/selectors/entities/teams';
 import {shouldShowTermsOfService, getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
@@ -73,6 +73,7 @@ function mapStateToProps(state: GlobalState) {
         shouldShowAppBar: shouldShowAppBar(state),
         isCloud: isCurrentLicenseCloud(state),
         isDevModeEnabled: isDevModeEnabled(state),
+        customProfileAttributesEnabled: getFeatureFlagValue(state, 'CustomProfileAttributes') === 'true',
     };
 }
 
@@ -88,6 +89,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
             initializeProducts,
             handleLoginLogoutSignal,
             redirectToOnboardingOrDefaultTeam,
+            getCustomProfileAttributeFields,
         }, dispatch),
     };
 }

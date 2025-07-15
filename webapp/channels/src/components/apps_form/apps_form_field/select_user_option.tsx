@@ -7,7 +7,6 @@ import type {OptionProps} from 'react-select';
 import * as Utils from 'utils/utils';
 import {imageURLForUser} from 'utils/utils';
 
-import type {AppSelectOption} from '@mattermost/types/apps';
 import type {UserProfile} from '@mattermost/types/users';
 
 import {isGuest} from 'mattermost-redux/utils/user_utils';
@@ -29,7 +28,7 @@ const getDescription = (data: UserProfile): string => {
 
 const {Option} = components;
 
-export const SelectUserOption = (props: OptionProps<AppSelectOption>) => {
+export const SelectUserOption = (props: OptionProps<UserProfile>) => {
     const username = props.data.username;
     const description = getDescription(props.data);
 

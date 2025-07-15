@@ -3,17 +3,18 @@
 
 import React, {useState, useEffect, useRef} from 'react';
 import {useDispatch} from 'react-redux';
-import {Constants} from 'utils/constants';
 
 import type {Channel, ChannelMembership} from '@mattermost/types/channels';
 
 import {createDirectChannel} from 'mattermost-redux/actions/channels';
 
-import type {PluginComponent} from 'types/store/plugins';
+import {Constants} from 'utils/constants';
+
+import type {CallButtonAction} from 'types/store/plugins';
 
 type Props = {
     channelMember?: ChannelMembership;
-    pluginCallComponents: PluginComponent[];
+    pluginCallComponents: CallButtonAction[];
     sidebarOpen: boolean;
     currentUserId: string;
     userId: string;

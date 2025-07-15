@@ -34,7 +34,7 @@ type Props = {
 function ThreeDaysLeftTrialModal(props: Props): JSX.Element | null {
     const dispatch = useDispatch();
     const {formatMessage} = useIntl();
-    const openPricingModal = useOpenPricingModal();
+    const {openPricingModal, isAirGapped} = useOpenPricingModal();
     const show = useSelector((state: GlobalState) => isModalOpen(state, ModalIdentifiers.THREE_DAYS_LEFT_TRIAL_MODAL));
     const usage = useGetUsage();
     const [limits] = useGetLimits();
@@ -137,7 +137,7 @@ function ThreeDaysLeftTrialModal(props: Props): JSX.Element | null {
 
     return (
         <GenericModal
-            className='ThreeDaysLeftTrialModal'
+            className='ThreeDaysLeftTrialModal three-days-left-generic-modal'
             id='threeDaysLeftTrialModal'
             onExited={handleOnClose}
             modalHeaderText={headerText}
@@ -150,14 +150,16 @@ function ThreeDaysLeftTrialModal(props: Props): JSX.Element | null {
                 {content}
             </div>
             <div className='divisory-line'/>
-            <div className='footer-content'>
-                <button
-                    onClick={handleOpenPricingModal}
-                    className='open-view-plans-modal-btn'
-                >
-                    {formatMessage({id: 'three_days_left_trial.modal.viewPlans', defaultMessage: 'View plan options'})}
-                </button>
-            </div>
+            {!isAirGapped && (
+                <div className='footer-content'>
+                    <button
+                        onClick={handleOpenPricingModal}
+                        className='open-view-plans-modal-btn'
+                    >
+                        {formatMessage({id: 'three_days_left_trial.modal.viewPlans', defaultMessage: 'View plan options'})}
+                    </button>
+                </div>
+            )}
         </GenericModal>
     );
 }

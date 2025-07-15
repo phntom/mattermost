@@ -4,15 +4,6 @@
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 import {FormattedMessage, defineMessages} from 'react-intl';
-import {
-    Preferences,
-    CloudBanners,
-    AnnouncementBarTypes,
-    ModalIdentifiers,
-    TELEMETRY_CATEGORIES,
-    TrialPeriodDays,
-} from 'utils/constants';
-import {getLocaleDateFromUTC} from 'utils/utils';
 
 import {AlertCircleOutlineIcon, AlertOutlineIcon} from '@mattermost/compass-icons/components';
 import type {Subscription} from '@mattermost/types/cloud';
@@ -21,7 +12,16 @@ import type {UserProfile} from '@mattermost/types/users';
 
 import {trackEvent} from 'actions/telemetry_actions';
 
-import PricingModal from 'components/pricing_modal';
+import useOpenPricingModal from 'components/common/hooks/useOpenPricingModal';
+
+import {
+    Preferences,
+    CloudBanners,
+    AnnouncementBarTypes,
+    TELEMETRY_CATEGORIES,
+    TrialPeriodDays,
+} from 'utils/constants';
+import {getLocaleDateFromUTC} from 'utils/utils';
 
 import type {ModalData} from 'types/actions';
 
@@ -42,9 +42,14 @@ type Props = {
     };
 };
 
+type PropsWithPricingModal = Props & {
+    openPricingModal: (telemetryProps?: {trackingLocation: string}) => void;
+    isAirGapped: boolean;
+};
+
 const MAX_DAYS_BANNER = 'max_days_banner';
 const THREE_DAYS_BANNER = '3_days_banner';
-class CloudTrialAnnouncementBar extends React.PureComponent<Props> {
+class CloudTrialAnnouncementBarInternal extends React.PureComponent<PropsWithPricingModal> {
     async componentDidMount() {
         if (!isEmpty(this.props.subscription) && this.shouldShowBanner()) {
             const {daysLeftOnTrial} = this.props;
@@ -83,8 +88,8 @@ class CloudTrialAnnouncementBar extends React.PureComponent<Props> {
     };
 
     shouldShowBanner = () => {
-        const {isFreeTrial, userIsAdmin, isCloud} = this.props;
-        return isFreeTrial && userIsAdmin && isCloud;
+        const {isFreeTrial, userIsAdmin, isCloud, isAirGapped, subscription} = this.props;
+        return isFreeTrial && userIsAdmin && isCloud && !isAirGapped && !subscription?.is_cloud_preview;
     };
 
     isDismissable = () => {
@@ -110,10 +115,7 @@ class CloudTrialAnnouncementBar extends React.PureComponent<Props> {
                 'click_subscribe_from_banner_trial_ended',
             );
         }
-        this.props.actions.openModal({
-            modalId: ModalIdentifiers.PRICING_MODAL,
-            dialogType: PricingModal,
-        });
+        this.props.openPricingModal({trackingLocation: 'cloud_trial_announcement_bar'});
     };
 
     render() {
@@ -198,5 +200,18 @@ const messages = defineMessages({
         defaultMessage: 'Upgrade Now',
     },
 });
+
+// Wrapper component to use the hook
+const CloudTrialAnnouncementBar: React.FC<Props> = (props) => {
+    const {openPricingModal, isAirGapped} = useOpenPricingModal();
+
+    return (
+        <CloudTrialAnnouncementBarInternal
+            {...props}
+            openPricingModal={openPricingModal}
+            isAirGapped={isAirGapped}
+        />
+    );
+};
 
 export default CloudTrialAnnouncementBar;

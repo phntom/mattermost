@@ -15,7 +15,6 @@ import {getIsMobileView} from 'selectors/views/browser';
 import {makeAsyncComponent} from 'components/async_load';
 
 import type {GlobalState} from 'types/store';
-import type {FilePreviewComponent} from 'types/store/plugins';
 
 import type {Props} from './file_preview_modal';
 
@@ -33,7 +32,7 @@ function mapStateToProps(state: GlobalState, ownProps: OwnProps) {
         canDownloadFiles: canDownloadFiles(config),
         enablePublicLink: config.EnablePublicLink === 'true',
         isMobileView: getIsMobileView(state),
-        pluginFilePreviewComponents: state.plugins.components.FilePreview as unknown as FilePreviewComponent[],
+        pluginFilePreviewComponents: state.plugins.components.FilePreview,
         post: ownProps.post || getPost(state, ownProps.postId || ''),
     };
 }

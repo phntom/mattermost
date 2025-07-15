@@ -30,7 +30,7 @@ const Limits = (): JSX.Element | null => {
     const [cloudLimits, limitsLoaded] = useGetLimits();
     const usage = useGetUsage();
     const [openSalesLink] = useOpenSalesLink();
-    const openPricingModal = useOpenPricingModal();
+    const {openPricingModal, isAirGapped} = useOpenPricingModal();
 
     if (!subscriptionProduct || !limitsLoaded || !hasSomeLimits(cloudLimits)) {
         return null;
@@ -132,15 +132,17 @@ const Limits = (): JSX.Element | null => {
             <div className={actionsClassname}>
                 {subscriptionProduct.sku === CloudProducts.STARTER && (
                     <>
-                        <button
-                            onClick={() => openPricingModal({trackingLocation: 'billing_subscriptions_limits_dashboard'})}
-                            className='btn btn-primary'
-                        >
-                            {intl.formatMessage({
-                                id: 'workspace_limits.modals.view_plan_options',
-                                defaultMessage: 'View plan options',
-                            })}
-                        </button>
+                        {!isAirGapped && (
+                            <button
+                                onClick={() => openPricingModal({trackingLocation: 'billing_subscriptions_limits_dashboard'})}
+                                className='btn btn-primary'
+                            >
+                                {intl.formatMessage({
+                                    id: 'workspace_limits.modals.view_plan_options',
+                                    defaultMessage: 'View plan options',
+                                })}
+                            </button>
+                        )}
                         <button
                             onClick={openSalesLink}
                             className='btn btn-secondary'

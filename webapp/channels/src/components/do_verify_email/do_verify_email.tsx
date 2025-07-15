@@ -8,7 +8,7 @@ import {useLocation, useHistory} from 'react-router-dom';
 import {AnnouncementBarTypes, AnnouncementBarMessages, Constants} from 'utils/constants';
 import {getRoleFromTrackFlow} from 'utils/utils';
 
-import {clearErrors, logError} from 'mattermost-redux/actions/errors';
+import {clearErrors, logError, LogErrorBarMode} from 'mattermost-redux/actions/errors';
 import {verifyUserEmail, getMe} from 'mattermost-redux/actions/users';
 import {getIsOnboardingFlowEnabled} from 'mattermost-redux/selectors/entities/preferences';
 import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
@@ -16,7 +16,6 @@ import {getCurrentUserId} from 'mattermost-redux/selectors/entities/users';
 import {redirectUserToDefaultTeam} from 'actions/global_actions';
 import {trackEvent} from 'actions/telemetry_actions.jsx';
 
-import LaptopAlertSVG from 'components/common/svg_images_components/laptop_alert_svg';
 import ColumnLayout from 'components/header_footer_route/content_layouts/column';
 import LoadingScreen from 'components/loading_screen';
 
@@ -91,7 +90,7 @@ const DoVerifyEmail = () => {
         dispatch(logError({
             message: AnnouncementBarMessages.EMAIL_VERIFIED,
             type: AnnouncementBarTypes.SUCCESS,
-        } as any, true));
+        } as any, {errorBarMode: LogErrorBarMode.Always}));
 
         trackEvent('settings', 'verify_email');
 
@@ -118,7 +117,6 @@ const DoVerifyEmail = () => {
                     <ColumnLayout
                         title={formatMessage({id: 'signup_user_completed.invalid_invite.title', defaultMessage: 'This invite link is invalid'})}
                         message={serverError}
-                        SVGElement={<LaptopAlertSVG/>}
                         extraContent={(
                             <div className='do-verify-body-content-button-container'>
                                 <button

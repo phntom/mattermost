@@ -5,7 +5,7 @@ import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {format} from 'utils/markdown';
 
-import WomanUpArrowsAndCloudsSvg from 'components/common/svg_images_components/woman_up_arrows_and_clouds_svg';
+import SetupSystemSvg from 'components/common/svg_images_components/setup_system';
 import LoadingWrapper from 'components/widgets/loading/loading_wrapper';
 
 interface TeamEditionRightPanelProps {
@@ -100,13 +100,12 @@ const TeamEditionRightPanel: React.FC<TeamEditionRightPanelProps> = ({
                 {upgradeError && (
                     <div className='upgrade-error'>
                         <div className='form-group has-error'>
-                            <label className='control-label'>
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: format(upgradeError),
-                                    }}
-                                />
-                            </label>
+                            <div
+                                className='as-bs-label control-label'
+                                dangerouslySetInnerHTML={{
+                                    __html: format(upgradeError),
+                                }}
+                            />
                         </div>
                     </div>
                 )}
@@ -139,17 +138,17 @@ const TeamEditionRightPanel: React.FC<TeamEditionRightPanelProps> = ({
                                 defaultMessage='Restart Server'
                             />
                         </LoadingWrapper>
-                        {restartError && (
-                            <div className='col-sm-12'>
-                                <div className='form-group has-error'>
-                                    <label className='control-label'>
-                                        {restartError}
-                                    </label>
-                                </div>
-                            </div>
-                        )}
                     </button>
                 </p>
+                {restartError && (
+                    <div className='upgrade-error'>
+                        <div className='form-group has-error'>
+                            <div className='as-bs-label control-label'>
+                                {restartError}
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         );
     }
@@ -157,9 +156,9 @@ const TeamEditionRightPanel: React.FC<TeamEditionRightPanelProps> = ({
     return (
         <div className='TeamEditionRightPanel'>
             <div className='svg-image'>
-                <WomanUpArrowsAndCloudsSvg
-                    width={200}
-                    height={200}
+                <SetupSystemSvg
+                    width={197}
+                    height={120}
                 />
             </div>
             <div className='upgrade-title'>

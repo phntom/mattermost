@@ -4,7 +4,6 @@
 import React from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useDispatch, useSelector} from 'react-redux';
-import {LicenseSkus, ModalIdentifiers} from 'utils/constants';
 
 import {ReportDuration} from '@mattermost/types/reports';
 import type {GlobalState} from '@mattermost/types/store';
@@ -21,11 +20,15 @@ import {getAdminConsoleUserManagementTableProperties} from 'selectors/views/admi
 
 import WithTooltip from 'components/with_tooltip';
 
+import {ModalIdentifiers} from 'utils/constants';
+import {isMinimumProfessionalLicense} from 'utils/license_utils';
+
 import {ExportErrorModal} from './export_error_modal';
 import {ExportUserDataModal} from './export_user_data_modal';
 import {UpgradeExportDataModal} from './upgrade_export_data_modal';
 
 import {convertTableOptionsToUserReportOptions} from '../utils';
+
 import './system_users_export.scss';
 
 interface Props {
@@ -46,7 +49,7 @@ export function SystemUsersExport(props: Props) {
     }
 
     const license = useSelector(getLicense);
-    const isLicensed = license.IsLicensed === 'true' && (license.SkuShortName === LicenseSkus.Professional || license.SkuShortName === LicenseSkus.Enterprise);
+    const isLicensed = license.IsLicensed === 'true' && isMinimumProfessionalLicense(license);
 
     async function doExport(checked?: boolean) {
         const {error} = await dispatch(startUsersBatchExport(tableOptionsToUserReport));
@@ -112,10 +115,8 @@ export function SystemUsersExport(props: Props) {
         return (
             <>
                 <WithTooltip
-                    id='sharedTooltip'
                     title={formatMessage({id: 'admin.system_users.exportButton.notLicensed.title', defaultMessage: 'Professional feature'})}
                     hint={formatMessage({id: 'admin.system_users.exportButton.notLicensed.hint', defaultMessage: 'This feature is available on the professional plan'})}
-                    placement='top'
                 >
                     {button}
                 </WithTooltip>

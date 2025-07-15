@@ -4,7 +4,7 @@
 import type {ChangeEvent, ReactNode} from 'react';
 import React, {memo, useEffect, useRef, Fragment, useMemo, useCallback} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import type {ValueType} from 'react-select';
+import type {OnChangeValue} from 'react-select';
 import ReactSelect from 'react-select';
 import {UserSettingsNotificationSections} from 'utils/constants';
 import {
@@ -95,7 +95,7 @@ function DesktopNotificationSoundsSettings({
         }
     }, [setParentState]);
 
-    const handleChangeForMessageNotificationSoundSelect = useCallback((selectedOption: ValueType<SelectOption>) => {
+    const handleChangeForMessageNotificationSoundSelect = useCallback((selectedOption: OnChangeValue<SelectOption, boolean>) => {
         stopTryNotificationRing();
 
         if (selectedOption && 'value' in selectedOption) {
@@ -104,7 +104,7 @@ function DesktopNotificationSoundsSettings({
         }
     }, [setParentState]);
 
-    const handleChangeForIncomingCallSoundSelect = useCallback((selectedOption: ValueType<SelectOption>) => {
+    const handleChangeForIncomingCallSoundSelect = useCallback((selectedOption: OnChangeValue<SelectOption, boolean>) => {
         stopTryNotificationRing();
 
         if (selectedOption && 'value' in selectedOption) {
@@ -126,10 +126,12 @@ function DesktopNotificationSoundsSettings({
                             checked={desktopSound === 'true'}
                             onChange={handleChangeForMessageNotificationSoundCheckbox}
                         />
-                        <FormattedMessage
-                            id='user.settings.notifications.desktopNotificationSound.messageNotificationSound'
-                            defaultMessage='Message notification sound'
-                        />
+                        <span id='messageNotificationSoundLabel'>
+                            <FormattedMessage
+                                id='user.settings.notifications.desktopNotificationSound.messageNotificationSound'
+                                defaultMessage='Message notification sound'
+                            />
+                        </span>
                     </label>
                     <ReactSelect
                         id='messageNotificationSoundSelect'
@@ -137,7 +139,6 @@ function DesktopNotificationSoundsSettings({
                         className='react-select inlineSelect'
                         classNamePrefix='react-select'
                         options={optionsOfMessageNotificationSoundsSelect}
-                        clearable={false}
                         isClearable={false}
                         isSearchable={false}
                         isDisabled={!isMessageNotificationSoundChecked}
@@ -148,6 +149,7 @@ function DesktopNotificationSoundsSettings({
                         components={{IndicatorSeparator: NoIndicatorSeparatorComponent}}
                         value={getValueOfNotificationSoundsSelect(desktopNotificationSound)}
                         onChange={handleChangeForMessageNotificationSoundSelect}
+                        aria-labelledby='messageNotificationSoundLabel'
                     />
                 </div>
             </Fragment>
@@ -177,7 +179,6 @@ function DesktopNotificationSoundsSettings({
                             className='react-select inlineSelect'
                             classNamePrefix='react-select'
                             options={optionsOfIncomingCallSoundsSelect}
-                            clearable={false}
                             isClearable={false}
                             isSearchable={false}
                             isDisabled={!isIncomingCallSoundChecked}

@@ -6,7 +6,7 @@ import {suitePluginIds} from 'utils/constants';
 
 import NewChannelWithBoardTourTip from 'components/app_bar/new_channel_with_board_tour_tip';
 import WithTooltip from 'components/with_tooltip';
-import type {ShortcutDefinition} from 'components/with_tooltip/shortcut';
+import type {ShortcutDefinition} from 'components/with_tooltip/tooltip_shortcut';
 
 type Props = {
 
@@ -46,8 +46,6 @@ const HeaderIconWrapper = (props: Props) => {
     return (
         <>
             <WithTooltip
-                id={buttonId + '-tooltip'}
-                placement='bottom'
                 title={isRhsOpen ? '' : tooltipText}
                 shortcut={tooltipShortcut}
             >

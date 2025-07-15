@@ -4,7 +4,7 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import ReactSelect from 'react-select';
-import type {ValueType} from 'react-select';
+import type {OnChangeValue, StylesConfig} from 'react-select';
 import type {Timezone} from 'timezones.json';
 import {getBrowserTimezone} from 'utils/timezone';
 
@@ -59,7 +59,7 @@ export default class ManageTimezones extends React.PureComponent<Props, State> {
         };
     }
 
-    onChange = (selectedOption: ValueType<SelectedOption>) => {
+    onChange = (selectedOption: OnChangeValue<SelectedOption, boolean>) => {
         if (selectedOption && 'value' in selectedOption) {
             this.setState({
                 manualTimezone: selectedOption.value,
@@ -197,12 +197,12 @@ export default class ManageTimezones extends React.PureComponent<Props, State> {
 
         const reactStyles = {
 
-            menuPortal: (provided: React.CSSProperties) => ({
+            menuPortal: (provided) => ({
                 ...provided,
                 zIndex: 9999,
             }),
 
-        };
+        } satisfies StylesConfig<SelectedOption, boolean>;
 
         const noTimezonesFromServer = timezones.length === 0;
         const automaticTimezoneInput = (
@@ -239,7 +239,7 @@ export default class ManageTimezones extends React.PureComponent<Props, State> {
                     menuPortalTarget={document.body}
                     styles={reactStyles}
                     options={timeOptions}
-                    clearable={false}
+                    isClearable={false}
                     onChange={this.onChange}
                     value={this.state.selectedOption}
                     aria-labelledby='changeInterfaceTimezoneLabel'
@@ -276,6 +276,7 @@ export default class ManageTimezones extends React.PureComponent<Props, State> {
                 saving={this.state.isSaving}
                 inputs={inputs}
                 updateSection={this.props.updateSection}
+                disableEnterSubmit={true}
             />
         );
     }

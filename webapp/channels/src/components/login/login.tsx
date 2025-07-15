@@ -54,6 +54,14 @@ import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
 
+import Constants from 'utils/constants';
+import DesktopApp from 'utils/desktop_api';
+import {isEmbedded} from 'utils/embed';
+import {t} from 'utils/i18n';
+import {showNotification} from 'utils/notifications';
+import {isDesktopApp} from 'utils/user_agent';
+import {setCSRFFromCookie} from 'utils/utils';
+
 import type {GlobalState} from 'types/store';
 
 import LoginMfa from './login_mfa';
@@ -153,6 +161,18 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             return externalLoginOptions;
         }
 
+        if (enableSignUpWithGitLab) {
+            const url = `${Client4.getOAuthRoute()}/gitlab/login${search}`;
+            externalLoginOptions.push({
+                id: 'gitlab',
+                url,
+                icon: <LoginGitlabIcon/>,
+                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
+                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
+                onClick: handleExternalAuth(url, 'gitlab'),
+            });
+        }
+
         if (enableSignUpWithGoogle) {
             const url = `${Client4.getOAuthRoute()}/google/login${search}`;
             externalLoginOptions.push({
@@ -161,7 +181,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 icon: <LoginGoogleIcon/>,
                 label: formatMessage({id: 'login.google', defaultMessage: 'Google'}),
                 style: {color: '#444', borderColor: '#4285F4'},
-                onClick: desktopExternalAuth(url),
+                onClick: handleExternalAuth(url, 'google'),
             });
         }
 
@@ -173,7 +193,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 icon: <LoginGitHubIcon/>,
                 label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
                 style: {color: '#171515', borderColor: '#24292e'},
-                onClick: desktopExternalAuth(url),
+                onClick: handleExternalAuth(url, 'github'),
             });
 
             const url2 = `${Client4.getOAuthRoute()}/linkedin/login${search}`;
@@ -183,7 +203,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 icon: <LoginLinkedInIcon/>,
                 label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
                 style: {color: '#0073b1', borderColor: '#0084bf'},
-                onClick: desktopExternalAuth(url2),
+                onClick: handleExternalAuth(url2, 'linkedin'),
             });
         }
 
@@ -194,7 +214,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 url,
                 icon: <EntraIdIcon/>,
                 label: formatMessage({id: 'login.office365', defaultMessage: 'Entra ID'}),
-                onClick: desktopExternalAuth(url),
+                onClick: handleExternalAuth(url, 'office365'),
             });
         }
 
@@ -205,20 +225,67 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                 url,
                 icon: <LockIcon/>,
                 label: SamlLoginButtonText || formatMessage({id: 'login.saml', defaultMessage: 'SAML'}),
-                onClick: desktopExternalAuth(url),
+                onClick: handleExternalAuth(url, 'saml'),
             });
         }
 
         return externalLoginOptions;
     };
 
-    const desktopExternalAuth = (href: string) => {
+    const handleExternalAuth = (href: string, provider: string) => {
         return (event: React.MouseEvent) => {
+            // If the user is running the desktop app, we need to redirect them to the desktop login page
             if (isDesktopApp()) {
                 event.preventDefault();
 
                 setDesktopLoginLink(href);
                 history.push(`/login/desktop${search}`);
+            }
+
+            // If the user is running the app in an embedded view, we need send the parent window a message
+            // to continue the login process if the parent frame answers a message to confirm that is going to
+            // take care for the authentication process.
+            if (isEmbedded()) {
+                event.preventDefault();
+
+                // Create a promise that will resolve if the parent window responds
+                const messagePromise = new Promise<boolean>((resolve) => {
+                    // Set up a one-time event listener for the response
+                    const messageHandler = (event: MessageEvent) => {
+                        // Right now we are embedding from a plugin so let's just check the origin is the same as this server origin.
+                        if (event.origin !== window.location.origin) {
+                            return;
+                        }
+
+                        if (event.data && event.data.type === 'mattermost_external_auth_login' && event.data.ack === true) {
+                            window.removeEventListener('message', messageHandler);
+                            resolve(true);
+                        }
+                    };
+
+                    window.addEventListener('message', messageHandler);
+
+                    // Wait for at least one second for a response from the parent.
+                    setTimeout(() => {
+                        window.removeEventListener('message', messageHandler);
+                        resolve(false);
+                    }, 1000);
+                });
+
+                // Notify the parent
+                window.parent.postMessage({
+                    type: 'mattermost_external_auth_login',
+                    provider,
+                    href,
+                }, window.location.origin);
+
+                // Wait for response or timeout, following with the usual authentication flow
+                messagePromise.then((received) => {
+                    if (!received) {
+                        // If the parent didn't respond, navigate to the href directly
+                        history.push(href);
+                    }
+                });
             }
         };
     };
@@ -240,11 +307,17 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             formatMessage(
                 {
                     id: 'login.session_expired.title',
-                    defaultMessage: '* {siteName} - Session Expired',
+                    defaultMessage: '* Session Expired - {siteName}',
                 },
                 {siteName},
             )
-        ) : siteName;
+        ) : formatMessage(
+            {
+                id: 'login.pageTitle',
+                defaultMessage: 'Log in - {siteName}',
+            },
+            {siteName},
+        );
     }, [sessionExpired, siteName]);
 
     const showSessionExpiredNotificationIfNeeded = useCallback(() => {
@@ -455,6 +528,12 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
             DesktopApp.setSessionExpired(false);
         };
     }, []);
+
+    useEffect(() => {
+        if (hasError) {
+            loginIdInput.current?.focus();
+        }
+    }, [hasError]);
 
     if (initializing) {
         return (<LoadingScreen/>);
@@ -814,7 +893,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                     {enableCustomBrand && !brandImageError ? (
                         <img
                             className={classNames('login-body-custom-branding-image')}
-                            alt='brand image'
+                            alt='brand'
                             src={Client4.getBrandImageUrl('0')}
                             onError={handleBrandImageError}
                         />
@@ -824,18 +903,12 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                         </h1>
                     )}
                     {getMessageSubtitle()}
-                    {!enableCustomBrand && (
-                        <div className='login-body-message-svg'>
-                            <WomanWithChatsSVG width={270}/>
-                        </div>
-                    )}
                 </div>
                 <div className='login-body-action'>
                     {!isMobileView && getAlternateLink()}
                     <div className={classNames('login-body-card', {'custom-branding': enableCustomBrand, 'with-error': hasError})}>
                         <div
                             className='login-body-card-content'
-                            tabIndex={0}
                         >
                             <p className='login-body-card-title'>
                                 {getCardTitle()}
@@ -843,6 +916,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                             {enableCustomBrand && getMessageSubtitle()}
                             {alertBanner && (
                                 <AlertBanner
+                                    id='login-body-card-banner'
                                     className='login-body-card-banner'
                                     mode={alertBanner.mode}
                                     title={alertBanner.title}
@@ -857,6 +931,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                                 >
                                     <div className='login-body-card-form'>
                                         <Input
+                                            data-testid='login-id-input'
                                             ref={loginIdInput}
                                             name='loginId'
                                             containerClassName='login-body-card-form-input'
@@ -868,6 +943,7 @@ const Login = ({onCustomizeHeader}: LoginProps) => {
                                             placeholder={getInputPlaceholder()}
                                             disabled={isWaiting}
                                             autoFocus={true}
+                                            aria-describedby={alertBanner ? 'login-body-card-banner' : undefined}
                                         />
                                         <PasswordInput
                                             ref={passwordInput}

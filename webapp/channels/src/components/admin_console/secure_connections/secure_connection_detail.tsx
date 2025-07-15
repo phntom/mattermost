@@ -46,7 +46,7 @@ import type {SharedChannelRemoteRow} from './utils';
 import {getEditLocation, isConfirmed, isErrorState, isPendingState, useRemoteClusterEdit, useSharedChannelRemoteRows, useTeamOptions} from './utils';
 
 import {AdminConsoleListTable} from '../list_table';
-import SaveChangesPanel from '../team_channel_settings/save_changes_panel';
+import SaveChangesPanel from '../save_changes_panel';
 
 type Params = {
     connection_id: 'create' | RemoteCluster['remote_id'];
@@ -392,10 +392,10 @@ const TabsWrapper = styled.div`
             }
 
             &.active {
-                border-bottom: 2px solid var(--denim-button-bg);
+                border-bottom: 2px solid var(--button-bg);
 
                 a {
-                    color: var(--denim-button-bg);
+                    color: var(--button-bg);
                 }
             }
 
@@ -536,7 +536,7 @@ function SharedChannelRemotesTable(props: {data: SharedChannelRemoteRow[]; filte
 }
 
 const TableWrapper = styled.div`
-    table.adminConsoleListTable {
+    table.adminConsoleListTable.sharedChannelRemotes {
 
         td, th {
             &:after, &:before {
@@ -553,8 +553,8 @@ const TableWrapper = styled.div`
             tr {
                 border-top: none;
                 td {
-                    padding-block-end: 0;
-                    padding-block-start: 0;
+                    padding-block-end: 8px;
+                    padding-block-start: 8px;
 
                 }
             }

@@ -38,9 +38,9 @@ const PremadeThemeChooser = ({theme, updateTheme, allowedThemes = []}: Props) =>
                     className='col-xs-6 col-sm-3 premade-themes'
                     key={'premade-theme-key' + k}
                 >
-                    <div
+                    <button
                         id={`premadeTheme${premadeTheme.type?.replace(' ', '')}`}
-                        className={activeClass}
+                        className={`premadeThemeButton ${activeClass}`}
                         onClick={() => updateTheme(premadeTheme)}
                     >
                         <label>
@@ -60,14 +60,18 @@ const PremadeThemeChooser = ({theme, updateTheme, allowedThemes = []}: Props) =>
                             />
                             <div className='theme-label'>{toTitleCase(premadeTheme.type || '')}</div>
                         </label>
-                    </div>
+                    </button>
                 </div>,
             );
         }
     }
 
     return (
-        <div className='row appearance-section'>
+        <div
+            id='premadeThemesSection'
+            className='row appearance-section'
+            aria-labelledby='standardThemes'
+        >
             <div className='clearfix'>
                 {premadeThemes}
             </div>

@@ -33,7 +33,7 @@ describe('components/ConfigurationBar', () => {
     };
 
     test('should match snapshot, expired, in grace period', () => {
-        const props = {...baseProps, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - millisPerDay}};
+        const props = {...baseProps, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - millisPerDay, SkuShortName: 'enterprise'}};
         const wrapper = shallowWithIntl(
             <ConfigurationBar {...props}/>,
         );
@@ -42,7 +42,7 @@ describe('components/ConfigurationBar', () => {
     });
 
     test('should match snapshot, expired', () => {
-        const props = {...baseProps, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - (11 * millisPerDay)}};
+        const props = {...baseProps, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - (11 * millisPerDay), SkuShortName: 'enterprise'}};
         const wrapper = shallowWithIntl(
             <ConfigurationBar {...props}/>,
         );
@@ -51,7 +51,7 @@ describe('components/ConfigurationBar', () => {
     });
 
     test('should match snapshot, expired, regular user', () => {
-        const props = {...baseProps, canViewSystemErrors: false, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - (11 * millisPerDay)}};
+        const props = {...baseProps, canViewSystemErrors: false, license: {Id: '1234', IsLicensed: 'true', ExpiresAt: Date.now() - (11 * millisPerDay), SkuShortName: 'enterprise'}};
         const wrapper = shallowWithIntl(
             <ConfigurationBar {...props}/>,
         );

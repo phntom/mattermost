@@ -11,12 +11,12 @@ import type {ProductIdentifier} from '@mattermost/types/products';
 
 import {isCurrentUserGuestUser} from 'mattermost-redux/selectors/entities/users';
 
-import StatusDropdown from 'components/status_dropdown';
 import {OnboardingTourSteps, OnboardingTourStepsForGuestUsers} from 'components/tours';
 import {
     CustomizeYourExperienceTour,
     useShowOnboardingTutorialStep,
 } from 'components/tours/onboarding_tour';
+import UserAccountMenu from 'components/user_account_menu';
 
 import type {GlobalState} from 'types/store';
 
@@ -43,10 +43,6 @@ const StyledCustomizeYourExperienceTour = styled.div`
     display: flex;
     align-items: center;
     height: 100%
-`;
-
-const StyledStatusDropdown = styled.div`
-    margin-left: 8px;
 `;
 
 export type Props = {
@@ -86,9 +82,7 @@ const RightControls = ({productId = null}: Props): JSX.Element => {
                         </>
                     ) : null
                 }
-                <StyledStatusDropdown>
-                    <StatusDropdown/>
-                </StyledStatusDropdown>
+                <UserAccountMenu/>
             </StyledCustomizeYourExperienceTour>
         </RightControlsContainer>
     );

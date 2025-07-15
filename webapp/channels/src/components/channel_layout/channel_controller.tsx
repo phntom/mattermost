@@ -12,6 +12,7 @@ import {cleanUpStatusAndProfileFetchingPoll} from 'mattermost-redux/actions/stat
 import {getIsUserStatusesConfigEnabled} from 'mattermost-redux/selectors/entities/common';
 
 import {addVisibleUsersInCurrentChannelAndSelfToStatusPoll} from 'actions/status_actions';
+import {getIsMobileView} from 'selectors/views/browser';
 
 import {makeAsyncComponent} from 'components/async_load';
 import CenterChannel from 'components/channel_layout/center_channel';
@@ -23,6 +24,7 @@ import UnreadsStatusHandler from 'components/unreads_status_handler';
 
 const ProductNoticesModal = makeAsyncComponent('ProductNoticesModal', lazy(() => import('components/product_notices_modal')));
 const ResetStatusModal = makeAsyncComponent('ResetStatusModal', lazy(() => import('components/reset_status_modal')));
+const MobileSidebarRight = makeAsyncComponent('MobileSidebarRight', lazy(() => import('components/mobile_sidebar_right')));
 
 const BODY_CLASS_FOR_CHANNEL = ['app__body', 'channel-view'];
 
@@ -31,6 +33,7 @@ type Props = {
 }
 
 export default function ChannelController(props: Props) {
+    const isMobileView = useSelector(getIsMobileView);
     const enabledUserStatuses = useSelector(getIsUserStatusesConfigEnabled);
     const dispatch = useDispatch();
 
@@ -84,6 +87,7 @@ export default function ChannelController(props: Props) {
                     <ResetStatusModal/>
                 </div>
             </div>
+            {isMobileView && <MobileSidebarRight/>}
         </>
     );
 }

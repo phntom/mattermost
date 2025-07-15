@@ -56,7 +56,8 @@ const ExpiryTime = ({time, timezone, className, showPrefix, withinBrackets}: Pro
                 id='custom_status.expiry.until'
                 defaultMessage='Until {time}'
                 values={{time: ''}}
-            />{' '}
+            />
+            {' '}
         </>
     );
 

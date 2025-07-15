@@ -7,11 +7,13 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"sync/atomic"
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
@@ -57,6 +59,7 @@ func TestSetLicenseOnStart(t *testing.T) {
 }
 
 func TestReadReplicaDisabledBasedOnLicense(t *testing.T) {
+	mainHelper.Parallel(t)
 	cfg := model.Config{}
 	cfg.SetDefaults()
 	driverName := os.Getenv("MM_SQLSETTINGS_DRIVERNAME")
@@ -69,19 +72,21 @@ func TestReadReplicaDisabledBasedOnLicense(t *testing.T) {
 
 	t.Run("Read Replicas with no License", func(t *testing.T) {
 		configStore := config.NewTestMemoryStore()
-		configStore.Set(&cfg)
+		_, _, err := configStore.Set(&cfg)
+		require.NoError(t, err)
 		ps, err := New(
 			ServiceConfig{},
 			ConfigStore(configStore),
 		)
 		require.NoError(t, err)
-		require.Same(t, ps.sqlStore.GetMasterX(), ps.sqlStore.GetReplicaX())
+		require.Same(t, ps.sqlStore.GetMaster(), ps.sqlStore.GetReplica())
 		require.Len(t, ps.Config().SqlSettings.DataSourceReplicas, 1)
 	})
 
 	t.Run("Read Replicas With License", func(t *testing.T) {
 		configStore := config.NewTestMemoryStore()
-		configStore.Set(&cfg)
+		_, _, err := configStore.Set(&cfg)
+		require.NoError(t, err)
 		ps, err := New(
 			ServiceConfig{},
 			ConfigStore(configStore),
@@ -91,25 +96,27 @@ func TestReadReplicaDisabledBasedOnLicense(t *testing.T) {
 			},
 		)
 		require.NoError(t, err)
-		require.NotSame(t, ps.sqlStore.GetMasterX(), ps.sqlStore.GetReplicaX())
+		require.NotSame(t, ps.sqlStore.GetMaster(), ps.sqlStore.GetReplica())
 		require.Len(t, ps.Config().SqlSettings.DataSourceReplicas, 1)
 	})
 
 	t.Run("Search Replicas with no License", func(t *testing.T) {
 		configStore := config.NewTestMemoryStore()
-		configStore.Set(&cfg)
+		_, _, err := configStore.Set(&cfg)
+		require.NoError(t, err)
 		ps, err := New(
 			ServiceConfig{},
 			ConfigStore(configStore),
 		)
 		require.NoError(t, err)
-		require.Same(t, ps.sqlStore.GetMasterX(), ps.sqlStore.GetSearchReplicaX())
+		require.Same(t, ps.sqlStore.GetMaster(), ps.sqlStore.GetSearchReplicaX())
 		require.Len(t, ps.Config().SqlSettings.DataSourceSearchReplicas, 1)
 	})
 
 	t.Run("Search Replicas With License", func(t *testing.T) {
 		configStore := config.NewTestMemoryStore()
-		configStore.Set(&cfg)
+		_, _, err := configStore.Set(&cfg)
+		require.NoError(t, err)
 		ps, err := New(
 			ServiceConfig{},
 			ConfigStore(configStore),
@@ -119,13 +126,15 @@ func TestReadReplicaDisabledBasedOnLicense(t *testing.T) {
 			},
 		)
 		require.NoError(t, err)
-		require.NotSame(t, ps.sqlStore.GetMasterX(), ps.sqlStore.GetSearchReplicaX())
+		require.NotSame(t, ps.sqlStore.GetMaster(), ps.sqlStore.GetSearchReplicaX())
 		require.Len(t, ps.Config().SqlSettings.DataSourceSearchReplicas, 1)
 	})
 }
 
 func TestMetrics(t *testing.T) {
+	mainHelper.Parallel(t)
 	t.Run("ensure the metrics server is not started by default", func(t *testing.T) {
+		mainHelper.Parallel(t)
 		th := Setup(t)
 		defer th.TearDown()
 
@@ -133,6 +142,7 @@ func TestMetrics(t *testing.T) {
 	})
 
 	t.Run("ensure the metrics server is started", func(t *testing.T) {
+		mainHelper.Parallel(t)
 		th := Setup(t, StartMetrics())
 		defer th.TearDown()
 
@@ -140,7 +150,8 @@ func TestMetrics(t *testing.T) {
 		// we handle it on config save step
 		cfg := th.Service.Config().Clone()
 		cfg.MetricsSettings.Enable = model.NewPointer(true)
-		th.Service.SaveConfig(cfg, false)
+		_, _, appErr := th.Service.SaveConfig(cfg, false)
+		require.Nil(t, appErr)
 
 		require.NotNil(t, th.Service.metrics)
 		metricsAddr := strings.Replace(th.Service.metrics.listenAddr, "[::]", "http://localhost", 1)
@@ -151,13 +162,15 @@ func TestMetrics(t *testing.T) {
 		require.Equal(t, http.StatusOK, resp.StatusCode)
 
 		cfg.MetricsSettings.Enable = model.NewPointer(false)
-		th.Service.SaveConfig(cfg, false)
+		_, _, appErr = th.Service.SaveConfig(cfg, false)
+		require.Nil(t, appErr)
 
 		_, err = http.Get(metricsAddr)
 		require.Error(t, err)
 	})
 
 	t.Run("ensure the metrics server is started with advanced metrics", func(t *testing.T) {
+		mainHelper.Parallel(t)
 		th := Setup(t, StartMetrics())
 		defer th.TearDown()
 
@@ -172,6 +185,7 @@ func TestMetrics(t *testing.T) {
 	})
 
 	t.Run("ensure advanced metrics have database metrics", func(t *testing.T) {
+		mainHelper.Parallel(t)
 		mockMetricsImpl := &mocks.MetricsInterface{}
 		mockMetricsImpl.On("Register").Return()
 		mockMetricsImpl.On("ObserveStoreMethodDuration", mock.Anything, mock.Anything, mock.Anything).Return()
@@ -190,6 +204,7 @@ func TestMetrics(t *testing.T) {
 }
 
 func TestShutdown(t *testing.T) {
+	mainHelper.Parallel(t)
 	t.Run("should shutdown gracefully", func(t *testing.T) {
 		th := Setup(t)
 		rand.Seed(time.Now().UnixNano())
@@ -211,6 +226,7 @@ func TestShutdown(t *testing.T) {
 }
 
 func TestSetTelemetryId(t *testing.T) {
+	mainHelper.Parallel(t)
 	t.Run("ensure client config is regenerated after setting the telemetry id", func(t *testing.T) {
 		th := Setup(t)
 		defer th.TearDown()
@@ -224,4 +240,22 @@ func TestSetTelemetryId(t *testing.T) {
 		clientConfig = th.Service.LimitedClientConfig()
 		require.Equal(t, clientConfig["DiagnosticId"], id)
 	})
+}
+
+func TestDatabaseTypeAndMattermostVersion(t *testing.T) {
+	mainHelper.Parallel(t)
+	th := Setup(t)
+	defer th.TearDown()
+
+	databaseType, schemaVersion, err := th.Service.DatabaseTypeAndSchemaVersion()
+	require.NoError(t, err)
+	if *th.Service.Config().SqlSettings.DriverName == model.DatabaseDriverPostgres {
+		assert.Equal(t, "postgres", databaseType)
+	} else {
+		assert.Equal(t, "mysql", databaseType)
+	}
+
+	// It's hard to check wheather the schema version is correct or not.
+	// So, we just check if it's greater than 1.
+	assert.GreaterOrEqual(t, schemaVersion, strconv.Itoa(1))
 }

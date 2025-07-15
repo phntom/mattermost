@@ -28,6 +28,9 @@ type State = {
 export default class FileUploadSetting extends React.PureComponent<Props, State> {
     fileInputRef = React.createRef<HTMLInputElement>();
 
+    // Helps prevent setting state after component is unmounted, for usage when this component is wrapped by a custom setting
+    isMounted = false;
+
     constructor(props: Props) {
         super(props);
 
@@ -38,6 +41,18 @@ export default class FileUploadSetting extends React.PureComponent<Props, State>
             fileSelected: false,
         };
     }
+
+    componentDidMount() {
+        this.isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this.isMounted = false;
+    }
+
+    handleChooseClick = () => {
+        this.fileInputRef.current?.click();
+    };
 
     handleChange = () => {
         const files = this.fileInputRef.current?.files;
@@ -53,9 +68,11 @@ export default class FileUploadSetting extends React.PureComponent<Props, State>
         const file = this.fileInputRef.current?.files?.[0];
         if (file) {
             this.props.onSubmit(this.props.id, file, (error) => {
-                this.setState({uploading: false});
-                if (error && this.fileInputRef.current) {
-                    Utils.clearFileInput(this.fileInputRef.current);
+                if (this.isMounted) {
+                    this.setState({uploading: false});
+                    if (error && this.fileInputRef.current) {
+                        Utils.clearFileInput(this.fileInputRef.current);
+                    }
                 }
             });
         }
@@ -91,6 +108,7 @@ export default class FileUploadSetting extends React.PureComponent<Props, State>
                             type='button'
                             className='btn btn-tertiary'
                             disabled={this.props.disabled}
+                            onClick={this.handleChooseClick}
                         >
                             <FormattedMessage
                                 id='admin.file_upload.chooseFile'

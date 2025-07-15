@@ -10,7 +10,7 @@ import Permissions from 'mattermost-redux/constants/permissions';
 import {getEmojiName} from 'mattermost-redux/utils/emoji_utils';
 
 import ChannelPermissionGate from 'components/permissions_gates/channel_permission_gate';
-import WithTooltip from 'components/with_tooltip/with_tooltip_new';
+import WithTooltip from 'components/with_tooltip';
 
 import EmojiItem from './recent_reactions_emoji_item';
 
@@ -95,13 +95,13 @@ export default class PostRecentReactions extends React.PureComponent<Props, Stat
                     emoji={getEmojiName(emoji)}
                     isEmojiLarge={true}
                 >
-                    <div>
+                    <li>
                         <EmojiItem
                             emoji={emoji}
                             onItemClick={this.handleToggleEmoji}
                             order={n}
                         />
-                    </div>
+                    </li>
                 </WithTooltip>
             </ChannelPermissionGate>
         ),

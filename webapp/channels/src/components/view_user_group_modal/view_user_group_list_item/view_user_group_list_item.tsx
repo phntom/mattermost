@@ -6,12 +6,12 @@ import {useSelector} from 'react-redux';
 import {UserStatuses} from 'utils/constants';
 import * as Utils from 'utils/utils';
 
-import {GroupSource} from '@mattermost/types/groups';
 import type {Group} from '@mattermost/types/groups';
 import type {UserProfile} from '@mattermost/types/users';
 
 import {getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
 import type {ActionResult} from 'mattermost-redux/types/actions';
+import {isSyncableSource} from 'mattermost-redux/utils/group_utils';
 
 import StatusIcon from 'components/status_icon';
 import Avatar from 'components/widgets/users/avatar';
@@ -54,7 +54,6 @@ const ViewUserGroupListItem = (props: Props) => {
             className='group-member-row'
         >
             <span className='status-wrapper'>
-
                 <Avatar
                     username={user.username}
                     size={'sm'}
@@ -72,7 +71,7 @@ const ViewUserGroupListItem = (props: Props) => {
                 {`@${user.username}`}
             </div>
             {
-                (group.source.toLowerCase() !== GroupSource.Ldap && props.permissionToLeaveGroup) &&
+                (!isSyncableSource(group.source.toLowerCase()) && props.permissionToLeaveGroup) &&
                 <button
                     type='button'
                     className='remove-group-member btn btn-icon btn-xs'

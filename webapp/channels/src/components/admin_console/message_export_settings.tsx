@@ -169,6 +169,11 @@ export class MessageExportSettings extends OLDAdminSettings<BaseProps & WrappedC
                     );
                 }
             }
+            if (job.data.progress_message) {
+                message.push(
+                    <div>{job.data.progress_message}</div>,
+                );
+            }
             return message;
         }
         return null;

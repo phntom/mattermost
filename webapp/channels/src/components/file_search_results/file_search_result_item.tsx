@@ -2,11 +2,7 @@
 // See LICENSE.txt for license information.
 
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
-import {getHistory} from 'utils/browser_history';
-import Constants, {ModalIdentifiers} from 'utils/constants';
-import {getSiteURL} from 'utils/url';
-import {fileSizeToString, copyToClipboard, localizeMessage} from 'utils/utils';
+import {defineMessage, FormattedMessage} from 'react-intl';
 
 import {getFileDownloadUrl} from 'mattermost-redux/utils/file_utils';
 
@@ -17,6 +13,11 @@ import Menu from 'components/widgets/menu/menu';
 import MenuWrapper from 'components/widgets/menu/menu_wrapper';
 import Tag from 'components/widgets/tag/tag';
 import WithTooltip from 'components/with_tooltip';
+
+import {getHistory} from 'utils/browser_history';
+import Constants, {ModalIdentifiers} from 'utils/constants';
+import {getSiteURL} from 'utils/url';
+import {fileSizeToString, copyToClipboard, localizeMessage} from 'utils/utils';
 
 import type {PropsFromRedux, OwnProps} from './index';
 
@@ -57,7 +58,13 @@ export default class FileSearchResultItem extends React.PureComponent<Props, Sta
     };
 
     private renderPluginItems = () => {
-        const {fileInfo} = this.props;
+        const {fileInfo, channel, enableSharedChannelsPlugins} = this.props;
+        const isSharedChannel = channel?.shared || false;
+
+        if (isSharedChannel && !enableSharedChannelsPlugins) {
+            return null;
+        }
+
         const pluginItems = this.props.pluginMenuItems?.filter((item) => item?.match(fileInfo)).map((item) => {
             return (
                 <Menu.ItemAction
@@ -145,9 +152,7 @@ export default class FileSearchResultItem extends React.PureComponent<Props, Sta
                     </div>
                     {this.props.fileInfo.post_id && (
                         <WithTooltip
-                            id='file-name__tooltip'
-                            title={localizeMessage({id: 'file_search_result_item.more_actions', defaultMessage: 'More Actions'})}
-                            placement={'top'}
+                            title={defineMessage({id: 'file_search_result_item.more_actions', defaultMessage: 'More Actions'})}
                         >
                             <MenuWrapper
                                 onToggle={this.keepOpen}
@@ -155,7 +160,7 @@ export default class FileSearchResultItem extends React.PureComponent<Props, Sta
                             >
                                 <a
                                     href='#'
-                                    className='action-icon dots-icon'
+                                    className='action-icon dots-icon btn btn-icon btn-sm'
                                 >
                                     <i className='icon icon-dots-vertical'/>
                                 </a>
@@ -179,12 +184,10 @@ export default class FileSearchResultItem extends React.PureComponent<Props, Sta
                         </WithTooltip>
                     )}
                     <WithTooltip
-                        id='file-name__tooltip'
-                        title={localizeMessage({id: 'file_search_result_item.download', defaultMessage: 'Download'})}
-                        placement={'top'}
+                        title={defineMessage({id: 'file_search_result_item.download', defaultMessage: 'Download'})}
                     >
                         <a
-                            className='action-icon download-icon'
+                            className='action-icon download-icon btn btn-icon btn-sm'
                             href={getFileDownloadUrl(fileInfo.id)}
                             onClick={this.stopPropagation}
                         >

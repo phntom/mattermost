@@ -20,7 +20,7 @@ function MessageSubmitError(props: Props) {
 
         return (
             <div className='has-error'>
-                <label className='control-label'>
+                <div className='control-label'>
                     <FormattedMessage
                         id='message_submit_error.invalidCommand'
                         defaultMessage="Command with a trigger of ''{slashCommand}'' not found. "
@@ -30,6 +30,7 @@ function MessageSubmitError(props: Props) {
                     />
                     <a
                         href='#'
+                        role='button'
                         onClick={props.handleSubmit}
                     >
                         <FormattedMessage
@@ -37,7 +38,7 @@ function MessageSubmitError(props: Props) {
                             defaultMessage='Click here to send as a message.'
                         />
                     </a>
-                </label>
+                </div>
             </div>
         );
     }

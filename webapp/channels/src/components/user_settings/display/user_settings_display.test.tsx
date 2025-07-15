@@ -93,6 +93,7 @@ describe('components/user_settings/display/UserSettingsDisplay', () => {
         globalHeaderAllowed: true,
         lastActiveDisplay: true,
         oneClickReactionsOnPosts: '',
+        renderEmoticonsAsEmoji: '',
         emojiPickerEnabled: true,
         clickToReply: '',
         lastActiveTimeEnabled: true,

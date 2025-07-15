@@ -1,6 +1,7 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import {fireEvent} from '@testing-library/react';
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 import {renderWithContext, screen} from 'tests/react_testing_utils';
@@ -58,7 +59,7 @@ describe('components/analytics/system_analytics/system_analytics.tsx', () => {
         expect(screen.queryByTestId('totalPostsLineChart')).not.toBeInTheDocument();
     });
 
-    test('system data', () => {
+    test('system data', async () => {
         const state = {
             ...initialState,
             entities: {
@@ -88,6 +89,11 @@ describe('components/analytics/system_analytics/system_analytics.tsx', () => {
         };
 
         renderWithContext(<SystemAnalytics {...baseProps}/>, state, {useMockedStore: true});
+
+        const detailsElement = screen.getByText('Load Advanced Statistics');
+        fireEvent.click(detailsElement);
+
+        await screen.findByTestId('totalPostsLineChart');
 
         expect(screen.getByTestId('totalPosts')).toHaveTextContent('45');
         expect(screen.getByTestId('totalPostsLineChart')).toBeInTheDocument();
@@ -231,6 +237,11 @@ describe('components/analytics/system_analytics/system_analytics.tsx', () => {
         renderWithContext(<SystemAnalytics {...baseProps}/>, state, {useMockedStore: true});
 
         await new Promise(process.nextTick);
+
+        const detailsElement = screen.getByText('Load Advanced Statistics');
+        fireEvent.click(detailsElement);
+
+        await screen.findByTestId('totalPostsLineChart');
 
         expect(screen.getByTestId('totalPosts')).toHaveTextContent('45');
         expect(screen.getByTestId('totalPostsLineChart')).toBeInTheDocument();
