@@ -2,22 +2,22 @@
 
 set -ex
 
-#nvm install 20.11
+nvm install 20.11
 
-#pushd webapp/channels
-#rm -rf dist
-#npm run build
-#./compress.sh
-#find dist/ -type d -print0 | xargs -0 chmod 0755
-#find dist/ -type f -print0 | xargs -0 chmod 0644
-#mkdir -p dist/plugins
-#chmod 755 dist/plugins
-#popd
+pushd webapp/channels
+rm -rf dist
+npm run build
+./compress.sh
+find dist/ -type d -print0 | xargs -0 chmod 0755
+find dist/ -type f -print0 | xargs -0 chmod 0644
+mkdir -p dist/plugins
+chmod 755 dist/plugins
+popd
 
 export BUILD_DATE="Fri 14 Feb 2026 12:00:00 IST"
 export VERSION_FULL="11.3.1"
 export BETA="-beta1"
-export BUILD_HASH="f53c21f2fb4dff04314a0c8a1c01dca524408f85"
+export BUILD_HASH="ef58aafa92df543893401c430b2174f6ba2a77ca"
 
 go build -C server -tags=enterprise -ldflags="
 -X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=$BUILD_HASH'
