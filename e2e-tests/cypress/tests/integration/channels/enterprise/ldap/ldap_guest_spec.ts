@@ -10,11 +10,12 @@
 // Stage: @prod
 // Group: @channels @enterprise @ldap
 
+import {UserProfile} from '@mattermost/types/users';
+
 import ldapUsers from '../../../../fixtures/ldap_users.json';
 import * as TIMEOUTS from '../../../../fixtures/timeouts';
 import {getAdminAccount} from '../../../../support/env';
 import {getRandomId} from '../../../../utils';
-import {UserProfile} from '@mattermost/types/users';
 
 // assumes that E20 license is uploaded
 // for setup with AWS: Follow the instructions mentioned in the mattermost/platform-private/config/ldap-test-setup.txt file
@@ -209,6 +210,7 @@ describe('LDAP guest', () => {
 
                     // # Save settings
                     cy.get('#saveSetting').should('be.enabled').click();
+                    cy.get('#genericModalLabel > span').should('be.visible').and('have.text', 'Save and remove 1 user?');
 
                     // # Accept confirmation modal
                     cy.get('#confirmModalButton').should('be.visible').click();
@@ -227,6 +229,7 @@ describe('LDAP guest', () => {
                     cy.uiOpenTeamMenu('Invite people');
 
                     cy.wait(TIMEOUTS.TWO_SEC);
+                    cy.get('#invitation_modal_title').should('be.visible');
 
                     // # Option to invite guest should not be visible
                     cy.findByTestId('inviteGuestLink').should('not.exist');

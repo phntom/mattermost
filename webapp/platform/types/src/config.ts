@@ -1,6 +1,8 @@
 // Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
 // See LICENSE.txt for license information.
 
+import type {ContentFlaggingEvent, NotificationTarget} from './content_flagging';
+
 export type ClientConfig = {
     AboutLink: string;
     AllowBannerDismissal: string;
@@ -22,6 +24,7 @@ export type ClientConfig = {
     BuildHash: string;
     BuildHashEnterprise: string;
     BuildNumber: string;
+    IsFipsEnabled: string;
     CollapsedThreads: CollapsedThreads;
     CustomBrandText: string;
     CustomDescriptionText: string;
@@ -74,6 +77,7 @@ export type ClientConfig = {
     EnableFile: string;
     EnableGifPicker: string;
     EnableGuestAccounts: string;
+    EnableGuestMagicLink: string;
     EnableIncomingWebhooks: string;
     EnableJoinLeaveMessageByDefault: string;
     EnableLatex: string;
@@ -113,21 +117,21 @@ export type ClientConfig = {
     EnableUserTypingMessages: string;
     EnforceMultifactorAuthentication: string;
     ExperimentalChannelCategorySorting: string;
-    ExperimentalClientSideCertCheck: string;
-    ExperimentalClientSideCertEnable: string;
     ExperimentalEnableAuthenticationTransfer: string;
     ExperimentalEnableAutomaticReplies: string;
     ExperimentalEnableDefaultChannelLeaveJoinMessages: string;
     ExperimentalEnablePostMetadata: string;
     ExperimentalGroupUnreadChannels: string;
     ExperimentalPrimaryTeam: string;
-    ExperimentalViewArchivedChannels: string;
     FileLevel: string;
     FeatureFlagAppsEnabled: string;
     FeatureFlagCallsEnabled: string;
     FeatureFlagCustomProfileAttributes: string;
     FeatureFlagAttributeBasedAccessControl: string;
     FeatureFlagWebSocketEventScope: string;
+    FeatureFlagInteractiveDialogAppsForm: string;
+    FeatureFlagContentFlagging: string;
+
     ForgotPasswordLink: string;
     GiphySdkKey: string;
     GoogleDeveloperKey: string;
@@ -222,6 +226,18 @@ export type ClientConfig = {
     UsersStatusAndProfileFetchingPollIntervalMilliseconds: string;
     YoutubeReferrerPolicy: 'true' | 'false';
     ScheduledPosts: string;
+    DeleteAccountLink: string;
+    ContentFlaggingEnabled: 'true' | 'false';
+
+    // Burn on Read Settings
+    EnableBurnOnRead: string;
+    BurnOnReadDurationSeconds: string;
+    BurnOnReadMaximumTimeToLiveSeconds: string;
+
+    // Access Control Settings
+    EnableAttributeBasedAccessControl: string;
+    EnableChannelScopeAccessControl: string;
+    EnableUserManagedAttributes: string;
 };
 
 export type License = {
@@ -390,6 +406,7 @@ export type ServiceSettings = {
     PostPriority: boolean;
     EnableAPIChannelDeletion: boolean;
     EnableAWSMetering: boolean;
+    AWSMeteringTimeoutSeconds: number;
     SplitKey: string;
     FeatureFlagSyncIntervalSeconds: number;
     DebugSplit: boolean;
@@ -410,6 +427,7 @@ export type ServiceSettings = {
     ScheduledPosts: boolean;
     EnableWebHubChannelIteration: boolean;
     FrameAncestors: string;
+    DeleteAccountLink: string;
 };
 
 export type TeamSettings = {
@@ -429,7 +447,6 @@ export type TeamSettings = {
     MaxNotificationsPerChannel: number;
     EnableConfirmNotificationsToChannel: boolean;
     TeammateNameDisplay: string;
-    ExperimentalViewArchivedChannels: boolean;
     ExperimentalEnableAutomaticReplies: boolean;
     LockTeammateNameDisplay: boolean;
     ExperimentalPrimaryTeam: string;
@@ -474,7 +491,6 @@ export type LogSettings = {
     FileLocation: string;
     EnableWebhookDebugging: boolean;
     EnableDiagnostics: boolean;
-    VerboseDiagnostics: boolean;
     EnableSentry: boolean;
     AdvancedLoggingJSON: Record<string, any>;
     MaxFieldSize: number;
@@ -490,18 +506,6 @@ export type ExperimentalAuditSettings = {
     FileMaxQueueSize: number;
     AdvancedLoggingJSON: Record<string, any>;
     Certificate: string;
-};
-
-export type NotificationLogSettings = {
-    EnableConsole: boolean;
-    ConsoleLevel: string;
-    ConsoleJson: boolean;
-    EnableColor: boolean;
-    EnableFile: boolean;
-    FileLevel: string;
-    FileJson: boolean;
-    FileLocation: string;
-    AdvancedLoggingJSON: Record<string, any>;
 };
 
 export type PasswordSettings = {
@@ -527,7 +531,10 @@ export type ConnectedWorkspacesSettings = {
     EnableSharedChannels: boolean;
     EnableRemoteClusterService: boolean;
     DisableSharedChannelsStatusSync: boolean;
+    SyncUsersOnConnectionOpen: boolean;
+    GlobalUserSyncBatchSize: number;
     MaxPostsPerSync: number;
+    MemberSyncBatchSize: number;
 }
 
 export type FileSettings = {
@@ -597,7 +604,7 @@ export type EmailSettings = {
     SendPushNotifications: boolean;
     PushNotificationServer: string;
     PushNotificationServerType: 'off' | 'mhpns' | 'mtpns' | 'custom';
-    PushNotificationServerLocation: 'us' | 'de';
+    PushNotificationServerLocation: 'global' | 'us' | 'de' | 'jp';
     PushNotificationContents: string;
     PushNotificationBuffer: number;
     EnableEmailBatching: boolean;
@@ -713,6 +720,7 @@ export type LdapSettings = {
     LoginIdAttribute: string;
     PictureAttribute: string;
     SyncIntervalMinutes: number;
+    ReAddRemovedMembers: boolean;
     SkipCertificateVerification: boolean;
     PublicCertificateFile: string;
     PrivateKeyFile: string;
@@ -737,6 +745,20 @@ export type LocalizationSettings = {
     DefaultClientLocale: string;
     AvailableLocales: string;
     EnableExperimentalLocales: boolean;
+};
+
+export type AutoTranslationSettings = {
+    Enable: boolean;
+    Provider: '' | 'libretranslate';
+    LibreTranslate: {
+        URL: string;
+        APIKey: string;
+    };
+    TimeoutMs: {
+        NewPost: number;
+        Fetch: number;
+        Notification: number;
+    };
 };
 
 export type SamlSettings = {
@@ -785,6 +807,16 @@ export type NativeAppSettings = {
     MobileEnableBiometrics: boolean;
     MobilePreventScreenCapture: boolean;
     MobileJailbreakProtection: boolean;
+    MobileEnableSecureFilePreview: boolean;
+    MobileAllowPdfLinkNavigation: boolean;
+    EnableIntuneMAM: boolean;
+};
+
+export type IntuneSettings = {
+    Enable: boolean;
+    TenantId?: string;
+    ClientId?: string;
+    AuthService?: string;
 };
 
 export type ClusterSettings = {
@@ -796,7 +828,7 @@ export type ClusterSettings = {
     AdvertiseAddress: string;
     UseIPAddress: boolean;
     EnableGossipCompression: boolean;
-    EnableExperimentalGossipEncryption: boolean;
+    EnableGossipEncryption: boolean;
     ReadOnlyConfig: boolean;
     GossipPort: number;
 };
@@ -811,8 +843,6 @@ export type MetricsSettings = {
 };
 
 export type ExperimentalSettings = {
-    ClientSideCertEnable: boolean;
-    ClientSideCertCheck: string;
     LinkMetadataTimeoutMilliseconds: number;
     RestrictSystemAdmin: boolean;
     EnableSharedChannels: boolean;
@@ -869,14 +899,6 @@ export type ElasticsearchSettings = {
     IgnoredPurgeIndexes: string;
 };
 
-export type BleveSettings = {
-    IndexDir: string;
-    EnableIndexing: boolean;
-    EnableSearching: boolean;
-    EnableAutocomplete: boolean;
-    BatchSize: number;
-};
-
 export type DataRetentionSettings = {
     EnableMessageDeletion: boolean;
     EnableFileDeletion: boolean;
@@ -890,6 +912,7 @@ export type DataRetentionSettings = {
     BoardsRetentionDays: number;
     TimeBetweenBatchesMilliseconds: number;
     RetentionIdsBatchSize: number;
+    PreservePinnedPosts: boolean;
 };
 
 export type MessageExportSettings = {
@@ -948,6 +971,7 @@ export type GuestAccountsSettings = {
     AllowEmailAccounts: boolean;
     EnforceMultifactorAuthentication: boolean;
     RestrictCreationToDomains: string;
+    EnableGuestMagicLink: boolean;
 };
 
 export type ImageProxySettings = {
@@ -962,6 +986,7 @@ export type CloudSettings = {
     CWSAPIURL: string;
     CWSMock: boolean;
     Disable: boolean;
+    PreviewModalBucketURL: string;
 };
 
 export type FeatureFlags = Record<string, string | boolean>;
@@ -979,7 +1004,39 @@ export type ExportSettings = {
 export type AccessControlSettings = {
     EnableAttributeBasedAccessControl: boolean;
     EnableChannelScopeAccessControl: boolean;
+    EnableUserManagedAttributes: boolean;
 };
+
+export type ContentFlaggingNotificationSettings = {
+    EventTargetMapping: Record<ContentFlaggingEvent, NotificationTarget[]>;
+}
+
+export type TeamReviewerSetting = {
+    Enabled: boolean;
+    ReviewerIds: string[];
+}
+
+export type ContentFlaggingReviewerSetting = {
+    CommonReviewers: boolean;
+    CommonReviewerIds: string[];
+    TeamReviewersSetting: Record<string, TeamReviewerSetting>;
+    SystemAdminsAsReviewers: boolean;
+    TeamAdminsAsReviewers: boolean;
+}
+
+export type ContentFlaggingAdditionalSettings = {
+    Reasons: string[];
+    ReporterCommentRequired: boolean;
+    ReviewerCommentRequired: boolean;
+    HideFlaggedContent: boolean;
+}
+
+export type ContentFlaggingSettings = {
+    EnableContentFlagging: boolean;
+    NotificationSettings: ContentFlaggingNotificationSettings;
+    ReviewerSettings: ContentFlaggingReviewerSetting;
+    AdditionalSettings: ContentFlaggingAdditionalSettings;
+}
 
 export type AdminConfig = {
     ServiceSettings: ServiceSettings;
@@ -988,7 +1045,6 @@ export type AdminConfig = {
     SqlSettings: SqlSettings;
     LogSettings: LogSettings;
     ExperimentalAuditSettings: ExperimentalAuditSettings;
-    NotificationLogSettings: NotificationLogSettings;
     PasswordSettings: PasswordSettings;
     FileSettings: FileSettings;
     EmailSettings: EmailSettings;
@@ -1006,13 +1062,13 @@ export type AdminConfig = {
     LocalizationSettings: LocalizationSettings;
     SamlSettings: SamlSettings;
     NativeAppSettings: NativeAppSettings;
+    IntuneSettings: IntuneSettings;
     ClusterSettings: ClusterSettings;
     MetricsSettings: MetricsSettings;
     ExperimentalSettings: ExperimentalSettings;
     AnalyticsSettings: AnalyticsSettings;
     CacheSettings: CacheSettings;
     ElasticsearchSettings: ElasticsearchSettings;
-    BleveSettings: BleveSettings;
     DataRetentionSettings: DataRetentionSettings;
     MessageExportSettings: MessageExportSettings;
     JobSettings: JobSettings;
@@ -1027,6 +1083,8 @@ export type AdminConfig = {
     WranglerSettings: WranglerSettings;
     ConnectedWorkspacesSettings: ConnectedWorkspacesSettings;
     AccessControlSettings: AccessControlSettings;
+    ContentFlaggingSettings: ContentFlaggingSettings;
+    AutoTranslationSettings: AutoTranslationSettings;
 };
 
 export type ReplicaLagSetting = {

@@ -42,6 +42,7 @@ export default class SystemConsolePage {
         this.systemUsers = new components.SystemUsers(page.getByTestId('systemUsersSection'));
         this.mobileSecurity = new components.SystemConsoleMobileSecurity(
             page.getByTestId('sysconsole_section_MobileSecuritySettings'),
+            this.page,
         );
         this.featureDiscovery = new components.SystemConsoleFeatureDiscovery(page.getByTestId('featureDiscovery'));
 
@@ -83,5 +84,9 @@ export default class SystemConsolePage {
 
     async clickResetButton() {
         await this.saveChangesModal.container.locator('button.btn-primary:has-text("Reset")').click();
+    }
+
+    async clickUpdateEmailButton() {
+        await this.saveChangesModal.container.locator('button.btn-primary:has-text("Update")').click();
     }
 }

@@ -3,15 +3,10 @@
 
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
-import type {FocusEvent} from 'react';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
-import {useDispatch, useSelector} from 'react-redux';
-import {Route, useHistory, useLocation} from 'react-router-dom';
-import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
-import {isValidPassword} from 'utils/password';
-import {isDesktopApp} from 'utils/user_agent';
-import {getMediumFromTrackFlow, getRoleFromTrackFlow, isValidUsername} from 'utils/utils';
+import {useSelector, useDispatch} from 'react-redux';
+import {useLocation, useHistory, Route} from 'react-router-dom';
 
 import type {ServerError} from '@mattermost/types/errors';
 import type {UserProfile} from '@mattermost/types/users';
@@ -27,18 +22,16 @@ import {isEmail} from 'mattermost-redux/utils/helpers';
 import {redirectUserToDefaultTeam} from 'actions/global_actions';
 import {removeGlobalItem, setGlobalItem} from 'actions/storage';
 import {addUserToTeamFromInvite} from 'actions/team_actions';
-import {trackEvent} from 'actions/telemetry_actions.jsx';
 import {loginById} from 'actions/views/login';
 import {getGlobalItem} from 'selectors/storage';
 
-import type {AlertBannerProps, ModeType} from 'components/alert_banner';
 import AlertBanner from 'components/alert_banner';
+import type {ModeType, AlertBannerProps} from 'components/alert_banner';
 import useCWSAvailabilityCheck, {CSWAvailabilityCheckTypes} from 'components/common/hooks/useCWSAvailabilityCheck';
-import CookieConsent from 'components/cookie_consent';
 import DesktopAuthToken from 'components/desktop_auth_token';
 import ExternalLink from 'components/external_link';
-import type {ExternalLoginButtonType} from 'components/external_login_button/external_login_button';
 import ExternalLoginButton from 'components/external_login_button/external_login_button';
+import type {ExternalLoginButtonType} from 'components/external_login_button/external_login_button';
 import AlternateLinkLayout from 'components/header_footer_route/content_layouts/alternate_link';
 import ColumnLayout from 'components/header_footer_route/content_layouts/column';
 import type {CustomizeHeaderType} from 'components/header_footer_route/header_footer_route';
@@ -47,13 +40,18 @@ import Markdown from 'components/markdown';
 import SaveButton from 'components/save_button';
 import EntraIdIcon from 'components/widgets/icons/entra_id_icon';
 import LockIcon from 'components/widgets/icons/lock_icon';
-import LoginGitHubIcon from 'components/widgets/icons/login_github_icon';
+import LoginGitlabIcon from 'components/widgets/icons/login_gitlab_icon';
 import LoginGoogleIcon from 'components/widgets/icons/login_google_icon';
-import LoginLinkedInIcon from 'components/widgets/icons/login_linkedin_icon';
+import LoginOpenIDIcon from 'components/widgets/icons/login_openid_icon';
 import CheckInput from 'components/widgets/inputs/check';
-import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
 import Input, {SIZE} from 'components/widgets/inputs/input/input';
+import type {CustomMessageInputType} from 'components/widgets/inputs/input/input';
 import PasswordInput from 'components/widgets/inputs/password_input/password_input';
+
+import {Constants, HostedCustomerLinks, ItemStatus, ValidationErrors} from 'utils/constants';
+import {isValidPassword} from 'utils/password';
+import {isDesktopApp} from 'utils/user_agent';
+import {isValidUsername} from 'utils/utils';
 
 import type {GlobalState} from 'types/store';
 
@@ -77,7 +75,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     const inviteId = params.get('id') ?? '';
     const data = params.get('d');
     const parsedData: Record<string, string> = data ? JSON.parse(data) : {};
-    const {email: parsedEmail, name: parsedTeamName, reminder_interval: reminderInterval} = parsedData;
+    const {email: parsedEmail, name: parsedTeamName} = parsedData;
 
     const config = useSelector(getConfig);
     const {
@@ -95,6 +93,10 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         LdapLoginFieldName,
         SiteName,
         CustomDescriptionText,
+        GitLabButtonText,
+        GitLabButtonColor,
+        OpenIdButtonText,
+        OpenIdButtonColor,
         EnableCustomBrand,
         CustomBrandText,
         TermsOfServiceLink,
@@ -166,6 +168,18 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             return externalLoginOptions;
         }
 
+        if (enableSignUpWithGitLab) {
+            const url = `${Client4.getOAuthRoute()}/gitlab/signup${search}`;
+            externalLoginOptions.push({
+                id: 'gitlab',
+                url,
+                icon: <LoginGitlabIcon/>,
+                label: GitLabButtonText || formatMessage({id: 'login.gitlab', defaultMessage: 'GitLab'}),
+                style: {color: GitLabButtonColor, borderColor: GitLabButtonColor},
+                onClick: desktopExternalAuth(url),
+            });
+        }
+
         if (isLicensed && enableSignUpWithGoogle) {
             const url = `${Client4.getOAuthRoute()}/google/signup${search}`;
             externalLoginOptions.push({
@@ -189,25 +203,14 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         }
 
         if (isLicensed && enableSignUpWithOpenId) {
-            const url1 = `${Client4.getOAuthRoute()}/github/signup${search}`;
-            const url2 = `${Client4.getOAuthRoute()}/linkedin/signup${search}`;
-
+            const url = `${Client4.getOAuthRoute()}/openid/signup${search}`;
             externalLoginOptions.push({
-                id: 'github',
-                url: url1,
-                icon: <LoginGitHubIcon/>,
-                label: formatMessage({id: 'login.github', defaultMessage: 'GitHub'}),
-                style: {color: '#171515', borderColor: '#24292e'},
-                onClick: desktopExternalAuth(url1),
-            });
-
-            externalLoginOptions.push({
-                id: 'linkedin',
-                url: url2,
-                icon: <LoginLinkedInIcon/>,
-                label: formatMessage({id: 'login.linkedin', defaultMessage: 'LinkedIn'}),
-                style: {color: '#0073b1', borderColor: '#0084bf'},
-                onClick: desktopExternalAuth(url2),
+                id: 'openid',
+                url,
+                icon: <LoginOpenIDIcon/>,
+                label: OpenIdButtonText || formatMessage({id: 'login.openid', defaultMessage: 'Open ID'}),
+                style: {color: OpenIdButtonColor, borderColor: OpenIdButtonColor},
+                onClick: desktopExternalAuth(url),
             });
         }
 
@@ -242,12 +245,8 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     };
 
     const handleHeaderBackButtonOnClick = useCallback(() => {
-        if (!noAccounts) {
-            trackEvent('signup_email', 'click_back');
-        }
-
         history.goBack();
-    }, [noAccounts, history]);
+    }, [history]);
 
     const handleInvalidInvite = ({
         // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -320,7 +319,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
 
     useEffect(() => {
         dispatch(removeGlobalItem('team'));
-        trackEvent('signup', 'signup_user_01_welcome', {...getRoleFromTrackFlow(), ...getMediumFromTrackFlow()});
 
         onWindowResize();
 
@@ -451,12 +449,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
     };
 
     const handleSignupSuccess = async (user: UserProfile, data: UserProfile) => {
-        trackEvent('signup', 'signup_user_02_complete', getRoleFromTrackFlow());
-
-        if (reminderInterval) {
-            trackEvent('signup', `signup_from_reminder_${reminderInterval}`, {user: user.id});
-        }
-
         const redirectTo = (new URLSearchParams(search)).get('redirect_to');
 
         const {error} = await dispatch(loginById(data.id, user.password));
@@ -507,25 +499,16 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
         }
     };
 
-    function sendSignUpTelemetryEvents(telemetryId: string, props?: any) {
-        trackEvent('signup', telemetryId, props);
-    }
-
-    type TelemetryErrorList = {errors: Array<{field: string; rule: string}>; success: boolean};
-
     const isUserValid = () => {
         let isValid = true;
 
         const providedEmail = emailInput.current?.value.trim();
-        const telemetryEvents: TelemetryErrorList = {errors: [], success: true};
 
         if (!providedEmail) {
             setEmailError(formatMessage({id: 'signup_user_completed.required', defaultMessage: 'This field is required'}));
-            telemetryEvents.errors.push({field: 'email', rule: 'not_provided'});
             isValid = false;
         } else if (!isEmail(providedEmail)) {
             setEmailError(formatMessage({id: 'signup_user_completed.validEmail', defaultMessage: 'Please enter a valid email address'}));
-            telemetryEvents.errors.push({field: 'email', rule: 'invalid_email'});
             isValid = false;
         }
 
@@ -550,30 +533,21 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                         },
                     );
                 }
-                telemetryEvents.errors.push({field: 'username', rule: usernameError.id.toLowerCase()});
                 setNameError(nameError);
                 isValid = false;
             }
         } else {
             setNameError(formatMessage({id: 'signup_user_completed.required', defaultMessage: 'This field is required'}));
-            telemetryEvents.errors.push({field: 'username', rule: 'not_provided'});
             isValid = false;
         }
 
         const providedPassword = passwordInput.current?.value ?? '';
-        const {error, telemetryErrorIds} = isValidPassword(providedPassword, passwordConfig, intl);
+        const {error} = isValidPassword(providedPassword, passwordConfig, intl);
 
         if (error) {
             setPasswordError(error as string);
-            telemetryEvents.errors = [...telemetryEvents.errors, ...telemetryErrorIds];
             isValid = false;
         }
-
-        if (telemetryEvents.errors.length) {
-            telemetryEvents.success = false;
-        }
-
-        sendSignUpTelemetryEvents('validate_user', telemetryEvents);
 
         return isValid;
     };
@@ -584,7 +558,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
 
     const handleSubmit = async (e: React.MouseEvent | React.KeyboardEvent) => {
         e.preventDefault();
-        sendSignUpTelemetryEvents('click_create_account', getRoleFromTrackFlow());
         setIsWaiting(true);
         setSubmitClicked(true);
 
@@ -692,14 +665,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                 </span>
             </div>
         );
-    };
-
-    const handleOnBlur = (e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>, inputId: string) => {
-        const text = e.target.value;
-        if (!text) {
-            return;
-        }
-        sendSignUpTelemetryEvents(`typed_input_${inputId}`);
     };
 
     const getContent = () => {
@@ -830,7 +795,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                         disabled={isWaiting || Boolean(parsedEmail)}
                                         autoFocus={true}
                                         customMessage={emailCustomLabelForInput}
-                                        onBlur={(e) => handleOnBlur(e, 'email')}
                                     />
                                     <Input
                                         data-testid='signup-body-card-form-name-input'
@@ -853,7 +817,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                                 value: formatMessage({id: 'signup_user_completed.userHelp', defaultMessage: 'You can use lowercase letters, numbers, periods, dashes, and underscores.'}),
                                             }
                                         }
-                                        onBlur={(e) => handleOnBlur(e, 'username')}
                                     />
                                     <PasswordInput
                                         data-testid='signup-body-card-form-password-input'
@@ -866,7 +829,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                         createMode={true}
                                         info={passwordInfo as string}
                                         error={passwordError}
-                                        onBlur={(e) => handleOnBlur(e, 'password')}
                                     />
                                     {getNewsletterCheck()}
                                     <SaveButton
@@ -904,7 +866,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                         defaultMessage='By proceeding to create your account and use {siteName}, you agree to our <termsOfUseLink>Terms of Use</termsOfUseLink> and <privacyPolicyLink>Privacy Policy</privacyPolicyLink>.  If you do not agree, you cannot use {siteName}.'
                                         values={{
                                             siteName: SiteName,
-                                            termsOfUseLink: (chunks: string) => (
+                                            termsOfUseLink: (chunks) => (
                                                 <ExternalLink
                                                     href={TermsOfServiceLink as string}
                                                     location='signup-terms-of-use'
@@ -912,7 +874,7 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
                                                     {chunks}
                                                 </ExternalLink>
                                             ),
-                                            privacyPolicyLink: (chunks: string) => (
+                                            privacyPolicyLink: (chunks) => (
                                                 <ExternalLink
                                                     href={PrivacyPolicyLink as string}
                                                     location='signup-privacy-policy'
@@ -936,7 +898,6 @@ const Signup = ({onCustomizeHeader}: SignupProps) => {
             <div className='signup-body-content'>
                 {getContent()}
             </div>
-            <CookieConsent/>
         </div>
     );
 };
