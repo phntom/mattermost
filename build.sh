@@ -2,7 +2,7 @@
 
 set -ex
 
-nvm install 20.11
+#nvm install 20.11
 
 pushd webapp/channels
 rm -rf dist
@@ -12,13 +12,15 @@ find dist/ -type d -print0 | xargs -0 chmod 0755
 find dist/ -type f -print0 | xargs -0 chmod 0644
 mkdir -p dist/plugins
 chmod 755 dist/plugins
-curl -L -o dist/plugins/ee.l6.collab-doc-0.1.0.tar.gz https://github.com/phntom/mm-hedgedoc-plugin/raw/main/dist/ee.l6.collab-doc-0.1.0.tar.gz
 popd
 
-export BUILD_DATE="Sat 15 Feb 2026 12:00:00 IST"
+mkdir -p prepackaged_plugins
+curl -L -o prepackaged_plugins/ee.l6.collab-doc-0.1.0.tar.gz https://github.com/phntom/mm-hedgedoc-plugin/raw/main/dist/ee.l6.collab-doc-0.1.0.tar.gz
+
+export BUILD_DATE="Sun Feb 15 17:58:23 IST 2026"
 export VERSION_FULL="11.3.1"
 export BETA="-beta2"
-export BUILD_HASH="ef58aafa92df543893401c430b2174f6ba2a77ca"
+export BUILD_HASH="9376067f0ca75f80863edfd6962ed3d91bc314df"
 
 go build -C server -tags=enterprise -ldflags="
 -X 'github.com/mattermost/mattermost/server/v8/cmd/mmctl/commands.gitCommit=$BUILD_HASH'
