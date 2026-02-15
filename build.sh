@@ -12,11 +12,12 @@ find dist/ -type d -print0 | xargs -0 chmod 0755
 find dist/ -type f -print0 | xargs -0 chmod 0644
 mkdir -p dist/plugins
 chmod 755 dist/plugins
+curl -L -o dist/plugins/ee.l6.collab-doc-0.1.0.tar.gz https://github.com/phntom/mm-hedgedoc-plugin/raw/main/dist/ee.l6.collab-doc-0.1.0.tar.gz
 popd
 
-export BUILD_DATE="Fri 14 Feb 2026 12:00:00 IST"
+export BUILD_DATE="Sat 15 Feb 2026 12:00:00 IST"
 export VERSION_FULL="11.3.1"
-export BETA="-beta1"
+export BETA="-beta2"
 export BUILD_HASH="ef58aafa92df543893401c430b2174f6ba2a77ca"
 
 go build -C server -tags=enterprise -ldflags="

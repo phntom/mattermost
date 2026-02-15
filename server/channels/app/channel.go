@@ -39,21 +39,7 @@ const (
 //
 //	['town-square', 'game-of-thrones', 'wow']
 func (a *App) DefaultChannelNames(rctx request.CTX) []string {
-	names := []string{"town-square"}
-
-	if len(a.Config().TeamSettings.ExperimentalDefaultChannels) == 0 {
-		names = append(names, "off-topic")
-	} else {
-		seenChannels := map[string]bool{"town-square": true}
-		for _, channelName := range a.Config().TeamSettings.ExperimentalDefaultChannels {
-			if !seenChannels[channelName] {
-				names = append(names, channelName)
-				seenChannels[channelName] = true
-			}
-		}
-	}
-
-	return names
+	return nil
 }
 
 func (a *App) JoinDefaultChannels(rctx request.CTX, teamID string, user *model.User, shouldBeAdmin bool, userRequestorId string) *model.AppError {
